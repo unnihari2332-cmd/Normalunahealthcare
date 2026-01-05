@@ -6,17 +6,14 @@ const coreValues = [
   {
     icon: Microscope,
     title: "Innovative Treatment Approaches",
-    description: "Utilizing cutting-edge technology and modern protocols for precise medical outcomes.",
   },
   {
     icon: HeartPulse,
     title: "Holistic Health Focus",
-    description: "Providing a level of comfort that feels like a home away from home during recovery.",
   },
   {
     icon: GraduationCap,
     title: "Patient Education and Empowerment",
-    description: "Ensuring our clients are fully informed and confident in their healthcare journey.",
   },
 ];
 
@@ -53,7 +50,7 @@ export const AboutSection = () => {
                 The network includes corporate hospitals, MultiSpeciality hospitals, and Super-Speciality 
                 hospitals with International protocols and Multidisciplinary teams at an affordable price.
               </p>
-              <p className="font-semibold text-slate-900">
+              <p>
                 Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists 
                 and hospitals for your required treatments in India with most reputed and experienced 
                 Doctors and Surgeons with cutting edge technology.
@@ -97,24 +94,6 @@ export const AboutSection = () => {
               />
               {/* Overlay for professionalism */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-            </div>
-
-            {/* Floating Trust Badge */}
-            <div className="absolute top-10 -left-10 bg-white p-6 rounded-xl shadow-xl hidden xl:block border border-slate-100">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="text-green-500 w-5 h-5" />
-                  <span className="font-semibold text-slate-800 text-sm">Corporate Hospitals</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="text-green-500 w-5 h-5" />
-                  <span className="font-semibold text-slate-800 text-sm">International Protocols</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="text-green-500 w-5 h-5" />
-                  <span className="font-semibold text-slate-800 text-sm">Super-Speciality Network</span>
-                </div>
-              </div>
             </div>
 
             {/* Experience Counter */}
