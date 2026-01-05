@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
-import { ServiceCard } from "@/components/ServiceCard";
+import { ServicesGrid } from "@/components/sections";
 import {
   Users,
   FileText,
@@ -93,15 +93,7 @@ const ServicesPage = () => {
         />
       </div>
 
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <ServiceCard key={service.title} {...service} delay={index * 0.05} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicesGrid services={services} />
 
       <Footer />
     </div>
