@@ -31,11 +31,10 @@ export const AboutSection = () => {
             transition={{ duration: 0.7 }}
           >
             <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">
-              Global Healthcare Excellence
+              Who We Are
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
-              A Home Away From Home <br />
-              <span className="text-primary/80 italic font-medium">Expert Care in India.</span>
+              Bringing Care Closer to You
             </h2>
 
             <div className="space-y-6 text-slate-700 text-lg leading-relaxed">
