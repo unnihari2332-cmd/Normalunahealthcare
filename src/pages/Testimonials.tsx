@@ -1,9 +1,7 @@
-import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
-import { TestimonialCard } from "@/components/TestimonialCard";
-import { Sparkles, Quote } from "lucide-react";
+import { FeaturedTestimonialsHeader, TestimonialsList } from "@/components/sections";
 import heroImage from "@/assets/hero-medical.jpg";
 
 const testimonials = [
@@ -58,87 +56,8 @@ const TestimonialsPage = () => {
         />
       </div>
 
-      {/* Featured Section */}
-      <section className="py-12 bg-secondary">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-card rounded-2xl p-8 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center">
-                <Sparkles className="w-8 h-8 text-accent-foreground" />
-              </div>
-              <div>
-                <p className="text-sm text-primary font-medium">Heartfelt Stories of Healing</p>
-                <h3 className="font-display text-2xl font-bold">
-                  Real-Life Stories of Healing and Hope
-                </h3>
-              </div>
-            </div>
-            <p className="text-muted-foreground max-w-xl text-center md:text-left">
-              Discover the heartfelt experiences of those who've trusted Norma Luna Healthcare. Our patients' stories reflect the compassionate care and unwavering commitment we provide every day. See how we've made a difference in their lives.
-            </p>
-            <div className="flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2">
-              <Quote className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium">Trusted Voices, Caring Stories</span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Testimonials Grid */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold">
-              Some Testimonials About Us
-            </h2>
-          </motion.div>
-
-          <div className="space-y-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-lg"
-              >
-                <div className="flex justify-end mb-4">
-                  <Quote className="w-12 h-12 text-primary/20" />
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {testimonial.content}
-                </p>
-                <div className="border-t border-border pt-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-teal-light flex items-center justify-center">
-                      <span className="text-primary-foreground font-semibold text-lg">
-                        {testimonial.name.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                      <p className="text-sm text-primary">
-                        {testimonial.location} | {testimonial.treatment}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FeaturedTestimonialsHeader />
+      <TestimonialsList testimonials={testimonials} />
 
       <Footer />
     </div>
