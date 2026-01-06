@@ -42,8 +42,13 @@ const ContactPage = () => {
       <Header />
 
       {/* --- MAP SECTION --- */}
-      {/* Updated to the specific iframe source requested */}
-      <div className="relative w-full h-[450px] mt-20">
+      {/* 1. Increased height to 'h-[550px]' (Little bit big).
+          2. Hidden the black header bar:
+             - Added 'overflow-hidden' to the container.
+             - Added '-mt-[60px]' and increased height to 'h-[calc(100%+60px)]' on the iframe.
+             This pulls the map up by 60px inside the container, effectively cropping off the top black bar.
+      */}
+      <div className="relative w-full h-[550px] mt-20 overflow-hidden">
         <iframe
           src="https://www.google.com/maps/d/embed?mid=1dU7YVq8_qgpH8BuziwjI5ytT5L0AoKg&ehbc=2E312F&noprof=1"
           width="100%"
@@ -52,7 +57,7 @@ const ContactPage = () => {
           allowFullScreen={true}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="absolute inset-0"
+          className="absolute inset-0 w-full h-[calc(100%+60px)] -mt-[60px]"
         ></iframe>
       </div>
 
