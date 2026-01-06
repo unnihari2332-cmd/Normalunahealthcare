@@ -11,28 +11,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-// Card Data (Removed buttonText)
-const contactCards = [
-  {
-    icon: Phone,
-    title: "Telephone Support",
-    description: "Call us 24/7 and our representatives will help you make an appointment that's convenient for you.",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop",
-  },
-  {
-    icon: Video,
-    title: "Online Consultation",
-    description: "Experience convenient and secure online health consultations from the comfort of your home.",
-    image: "https://images.unsplash.com/photo-1576091160550-217358c7e618?w=600&auto=format&fit=crop",
-  },
-  {
-    icon: Calendar,
-    title: "Book An Appointment",
-    description: "Book your appointment today and take the first step towards better health.",
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&auto=format&fit=crop",
-  },
-];
-
 const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white font-sans">
