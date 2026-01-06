@@ -70,7 +70,8 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-export const WhyChooseUs = () => {
+// Renamed from WhyChooseUs to StatsSection to match your Index.tsx import
+export const StatsSection = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Decorative Elements */}
