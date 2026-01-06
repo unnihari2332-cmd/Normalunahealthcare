@@ -79,28 +79,6 @@ const TestimonialsPage = () => {
         />
       </div>
 
-      {/* Stats Section - Moved here from the old Hero to preserve the data */}
-      <section className="bg-gray-50 py-12 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#1B2A49]">500+</div>
-              <div className="text-gray-600 text-sm mt-1">Happy Patients</div>
-            </div>
-            <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#1B2A49]">50+</div>
-              <div className="text-gray-600 text-sm mt-1">Countries</div>
-            </div>
-            <div className="hidden md:block h-12 w-px bg-gray-300"></div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-[#1B2A49]">98%</div>
-              <div className="text-gray-600 text-sm mt-1">Success Rate</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Introduction */}
       <section className="py-12 px-4 text-center">
         <div className="inline-flex items-center gap-2 bg-blue-50 text-[#1B2A49] px-4 py-2 rounded-full mb-6">
