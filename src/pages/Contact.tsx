@@ -42,12 +42,6 @@ const ContactPage = () => {
       <Header />
 
       {/* --- MAP SECTION --- */}
-      {/* 1. Increased height to 'h-[550px]' (Little bit big).
-          2. Hidden the black header bar:
-             - Added 'overflow-hidden' to the container.
-             - Added '-mt-[60px]' and increased height to 'h-[calc(100%+60px)]' on the iframe.
-             This pulls the map up by 60px inside the container, effectively cropping off the top black bar.
-      */}
       <div className="relative w-full h-[550px] mt-20 overflow-hidden">
         <iframe
           src="https://www.google.com/maps/d/embed?mid=1dU7YVq8_qgpH8BuziwjI5ytT5L0AoKg&ehbc=2E312F&noprof=1"
@@ -100,64 +94,65 @@ const ContactPage = () => {
       </section>
 
       {/* --- FORM & INFO SECTION --- */}
-      <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* Increased padding (py-24) to make the section look bigger */}
+      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
           {/* Left Side: Contact Info */}
-          <div className="space-y-8">
+          <div className="space-y-10">
             <div>
-              <h2 className="text-3xl font-bold text-[#1B2A49] font-serif mb-2">
+              <h2 className="text-4xl font-bold text-[#1B2A49] font-serif mb-4">
                 Send Us Your Message!
               </h2>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500 text-base">
                 We are always ready to help you at any time, let's talk together.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
               <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-[#1B2A49]" />
+                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-[#1B2A49]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1B2A49] text-sm">Address Business</h4>
-                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">
+                  <h4 className="font-bold text-[#1B2A49] text-base">Address Business</h4>
+                  <p className="text-gray-500 text-sm mt-2 leading-relaxed">
                     No 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West, Chennai, Tamil Nadu 600034
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-[#1B2A49]" />
+                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-[#1B2A49]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1B2A49] text-sm">Contact With Us</h4>
-                  <p className="text-gray-500 text-xs mt-1">
+                  <h4 className="font-bold text-[#1B2A49] text-base">Contact With Us</h4>
+                  <p className="text-gray-500 text-sm mt-2">
                     Call An Appointment: +91-7358746081
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-[#1B2A49]" />
+                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-[#1B2A49]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1B2A49] text-sm">Email Address</h4>
-                  <p className="text-gray-500 text-xs mt-1">
+                  <h4 className="font-bold text-[#1B2A49] text-base">Email Address</h4>
+                  <p className="text-gray-500 text-sm mt-2">
                     info@normaluna.org
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-[#1B2A49]" />
+                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-6 h-6 text-[#1B2A49]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1B2A49] text-sm">Working Time</h4>
-                  <p className="text-gray-500 text-xs mt-1">
+                  <h4 className="font-bold text-[#1B2A49] text-base">Working Time</h4>
+                  <p className="text-gray-500 text-sm mt-2">
                     24/7 support
                   </p>
                 </div>
@@ -165,48 +160,68 @@ const ContactPage = () => {
             </div>
           </div>
 
-          {/* Right Side: Form */}
+          {/* Right Side: Form (Connected to FormSubmit.io) */}
           <div className="bg-white rounded-lg">
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* REPLACE 'your@email.com' WITH YOUR ACTUAL EMAIL ADDRESS */}
+            <form 
+              action="https://formsubmit.co/your@email.com" 
+              method="POST" 
+              className="space-y-6"
+            >
+              {/* Optional: Configuration for FormSubmit */}
+              <input type="hidden" name="_subject" value="New Submission from Website Contact Form" />
+              <input type="hidden" name="_captcha" value="false" />
+              {/* You can add a redirect URL here: <input type="hidden" name="_next" value="http://yourwebsite.com/thanks" /> */}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="text"
+                  name="fullName"
                   placeholder="*Full Name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                  required
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="*Email Address"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                  required
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="*Phone Number"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
                 />
-                <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500">
-                  <option>What are your needs?</option>
-                  <option>Appointment</option>
-                  <option>Consultation</option>
-                  <option>Inquiry</option>
+                <select 
+                  name="serviceNeeded"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500"
+                >
+                  <option value="" disabled selected>What are your needs?</option>
+                  <option value="Appointment">Appointment</option>
+                  <option value="Consultation">Consultation</option>
+                  <option value="Inquiry">Inquiry</option>
                 </select>
               </div>
 
               <textarea
-                rows={6}
+                name="message"
+                rows={8}
                 placeholder="Message..."
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 resize-none"
+                required
+                className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 resize-none"
               ></textarea>
 
               <button
                 type="submit"
-                className="bg-[#1B2A49] text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-blue-900 transition-colors flex items-center space-x-2"
+                className="bg-[#1B2A49] text-white px-10 py-4 rounded-full text-base font-medium hover:bg-blue-900 transition-colors flex items-center space-x-2"
               >
                 <span>Submit Request</span>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-5 h-5" />
               </button>
             </form>
           </div>
