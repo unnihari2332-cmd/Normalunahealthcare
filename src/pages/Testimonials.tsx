@@ -1,6 +1,12 @@
-
 import React, { useState } from 'react';
-import { Star, MapPin, Heart, Quote } from 'lucide-react';
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { HeroBanner } from "@/components/HeroBanner";
+import { Star, MapPin, Quote, Heart } from 'lucide-react';
+
+// Using a placeholder image for the hero since the local asset wasn't provided
+// You can replace this string with an import like: import heroImage from "@/assets/testimonials-hero.jpg";
+const testimonialHeroImage = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&auto=format&fit=crop&q=60";
 
 const testimonials = [
   {
@@ -62,141 +68,131 @@ const TestimonialsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-navy-900" style={{ color: '#001F3F' }}>Norma Luna Healthcare</h1>
-            <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-600 hover:opacity-80 transition" style={{ color: '#001F3F' }}>Home</a>
-              <a href="#" className="text-gray-600 hover:opacity-80 transition" style={{ color: '#001F3F' }}>Services</a>
-              <a href="#" className="font-semibold" style={{ color: '#001F3F' }}>Testimonials</a>
-              <a href="#" className="text-gray-600 hover:opacity-80 transition" style={{ color: '#001F3F' }}>Contact</a>
-            </nav>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-white">
+      <Header />
 
-      {/* Hero Section */}
-      <div className="pt-20 pb-16 text-white" style={{ backgroundColor: '#001F3F' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm mb-8">
-            <a href="#" className="text-gray-300 hover:text-white transition">Home</a>
-            <span className="text-gray-400">/</span>
-            <span className="text-white font-medium">Testimonials</span>
-          </div>
-          
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full mb-6" style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}>
-              <Heart className="w-4 h-4" />
-              <span className="text-sm font-medium">Stories of Hope & Healing</span>
+      <div className="pt-20">
+        <HeroBanner
+          title="Patient Testimonials"
+          image={testimonialHeroImage}
+          breadcrumbs={[{ label: "Testimonials" }]}
+        />
+      </div>
+
+      {/* Stats Section - Moved here from the old Hero to preserve the data */}
+      <section className="bg-gray-50 py-12 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-[#1B2A49]">500+</div>
+              <div className="text-gray-600 text-sm mt-1">Happy Patients</div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Patient Testimonials</h1>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-              Real stories from real patients who transformed their lives with world-class medical care in India
-            </p>
-            <div className="mt-8 flex items-center justify-center gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold">500+</div>
-                <div className="text-gray-300 text-sm">Happy Patients</div>
-              </div>
-              <div className="h-12 w-px bg-gray-400"></div>
-              <div className="text-center">
-                <div className="text-4xl font-bold">50+</div>
-                <div className="text-gray-300 text-sm">Countries</div>
-              </div>
-              <div className="h-12 w-px bg-gray-400"></div>
-              <div className="text-center">
-                <div className="text-4xl font-bold">98%</div>
-                <div className="text-gray-300 text-sm">Success Rate</div>
-              </div>
+            <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-[#1B2A49]">50+</div>
+              <div className="text-gray-600 text-sm mt-1">Countries</div>
+            </div>
+            <div className="hidden md:block h-12 w-px bg-gray-300"></div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-[#1B2A49]">98%</div>
+              <div className="text-gray-600 text-sm mt-1">Success Rate</div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Introduction */}
+      <section className="py-12 px-4 text-center">
+        <div className="inline-flex items-center gap-2 bg-blue-50 text-[#1B2A49] px-4 py-2 rounded-full mb-6">
+          <Heart className="w-4 h-4" />
+          <span className="text-sm font-medium">Stories of Hope & Healing</span>
+        </div>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Real stories from real patients who transformed their lives with world-class medical care in India.
+        </p>
+      </section>
 
       {/* Testimonials Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => {
-            const isExpanded = expandedCards[index];
-            const shouldTruncate = testimonial.content.length > 300;
-            const displayContent = isExpanded || !shouldTruncate 
-              ? testimonial.content 
-              : testimonial.content.slice(0, 300) + '...';
+      <section className="py-8 pb-16 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => {
+              const isExpanded = expandedCards[index];
+              const shouldTruncate = testimonial.content.length > 300;
+              const displayContent = isExpanded || !shouldTruncate 
+                ? testimonial.content 
+                : testimonial.content.slice(0, 300) + '...';
 
-            return (
-              <div 
-                key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
-              >
-                <div className="p-8">
-                  {/* Quote Icon */}
-                  <div className="mb-6">
-                    <Quote className="w-10 h-10 transform rotate-180" style={{ color: '#e0e6ed' }} />
-                  </div>
-
-                  {/* Header */}
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0" style={{ background: 'linear-gradient(to bottom right, #001F3F, #003366)' }}>
-                      {getInitials(testimonial.name)}
+              return (
+                <div 
+                  key={index}
+                  className="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                >
+                  <div className="p-8">
+                    {/* Quote Icon */}
+                    <div className="mb-6">
+                      <Quote className="w-10 h-10 transform rotate-180 text-gray-200" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900">{testimonial.name}</h3>
-                      <div className="flex items-center gap-2 text-gray-600 mt-1">
-                        <MapPin className="w-4 h-4" />
-                        <span className="text-sm">{testimonial.location}</span>
+
+                    {/* Header */}
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0 bg-[#1B2A49]">
+                        {getInitials(testimonial.name)}
                       </div>
-                      <div className="mt-2 inline-flex items-center gap-1 px-3 py-1 rounded-full" style={{ backgroundColor: '#e6f0ff', color: '#001F3F' }}>
-                        <span className="text-xs font-medium">{testimonial.treatment}</span>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-gray-900">{testimonial.name}</h3>
+                        <div className="flex items-center gap-2 text-gray-600 mt-1">
+                          <MapPin className="w-4 h-4" />
+                          <span className="text-sm">{testimonial.location}</span>
+                        </div>
+                        <div className="mt-2 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-50 text-[#1B2A49]">
+                          <span className="text-xs font-medium">{testimonial.treatment}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
+                    {/* Rating */}
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
 
-                  {/* Content */}
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {displayContent}
-                  </p>
+                    {/* Content */}
+                    <p className="text-gray-600 leading-relaxed mb-4">
+                      {displayContent}
+                    </p>
 
-                  {/* Read More Button */}
-                  {shouldTruncate && (
-                    <button
-                      onClick={() => toggleExpand(index)}
-                      className="font-semibold hover:opacity-80 transition flex items-center gap-2 group"
-                      style={{ color: '#001F3F' }}
-                    >
-                      {isExpanded ? 'Show less' : 'Read full story'}
-                      <svg 
-                        className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
+                    {/* Read More Button */}
+                    {shouldTruncate && (
+                      <button
+                        onClick={() => toggleExpand(index)}
+                        className="font-semibold hover:opacity-80 transition flex items-center gap-2 group text-[#1B2A49]"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                  )}
-                </div>
+                        {isExpanded ? 'Show less' : 'Read full story'}
+                        <svg 
+                          className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
 
-                {/* Bottom Accent */}
-                <div className="h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" style={{ backgroundColor: '#001F3F' }}></div>
-              </div>
-            );
-          })}
+                  {/* Bottom Accent */}
+                  <div className="h-1 bg-[#1B2A49] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="py-16" style={{ background: 'linear-gradient(to right, #001F3F, #003366)' }}>
+      <div className="py-16 bg-[#1B2A49]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Start Your Healing Journey?
@@ -204,50 +200,13 @@ const TestimonialsPage = () => {
           <p className="text-xl text-gray-200 mb-8">
             Join hundreds of patients who have transformed their lives with world-class care
           </p>
-          <button className="bg-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg" style={{ color: '#001F3F' }}>
+          <button className="bg-white px-8 py-4 rounded-full font-semibold text-lg text-[#1B2A49] hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
             Get Free Consultation
           </button>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Norma Luna Healthcare</h3>
-              <p className="text-gray-400">Connecting patients worldwide with India's best medical care</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition">Services</a></li>
-                <li><a href="#" className="hover:text-white transition">Testimonials</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition">Medical Tourism</a></li>
-                <li><a href="#" className="hover:text-white transition">Treatment Planning</a></li>
-                <li><a href="#" className="hover:text-white transition">Travel Assistance</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Chennai, India</li>
-                <li>info@normaluna.com</li>
-                <li>+91 XXX XXX XXXX</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2026 Norma Luna Healthcare. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
