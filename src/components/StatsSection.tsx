@@ -1,107 +1,144 @@
-import { motion, useSpring, useTransform, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import React from "react";
+import { motion } from "framer-motion";
+import { 
+  Heart, 
+  Puzzle, 
+  Handshake, 
+  ThumbsUp, 
+  Globe, 
+  LucideIcon 
+} from "lucide-react";
 
-interface StatItem {
-  value: number;
-  suffix: string;
-  label: string;
+interface ValueItem {
+  id: string;
+  title: string;
+  icon: LucideIcon;
   description: string;
+  color: string;
 }
 
-const stats: StatItem[] = [
+const values: ValueItem[] = [
   {
-    value: 5,
-    suffix: "+",
-    label: "Years of experience",
-    description: "A legacy of saving lives and transforming health for over two decades, driven by innovation."
+    id: "01",
+    title: "Passion",
+    icon: Heart,
+    description: "Driven by a burning desire to improve lives and deliver care with genuine warmth.",
+    color: "text-red-500",
   },
   {
-    value: 100,
-    suffix: "+",
-    label: "Happy Clients",
-    description: "Your health, our priority – proven by 20,000+ satisfied patients growing stronger every day."
+    id: "02",
+    title: "Integrity",
+    icon: Puzzle,
+    description: "Honest, transparent, and ethical in every decision. We fit the pieces together perfectly.",
+    color: "text-blue-600",
   },
   {
-    value: 20,
-    suffix: "+",
-    label: "Specialities",
-    description: "Proudly offering specialized medical services dedicated to delivering exceptional healthcare."
+    id: "03",
+    title: "Respect",
+    icon: Handshake,
+    description: "Treating every patient and partner with the dignity, kindness, and courtesy they deserve.",
+    color: "text-emerald-600",
   },
   {
-    value: 150,
-    suffix: "+",
-    label: "Qualified Doctors",
-    description: "We are proud to have a team of expert doctors, each specializing in diverse medical fields."
+    id: "04",
+    title: "Excellence",
+    icon: ThumbsUp,
+    description: "Commited to the highest standards of medical quality. We don't just meet expectations; we exceed them.",
+    color: "text-amber-500",
+  },
+  {
+    id: "05",
+    title: "Diversity",
+    icon: Globe,
+    description: "Embracing patients from all walks of life and corners of the world with inclusive care.",
+    color: "text-indigo-600",
   },
 ];
 
-const AnimatedCounter = ({ target, suffix }: { target: number; suffix: string }) => {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-  
-  const spring = useSpring(0, {
-    mass: 1,
-    stiffness: 75,
-    damping: 15,
-    duration: 2
-  });
-
-  const displayValue = useTransform(spring, (current) => Math.round(current));
-
-  useEffect(() => {
-    if (inView) {
-      spring.set(target);
-    }
-  }, [inView, spring, target]);
-
-  return (
-    <span ref={ref} className="flex items-baseline justify-center">
-      <motion.span>{displayValue}</motion.span>
-      <span>{suffix}</span>
-    </span>
-  );
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
 };
 
-export const StatsSection = () => {
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+export const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/20"
-            >
-              {/* Decorative top accent that appears on hover */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-0 bg-primary group-hover:w-full transition-all duration-500 rounded-t-2xl" />
+    <section className="py-24 bg-white relative overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-blue-900 blur-3xl"></div>
+        <div className="absolute top-1/2 -left-24 w-64 h-64 rounded-full bg-blue-400 blur-3xl"></div>
+      </div>
 
-              <div className="flex flex-col items-center text-center h-full">
-                {/* Number Wrapper */}
-                <div className="text-5xl md:text-6xl font-extrabold text-primary mb-4 tracking-tight">
-                  <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                </div>
-
-                {/* Label with decorative line */}
-                <div className="relative mb-4">
-                  <h3 className="text-lg font-bold text-gray-800 uppercase tracking-wider">
-                    {stat.label}
-                  </h3>
-                  <span className="block h-1 w-8 bg-gray-200 mx-auto mt-2 rounded-full group-hover:bg-primary/50 transition-colors duration-300"></span>
-                </div>
-
-                {/* Description */}
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  {stat.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-[#1B2A49] mb-4"
+          >
+            Why Choose Us
+          </motion.h2>
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: "80px" }}
+            viewport={{ once: true }}
+            className="h-1 bg-blue-600 mx-auto rounded-full"
+          />
         </div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+        >
+          {values.map((item) => {
+            const Icon = item.icon;
+            
+            return (
+              <motion.div
+                key={item.id}
+                variants={itemVariants}
+                whileHover={{ y: -8 }}
+                className="group relative bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center"
+              >
+                {/* Number Watermark */}
+                <span className="absolute top-4 right-4 text-4xl font-black text-gray-200 opacity-50 group-hover:opacity-20 group-hover:scale-110 transition-all duration-300 select-none">
+                  {item.id}
+                </span>
+
+                {/* Icon Container */}
+                <div className={`w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ring-1 ring-gray-100`}>
+                  <Icon className={`w-8 h-8 ${item.color}`} strokeWidth={1.5} />
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-900 transition-colors">
+                  {item.title}
+                </h3>
+                
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+
+                {/* Bottom Line Accent */}
+                <div className="w-0 h-0.5 bg-blue-600 mt-6 group-hover:w-12 transition-all duration-300" />
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
