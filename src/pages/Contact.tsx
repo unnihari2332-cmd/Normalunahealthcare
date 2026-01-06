@@ -42,17 +42,23 @@ const ContactPage = () => {
       <Header />
 
       {/* --- MAP SECTION --- */}
-      {/* Updated source to the new map URL provided */}
-      <div className="relative w-full h-[450px] mt-20">
+      {/* 1. Updated URL to the new source.
+          2. Added 'overflow-hidden' to the container.
+          3. Adjusted styling to hide the top dark header bar shown in your image:
+             - Increased height to 'h-[calc(100%+60px)]'
+             - Pulled the map up with '-mt-[60px]'
+             This crops the top 60px where the title bar sits.
+      */}
+      <div className="relative w-full h-[450px] mt-20 overflow-hidden">
         <iframe
-          src="https://www.google.com/maps/d/embed?mid=1dU7YVq8_qgpH8BuziwjI5ytT5L0AoKg&ehbc=2E312F&noprof=1"
+          src="https://www.google.com/maps/embed?pb=!3m2!1sen!2sin!4v1767699744398!5m2!1sen!2sin!6m8!1m7!1s0iI_szXmx9NV0pWg2Jow-Q!2m2!1d13.0531452862635!2d80.2506624810757!3f68.08297701652728!4f11.061654936810228!5f0.7820865974627469"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen={true}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="absolute inset-0"
+          className="absolute inset-0 w-full h-[calc(100%+60px)] -mt-[60px]"
         ></iframe>
       </div>
 
