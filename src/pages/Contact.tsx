@@ -3,8 +3,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import {
   Phone,
-  Video,
-  Calendar,
   MapPin,
   Mail,
   Clock,
@@ -29,43 +27,6 @@ const ContactPage = () => {
           className="absolute inset-0 w-full h-[calc(100%+60px)] -mt-[60px]"
         ></iframe>
       </div>
-
-      {/* --- THREE CARDS SECTION --- */}
-      {/* Removed '-mt-32' so cards sit below the map, not overlapping */}
-      <section className="py-20 px-4 bg-gray-50 relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-20">
-          {contactCards.map((card, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col items-center text-center group h-full"
-            >
-              <div className="w-full h-48 relative overflow-hidden">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-black/20"></div>
-                
-                {/* Floating Icon */}
-                <div className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 w-14 h-14 bg-[#1B2A49] rounded-full flex items-center justify-center border-4 border-white">
-                  <card.icon className="w-6 h-6 text-white" />
-                </div>
-              </div>
-
-              <div className="pt-12 pb-10 px-6 flex flex-col items-center flex-grow">
-                <h3 className="text-xl font-bold text-[#1B2A49] mb-3 font-serif">
-                  {card.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  {card.description}
-                </p>
-                {/* Removed Read More Button */}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* --- FORM & INFO SECTION --- */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
