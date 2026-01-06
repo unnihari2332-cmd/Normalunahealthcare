@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Quote, ChevronRight } from "lucide-react";
+import { ArrowRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRef, useEffect, useState } from "react";
 
 interface Testimonial {
   name: string;
@@ -33,61 +32,50 @@ const testimonials: Testimonial[] = [
 ];
 
 export const TestimonialsSection = () => {
-  const carousel = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    if (carousel.current) {
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }
-  }, []);
-
   return (
-    <section className="py-24 bg-secondary overflow-hidden">
+    <section className="py-24 bg-secondary">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <p className="text-primary text-sm font-semibold uppercase mb-2">
-              Real Stories. Real Results.
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold">
-              Patient Testimonials
-            </h2>
-          </div>
-          <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
-            Drag to explore <ChevronRight className="w-4 h-4" />
-          </div>
+        {/* Header */}
+        <div className="mb-12">
+          <p className="text-primary text-sm font-semibold uppercase mb-2">
+            Real Stories. Real Results.
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Patient Testimonials
+          </h2>
         </div>
 
-        <motion.div ref={carousel} className="cursor-grab">
-          <motion.div
-            drag="x"
-            dragConstraints={{ left: -width, right: 0 }}
-            className="flex gap-8"
-          >
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={i}
-                className="min-w-[340px] md:min-w-[520px] bg-white rounded-3xl p-8 shadow-md border flex flex-col"
-              >
-                <Quote className="w-8 h-8 text-primary/20 mb-4" />
-                <div className="flex-grow overflow-y-auto max-h-[320px] pr-2">
-                  <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
-                    {t.content}
-                  </p>
-                </div>
-                <div className="mt-6 pt-5 border-t">
-                  <h4 className="font-semibold text-lg">{t.name}</h4>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    <span className="text-primary font-medium">{t.location}</span>{" "}
-                    | {t.treatment}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+        {/* Testimonials Grid */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-3xl p-8 shadow-md border flex flex-col"
+            >
+              <Quote className="w-8 h-8 text-primary/20 mb-4" />
 
+              <div className="flex-grow overflow-y-auto max-h-[320px] pr-2">
+                <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
+                  {t.content}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-5 border-t">
+                <h4 className="font-semibold text-lg">{t.name}</h4>
+                <p className="text-sm text-muted-foreground mt-1">
+                  <span className="text-primary font-medium">{t.location}</span>{" "}
+                  | {t.treatment}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA */}
         <div className="text-center mt-14">
           <Link to="/testimonials">
             <Button className="rounded-full px-8">
