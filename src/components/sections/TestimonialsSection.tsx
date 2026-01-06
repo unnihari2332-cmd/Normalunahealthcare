@@ -13,12 +13,6 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Ivan M.",
-    location: "Russia",
-    treatment: "Stem Cell Therapy",
-    content: `After being diagnosed with a neurological condition, I was searching for advanced treatment options that could improve my quality of life. Stem cell therapy was a promising solution, but in Russia, the cost was extremely high, and access to specialized clinics was limited. That’s when I found and realized that India offered world-class regenerative medicine at a much more affordable price. From the moment I reached out, their team handled everything—medical visa assistance, travel arrangements, and scheduling my consultation with one of India’s leading specialists in stem cell therapy. When I arrived, I was impressed by the hospital’s modern infrastructure and dedicated research team. The doctors took the time to explain every step of the procedure. Post-treatment, I received personalized rehabilitation support, including physiotherapy and nutritional guidance to maximize my recovery. Today, I feel stronger, and my symptoms have significantly improved. I am grateful for the exceptional care and professionalism that made my journey to India truly life-changing.`,
-  },
-  {
     name: "Amina E.",
     location: "Oman",
     treatment: "Cancer Treatment",
@@ -35,18 +29,6 @@ const testimonials: Testimonial[] = [
     location: "Bangladesh",
     treatment: "Twin Pregnancy Complication",
     content: `When we found out we were expecting twins, we were overjoyed. But at five months, complications arose, and doctors in Bangladesh warned us of a high-risk delivery. We were devastated. That’s when a family friend recommended Norma Luna Healthcare, and it changed everything. The team arranged immediate consultations with a top maternal-fetal specialist. The hospital was equipped with advanced NICU facilities, giving our babies the best chance of survival. Norma Luna even arranged for a translator and special dietary care for my wife during her stay. Our twins were born healthy, and today, we look at them with gratitude, knowing that none of this would have been possible without the seamless care and expertise in India.`,
-  },
-  {
-    name: "Amina S.",
-    location: "Uzbekistan",
-    treatment: "Dental Implants & Tourism",
-    content: `India was always on my travel list—I had dreamed of exploring its vibrant culture, historical landmarks, and beautiful landscapes. When I finally planned my trip to India, I wanted to make the most of my visit. A friend mentioned that India was also known for high-quality, affordable medical treatments, including dental care. I had been considering dental implants for years, but the costs in Uzbekistan were too high and lacked options. That’s when I came across Norma Luna Healthcare, and I decided to reach out just to explore my options. From the moment I contacted them, their team made everything effortless. They arranged a consultation while ensuring my travel plans remained uninterrupted. After a detailed examination, the dentist explained that I could complete my implant procedure with minimal downtime, allowing me to continue enjoying my vacation. Within days, I had a brand-new smile, and I was still able to explore Mahabalipuram’s ancient temples and take a peaceful houseboat ride in Kerala. The best part? Even after I returned home, Norma Luna’s team followed up to ensure my recovery was going well. What started as a trip for adventure ended up being a life-changing journey. Thanks to the team, I left India with not just incredible memories but also a confident new smile!`,
-  },
-  {
-    name: "Martin G.",
-    location: "United Kingdom",
-    treatment: "Dental Implants",
-    content: `I had lost most of my teeth over the years, making eating and speaking difficult. In UK, the cost of full-mouth dental implants was simply unaffordable. A colleague recommended Norma Luna Healthcare, and I was sceptical at first. Could I really trust a medical team in another country? From my first virtual consultation with a leading dentist in Chennai, my doubts disappeared. The clinic was more advanced than many I’ve seen, with 3D imaging and precision-guided implant technology. The procedure was smooth and completely painless, thanks to advanced sedation techniques. Norma Luna arranged a comfortable hotel for my recovery and even suggested soft, nutritious meals suited for my healing gums. Within days, I could smile without hesitation for the first time in years. The best part? The cost was nearly 70% lower than in France, and the quality exceeded my expectations.`,
   },
 ];
 
