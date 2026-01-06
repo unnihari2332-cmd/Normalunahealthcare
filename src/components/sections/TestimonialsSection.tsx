@@ -15,7 +15,7 @@ const testimonials: Testimonial[] = [
     name: "Amina E.",
     location: "Oman",
     treatment: "Cancer Treatment",
-    content: `Norma Luna Healthcare gave me hope when I needed it most. Their team ensured I got world-class oncology treatment in India at a fraction of the cost. The doctors, the advanced treatment plans, and the personal care I received made all the difference. I am now cancer-free, and I owe it to their expertise and support`,
+    content: `Norma Luna Healthcare gave me hope when I needed it most. Their team ensured I got world-class oncology treatment in India at a fraction of the cost. The doctors, the advanced treatment plans, and the personal care I received made all the difference. I am now cancer-free, and I owe it to their expertise and support.`,
   },
   {
     name: "Amal N.",
@@ -35,8 +35,8 @@ export const TestimonialsSection = () => {
   return (
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="mb-12">
+        {/* Section Header */}
+        <div className="mb-14">
           <p className="text-primary text-sm font-semibold uppercase mb-2">
             Real Stories. Real Results.
           </p>
@@ -46,28 +46,28 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-md border flex flex-col"
+              className="bg-white rounded-3xl p-10 shadow-md border flex flex-col min-h-[580px]"
             >
-              <Quote className="w-8 h-8 text-primary/20 mb-4" />
+              <Quote className="w-9 h-9 text-primary/20 mb-6" />
 
-              <div className="flex-grow overflow-y-auto max-h-[320px] pr-2">
-                <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
-                  {t.content}
-                </p>
-              </div>
+              <p className="text-muted-foreground whitespace-pre-line leading-relaxed text-[15px]">
+                {t.content}
+              </p>
 
-              <div className="mt-6 pt-5 border-t">
+              <div className="mt-auto pt-6 border-t">
                 <h4 className="font-semibold text-lg">{t.name}</h4>
                 <p className="text-sm text-muted-foreground mt-1">
-                  <span className="text-primary font-medium">{t.location}</span>{" "}
+                  <span className="text-primary font-medium">
+                    {t.location}
+                  </span>{" "}
                   | {t.treatment}
                 </p>
               </div>
@@ -76,7 +76,7 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-14">
+        <div className="text-center mt-16">
           <Link to="/testimonials">
             <Button className="rounded-full px-8">
               View All Testimonials
