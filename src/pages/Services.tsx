@@ -119,13 +119,14 @@ const ServicesPage = () => {
 
                   {/* Spacer to push button down if text is short */}
                   <div className="mt-auto mb-8">
-                    <button className="bg-[#5B95E9] hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-sm uppercase tracking-wide transition-colors duration-300">
+                    {/* Updated Button Color */}
+                    <button className="bg-[#1B2A49] hover:bg-[#2A416F] text-white font-bold py-3 px-8 rounded-full text-sm uppercase tracking-wide transition-colors duration-300">
                       Learn More
                     </button>
                   </div>
                 </div>
 
-                {/* Bottom Blue Line */}
+                {/* Bottom Line - keeping the original blue for contrast, let me know if this should change too */}
                 <div className="w-full h-[3px] bg-[#5B95E9] mt-4"></div>
               </div>
             ))}
