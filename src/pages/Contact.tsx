@@ -11,27 +11,24 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-// Card Data
+// Card Data (Removed buttonText)
 const contactCards = [
   {
     icon: Phone,
     title: "Telephone Support",
     description: "Call us 24/7 and our representatives will help you make an appointment that's convenient for you.",
-    buttonText: "Read More",
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop",
   },
   {
     icon: Video,
     title: "Online Consultation",
     description: "Experience convenient and secure online health consultations from the comfort of your home.",
-    buttonText: "Read More",
     image: "https://images.unsplash.com/photo-1576091160550-217358c7e618?w=600&auto=format&fit=crop",
   },
   {
     icon: Calendar,
     title: "Book An Appointment",
     description: "Book your appointment today and take the first step towards better health.",
-    buttonText: "Read More",
     image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&auto=format&fit=crop",
   },
 ];
@@ -56,12 +53,13 @@ const ContactPage = () => {
       </div>
 
       {/* --- THREE CARDS SECTION --- */}
+      {/* Removed '-mt-32' so cards sit below the map, not overlapping */}
       <section className="py-20 px-4 bg-gray-50 relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 -mt-32 relative z-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-20">
           {contactCards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col items-center text-center group"
+              className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col items-center text-center group h-full"
             >
               <div className="w-full h-48 relative overflow-hidden">
                 <img
@@ -77,16 +75,14 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <div className="pt-12 pb-8 px-6 flex flex-col items-center flex-grow">
+              <div className="pt-12 pb-10 px-6 flex flex-col items-center flex-grow">
                 <h3 className="text-xl font-bold text-[#1B2A49] mb-3 font-serif">
                   {card.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                <p className="text-gray-500 text-sm leading-relaxed">
                   {card.description}
                 </p>
-                <button className="mt-auto px-6 py-2 bg-[#1B2A49] text-white text-sm rounded-full hover:bg-blue-900 transition-colors">
-                  {card.buttonText}
-                </button>
+                {/* Removed Read More Button */}
               </div>
             </div>
           ))}
@@ -94,7 +90,6 @@ const ContactPage = () => {
       </section>
 
       {/* --- FORM & INFO SECTION --- */}
-      {/* Increased padding (py-24) to make the section look bigger */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
@@ -168,10 +163,8 @@ const ContactPage = () => {
               method="POST" 
               className="space-y-6"
             >
-              {/* Optional: Configuration for FormSubmit */}
               <input type="hidden" name="_subject" value="New Submission from Website Contact Form" />
               <input type="hidden" name="_captcha" value="false" />
-              {/* You can add a redirect URL here: <input type="hidden" name="_next" value="http://yourwebsite.com/thanks" /> */}
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
