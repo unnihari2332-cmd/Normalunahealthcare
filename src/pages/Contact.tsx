@@ -11,28 +11,28 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-// Card Data based on the "Normaluna" image content
+// Card Data
 const contactCards = [
   {
     icon: Phone,
     title: "Telephone Support",
     description: "Call us 24/7 and our representatives will help you make an appointment that's convenient for you.",
     buttonText: "Read More",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop", // Doctor/Patient
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop",
   },
   {
     icon: Video,
     title: "Online Consultation",
     description: "Experience convenient and secure online health consultations from the comfort of your home.",
     buttonText: "Read More",
-    image: "https://images.unsplash.com/photo-1576091160550-217358c7e618?w=600&auto=format&fit=crop", // Typing/Laptop
+    image: "https://images.unsplash.com/photo-1576091160550-217358c7e618?w=600&auto=format&fit=crop",
   },
   {
     icon: Calendar,
     title: "Book An Appointment",
     description: "Book your appointment today and take the first step towards better health.",
     buttonText: "Read More",
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&auto=format&fit=crop", // Brain model/Medical
+    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&auto=format&fit=crop",
   },
 ];
 
@@ -41,35 +41,19 @@ const ContactPage = () => {
     <div className="min-h-screen bg-white font-sans">
       <Header />
 
-      {/* --- MAP BREADCRUMB SECTION --- */}
-      {/* Replaces standard HeroBanner with a Map as background */}
+      {/* --- MAP SECTION --- */}
+      {/* Updated source to the new map URL provided */}
       <div className="relative w-full h-[450px] mt-20">
-        {/* Google Map Iframe - Location: Zhaoxin Huijin Plaza (from your uploaded image) */}
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.762928375806!2d114.11656831495786!3d22.53816298519992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403f563d767527b%3A0x6644f1535456306e!2sZhaoxin%20Huijin%20Plaza!5e0!3m2!1sen!2scn!4v1679384729123!5m2!1sen!2scn"
+          src="https://www.google.com/maps/d/embed?mid=1dU7YVq8_qgpH8BuziwjI5ytT5L0AoKg&ehbc=2E312F&noprof=1"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen={true}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="absolute inset-0 grayscale-[20%]"
+          className="absolute inset-0"
         ></iframe>
-
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-[#1B2A49]/60 pointer-events-none"></div>
-
-        {/* Breadcrumb Text Content */}
-        <div className="relative z-10 h-full flex flex-col justify-center items-start px-4 md:px-16 max-w-7xl mx-auto">
-          <div className="flex items-center space-x-2 text-gray-300 text-sm mb-2 pointer-events-auto">
-            <span>Home</span>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-white font-medium">Contact Us</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
-            Contact Us
-          </h1>
-        </div>
       </div>
 
       {/* --- THREE CARDS SECTION --- */}
@@ -80,7 +64,6 @@ const ContactPage = () => {
               key={index}
               className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col items-center text-center group"
             >
-              {/* Image with Dark Overlay */}
               <div className="w-full h-48 relative overflow-hidden">
                 <img
                   src={card.image}
@@ -95,7 +78,6 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Content */}
               <div className="pt-12 pb-8 px-6 flex flex-col items-center flex-grow">
                 <h3 className="text-xl font-bold text-[#1B2A49] mb-3 font-serif">
                   {card.title}
@@ -128,7 +110,6 @@ const ContactPage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Item 1 */}
               <div className="flex items-start space-x-4">
                 <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-[#1B2A49]" />
@@ -141,7 +122,6 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Item 2 */}
               <div className="flex items-start space-x-4">
                 <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-[#1B2A49]" />
@@ -154,7 +134,6 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Item 3 */}
               <div className="flex items-start space-x-4">
                 <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-[#1B2A49]" />
@@ -167,7 +146,6 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Item 4 */}
               <div className="flex items-start space-x-4">
                 <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Clock className="w-5 h-5 text-[#1B2A49]" />
