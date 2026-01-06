@@ -1,7 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
-import { ServicesGrid } from "@/components/sections";
 import {
   Users,
   FileText,
@@ -82,7 +81,7 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <div className="pt-20">
@@ -93,7 +92,46 @@ const ServicesPage = () => {
         />
       </div>
 
-      <ServicesGrid services={services} />
+      {/* Custom Grid Section matching the uploaded image style */}
+      <section className="py-16 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            {services.map((service, index) => (
+              <div key={index} className="flex flex-col h-full bg-white group">
+                {/* Image Section */}
+                <div className="w-full h-56 overflow-hidden mb-6">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Content Section */}
+                <div className="flex flex-col flex-grow items-center text-center px-4">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-gray-500 text-sm leading-relaxed mb-8">
+                    {service.description}
+                  </p>
+
+                  {/* Spacer to push button down if text is short */}
+                  <div className="mt-auto mb-8">
+                    <button className="bg-[#5B95E9] hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-sm uppercase tracking-wide transition-colors duration-300">
+                      Learn More
+                    </button>
+                  </div>
+                </div>
+
+                {/* Bottom Blue Line */}
+                <div className="w-full h-[3px] bg-[#5B95E9] mt-4"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
