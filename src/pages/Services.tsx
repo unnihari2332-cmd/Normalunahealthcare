@@ -92,12 +92,11 @@ const ServicesPage = () => {
         />
       </div>
 
-      {/* Custom Grid Section matching the uploaded image style */}
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
             {services.map((service, index) => (
-              <div key={index} className="flex flex-col h-full bg-white group">
+              <div key={index} className="flex flex-col h-full bg-white group cursor-pointer">
                 {/* Image Section */}
                 <div className="w-full h-56 overflow-hidden mb-6">
                   <img
@@ -117,17 +116,16 @@ const ServicesPage = () => {
                     {service.description}
                   </p>
 
-                  {/* Spacer to push button down if text is short */}
                   <div className="mt-auto mb-8">
-                    {/* Updated Button Color */}
                     <button className="bg-[#1B2A49] hover:bg-[#2A416F] text-white font-bold py-3 px-8 rounded-full text-sm uppercase tracking-wide transition-colors duration-300">
                       Learn More
                     </button>
                   </div>
                 </div>
 
-                {/* Bottom Line - keeping the original blue for contrast, let me know if this should change too */}
-                <div className="w-full h-[3px] bg-[#5B95E9] mt-4"></div>
+                {/* Animated Bottom Line */}
+                {/* w-0 (hidden) by default, group-hover:w-full (expands) */}
+                <div className="h-[3px] bg-[#1B2A49] mt-4 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></div>
               </div>
             ))}
           </div>
