@@ -95,39 +95,44 @@ const ServicesPage = () => {
       <section className="py-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {services.map((service, index) => (
-              <div key={index} className="flex flex-col h-full bg-white group cursor-pointer">
-                {/* Image Section */}
-                <div className="w-full h-56 overflow-hidden mb-6">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+            {services.map((service, index) => {
+              // Extract the specific icon component for this service
+              const IconComponent = service.icon;
 
-                {/* Content Section */}
-                <div className="flex flex-col flex-grow items-center text-center px-4">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-500 text-sm leading-relaxed mb-8">
-                    {service.description}
-                  </p>
-
-                  <div className="mt-auto mb-8">
-                    <button className="bg-[#1B2A49] hover:bg-[#2A416F] text-white font-bold py-3 px-8 rounded-full text-sm uppercase tracking-wide transition-colors duration-300">
-                      Learn More
-                    </button>
+              return (
+                <div key={index} className="flex flex-col h-full bg-white group cursor-pointer">
+                  {/* Image Section */}
+                  <div className="w-full h-56 overflow-hidden mb-6">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                </div>
 
-                {/* Animated Bottom Line */}
-                {/* w-0 (hidden) by default, group-hover:w-full (expands) */}
-                <div className="h-[3px] bg-[#1B2A49] mt-4 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></div>
-              </div>
-            ))}
+                  {/* Content Section */}
+                  <div className="flex flex-col flex-grow items-center text-center px-4">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-gray-500 text-sm leading-relaxed mb-8">
+                      {service.description}
+                    </p>
+
+                    {/* Icon Section (Replaced Button) */}
+                    <div className="mt-auto mb-8">
+                      <div className="p-4 rounded-full bg-blue-50 group-hover:bg-blue-100 transition-colors duration-300">
+                        <IconComponent className="w-8 h-8 text-[#1B2A49]" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Animated Bottom Line (Left to Right) */}
+                  <div className="h-[3px] bg-[#1B2A49] mt-4 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
