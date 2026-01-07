@@ -12,7 +12,6 @@ import {
   HeartPulse,
   Activity,
   Languages,
-  ArrowRight, // Added Arrow icon
 } from "lucide-react";
 import heroImage from "@/assets/hero-medical.jpg";
 import consultation from "@/assets/consultation.jpg";
@@ -104,17 +103,17 @@ const ServicesPage = () => {
                   key={index}
                   className="group relative h-[450px] w-full overflow-hidden rounded-2xl cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300"
                 >
-                  {/* Background Image - Covers the whole card */}
+                  {/* Background Image */}
                   <img
                     src={service.image}
                     alt={service.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
                   />
 
-                  {/* Dark Overlay (Optional, makes text pop more if image is light) */}
+                  {/* Dark Overlay */}
                   <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/30" />
 
-                  {/* The Floating White Box */}
+                  {/* Floating White Box */}
                   <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white p-6 shadow-2xl transition-all duration-500">
                     
                     {/* Title: Always Visible */}
@@ -125,26 +124,18 @@ const ServicesPage = () => {
                     </div>
 
                     {/* Hidden Content: Expands on Hover */}
-                    {/* We use grid-rows for smooth height animation from 0 to auto */}
-                    <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-4">
+                    <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-2">
                       <div className="overflow-hidden">
                         
                         {/* Description */}
-                        <p className="mb-6 text-center text-sm leading-relaxed text-gray-500">
+                        <p className="mb-4 text-center text-sm leading-relaxed text-gray-500">
                           {service.description}
                         </p>
 
-                        {/* Visual Elements: Arrow and Separator */}
-                        <div className="flex flex-col items-center justify-center space-y-4">
-                          <ArrowRight className="h-6 w-6 text-gray-400 transition-transform duration-300 group-hover:translate-x-2" />
-                          
+                        {/* Separator and Icon (Purely decorative now, no buttons/text) */}
+                        <div className="flex flex-col items-center justify-center space-y-4 pt-2">
                           <div className="h-px w-3/4 bg-gray-200" /> {/* Separator Line */}
-                          
-                          {/* Icon */}
-                          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-900">
-                             <IconComponent className="h-5 w-5" />
-                             <span>Learn More</span>
-                          </div>
+                          <IconComponent className="h-6 w-6 text-blue-900/70" />
                         </div>
 
                       </div>
