@@ -143,7 +143,7 @@ export const StatsSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         
-        {/* --- NEW STATS COUNTER SECTION WITH BOX --- */}
+        {/* --- STATS COUNTER SECTION WITH BOX --- */}
         <div className="bg-[#1B2A49] rounded-2xl p-10 mb-32 shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -155,16 +155,18 @@ export const StatsSection = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center md:text-left space-y-3"
               >
-                {/* Changed text color to navy blue (blue-900) */}
-                <div className="text-5xl font-black text-blue-900 flex justify-center md:justify-start items-baseline">
+                {/* Number: text-gray-300 gives a silver appearance against the dark background */}
+                <div className="text-5xl font-black text-gray-300 flex justify-center md:justify-start items-baseline">
                   <Counter from={0} to={stat.value} />
                   <span>{stat.suffix}</span>
                 </div>
-                {/* Changed label color to white for contrast */}
+                
+                {/* Label: White */}
                 <h4 className="text-xl font-bold text-white uppercase tracking-wide">
                   {stat.label}
                 </h4>
-                {/* Changed text color to a lighter blue for contrast */}
+                
+                {/* Description: Light Blue/White mix */}
                 <p className="text-blue-100 text-sm leading-relaxed pr-4">
                   {stat.text}
                 </p>
