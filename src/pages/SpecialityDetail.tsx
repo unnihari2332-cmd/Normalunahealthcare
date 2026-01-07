@@ -35,7 +35,7 @@ const SpecialityDetailPage = () => {
     );
   }
 
-  // Get ALL related specialities (no slice limit)
+  // Get ALL related specialities
   const relatedSpecialities = specialities.filter(s => s.id !== speciality.id);
 
   return (
@@ -130,8 +130,6 @@ const SpecialityDetailPage = () => {
 
             {/* Right Sidebar */}
             <div className="lg:col-span-1">
-              {/* NOTE: If the list is very long, 'sticky' might prevent you from reaching the bottom content easily depending on screen height. 
-                  If you face that issue, remove 'sticky top-24' from the className below. */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -144,7 +142,6 @@ const SpecialityDetailPage = () => {
                     <h4 className="font-semibold text-lg">Other Specialities</h4>
                   </div>
                   
-                  {/* UPDATED: Removed scroll classes (max-h and overflow) */}
                   <div className="divide-y divide-border">
                     {relatedSpecialities.map((related) => (
                       <Link
@@ -156,7 +153,7 @@ const SpecialityDetailPage = () => {
                         <span className="text-foreground group-hover:text-primary transition-colors text-sm font-medium">
                           {related.title}
                         </span>
-                        <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                        {/* Arrow icon removed from here */}
                       </Link>
                     ))}
                   </div>
