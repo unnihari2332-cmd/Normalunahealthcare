@@ -11,7 +11,13 @@ interface SpecialityCardProps {
   delay?: number;
 }
 
-export const SpecialityCard = ({ id, title, description, image, delay = 0 }: SpecialityCardProps) => {
+export const SpecialityCard = ({
+  id,
+  title,
+  description,
+  image,
+  delay = 0,
+}: SpecialityCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -27,7 +33,7 @@ export const SpecialityCard = ({ id, title, description, image, delay = 0 }: Spe
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/60 to-transparent" />
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6">
@@ -40,13 +46,26 @@ export const SpecialityCard = ({ id, title, description, image, delay = 0 }: Spe
           <h3 className="font-display text-xl font-semibold text-primary-foreground mb-2">
             {title}
           </h3>
-          <p className="text-primary-foreground/80 text-sm leading-relaxed mb-4">
+
+          <p className="text-primary-foreground/80 text-sm leading-relaxed mb-5">
             {description}
           </p>
+
           <Link to={`/specialities/${id}`}>
             <Button
-              variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary hover:border-primary rounded-full group/btn"
+              className="
+                bg-white
+                text-navy
+                font-semibold
+                rounded-full
+                px-6
+                py-2
+                shadow-lg
+                hover:bg-primary
+                hover:text-primary-foreground
+                transition-all
+                group/btn
+              "
             >
               Read More
               <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
