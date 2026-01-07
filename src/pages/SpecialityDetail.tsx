@@ -35,10 +35,8 @@ const SpecialityDetailPage = () => {
     );
   }
 
-  // Get related specialities (excluding current one)
-  const relatedSpecialities = specialities
-    .filter(s => s.id !== speciality.id)
-    .slice(0, 6);
+  // UPDATED: Get ALL related specialities (removed the slice limit)
+  const relatedSpecialities = specialities.filter(s => s.id !== speciality.id);
 
   return (
     <div className="min-h-screen">
@@ -139,18 +137,21 @@ const SpecialityDetailPage = () => {
                 className="sticky top-24 space-y-6"
               >
                 {/* Services/Related Specialities */}
-                <div className="bg-card rounded-2xl overflow-hidden shadow-sm">
+                <div className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border">
                   <div className="bg-navy text-primary-foreground py-4 px-6">
-                    <h4 className="font-semibold text-lg">Related Specialities</h4>
+                    <h4 className="font-semibold text-lg">Other Specialities</h4>
                   </div>
-                  <div className="divide-y divide-border">
+                  
+                  {/* UPDATED: Added max-height and overflow-auto to handle long list */}
+                  <div className="divide-y divide-border max-h-[500px] overflow-y-auto custom-scrollbar">
                     {relatedSpecialities.map((related) => (
                       <Link
                         key={related.id}
                         to={`/specialities/${related.id}`}
+                        onClick={() => window.scrollTo(0, 0)}
                         className="flex items-center justify-between px-6 py-4 hover:bg-secondary/50 transition-colors group"
                       >
-                        <span className="text-foreground group-hover:text-primary transition-colors text-sm">
+                        <span className="text-foreground group-hover:text-primary transition-colors text-sm font-medium">
                           {related.title}
                         </span>
                         <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -180,7 +181,6 @@ const SpecialityDetailPage = () => {
                         <MapPin className="w-4 h-4 text-primary-foreground/70 mt-0.5 flex-shrink-0" />
                         <p className="text-primary-foreground/80 text-sm">
                            No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel,<br /> Thousand Lights West, Nungambakkam,<br /> Chennai, Tamil Nadu 600034
-                      
                         </p>
                       </div>
                       <div className="flex items-center gap-2">
