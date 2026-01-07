@@ -143,29 +143,34 @@ export const StatsSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         
-        {/* --- NEW STATS COUNTER SECTION --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32 border-b border-gray-100 pb-16">
-          {stats.map((stat, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="text-center md:text-left space-y-3"
-            >
-              <div className="text-5xl font-black text-blue-600 flex justify-center md:justify-start items-baseline">
-                <Counter from={0} to={stat.value} />
-                <span>{stat.suffix}</span>
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
-                {stat.label}
-              </h4>
-              <p className="text-gray-500 text-sm leading-relaxed pr-4">
-                {stat.text}
-              </p>
-            </motion.div>
-          ))}
+        {/* --- NEW STATS COUNTER SECTION WITH BOX --- */}
+        <div className="bg-[#1B2A49] rounded-2xl p-10 mb-32 shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center md:text-left space-y-3"
+              >
+                {/* Changed text color to navy blue (blue-900) */}
+                <div className="text-5xl font-black text-blue-900 flex justify-center md:justify-start items-baseline">
+                  <Counter from={0} to={stat.value} />
+                  <span>{stat.suffix}</span>
+                </div>
+                {/* Changed label color to white for contrast */}
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">
+                  {stat.label}
+                </h4>
+                {/* Changed text color to a lighter blue for contrast */}
+                <p className="text-blue-100 text-sm leading-relaxed pr-4">
+                  {stat.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* --- WHY CHOOSE US HEADER --- */}
