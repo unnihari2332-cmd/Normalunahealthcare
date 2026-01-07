@@ -155,8 +155,8 @@ export const StatsSection = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center md:text-left space-y-3"
               >
-                {/* Number: text-gray-300 gives a silver appearance against the dark background */}
-                <div className="text-5xl font-black text-gray-300 flex justify-center md:justify-start items-baseline">
+                {/* Number: Added drop-shadow-[0_0_10px_rgba(255,255,255,0.4)] for glow effect */}
+                <div className="text-5xl font-black text-gray-300 flex justify-center md:justify-start items-baseline drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">
                   <Counter from={0} to={stat.value} />
                   <span>{stat.suffix}</span>
                 </div>
