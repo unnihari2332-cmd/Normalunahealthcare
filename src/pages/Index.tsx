@@ -1,10 +1,10 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StatsSection } from "@/components/StatsSection";
+import { StatsSection } from "@/components/SpecialitiesSection";
 import {
   HeroSection,
   AboutSection,
-  SpecialitiesSection, // Now this will work because of file #2
   ContactOptionsSection,
   TestimonialsSection,
   CTASection,
