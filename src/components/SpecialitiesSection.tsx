@@ -1,10 +1,86 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Assuming react-router-dom
+import { Link } from 'react-router-dom';
 import { ArrowRight, MoveRight } from 'lucide-react';
-import { specialities } from './data'; // Import your data file path here
 
-// You can replace this with the actual imported image from your assets
-import featuredImage from '@/assets/consultation.jpg'; 
+// --- DATA (You can move this to a separate file later if you want) ---
+import consultation from "@/assets/consultation.jpg"; // Ensure this image exists or change path
+
+export const specialities = [
+  {
+    id: "ivf-obstetrics-gynaecology",
+    title: "IVF, Obstetrics & Gynaecology",
+    description: "Complete infertility care with state-of-the-art IVF treatment. Our fertility specialists offer comprehensive support.",
+    image: consultation, 
+  },
+  {
+    id: "gastroenterology",
+    title: "Gastroenterology",
+    description: "Cutting edge techniques to treat disorders that affect the esophagus, stomach, small intestine, and colon.",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600",
+  },
+  {
+    id: "oncology",
+    title: "Oncology",
+    description: "Oncology specialists harness the most advanced cancer care, multidisciplinary expertise, chemotherapy and targeted therapies.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600",
+  },
+  {
+    id: "transplant-kidney-liver",
+    title: "Transplant (Kidney & Liver)",
+    description: "We specialize in kidney, liver and heart transplant surgeries with exceptional care and post-operative support.",
+    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600",
+  },
+  {
+    id: "orthopaedics",
+    title: "Orthopaedics",
+    description: "Handle spine & joint problem through latest orthopedic technology including joint replacements and fracture treatments.",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600",
+  },
+  {
+    id: "dental",
+    title: "Dental",
+    description: "Your smile is in expert hands. We offer dental implants to orthodontics with personalized dental solutions.",
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600",
+  },
+  {
+    id: "bariatrics",
+    title: "Bariatrics",
+    description: "Our bariatric surgery team provides innovative weight loss solutions. From sleeve gastrectomy to gastric bypass.",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600",
+  },
+  {
+    id: "aesthetic-dermatology-plastic",
+    title: "Aesthetic Dermatology & Plastic",
+    description: "Achieve your beauty goals with expert aesthetic dermatology and plastic surgery expertise.",
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600",
+  },
+  {
+    id: "ophthalmology",
+    title: "Ophthalmology",
+    description: "Our eye specialists are equipped with the latest technology for world-class vision care, from LASIK to cataract surgery.",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600",
+  },
+  {
+    id: "nephrology",
+    title: "Nephrology",
+    description: "Comprehensive kidney care using advanced diagnostics. From chronic kidney management to dialysis solutions.",
+    image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600",
+  },
+  {
+    id: "urology",
+    title: "Urology",
+    description: "Expert care for kidney, bladder, and reproductive health using minimally invasive surgery techniques.",
+    image: "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=600",
+  },
+  {
+    id: "colorectal-surgery",
+    title: "Colorectal Surgery",
+    description: "Specialized colorectal surgeries handled by experienced surgeons to ensure patient comfort and fast recovery.",
+    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600",
+  },
+];
+
+// --- COMPONENT ---
 
 const SpecialitiesSection: React.FC = () => {
   return (
@@ -19,11 +95,11 @@ const SpecialitiesSection: React.FC = () => {
             {/* Featured Image Block */}
             <div className="relative overflow-hidden rounded-[40px] shadow-lg">
               <img 
-                src={featuredImage} 
+                src={consultation} 
                 alt="Medical Consultation" 
                 className="w-full h-64 md:h-80 object-cover"
               />
-              {/* Decorative white curve overlay (Optional, mimicking the design) */}
+              {/* Decorative white curve */}
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-tl-[100px]" />
             </div>
 
@@ -52,7 +128,6 @@ const SpecialitiesSection: React.FC = () => {
           </div>
 
           {/* --- Right Column: Scrollable List --- */}
-          {/* h-[800px] limits height, overflow-y-auto enables scrolling */}
           <div className="h-[800px] overflow-y-auto pr-2 custom-scrollbar space-y-6">
             {specialities.map((item) => (
               <div 
@@ -94,7 +169,6 @@ const SpecialitiesSection: React.FC = () => {
                     to={`/speciality/${item.id}`}
                     className="w-14 h-14 bg-[#0F172A] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors shadow-lg"
                   >
-                     {/* You can swap this generic icon for specific icons if you have a mapping */}
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M7 17l9.2-9.2M17 17V7H7"/>
                     </svg>
