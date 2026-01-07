@@ -4,6 +4,7 @@ import { StatsSection } from "@/components/StatsSection";
 import {
   HeroSection,
   AboutSection,
+  SpecialitiesSection, // Now this will work because of file #2
   ContactOptionsSection,
   TestimonialsSection,
   CTASection,
