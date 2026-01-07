@@ -118,23 +118,25 @@ const ServicesPage = () => {
                     
                     {/* Title: Always Visible */}
                     <div className="text-center">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 relative z-10 bg-white">
                         {service.title}
                       </h3>
                     </div>
 
-                    {/* Hidden Content: Expands on Hover */}
-                    <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-2">
-                      <div className="overflow-hidden">
+                    {/* Hidden Content: Expands and Zooms on Hover */}
+                    {/* Outer div handles height expansion */}
+                    <div className="grid grid-rows-[0fr] transition-all duration-500 ease-in-out group-hover:grid-rows-[1fr] group-hover:mt-2">
+                      {/* Inner div handles the zoom and fade effect */}
+                      <div className="overflow-hidden transform scale-95 opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100 delay-75">
                         
                         {/* Description */}
                         <p className="mb-4 text-center text-sm leading-relaxed text-gray-500">
                           {service.description}
                         </p>
 
-                        {/* Separator and Icon (Purely decorative now, no buttons/text) */}
+                        {/* Separator and Icon */}
                         <div className="flex flex-col items-center justify-center space-y-4 pt-2">
-                          <div className="h-px w-3/4 bg-gray-200" /> {/* Separator Line */}
+                          <div className="h-px w-3/4 bg-gray-200" />
                           <IconComponent className="h-6 w-6 text-blue-900/70" />
                         </div>
 
