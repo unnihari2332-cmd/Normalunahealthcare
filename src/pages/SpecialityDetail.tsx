@@ -179,23 +179,22 @@ const SpecialityDetailPage = () => {
                       <div className="flex items-start gap-2">
                         <MapPin className="w-4 h-4 text-primary-foreground/70 mt-0.5 flex-shrink-0" />
                         <p className="text-primary-foreground/80 text-sm">
-                          511 SW 10th Ave #1206, Portland,<br />
-                          OR United States
+                           No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel,<br /> Thousand Lights West, Nungambakkam,<br /> Chennai, Tamil Nadu 600034
+                      
                         </p>
                       </div>
                       <div className="flex items-center gap-2">
                         <Mail className="w-4 h-4 text-primary-foreground/70 flex-shrink-0" />
-                        <span className="text-primary-foreground/80 text-sm">contact@normaluna.com</span>
+                        <span className="text-primary-foreground/80 text-sm">info@normaluna.co</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Phone className="w-4 h-4 text-primary-foreground/70 flex-shrink-0" />
-                        <span className="text-primary-foreground/80 text-sm">+1 800-123-1234</span>
+                        <span className="text-primary-foreground/80 text-sm">+91 73587 46061</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <Clock className="w-4 h-4 text-primary-foreground/70 mt-0.5 flex-shrink-0" />
                         <div className="text-primary-foreground/80 text-sm">
-                          <p>Mon–Sat: 7:00am–10:00pm</p>
-                          <p>Sunday: 8:30am–10:30pm</p>
+                          <p>24/7 Support</p>
                         </div>
                       </div>
                     </div>
