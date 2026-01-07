@@ -72,8 +72,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Playfair Display"', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        display: ['Rubik', 'sans-serif'],
+        sans: ['Rubik', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

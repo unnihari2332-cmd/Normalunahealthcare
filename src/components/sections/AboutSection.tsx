@@ -70,7 +70,6 @@ export const AboutSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">{item.title}</h4>
-                    <p className="text-sm text-slate-600">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
