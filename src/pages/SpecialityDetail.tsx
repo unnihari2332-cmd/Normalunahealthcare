@@ -35,7 +35,7 @@ const SpecialityDetailPage = () => {
     );
   }
 
-  // Get ALL related specialities
+  // Get ALL related specialities (no slice limit)
   const relatedSpecialities = specialities.filter(s => s.id !== speciality.id);
 
   return (
@@ -54,32 +54,36 @@ const SpecialityDetailPage = () => {
       </div>
 
       {/* Main Content */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-background overflow-hidden"> 
+        {/* Added overflow-hidden to body to prevent scrollbars during animation */}
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Content */}
+            
+            {/* Left Content - Pan from Left */}
             <div className="lg:col-span-2 space-y-10">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, x: -50 }} // Start 50px to the left
+                animate={{ opacity: 1, x: 0 }}   // Animate to natural position
+                transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <div className="rounded-2xl overflow-hidden mb-8">
-                  <img
+                <div className="rounded-2xl overflow-hidden mb-8 shadow-sm">
+                  <motion.img
                     src={speciality.image}
                     alt={speciality.title}
                     className="w-full h-[400px] object-cover"
+                    whileHover={{ scale: 1.05 }} // Subtle zoom on hover
+                    transition={{ duration: 0.5 }}
                   />
                 </div>
 
                 <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
                   About {speciality.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-8">
+                <p className="text-muted-foreground leading-relaxed mb-8 text-lg">
                   {speciality.fullDescription}
                 </p>
 
-                {/* Treatments */}
+                {/* Treatments - Staggered Pan from Left */}
                 <h3 className="font-display text-xl font-semibold mb-6">
                   Treatments & Procedures
                 </h3>
@@ -87,9 +91,9 @@ const SpecialityDetailPage = () => {
                   {speciality.treatments.map((treatment, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: -30 }} // Pan items from left
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      transition={{ duration: 0.4, delay: 0.1 + (index * 0.05) }}
                       className="flex items-center justify-between p-4 border-b border-border hover:bg-secondary/50 transition-colors group"
                     >
                       <div className="flex items-center gap-3">
@@ -98,23 +102,23 @@ const SpecialityDetailPage = () => {
                         </div>
                         <span className="text-foreground">{treatment}</span>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100 group-hover:translate-x-1 duration-300" />
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Benefits */}
+                {/* Benefits - Fade Up */}
                 <h3 className="font-display text-xl font-semibold mb-6">
                   Why Choose Us
                 </h3>
-                <div className="bg-card rounded-2xl p-6 border border-border">
+                <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
                   <div className="space-y-4">
                     {speciality.benefits.map((benefit, index) => (
                       <motion.div
                         key={index}
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        transition={{ duration: 0.4, delay: 0.3 + (index * 0.05) }}
                         className="flex items-start gap-3"
                       >
                         <div className="w-8 h-8 rounded-full bg-[#E8F4F8] flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -128,12 +132,12 @@ const SpecialityDetailPage = () => {
               </motion.div>
             </div>
 
-            {/* Right Sidebar */}
+            {/* Right Sidebar - Pan from Right */}
             <div className="lg:col-span-1">
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                initial={{ opacity: 0, x: 50 }} // Start 50px to the right
+                animate={{ opacity: 1, x: 0 }}  // Animate to natural position
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 className="space-y-6"
               >
                 {/* Services/Related Specialities */}
@@ -142,6 +146,7 @@ const SpecialityDetailPage = () => {
                     <h4 className="font-semibold text-lg">Other Specialities</h4>
                   </div>
                   
+                  {/* Full list without scroll */}
                   <div className="divide-y divide-border">
                     {relatedSpecialities.map((related) => (
                       <Link
@@ -150,17 +155,17 @@ const SpecialityDetailPage = () => {
                         onClick={() => window.scrollTo(0, 0)}
                         className="flex items-center justify-between px-6 py-4 hover:bg-secondary/50 transition-colors group"
                       >
-                        <span className="text-foreground group-hover:text-primary transition-colors text-sm font-medium">
+                        <span className="text-foreground group-hover:text-primary transition-colors text-sm font-medium group-hover:translate-x-2 duration-300 block">
                           {related.title}
                         </span>
-                        {/* Arrow icon removed from here */}
+                        {/* No arrow icon here */}
                       </Link>
                     ))}
                   </div>
                 </div>
 
                 {/* Appointment Card */}
-                <div className="bg-navy rounded-2xl overflow-hidden">
+                <div className="bg-navy rounded-2xl overflow-hidden shadow-lg">
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
@@ -199,7 +204,7 @@ const SpecialityDetailPage = () => {
                     </div>
 
                     <Link to="/appointment">
-                      <Button className="w-full bg-white text-navy hover:bg-white/90 rounded-full font-semibold">
+                      <Button className="w-full bg-white text-navy hover:bg-white/90 rounded-full font-semibold transition-transform hover:scale-105">
                         Book Now
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
@@ -219,6 +224,7 @@ const SpecialityDetailPage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
             <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
               Ready to Get Started?
@@ -228,12 +234,12 @@ const SpecialityDetailPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/appointment">
-                <Button size="lg" className="bg-primary hover:bg-teal-light text-primary-foreground rounded-full px-8">
+                <Button size="lg" className="bg-primary hover:bg-teal-light text-primary-foreground rounded-full px-8 hover:scale-105 transition-transform">
                   Book Appointment
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 rounded-full px-8">
+                <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 rounded-full px-8 hover:scale-105 transition-transform">
                   Contact Us
                 </Button>
               </Link>
