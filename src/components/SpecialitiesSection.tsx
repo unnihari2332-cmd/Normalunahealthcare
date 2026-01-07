@@ -155,7 +155,7 @@ const SpecialitiesSection: React.FC = () => {
                   </p>
                   
                   <Link 
-                    to={`/speciality/${item.id}`} 
+                    to={`/specialities/${item.id}`} 
                     className="inline-flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors mt-2 group"
                   >
                     Read More 
@@ -166,7 +166,7 @@ const SpecialitiesSection: React.FC = () => {
                 {/* Icon Button (Visual Only) */}
                 <div className="shrink-0 hidden md:flex">
                   <Link 
-                    to={`/speciality/${item.id}`}
+                    to={`/specialities/${item.id}`}
                     className="w-14 h-14 bg-[#0F172A] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors shadow-lg"
                   >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
