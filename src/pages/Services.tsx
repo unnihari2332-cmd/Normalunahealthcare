@@ -12,6 +12,7 @@ import {
   HeartPulse,
   Activity,
   Languages,
+  ArrowRight, // Added Arrow icon
 } from "lucide-react";
 import heroImage from "@/assets/hero-medical.jpg";
 import consultation from "@/assets/consultation.jpg";
@@ -49,7 +50,7 @@ const services = [
   },
   {
     icon: Calculator,
-    title: "Assistance With Treatment Planning, Scheduling, And Cost Estimation",
+    title: "Assistance With Treatment Planning & Cost Estimation",
     description: "We connect you with top hospitals and specialists. Transparent pricing and efficient scheduling.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
   },
@@ -81,7 +82,7 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       <Header />
 
       <div className="pt-20">
@@ -92,44 +93,63 @@ const ServicesPage = () => {
         />
       </div>
 
-      <section className="py-16 px-4 md:px-8">
+      <section className="py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
-              // Extract the specific icon component for this service
               const IconComponent = service.icon;
 
               return (
-                <div key={index} className="flex flex-col h-full bg-white group cursor-pointer">
-                  {/* Image Section */}
-                  <div className="w-full h-56 overflow-hidden mb-6">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                <div
+                  key={index}
+                  className="group relative h-[450px] w-full overflow-hidden rounded-2xl cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300"
+                >
+                  {/* Background Image - Covers the whole card */}
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                  />
 
-                  {/* Content Section */}
-                  <div className="flex flex-col flex-grow items-center text-center px-4">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
-                      {service.title}
-                    </h3>
+                  {/* Dark Overlay (Optional, makes text pop more if image is light) */}
+                  <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/30" />
+
+                  {/* The Floating White Box */}
+                  <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white p-6 shadow-2xl transition-all duration-500">
                     
-                    <p className="text-gray-500 text-sm leading-relaxed mb-8">
-                      {service.description}
-                    </p>
+                    {/* Title: Always Visible */}
+                    <div className="text-center">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        {service.title}
+                      </h3>
+                    </div>
 
-                    {/* Icon Section (Replaced Button) */}
-                    <div className="mt-auto mb-8">
-                      <div className="p-4 rounded-full bg-blue-50 group-hover:bg-blue-100 transition-colors duration-300">
-                        <IconComponent className="w-8 h-8 text-[#1B2A49]" />
+                    {/* Hidden Content: Expands on Hover */}
+                    {/* We use grid-rows for smooth height animation from 0 to auto */}
+                    <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-in-out group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-4">
+                      <div className="overflow-hidden">
+                        
+                        {/* Description */}
+                        <p className="mb-6 text-center text-sm leading-relaxed text-gray-500">
+                          {service.description}
+                        </p>
+
+                        {/* Visual Elements: Arrow and Separator */}
+                        <div className="flex flex-col items-center justify-center space-y-4">
+                          <ArrowRight className="h-6 w-6 text-gray-400 transition-transform duration-300 group-hover:translate-x-2" />
+                          
+                          <div className="h-px w-3/4 bg-gray-200" /> {/* Separator Line */}
+                          
+                          {/* Icon */}
+                          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-900">
+                             <IconComponent className="h-5 w-5" />
+                             <span>Learn More</span>
+                          </div>
+                        </div>
+
                       </div>
                     </div>
                   </div>
-
-                  {/* Animated Bottom Line (Left to Right) */}
-                  <div className="h-[3px] bg-[#1B2A49] mt-4 w-0 group-hover:w-full transition-all duration-500 ease-in-out"></div>
                 </div>
               );
             })}
