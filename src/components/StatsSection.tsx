@@ -1,5 +1,11 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { 
+  motion, 
+  useMotionValue, 
+  useTransform, 
+  animate, 
+  useInView 
+} from "framer-motion";
 import { 
   Heart, 
   Puzzle, 
@@ -9,6 +15,7 @@ import {
   LucideIcon 
 } from "lucide-react";
 
+// --- Types ---
 interface ValueItem {
   id: string;
   title: string;
@@ -16,6 +23,41 @@ interface ValueItem {
   description: string;
   color: string;
 }
+
+interface StatItem {
+  value: number;
+  suffix: string;
+  label: string;
+  text: string;
+}
+
+// --- Data ---
+const stats: StatItem[] = [
+  {
+    value: 5,
+    suffix: "+",
+    label: "Years of experience",
+    text: "A legacy of saving lives and transforming health for over two decades, driven by innovation and unwavering compassion."
+  },
+  {
+    value: 100,
+    suffix: "+",
+    label: "Happy Clients",
+    text: "Your health, our priority – proven by 20,000+ satisfied patients, and growing stronger every day with exceptional care."
+  },
+  {
+    value: 20,
+    suffix: "+",
+    label: "Specialities",
+    text: "Norma Luna Hospital proudly offers over 20 specialized medical services. Our expert teams are dedicated to delivering exceptional healthcare across various disciplines."
+  },
+  {
+    value: 150,
+    suffix: "+",
+    label: "Qualified Doctors",
+    text: "We are proud to have a team of over 150 expert doctors, each specializing in diverse medical fields to provide the best care. Our skilled physicians are committed to delivering personalized treatments and exceptional patient outcomes."
+  }
+];
 
 const values: ValueItem[] = [
   {
@@ -55,6 +97,7 @@ const values: ValueItem[] = [
   },
 ];
 
+// --- Animation Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -70,7 +113,25 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-// Renamed from WhyChooseUs to StatsSection to match your Index.tsx import
+// --- Sub-Component for Counting Numbers ---
+const Counter = ({ from, to, duration = 2 }: { from: number; to: number; duration?: number }) => {
+  const nodeRef = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(nodeRef, { once: true, margin: "-10px" });
+  
+  const count = useMotionValue(from);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(count, to, { duration: duration, ease: "easeOut" });
+      return controls.stop;
+    }
+  }, [count, from, to, duration, isInView]);
+
+  return <motion.span ref={nodeRef}>{rounded}</motion.span>;
+};
+
+// --- Main Component ---
 export const StatsSection = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
@@ -81,6 +142,33 @@ export const StatsSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+        
+        {/* --- NEW STATS COUNTER SECTION --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32 border-b border-gray-100 pb-16">
+          {stats.map((stat, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="text-center md:text-left space-y-3"
+            >
+              <div className="text-5xl font-black text-blue-600 flex justify-center md:justify-start items-baseline">
+                <Counter from={0} to={stat.value} />
+                <span>{stat.suffix}</span>
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 uppercase tracking-wide">
+                {stat.label}
+              </h4>
+              <p className="text-gray-500 text-sm leading-relaxed pr-4">
+                {stat.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* --- WHY CHOOSE US HEADER --- */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: -20 }}
@@ -98,6 +186,7 @@ export const StatsSection = () => {
           />
         </div>
 
+        {/* --- VALUES GRID --- */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
