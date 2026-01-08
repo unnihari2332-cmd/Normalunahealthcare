@@ -2,12 +2,10 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StatsSection } from "@/components/StatsSection";
 import SpecialitiesSection from "@/components/SpecialitiesSection"; 
-import ServicesSection from "@/components/ServicesSection";  
+import { ServicesSection } from "@/components/ServicesSection"; 
 import {
   HeroSection,
   AboutSection,
-  // SpecialitiesSection, <--- DELETE THIS LINE
-  ContactOptionsSection,
   TestimonialsSection,
   CTASection,
 } from "@/components/sections";
