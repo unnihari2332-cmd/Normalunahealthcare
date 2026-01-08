@@ -12,15 +12,13 @@ import {
   Languages,
 } from "lucide-react";
 
-// Keep these imports if these images are still in src/assets
-import heroImage from "@/assets/hero-medical.jpg";
+// Images for the specific cards (Consultation)
 import consultation from "@/assets/consultation.jpg";
 
-// --- CHANGE: Reference the file directly from the public folder ---
-// React/Next.js/Vite serves files in 'public' at the root path "/"
+// --- BACKGROUND IMAGE CONFIGURATION ---
+// Ensure this file exists in your 'public' folder
 const backgroundImage = "/image-gen-blue-.png"; 
 
-// YOUR EXACT CONTENT
 const services = [
   {
     icon: Users,
@@ -86,79 +84,69 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="w-full min-h-screen bg-gray-50 flex flex-col lg:flex-row font-sans">
+    <section className="w-full min-h-screen relative font-sans">
       
-      {/* --- LEFT SIDE: HERO IMAGE (25%) --- */}
-      <div className="w-full lg:w-1/4 h-[300px] lg:h-screen lg:sticky lg:top-0 overflow-hidden relative z-10">
-        <img
-          src={heroImage}
-          alt="Medical Team"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/10"></div>
-      </div>
+      {/* LAYER 1: Background Image from PUBLIC folder */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
 
-      {/* --- RIGHT SIDE: CONTENT CONTAINER (75%) --- */}
-      <div className="w-full lg:w-3/4 relative min-h-screen">
-        
-        {/* LAYER 1: Background Image from PUBLIC folder */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+      {/* ----- OVERLAY REMOVED HERE ----- */}
 
-        {/* LAYER 2: White Overlay */}
-        {/* bg-white/90 = 90% opacity white. Adjust this if you want to see more of the background image */}
-        <div className="absolute inset-0 z-10 bg-white/90" />
-
-        {/* LAYER 3: Actual Content */}
-        <div className="relative z-20 h-full px-6 py-16 md:px-12 lg:px-16 xl:px-24 lg:py-24 overflow-y-auto">
-          <div className="max-w-7xl mx-auto">
-            
-            {/* Header Section */}
-            <div className="mb-14">
-              <div className="inline-block border-b-[3px] border-blue-600 pb-1 mb-5">
-                <span className="text-blue-700 font-bold text-sm tracking-[0.15em] uppercase">
-                  Department
-                </span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-                Healthcare Services
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed max-w-3xl">
-                We provide end-to-end medical travel facilitation. From your first inquiry to your 
-                safe return home, our team manages every detail.
-              </p>
+      {/* LAYER 2: Content Container (Full Width) */}
+      <div className="relative z-10 w-full h-full px-6 py-16 md:px-12 lg:px-16 xl:px-24 lg:py-24">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Header Section */}
+          <div className="mb-14">
+            <div className="inline-block border-b-[3px] border-blue-500 pb-1 mb-5">
+              {/* Lighter blue text for better contrast on dark bg */}
+              <span className="text-blue-400 font-bold text-sm tracking-[0.15em] uppercase">
+                Department
+              </span>
             </div>
-
-            {/* Services Grid (3 Columns) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
-              {services.map((service, index) => {
-                const IconComponent = service.icon;
-                return (
-                  <div key={index} className="flex flex-col items-start group">
-                    <div className="mb-5">
-                      <IconComponent 
-                        className="w-10 h-10 text-blue-700" 
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug pr-4">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
+            {/* White text */}
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+              Healthcare Services
+            </h2>
+            {/* Light grey text */}
+            <p className="text-gray-200 text-lg leading-relaxed max-w-3xl">
+              We provide end-to-end medical travel facilitation. From your first inquiry to your 
+              safe return home, our team manages every detail.
+            </p>
           </div>
+
+          {/* Services Grid (3 Columns) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <div key={index} className="flex flex-col items-start group">
+                  <div className="mb-5">
+                    {/* Lighter blue icon */}
+                    <IconComponent 
+                      className="w-10 h-10 text-blue-400" 
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                  {/* White title */}
+                  <h3 className="text-lg font-bold text-white mb-3 leading-snug pr-4">
+                    {service.title}
+                  </h3>
+                  {/* Light grey description */}
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </div>
     </section>
