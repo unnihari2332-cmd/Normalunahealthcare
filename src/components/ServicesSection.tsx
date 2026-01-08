@@ -1,156 +1,164 @@
-import React from "react";
-import {
-  Users,
-  FileText,
-  Plane,
-  Building2,
-  Car,
-  Calculator,
-  ClipboardList,
-  HeartPulse,
-  Activity,
-  Languages,
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, ArrowUp, Bell, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import logo from "@/assets/normaluna-logo.png";
 
-// Images for the specific cards (Consultation)
-import consultation from "@/assets/consultation.jpg";
-
-// --- BACKGROUND IMAGE CONFIGURATION ---
-// Ensure this file exists in your 'public' folder
-const backgroundImage = "/image-gen-blue-.png"; 
-
-const services = [
-  {
-    icon: Users,
-    title: "Seasoned Facilitators With Extensive Experience",
-    description: "Expert medical travel coordinators ensure a smooth journey. We handle every detail for a stress-free experience.",
-    image: consultation,
-  },
-  {
-    icon: FileText,
-    title: "Handling And Processing Of Visas",
-    description: "Hassle-free visa assistance for medical travelers. We streamline paperwork for quick approvals.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600",
-  },
-  {
-    icon: Plane,
-    title: "Coordination Of Air Travel Arrangements",
-    description: "We arrange flights suited to your schedule and needs. Seamless booking for a smooth travel experience.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600",
-  },
-  {
-    icon: Building2,
-    title: "Accommodation Arrangements",
-    description: "Stay at trusted hotels or recovery homes. We secure safe, comfortable, and budget-friendly lodging.",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
-  },
-  {
-    icon: Car,
-    title: "Local Transportation Coordination",
-    description: "Reliable transport for airport, hospital, and hotel transfers. Comfort and punctuality at every step.",
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600",
-  },
-  {
-    icon: Calculator,
-    title: "Assistance With Treatment Planning & Cost Estimation",
-    description: "We connect you with top hospitals and specialists. Transparent pricing and efficient scheduling.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
-  },
-  {
-    icon: ClipboardList,
-    title: "Pre-Consultation And Assessment Of Medical Records",
-    description: "Get expert evaluation before your medical journey. We ensure the right specialists review your case.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600",
-  },
-  {
-    icon: HeartPulse,
-    title: "Follow-Up Care After Treatment",
-    description: "Continued support for post-treatment recovery. Coordination with doctors for aftercare and consultations.",
-    image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600",
-  },
-  {
-    icon: Activity,
-    title: "Rehabilitation And Wellness Support",
-    description: "Access to recovery programs and wellness therapies. We assist in a smooth transition to good health.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600",
-  },
-  {
-    icon: Languages,
-    title: "Provision of Translator Services",
-    description: "Language support for seamless communication. Professional translators assist you at every step.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600",
-  },
+const quickLinks = [
+  { name: "About Us", path: "/about" },
+  { name: "Our Specialities", path: "/specialities" },
+  { name: "Testimonials", path: "/testimonials" },
+  { name: "Contact Us", path: "/contact" },
 ];
 
-export const ServicesSection = () => {
+export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <section className="w-full min-h-screen relative font-sans">
-      
-      {/* LAYER 1: Background Image from PUBLIC folder */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
+    <footer className="bg-[#1a1f50] text-white relative overflow-hidden font-sans">
+      {/* Background Gradient Effect */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+         <div className="absolute top-1/2 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent" />
+      </div>
 
-      {/* ----- OVERLAY REMOVED HERE ----- */}
-
-      {/* LAYER 2: Content Container (Full Width) */}
-      <div className="relative z-10 w-full h-full px-6 py-16 md:px-12 lg:px-16 xl:px-24 lg:py-24">
-        <div className="max-w-7xl mx-auto">
-          
-          {/* Header Section */}
-          <div className="mb-14">
-            <div className="inline-block border-b-[3px] border-blue-500 pb-1 mb-5">
-              {/* Lighter blue text for better contrast on dark bg */}
-              <span className="text-blue-400 font-bold text-sm tracking-[0.15em] uppercase">
-                Department
-              </span>
+      <div className="container mx-auto px-4 pt-16 pb-6 relative z-10">
+        
+        {/* --- Top Floating Section: Newsletter --- */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-[#2a3066] rounded-full p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6 mb-16 mx-auto w-full shadow-xl"
+        >
+          <div className="flex items-center gap-4 text-center md:text-left">
+            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <Bell className="w-6 h-6 text-white" />
             </div>
-            {/* White text */}
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-              Healthcare Services
-            </h2>
-            {/* Light grey text */}
-            <p className="text-gray-200 text-lg leading-relaxed max-w-3xl">
-              We provide end-to-end medical travel facilitation. From your first inquiry to your 
-              safe return home, our team manages every detail.
+            <div>
+              <h3 className="font-semibold text-lg">Important Updates Waiting For You</h3>
+              <p className="text-sm text-gray-300">Subscribe for the latest updates on Norma Luna Healthcare.</p>
+            </div>
+          </div>
+
+          <div className="flex w-full md:w-auto bg-white rounded-full p-1 pl-4 items-center">
+            <input 
+              type="email" 
+              placeholder="Your Email Address" 
+              className="bg-transparent text-gray-800 placeholder:text-gray-400 focus:outline-none flex-grow text-sm w-full md:w-64"
+            />
+            <button className="bg-[#1a1f50] text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-900 transition-colors">
+              Subscribe Now
+            </button>
+          </div>
+        </motion.div>
+
+        {/* --- Main Content Grid --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12 border-b border-white/10 pb-12">
+          
+          {/* Column 1: Brand Info (LEFT SIDE) */}
+          <div className="space-y-6 text-left">
+            {/* Logo Image and Text Side-by-Side */}
+            <div className="flex items-center gap-3 justify-start">
+               {/* Filters removed here so the logo appears in its original colors */}
+               <img 
+                 src={logo} 
+                 alt="Norma Luna Healthcare" 
+                 className="h-12 w-auto" 
+               />
+               <h3 className="text-lg font-bold tracking-wide uppercase leading-tight">
+                 NORMA LUNA<br/>HEALTHCARE
+               </h3>
+            </div>
+            
+            <p className="text-gray-300 text-sm leading-relaxed text-left">
+              Norma Luna Healthcare is dedicated to providing compassionate, patient-centered care tailored to your unique needs. Our expert team prioritizes your well-being, ensuring a journey of healing and trust.
             </p>
+            
+            {/* Social Icons */}
+            <div className="flex gap-3 pt-2 justify-start">
+              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, index) => (
+                <a key={index} href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-[#1a1f50] transition-all text-white">
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Services Grid (3 Columns) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
-            {services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <div key={index} className="flex flex-col items-start group">
-                  <div className="mb-5">
-                    {/* Lighter blue icon */}
-                    <IconComponent 
-                      className="w-10 h-10 text-blue-400" 
-                      strokeWidth={1.5}
-                    />
-                  </div>
-                  {/* White title */}
-                  <h3 className="text-lg font-bold text-white mb-3 leading-snug pr-4">
-                    {service.title}
-                  </h3>
-                  {/* Light grey description */}
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              );
-            })}
+          {/* Column 2: Quick Links (CENTER) */}
+          <div className="lg:pl-10 text-left">
+            <h3 className="font-semibold text-xl mb-6">Quick Links</h3>
+            <ul className="space-y-4">
+              {quickLinks.map((link) => (
+                <li key={link.path}>
+                  <Link 
+                    to={link.path} 
+                    className="text-gray-300 hover:text-white transition-colors text-sm flex items-center gap-2 group"
+                  >
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-white transition-all duration-300" />
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
+          {/* Column 3: Contact Info (RIGHT) */}
+          <div className="text-left">
+            <h3 className="font-semibold text-xl mb-6">Contact With Us!</h3>
+            <div className="space-y-5">
+              <div className="flex items-start gap-4">
+                <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West, Nungambakkam, Chennai, Tamil Nadu 600034
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <Mail className="w-5 h-5 text-white" />
+                <a href="mailto:info@normaluna.co" className="text-gray-300 text-sm hover:text-white transition-colors">
+                  info@normaluna.co
+                </a>
+              </div>
+
+              <div className="flex items-center gap-4 pt-2">
+                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center animate-pulse">
+                    <Phone className="w-4 h-4 text-white" />
+                 </div>
+                 <div>
+                    <p className="text-xs text-gray-400">Emergency 24/7</p>
+                    <p className="text-white font-semibold tracking-wide">+91 7358746061</p>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* --- Bottom Bar --- */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+          <p className="text-center md:text-left">
+            © 2025 Copyright Reserved to Normaluna, Designed by{" "}
+            <a href="#" className="text-white font-medium hover:underline">
+              Indiafloats Technologies
+            </a>
+          </p>
+          
+          <div className="flex items-center gap-4">
+            <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <span className="w-1 h-1 bg-gray-600 rounded-full" />
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          </div>
+
+          <motion.button
+            onClick={scrollToTop}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-white hover:text-[#1a1f50] text-white transition-all ml-auto md:ml-0"
+          >
+            <ArrowUp className="w-4 h-4" />
+          </motion.button>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
-
-export default ServicesSection;
