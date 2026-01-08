@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
-import logo from "@/assets/normaluna-logo.png"; // ✅ icon-only logo image
+import logo from "@/assets/normaluna-logo.png";
 
 export const Footer = () => {
   return (
-    <footer className="bg-navy text-primary-foreground">
+    <footer className="bg-[#23246B] text-primary-foreground">
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
-          {/* Logo Section (ONLY LOGO) */}
+          {/* Logo Section */}
           <div className="flex flex-col items-start">
             <Link to="/">
               <img
                 src={logo}
                 alt="Norma Luna Healthcare"
-                className="h-12 w-auto mb-4"
+                className="h-12 w-auto mb-4 border-2 border-white rounded-lg p-1"
               />
             </Link>
 
@@ -53,15 +53,15 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1" />
-                <span>Norma Luna Healthcare, India</span>
+                <span>No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West, Nungambakkam, Chennai, Tamil Nadu 600034</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>+91 98765 43210</span>
+                <span>+91 7358746061</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>info@normaluna.com</span>
+                <span>info@normaluna.co</span>
               </li>
             </ul>
 
@@ -77,7 +77,7 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-primary-foreground/10 py-4">
+      <div className="border-t border-white/10 py-4">
         <div className="container mx-auto px-4 text-center text-sm text-primary-foreground/60">
           © {new Date().getFullYear()} Norma Luna Healthcare. All rights reserved.
         </div>
