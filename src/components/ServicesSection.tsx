@@ -11,10 +11,9 @@ import {
   Activity,
   Languages,
 } from "lucide-react";
-import heroImage from "@/assets/hero-medical.jpg";
-import consultation from "@/assets/consultation.jpg";
 
-// YOUR EXACT CONTENT
+
+// YOUR EXACT CONTENT (10 Items)
 const services = [
   {
     icon: Users,
@@ -82,70 +81,67 @@ export const ServicesSection = () => {
   return (
     <section className="w-full min-h-screen bg-white flex flex-col lg:flex-row font-sans">
       
-      {/* --- LEFT SIDE: IMAGE --- 
-          Takes 50% width on desktop.
-          Sticky positioning makes it stay in place while you scroll the content on the right.
+      {/* --- LEFT SIDE: IMAGE (25%) --- 
+          lg:w-1/4 = 25% width
       */}
-      <div className="w-full lg:w-1/2 h-[400px] lg:h-screen lg:sticky lg:top-0 overflow-hidden relative">
+      <div className="w-full lg:w-1/4 h-[300px] lg:h-screen lg:sticky lg:top-0 overflow-hidden relative">
         <img
           src={heroImage}
           alt="Medical Team"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Subtle overlay to ensure it feels premium */}
         <div className="absolute inset-0 bg-black/5"></div>
       </div>
 
-      {/* --- RIGHT SIDE: CONTENT --- 
-          Takes 50% width on desktop.
-          Scrollable area for the list of services.
+      {/* --- RIGHT SIDE: CONTENT (75%) --- 
+          lg:w-3/4 = 75% width
       */}
-      <div className="w-full lg:w-1/2 bg-white px-6 py-16 md:px-12 lg:px-16 xl:px-20 lg:py-24">
-        <div className="max-w-2xl mx-auto lg:mx-0">
+      <div className="w-full lg:w-3/4 bg-white px-6 py-16 md:px-12 lg:px-16 xl:px-24 lg:py-24 overflow-y-auto">
+        <div className="max-w-7xl mx-auto">
           
-          {/* Header Section (Matching the Reference Image Style) */}
+          {/* Header Section */}
           <div className="mb-14">
-            {/* The "DEPARTMENT" eyebrow with blue underline */}
             <div className="inline-block border-b-[3px] border-blue-600 pb-1 mb-5">
               <span className="text-blue-700 font-bold text-sm tracking-[0.15em] uppercase">
                 Department
               </span>
             </div>
-            
-            {/* Main Title */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
               Healthcare Services
             </h2>
-            
-            {/* Intro Text */}
-            <p className="text-gray-500 text-lg leading-relaxed">
+            <p className="text-gray-500 text-lg leading-relaxed max-w-3xl">
               We provide end-to-end medical travel facilitation. From your first inquiry to your 
               safe return home, our team manages every detail.
             </p>
           </div>
 
-          {/* Services Grid 
-              Using grid-cols-1 on mobile, grid-cols-2 on tablet/desktop to match the reference.
+          {/* Services Grid - 3 Columns 
+              grid-cols-1 (Mobile) -> grid-cols-2 (Tablet) -> grid-cols-3 (Desktop)
+              With 10 items, this will result in:
+              Row 1: 3 items
+              Row 2: 3 items
+              Row 3: 3 items
+              Row 4: 1 item (Last row one)
           */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
                 <div key={index} className="flex flex-col items-start group">
-                  {/* Icon: Thin blue stroke */}
-                  <div className="mb-4">
+                  {/* Icon */}
+                  <div className="mb-5">
                     <IconComponent 
                       className="w-10 h-10 text-blue-700" 
                       strokeWidth={1.5}
                     />
                   </div>
 
-                  {/* Title: Bold Dark Text */}
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug">
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug pr-4">
                     {service.title}
                   </h3>
 
-                  {/* Description: Muted Grey Text */}
+                  {/* Description */}
                   <p className="text-sm text-gray-500 leading-relaxed">
                     {service.description}
                   </p>
