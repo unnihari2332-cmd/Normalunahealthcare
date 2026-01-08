@@ -1,11 +1,8 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StatsSection } from "@/components/StatsSection";
-
-// 1. Import SpecialitiesSection separately since it is NOT in the sections folder
 import SpecialitiesSection from "@/components/SpecialitiesSection"; 
-
-// 2. Remove it from this list
+import ServicesSection from "@/components/ServicesSection";  
 import {
   HeroSection,
   AboutSection,
@@ -22,6 +19,7 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <StatsSection />
+      <ServicesSection />
       <SpecialitiesSection />
       <TestimonialsSection />
       <CTASection />
