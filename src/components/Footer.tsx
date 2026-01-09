@@ -3,6 +3,17 @@ import { Phone, Mail, MapPin, Facebook, Linkedin, Instagram } from "lucide-react
 import logo from "@/assets/normaluna-logo.png";
 
 export const Footer = () => {
+  // Links derived from your Header configuration
+  const footerLinks = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Specialities", path: "/specialities" },
+    { name: "Services", path: "/services" },     // Added from Header
+    { name: "Testimonials", path: "/testimonials" }, // Added from Header
+    { name: "Contact Us", path: "/contact" },
+    { name: "Appointment", path: "/appointment" } // Kept as it's essential for the footer
+  ];
+
   return (
     <footer className="bg-[#23246B] text-primary-foreground">
       <div className="container mx-auto px-4 py-14">
@@ -14,7 +25,7 @@ export const Footer = () => {
               <img
                 src={logo}
                 alt="Norma Luna Healthcare"
-                className="h-12 w-auto mb-4 border-2 border-white rounded-lg p-1"
+                className="h-12 w-auto mb-4 bg-white border-2 border-white rounded-lg p-1"
               />
             </Link>
 
@@ -23,19 +34,21 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links (Updated to match Header) */}
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/" className="hover:text-primary transition">Home</Link></li>
-              <li><Link to="/about" className="hover:text-primary transition">About Us</Link></li>
-              <li><Link to="/specialities" className="hover:text-primary transition">Specialities</Link></li>
-              <li><Link to="/appointment" className="hover:text-primary transition">Appointment</Link></li>
-              <li><Link to="/contact" className="hover:text-primary transition">Contact</Link></li>
+              {footerLinks.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.path} className="hover:text-primary transition">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services (Medical Departments) */}
           <div>
             <h4 className="font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-sm">
