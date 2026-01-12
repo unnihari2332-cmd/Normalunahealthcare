@@ -13,18 +13,15 @@ import {
 } from "lucide-react";
 
 // Images for the specific cards (Consultation)
-import consultation from "@/assets/consultation.jpg";
-
-// --- BACKGROUND IMAGE CONFIGURATION ---
-// Ensure this file exists in your 'public' folder
-const backgroundImage = "/image-gen-blue-.png"; 
+// import consultation from "@/assets/consultation.jpg"; 
+// Note: Ensure the import above is correct or use a placeholder if the file is missing during dev
 
 const services = [
   {
     icon: Users,
     title: "Seasoned Facilitators With Extensive Experience",
     description: "Expert medical travel coordinators ensure a smooth journey. We handle every detail for a stress-free experience.",
-    image: consultation,
+    image: null, // Placeholder if needed
   },
   {
     icon: FileText,
@@ -86,17 +83,16 @@ export const ServicesSection = () => {
   return (
     <section className="w-full min-h-screen relative font-sans">
       
-      {/* LAYER 1: Background Image from PUBLIC folder */}
+      {/* LAYER 1: Gradient Background */}
+      {/* Hex #D9EBF5 is RGB(217, 235, 245).
+          Gradient goes from opacity 1 (100%) at top to opacity 0 (0%) at bottom.
+      */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          background: `linear-gradient(to bottom, #D9EBF5 0%, rgba(217, 235, 245, 0) 100%)`
         }}
       />
-
-      {/* ----- OVERLAY REMOVED HERE ----- */}
 
       {/* LAYER 2: Content Container (Full Width) */}
       <div className="relative z-10 w-full h-full px-6 py-16 md:px-12 lg:px-16 xl:px-24 lg:py-24">
@@ -104,18 +100,16 @@ export const ServicesSection = () => {
           
           {/* Header Section */}
           <div className="mb-14">
-            <div className="inline-block border-b-[3px] border-blue-500 pb-1 mb-5">
-              {/* Lighter blue text for better contrast on dark bg */}
-              <span className="text-blue-400 font-bold text-sm tracking-[0.15em] uppercase">
+            <div className="inline-block border-b-[3px] border-blue-600 pb-1 mb-5">
+              <span className="text-blue-600 font-bold text-sm tracking-[0.15em] uppercase">
                 Department
               </span>
             </div>
-            {/* White text */}
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+            {/* Switched to dark text for contrast against light background */}
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
               Healthcare Services
             </h2>
-            {/* Light grey text */}
-            <p className="text-gray-200 text-lg leading-relaxed max-w-3xl">
+            <p className="text-slate-700 text-lg leading-relaxed max-w-3xl">
               We provide end-to-end medical travel facilitation. From your first inquiry to your 
               safe return home, our team manages every detail.
             </p>
@@ -128,18 +122,18 @@ export const ServicesSection = () => {
               return (
                 <div key={index} className="flex flex-col items-start group">
                   <div className="mb-5">
-                    {/* Lighter blue icon */}
+                    {/* Icon color darkened to blue-600 */}
                     <IconComponent 
-                      className="w-10 h-10 text-blue-400" 
+                      className="w-10 h-10 text-blue-600" 
                       strokeWidth={1.5}
                     />
                   </div>
-                  {/* White title */}
-                  <h3 className="text-lg font-bold text-white mb-3 leading-snug pr-4">
+                  {/* Title color darkened to gray-900 */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug pr-4">
                     {service.title}
                   </h3>
-                  {/* Light grey description */}
-                  <p className="text-sm text-gray-300 leading-relaxed">
+                  {/* Description color darkened to slate-600 */}
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
