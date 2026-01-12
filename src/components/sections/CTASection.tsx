@@ -8,7 +8,6 @@ interface CTASectionProps {
   description?: string;
   buttonText?: string;
   buttonLink?: string;
-  variant?: "gradient" | "solid";
 }
 
 export const CTASection = ({
@@ -16,40 +15,19 @@ export const CTASection = ({
   description = "Take care of your health and that of your family today. Book an appointment and start your journey to better health.",
   buttonText = "Book An Appointment",
   buttonLink = "/appointment",
-  variant = "gradient",
 }: CTASectionProps) => {
-  const bgClass =
-    variant === "gradient"
-      ? "bg-gradient-to-br from-navy via-teal-dark to-primary"
-      : "bg-navy";
-
   return (
-    <section className={`py-20 ${bgClass} relative overflow-hidden`}>
-      {variant === "gradient" && (
-        <>
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full border border-primary-foreground/10"
-          />
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-            className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full border border-primary-foreground/10"
-          />
-        </>
-      )}
-
+    <section className="py-20 bg-white relative overflow-hidden">
       <div className="relative container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-6">
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             {title}
           </h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
             {description}
           </p>
           <Link to={buttonLink}>
