@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Logo } from "./header/Logo";
 import { DesktopNav } from "./header/DesktopNav";
 import { MobileMenu } from "./header/MobileMenu";
 import { MobileMenuButton } from "./header/MobileMenuButton";
+import { Button } from "./ui/button";
 
 const leftLinks = [
   { name: "Home", path: "/", hasDropdown: false },
@@ -68,11 +70,15 @@ export const Header = () => {
           </div>
 
           {/* RIGHT NAV */}
-          <DesktopNav 
-            links={rightLinks} 
-            className="ml-auto" 
-            isScrolled={isScrolled}
-          />
+          <div className="hidden lg:flex items-center gap-6">
+            <DesktopNav 
+              links={rightLinks} 
+              isScrolled={isScrolled}
+            />
+            <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
+              <Link to="/appointment">Book an Appointment</Link>
+            </Button>
+          </div>
 
           {/* MOBILE MENU BUTTON */}
           <MobileMenuButton
