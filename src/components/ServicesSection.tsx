@@ -87,16 +87,17 @@ export const ServicesSection = () => {
         }}
       />
 
-      {/* LAYER 2: Content Container (Full Width) */}
+      {/* LAYER 2: Content Container */}
       <div className="relative z-10 w-full h-full px-6 py-16 md:px-12 lg:px-16 xl:px-24 lg:py-24">
-        
-        {/* FIX: Started max-w container here to wrap BOTH Title and Grid */}
         <div className="max-w-7xl mx-auto">
           
-          <div className="mb-6">
+          {/* Header Section: Centered with Underline and Spacing */}
+          <div className="flex flex-col items-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
               Services
             </h2>
+            {/* Blue Underline Bar */}
+            <div className="w-24 h-1.5 bg-blue-600 mt-4 rounded-full"></div>
           </div>
 
           {/* Services Grid (3 Columns) */}
@@ -122,8 +123,7 @@ export const ServicesSection = () => {
             })}
           </div>
           
-        </div> {/* FIX: Closed max-w container here */}
-
+        </div>
       </div>
     </section>
   );
