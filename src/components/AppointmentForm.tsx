@@ -26,7 +26,7 @@ export const AppointmentForm = () => {
   const [acceptTerms, setAcceptTerms] = useState(false);
 
   return (
-    <section className="py-16 bg-background">
+    <section id="appointment-form" className="py-16 bg-background scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Form Section */}
