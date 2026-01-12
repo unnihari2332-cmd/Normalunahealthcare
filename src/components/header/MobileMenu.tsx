@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "../ui/button";
 
 interface NavLink {
   name: string;
@@ -10,9 +11,10 @@ interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
   links: NavLink[];
+  onAppointmentClick?: () => void;
 }
 
-export const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
+export const MobileMenu = ({ isOpen, onClose, links, onAppointmentClick }: MobileMenuProps) => {
   const location = useLocation();
 
   return (
@@ -39,6 +41,13 @@ export const MobileMenu = ({ isOpen, onClose, links }: MobileMenuProps) => {
                 {link.name}
               </Link>
             ))}
+            <Button 
+              size="sm" 
+              className="bg-primary hover:bg-primary/90 mt-2 w-full"
+              onClick={onAppointmentClick}
+            >
+              Book an Appointment
+            </Button>
           </nav>
         </motion.div>
       )}

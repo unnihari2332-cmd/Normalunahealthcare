@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Logo } from "./header/Logo";
 import { DesktopNav } from "./header/DesktopNav";
@@ -24,9 +24,25 @@ const allLinks = [...leftLinks, ...rightLinks];
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleMobileMenuClose = () => setIsMobileMenuOpen(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  const handleAppointmentClick = () => {
+    if (location.pathname === "/appointment") {
+      // Already on appointment page, scroll to form
+      const formElement = document.getElementById("appointment-form");
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Navigate to appointment page
+      navigate("/appointment");
+    }
+    handleMobileMenuClose();
+  };
 
   // Handle Scroll Effect
   useEffect(() => {
@@ -75,8 +91,8 @@ export const Header = () => {
               links={rightLinks} 
               isScrolled={isScrolled}
             />
-            <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
-              <Link to="/appointment">Book an Appointment</Link>
+            <Button size="sm" className="bg-primary hover:bg-primary/90" onClick={handleAppointmentClick}>
+              Book an Appointment
             </Button>
           </div>
 
@@ -94,6 +110,7 @@ export const Header = () => {
         isOpen={isMobileMenuOpen}
         onClose={handleMobileMenuClose}
         links={allLinks}
+        onAppointmentClick={handleAppointmentClick}
       />
     </motion.header>
   );
