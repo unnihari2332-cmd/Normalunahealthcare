@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Logo } from "./header/Logo";
 import { DesktopNav } from "./header/DesktopNav";
@@ -21,34 +21,64 @@ const allLinks = [...leftLinks, ...rightLinks];
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleMobileMenuClose = () => setIsMobileMenuOpen(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  // Handle Scroll Effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-navy"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "bg-white shadow-md text-navy py-2" // Scrolled State
+          : "bg-transparent text-white py-4"    // Top (Hero) State
+      }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
+          
           {/* LEFT NAV */}
-          <DesktopNav links={leftLinks} />
+          {/* We pass the scrolled state in case you need specific hover colors to change */}
+          <DesktopNav 
+            links={leftLinks} 
+            isScrolled={isScrolled} 
+          />
 
           {/* CENTER LOGO */}
+          {/* Positioned absolutely to ensure it stays center regardless of left/right link lengths */}
           <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-            <Logo />
+            <Logo isScrolled={isScrolled} />
           </div>
 
           {/* RIGHT NAV */}
-          <DesktopNav links={rightLinks} className="ml-auto" />
+          <DesktopNav 
+            links={rightLinks} 
+            className="ml-auto" 
+            isScrolled={isScrolled}
+          />
 
           {/* MOBILE MENU BUTTON */}
           <MobileMenuButton
             isOpen={isMobileMenuOpen}
             onClick={toggleMobileMenu}
+            isScrolled={isScrolled} // Pass this to change button color (white vs dark)
           />
         </div>
       </div>
