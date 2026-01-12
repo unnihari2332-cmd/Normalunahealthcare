@@ -98,21 +98,10 @@ export const ServicesSection = () => {
       <div className="relative z-10 w-full h-full px-6 py-16 md:px-12 lg:px-16 xl:px-24 lg:py-24">
         <div className="max-w-7xl mx-auto">
           
-          {/* Header Section */}
-          <div className="mb-14">
-            <div className="inline-block border-b-[3px] border-blue-600 pb-1 mb-5">
-              <span className="text-blue-600 font-bold text-sm tracking-[0.15em] uppercase">
-                Department
-              </span>
-            </div>
             {/* Switched to dark text for contrast against light background */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-              Healthcare Services
+              Services
             </h2>
-            <p className="text-slate-700 text-lg leading-relaxed max-w-3xl">
-              We provide end-to-end medical travel facilitation. From your first inquiry to your 
-              safe return home, our team manages every detail.
-            </p>
           </div>
 
           {/* Services Grid (3 Columns) */}
