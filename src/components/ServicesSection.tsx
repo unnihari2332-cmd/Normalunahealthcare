@@ -12,16 +12,15 @@ import {
   Languages,
 } from "lucide-react";
 
-// Images for the specific cards (Consultation)
+// Placeholder for the missing local import, or use a specific URL
 // import consultation from "@/assets/consultation.jpg"; 
-// Note: Ensure the import above is correct or use a placeholder if the file is missing during dev
 
 const services = [
   {
     icon: Users,
     title: "Seasoned Facilitators With Extensive Experience",
     description: "Expert medical travel coordinators ensure a smooth journey. We handle every detail for a stress-free experience.",
-    image: null, // Placeholder if needed
+    image: null, // Will use fallback gradient
   },
   {
     icon: FileText,
@@ -84,9 +83,6 @@ export const ServicesSection = () => {
     <section className="w-full min-h-screen relative font-sans">
       
       {/* LAYER 1: Gradient Background */}
-      {/* Hex #D9EBF5 is RGB(217, 235, 245).
-          Gradient goes from opacity 1 (100%) at top to opacity 0 (0%) at bottom.
-      */}
       <div 
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -94,37 +90,62 @@ export const ServicesSection = () => {
         }}
       />
 
-      {/* LAYER 2: Content Container (Full Width) */}
+      {/* LAYER 2: Content Container */}
       <div className="relative z-10 w-full h-full px-6 py-16 md:px-12 lg:px-16 xl:px-24 lg:py-24">
         <div className="max-w-7xl mx-auto">
           
-            {/* Switched to dark text for contrast against light background */}
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          <div className="mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
               Services
             </h2>
+            <p className="mt-4 text-lg text-slate-600 max-w-2xl">
+              Comprehensive support for every step of your medical journey.
+            </p>
           </div>
 
-          {/* Services Grid (3 Columns) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const IconComponent = service.icon;
+              
               return (
-                <div key={index} className="flex flex-col items-start group">
-                  <div className="mb-5">
-                    {/* Icon color darkened to blue-600 */}
-                    <IconComponent 
-                      className="w-10 h-10 text-blue-600" 
-                      strokeWidth={1.5}
-                    />
+                <div 
+                  key={index} 
+                  className="group flex flex-col bg-white/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/50 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                >
+                  {/* Image Container */}
+                  <div className="h-48 w-full relative overflow-hidden">
+                    {service.image ? (
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      // Fallback for missing image (first item)
+                      <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+                        <Users className="w-16 h-16 text-blue-200" />
+                      </div>
+                    )}
+                    
+                    {/* Icon Overlay (Floating Badge) */}
+                    <div className="absolute top-4 left-4 bg-white p-3 rounded-xl shadow-md">
+                      <IconComponent 
+                        className="w-6 h-6 text-blue-600" 
+                        strokeWidth={1.5}
+                      />
+                    </div>
                   </div>
-                  {/* Title color darkened to gray-900 */}
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug pr-4">
-                    {service.title}
-                  </h3>
-                  {/* Description color darkened to slate-600 */}
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {service.description}
-                  </p>
+
+                  {/* Text Content */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
