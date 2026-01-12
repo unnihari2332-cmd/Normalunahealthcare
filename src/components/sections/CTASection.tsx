@@ -33,7 +33,7 @@ export const CTASection = ({
           <Link to={buttonLink}>
             <Button
               size="lg"
-              className="bg-gold hover:bg-gold-light text-accent-foreground rounded-full px-10 font-semibold"
+              className="bg-navy hover:bg-navy/90 text-white rounded-full px-10 font-semibold"
             >
               {buttonText}
               <ArrowRight className="w-5 h-5 ml-2" />
