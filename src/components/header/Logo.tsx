@@ -11,7 +11,7 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
       <img 
         src={normalunaLogo} 
         alt="NormaLuna Health Care" 
-        className="h-12 lg:h-16 w-auto"
+        className="h-8 lg:h-10 w-auto"
       />
     </Link>
   );
