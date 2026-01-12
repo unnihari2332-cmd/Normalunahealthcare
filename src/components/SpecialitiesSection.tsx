@@ -117,13 +117,6 @@ const SpecialitiesSection: React.FC = () => {
               <p className="text-slate-600 text-lg leading-relaxed">
                 The healthcare arena there was a felt need of developing new as well as upgrading the existing functioning and processes. We provide comprehensive care tailored to your specific needs.
               </p>
-
-              <Link 
-                to="/services" 
-                className="inline-flex items-center gap-2 bg-[#0F172A] text-white px-8 py-4 rounded-xl font-semibold hover:bg-slate-800 transition-colors shadow-lg w-fit"
-              >
-                View All Services <ArrowRight size={20} />
-              </Link>
             </div>
           </div>
 
