@@ -22,7 +22,8 @@ export const TestimonialCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative"
+      // Changed bg-card to bg-white here
+      className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative"
     >
       {/* Quote Icon */}
       <motion.div
