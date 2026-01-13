@@ -8,8 +8,6 @@ import { ChevronLeft, ChevronRight, Quote, Target, Eye, Users } from "lucide-rea
 
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
 import heroImage from "@/assets/hero-medical.jpg"; 
-// You can use a specific 'about' image here if you have one, e.g.:
-// import aboutImage from "@/assets/about-us.jpg";
 
 // --- DATA: TAB CONTENT ---
 const tabContent = {
@@ -147,7 +145,7 @@ const InteractiveAboutSection = () => {
               </AnimatePresence>
             </div>
 
-            {/* CTA Button (Optional, can be removed) */}
+            {/* CTA Button (Optional) */}
             <div className="mt-8 pt-6 border-t border-gray-100">
                <button className="text-primary font-bold hover:text-navy transition-colors flex items-center gap-2 group">
                  Learn more about our services 
