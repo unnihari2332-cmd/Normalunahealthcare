@@ -4,7 +4,8 @@ import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote, Target, Eye, Users } from "lucide-react";
+// Added Microscope, Heart, GraduationCap for the new list items
+import { ChevronLeft, ChevronRight, Quote, Target, Eye, Users, Microscope, Heart, GraduationCap } from "lucide-react";
 
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
 import heroImage from "@/assets/hero-medical.jpg"; 
@@ -18,6 +19,12 @@ const tabContent = {
       "Norma Luna Healthcare aims to bring out the complete requirements of medical services that which offers flexible approach to our clients and provide the level of comfort of a home away from home. After all, Norma Luna Healthcare offers the best services with level of expertise.",
       "Norma Luna Healthcare is networked with reputed hospitals and doctors across India. The network includes corporate hospitals, MultiSpeciality hospitals, and Super-Speciality hospitals with International protocols and Multidisciplinary teams at an affordable price.",
       "Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists and hospitals for your required treatments in India with most reputed and experienced Doctors and Surgeons with cutting edge technology."
+    ],
+    // Added specific features from the screenshot image
+    features: [
+      { label: "Innovative Treatment Approaches", icon: Microscope },
+      { label: "Holistic Health Focus", icon: Heart },
+      { label: "Patient Education and Empowerment", icon: GraduationCap }
     ]
   },
   vision: {
@@ -70,14 +77,14 @@ const InteractiveAboutSection = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
+           
           {/* LEFT SIDE: IMAGE */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl"
+            className="relative h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl"
           >
             {/* Using heroImage as placeholder. Replace src if you have a specific about image */}
             <img 
@@ -136,11 +143,29 @@ const InteractiveAboutSection = () => {
                     </h3>
                   </div>
 
-                  <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
+                  {/* Render Paragraphs */}
+                  <div className="space-y-4 text-gray-600 leading-relaxed text-lg mb-8">
                     {tabContent[activeTab].text.map((paragraph, idx) => (
                       <p key={idx}>{paragraph}</p>
                     ))}
                   </div>
+
+                  {/* Render Features List (Only for About/Who We Are) */}
+                  {/* This maps the specific features from the image: Innovative, Holistic, Education */}
+                  {tabContent[activeTab].features && (
+                    <div className="space-y-3 mt-6">
+                      {tabContent[activeTab].features.map((feature, i) => (
+                        <div key={i} className="flex items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                          <div className="bg-blue-50 p-2 rounded-full text-primary mr-4">
+                            <feature.icon size={20} />
+                          </div>
+                          <span className="font-bold text-navy text-sm md:text-base">
+                            {feature.label}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -250,7 +275,7 @@ const AboutPage = () => {
 
       {/* NEW: Combined Section (Image Left, Tabs Right) */}
       <InteractiveAboutSection />
-      
+       
       <StatsSection />
 
       <section className="py-20 bg-background overflow-hidden">
