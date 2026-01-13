@@ -3,21 +3,42 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
-// 1. Restore the import for the old style Mission/Vision section
-import { MissionVisionSection } from "@/components/sections/MissionVisionSection"; 
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  Quote, 
-  Microscope, 
-  HeartPulse, 
-  GraduationCap, 
-  CheckCircle2 
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Target, Eye, Users } from "lucide-react";
 
-// NOTE: Make sure this file exists in your project, or the build will fail (ENOENT error)
-import heroImage from "@/assets/hero-medical.jpg";
+// IMPORTANT: Ensure this image exists in src/assets/ or change the path
+import heroImage from "@/assets/hero-medical.jpg"; 
+// You can use a specific 'about' image here if you have one, e.g.:
+// import aboutImage from "@/assets/about-us.jpg";
+
+// --- DATA: TAB CONTENT ---
+const tabContent = {
+  about: {
+    title: "Bringing Care Closer to You",
+    icon: Users,
+    text: [
+      "Norma Luna Healthcare aims to bring out the complete requirements of medical services that which offers flexible approach to our clients and provide the level of comfort of a home away from home. After all, Norma Luna Healthcare offers the best services with level of expertise.",
+      "Norma Luna Healthcare is networked with reputed hospitals and doctors across India. The network includes corporate hospitals, MultiSpeciality hospitals, and Super-Speciality hospitals with International protocols and Multidisciplinary teams at an affordable price.",
+      "Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists and hospitals for your required treatments in India with most reputed and experienced Doctors and Surgeons with cutting edge technology."
+    ]
+  },
+  vision: {
+    title: "Our Vision",
+    icon: Eye,
+    text: [
+      "To be the world’s most trusted bridge to healing, removing geographical and financial barriers to advanced healthcare.",
+      "We envision a world where quality medical treatment is accessible to everyone, regardless of where they live. By leveraging global medical expertise and cutting-edge technology, we aim to redefine medical tourism as a seamless, compassionate, and life-changing experience."
+    ]
+  },
+  mission: {
+    title: "Our Mission",
+    icon: Target,
+    text: [
+      "To provide affordable, world-class medical care with a flexible, patient-centric approach that feels like a home away from home.",
+      "We differ by not just arranging appointments, but by curating complete recovery journeys. From the moment you contact us until you are safely back home, our mission is to ensure your comfort, safety, and health are prioritized with the highest level of expertise and empathy."
+    ]
+  }
+};
 
 // --- DATA: TESTIMONIALS ---
 const testimonials = [
@@ -39,136 +60,102 @@ const testimonials = [
     treatment: "Hip Replacement",
     content: "After suffering for years with severe arthritis, I could barely walk. Hip replacement surgery in Sri Lanka was too costly. Norma Luna Healthcare provided a quick, affordable solution. Within a week, I was in Chennai. Just days after surgery, I was walking again without pain. The team handled every detail, from physiotherapy to a smooth return journey home.",
   },
-  {
-    name: "Zoya & Kareem R.",
-    location: "Bangladesh",
-    treatment: "Twin Pregnancy Complication",
-    content: "When we found out we were expecting twins, we were overjoyed. But complications arose. We were devastated. That’s when a family friend recommended Norma Luna Healthcare. The team arranged immediate consultations with a top maternal-fetal specialist. Our twins were born healthy, and today, we look at them with gratitude.",
-  },
-  {
-    name: "Amina S.",
-    location: "Uzbekistan",
-    treatment: "Dental Implants & Tourism",
-    content: "I had dreamed of exploring India. A friend mentioned India was also known for high-quality, affordable medical treatments. I decided to reach out. Within days, I had a brand-new smile, and I was still able to explore Mahabalipuram’s ancient temples. What started as a trip for adventure ended up being a life-changing journey.",
-  },
-  {
-    name: "Martin G.",
-    location: "United Kingdom",
-    treatment: "Dental Implants",
-    content: "I had lost most of my teeth over the years. In UK, the cost was simply unaffordable. A colleague recommended Norma Luna Healthcare. From my first virtual consultation in Chennai, my doubts disappeared. The procedure was smooth and completely painless. The cost was nearly 70% lower than in France, and the quality exceeded my expectations.",
-  },
 ];
 
 // --- COMPONENTS ---
 
-// 1. Who We Are Section (Text from Image + Tabs)
-const WhoWeAreSection = () => {
-  const [activeTab, setActiveTab] = useState("innovative");
-
-  const pillars = [
-    {
-      id: "innovative",
-      title: "Innovative Treatment Approaches",
-      icon: Microscope,
-      description: "We constantly research and partner with hospitals utilizing the latest medical breakthroughs. From robotic surgeries to advanced stem cell therapy, we ensure you have access to cutting-edge medical science.",
-    },
-    {
-      id: "holistic",
-      title: "Holistic Health Focus",
-      icon: HeartPulse,
-      description: "Healing is more than just a procedure. We focus on your overall well-being, integrating mental comfort, personalized care plans, and post-treatment support to ensure a complete recovery journey.",
-    },
-    {
-      id: "education",
-      title: "Patient Education and Empowerment",
-      icon: GraduationCap,
-      description: "We believe an informed patient is an empowered patient. We provide transparent details about your treatment, costs, and doctors, ensuring you make decisions with complete confidence.",
-    },
-  ];
+// 1. NEW: Interactive Left-Image / Right-Content Section
+const InteractiveAboutSection = () => {
+  const [activeTab, setActiveTab] = useState<"about" | "vision" | "mission">("about");
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="mb-12">
-          <span className="text-primary font-bold tracking-wider text-sm uppercase">Who We Are</span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-navy mt-2">
-            Bringing Care Closer to You
-          </h2>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
-          {/* Left Side: The Text Content from Image */}
+          {/* LEFT SIDE: IMAGE */}
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6 text-gray-700 leading-relaxed text-lg"
+            transition={{ duration: 0.6 }}
+            className="relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl"
           >
-            <p>
-              Norma Luna Healthcare aims to bring out the complete requirements of medical services that which offers flexible approach to our clients and provide the level of comfort of a home away from home. After all, Norma Luna Healthcare offers the best services with level of expertise.
-            </p>
-            <p>
-              Norma Luna Healthcare is networked with reputed hospitals and doctors across India. The network includes corporate hospitals, MultiSpeciality hospitals, and Super-Speciality hospitals with International protocols and Multidisciplinary teams at an affordable price.
-            </p>
-            <p>
-              Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists and hospitals for your required treatments in India with most reputed and experienced Doctors and Surgeons with cutting edge technology.
-            </p>
+            {/* Using heroImage as placeholder. Replace src if you have a specific about image */}
+            <img 
+              src={heroImage} 
+              alt="Medical Professionals" 
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent flex items-end p-8">
+               <div className="text-white">
+                 <p className="font-bold text-lg">Norma Luna Healthcare</p>
+                 <p className="text-sm opacity-80">Excellence in Medical Tourism</p>
+               </div>
+            </div>
           </motion.div>
 
-          {/* Right Side: Select and View Interactive Tabs */}
-          <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-            <h3 className="text-xl font-bold text-navy mb-6">Our Core Approach</h3>
+          {/* RIGHT SIDE: CONTENT & BUTTONS */}
+          <div className="flex flex-col h-full justify-center">
             
-            {/* Tab Buttons */}
-            <div className="flex flex-col space-y-3">
-              {pillars.map((pillar) => (
+            {/* BUTTONS ROW */}
+            <div className="flex flex-wrap gap-4 mb-8 border-b border-gray-100 pb-4">
+              {(["about", "vision", "mission"] as const).map((tab) => (
                 <button
-                  key={pillar.id}
-                  onClick={() => setActiveTab(pillar.id)}
-                  className={`relative flex items-center p-4 rounded-xl transition-all duration-300 text-left border ${
-                    activeTab === pillar.id
-                      ? "bg-navy text-white border-navy shadow-lg scale-[1.02]"
-                      : "bg-gray-50 text-gray-600 border-gray-100 hover:bg-gray-100"
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
+                    activeTab === tab
+                      ? "bg-navy text-white shadow-lg transform -translate-y-1"
+                      : "bg-gray-100 text-gray-500 hover:bg-gray-200"
                   }`}
                 >
-                  <pillar.icon size={24} className={`mr-4 flex-shrink-0 ${activeTab === pillar.id ? "text-primary" : "text-gray-400"}`} />
-                  <span className="font-bold text-lg">{pillar.title}</span>
-                  {activeTab === pillar.id && (
-                    <motion.div layoutId="check" className="ml-auto">
-                      <CheckCircle2 size={20} className="text-primary" />
-                    </motion.div>
-                  )}
+                  {tab === "about" ? "Who We Are" : tab}
                 </button>
               ))}
             </div>
 
-            {/* Tab Content Display area */}
-            <div className="mt-6 pt-6 border-t border-gray-100">
+            {/* DYNAMIC CONTENT AREA */}
+            <div className="min-h-[300px]">
               <AnimatePresence mode="wait">
-                {pillars.map((pillar) => (
-                  pillar.id === activeTab && (
-                    <motion.div
-                      key={pillar.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <h4 className="text-primary font-bold mb-2 flex items-center gap-2">
-                        About {pillar.title}
-                      </h4>
-                      <p className="text-gray-600">
-                        {pillar.description}
-                      </p>
-                    </motion.div>
-                  )
-                ))}
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    {/* Icon wrapper */}
+                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                      {activeTab === 'about' && <Users size={24} />}
+                      {activeTab === 'vision' && <Eye size={24} />}
+                      {activeTab === 'mission' && <Target size={24} />}
+                    </div>
+                    <h3 className="text-3xl font-display font-bold text-navy">
+                      {tabContent[activeTab].title}
+                    </h3>
+                  </div>
+
+                  <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
+                    {tabContent[activeTab].text.map((paragraph, idx) => (
+                      <p key={idx}>{paragraph}</p>
+                    ))}
+                  </div>
+                </motion.div>
               </AnimatePresence>
             </div>
-          </div>
 
+            {/* CTA Button (Optional, can be removed) */}
+            <div className="mt-8 pt-6 border-t border-gray-100">
+               <button className="text-primary font-bold hover:text-navy transition-colors flex items-center gap-2 group">
+                 Learn more about our services 
+                 <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+               </button>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
@@ -181,7 +168,6 @@ const TestimonialSlider = () => {
   const [direction, setDirection] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-swap logic
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
@@ -201,20 +187,9 @@ const TestimonialSlider = () => {
   };
 
   const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
+    enter: (direction: number) => ({ x: direction > 0 ? 1000 : -1000, opacity: 0 }),
+    center: { zIndex: 1, x: 0, opacity: 1 },
+    exit: (direction: number) => ({ zIndex: 0, x: direction < 0 ? 1000 : -1000, opacity: 0 }),
   };
 
   return (
@@ -223,20 +198,8 @@ const TestimonialSlider = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <button 
-        onClick={prevStep} 
-        className="absolute left-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -ml-4 md:-ml-12"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      
-      <button 
-        onClick={nextStep} 
-        className="absolute right-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -mr-4 md:-mr-12"
-      >
-        <ChevronRight size={24} />
-      </button>
-
+      <button onClick={prevStep} className="absolute left-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -ml-4 md:-ml-12"><ChevronLeft size={24} /></button>
+      <button onClick={nextStep} className="absolute right-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -mr-4 md:-mr-12"><ChevronRight size={24} /></button>
       <div className="w-full h-full overflow-hidden relative rounded-2xl bg-white shadow-lg border border-primary/10">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -246,40 +209,25 @@ const TestimonialSlider = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-            }}
+            transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 }}}
             className="absolute top-0 left-0 w-full h-full p-8 md:p-12 flex flex-col items-center justify-center text-center"
           >
             <Quote className="w-12 h-12 text-primary/20 mb-6 mx-auto" />
-            <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-8 max-w-2xl line-clamp-6 md:line-clamp-none">
-              "{testimonials[index].content}"
-            </p>
+            <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-8 max-w-2xl line-clamp-6 md:line-clamp-none">"{testimonials[index].content}"</p>
             <div className="mt-auto">
               <h4 className="font-bold text-xl text-navy">{testimonials[index].name}</h4>
-              <p className="text-sm font-medium text-primary uppercase tracking-wide">
-                {testimonials[index].location}
-              </p>
-              <span className="inline-block mt-2 px-3 py-1 bg-teal-50 text-teal-700 text-xs rounded-full font-medium">
-                {testimonials[index].treatment}
-              </span>
+              <p className="text-sm font-medium text-primary uppercase tracking-wide">{testimonials[index].location}</p>
+              <span className="inline-block mt-2 px-3 py-1 bg-teal-50 text-teal-700 text-xs rounded-full font-medium">{testimonials[index].treatment}</span>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
-
       <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {testimonials.map((_, i) => (
           <button
             key={i}
-            onClick={() => {
-              setDirection(i > index ? 1 : -1);
-              setIndex(i);
-            }}
-            className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-              i === index ? "bg-primary" : "bg-gray-300 hover:bg-primary/50"
-            }`}
+            onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
+            className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${i === index ? "bg-primary" : "bg-gray-300 hover:bg-primary/50"}`}
           />
         ))}
       </div>
@@ -302,11 +250,8 @@ const AboutPage = () => {
         />
       </div>
 
-      {/* 1. The New "Who We Are" Section (Image Text + Tabs) */}
-      <WhoWeAreSection />
-
-      {/* 2. The Original "Mission & Vision" Section */}
-      <MissionVisionSection hideButton={true} />
+      {/* NEW: Combined Section (Image Left, Tabs Right) */}
+      <InteractiveAboutSection />
       
       <StatsSection />
 
