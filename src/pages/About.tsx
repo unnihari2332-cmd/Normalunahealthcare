@@ -290,23 +290,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-navy">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-              Embark on Your Health Journey with Norma Luna
-            </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-              We make healthcare accessible, affordable, and stress-free, while you focus on what truly matters—your recovery.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
