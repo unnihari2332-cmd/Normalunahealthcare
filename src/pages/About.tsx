@@ -60,7 +60,7 @@ const TestimonialSlider = () => {
     if (isPaused) return;
     const timer = setInterval(() => {
       nextStep();
-    }, 6000); // Swaps every 6 seconds
+    }, 6000); 
     return () => clearInterval(timer);
   }, [index, isPaused]);
 
@@ -74,7 +74,6 @@ const TestimonialSlider = () => {
     setIndex((prevIndex) => (prevIndex - 1 < 0 ? testimonials.length - 1 : prevIndex - 1));
   };
 
-  // Animation variants
   const variants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
@@ -98,11 +97,9 @@ const TestimonialSlider = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Navigation Buttons */}
       <button 
         onClick={prevStep} 
         className="absolute left-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -ml-4 md:-ml-12"
-        aria-label="Previous testimonial"
       >
         <ChevronLeft size={24} />
       </button>
@@ -110,12 +107,10 @@ const TestimonialSlider = () => {
       <button 
         onClick={nextStep} 
         className="absolute right-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -mr-4 md:-mr-12"
-        aria-label="Next testimonial"
       >
         <ChevronRight size={24} />
       </button>
 
-      {/* Slider Content */}
       <div className="w-full h-full overflow-hidden relative rounded-2xl bg-white shadow-lg border border-primary/10">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -132,11 +127,9 @@ const TestimonialSlider = () => {
             className="absolute top-0 left-0 w-full h-full p-8 md:p-12 flex flex-col items-center justify-center text-center"
           >
             <Quote className="w-12 h-12 text-primary/20 mb-6 mx-auto" />
-            
             <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-8 max-w-2xl line-clamp-6 md:line-clamp-none">
               "{testimonials[index].content}"
             </p>
-
             <div className="mt-auto">
               <h4 className="font-bold text-xl text-navy">{testimonials[index].name}</h4>
               <p className="text-sm font-medium text-primary uppercase tracking-wide">
@@ -150,7 +143,6 @@ const TestimonialSlider = () => {
         </AnimatePresence>
       </div>
 
-      {/* Dots Indicator */}
       <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {testimonials.map((_, i) => (
           <button
@@ -184,11 +176,11 @@ const AboutPage = () => {
         />
       </div>
 
-      <MissionVisionSection />
+      {/* Added hideButton prop here */}
+      <MissionVisionSection hideButton={true} />
       
       <StatsSection />
 
-      {/* Testimonials Section */}
       <section className="py-20 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
@@ -202,15 +194,12 @@ const AboutPage = () => {
               Patient Testimonials: Real Stories, Real Results
             </h2>
           </motion.div>
-
-          {/* New Auto-Swap Slider */}
           <div className="pb-10">
             <TestimonialSlider />
           </div>
         </div>
       </section>
 
-      {/* CTA Section (Button Removed) */}
       <section className="py-20 bg-navy">
         <div className="container mx-auto px-4 text-center">
           <motion.div
