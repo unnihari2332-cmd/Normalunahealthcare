@@ -171,13 +171,6 @@ const InteractiveAboutSection = () => {
             </div>
 
             {/* CTA Button (Optional) */}
-            <div className="mt-8 pt-6 border-t border-gray-100">
-               <button className="text-primary font-bold hover:text-navy transition-colors flex items-center gap-2 group">
-                 Learn more about our services 
-                 <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-               </button>
-            </div>
-
           </div>
         </div>
       </div>
