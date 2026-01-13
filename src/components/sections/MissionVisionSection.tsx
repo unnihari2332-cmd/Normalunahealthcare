@@ -146,11 +146,6 @@ export const MissionVisionSection = () => {
                     </ul>
                   </motion.div>
                 </AnimatePresence>
-
-                <Button className="bg-navy hover:bg-navy/90 text-white rounded-md px-8 py-6 h-auto text-md group">
-                  View More About Us 
-                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Button>
               </div>
             </motion.div>
           </div>
