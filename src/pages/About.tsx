@@ -3,8 +3,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
+// 1. Restore the import for the old style Mission/Vision section
+import { MissionVisionSection } from "@/components/sections/MissionVisionSection"; 
 import { motion, AnimatePresence } from "framer-motion";
-import heroImage from "@/assets/hero-medical.jpg";
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -14,6 +15,9 @@ import {
   GraduationCap, 
   CheckCircle2 
 } from "lucide-react";
+
+// NOTE: Make sure this file exists in your project, or the build will fail (ENOENT error)
+import heroImage from "@/assets/hero-medical.jpg";
 
 // --- DATA: TESTIMONIALS ---
 const testimonials = [
@@ -57,7 +61,7 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// 1. NEW: Who We Are Section (Replaces Mission/Vision)
+// 1. Who We Are Section (Text from Image + Tabs)
 const WhoWeAreSection = () => {
   const [activeTab, setActiveTab] = useState("innovative");
 
@@ -171,7 +175,7 @@ const WhoWeAreSection = () => {
   );
 };
 
-// 2. EXISTING: Testimonial Slider
+// 2. Testimonial Slider
 const TestimonialSlider = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -298,8 +302,11 @@ const AboutPage = () => {
         />
       </div>
 
-      {/* REPLACED: MissionVisionSection with new WhoWeAreSection */}
+      {/* 1. The New "Who We Are" Section (Image Text + Tabs) */}
       <WhoWeAreSection />
+
+      {/* 2. The Original "Mission & Vision" Section */}
+      <MissionVisionSection hideButton={true} />
       
       <StatsSection />
 
