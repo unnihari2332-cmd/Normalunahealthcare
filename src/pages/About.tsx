@@ -1,29 +1,177 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
-import { TestimonialCard } from "@/components/TestimonialCard";
-// Note: We are using the new combined section here
 import { MissionVisionSection } from "@/components/sections/MissionVisionSection";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import heroImage from "@/assets/hero-medical.jpg";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
+// --- DATA ---
 const testimonials = [
   {
     name: "Ivan M.",
     location: "Russia",
     treatment: "Stem Cell Therapy",
-    content: "After being diagnosed with a neurological condition, I was searching for advanced treatment options. Norma Luna Healthcare gave me hope. Today, I feel stronger, and my symptoms have significantly improved.",
+    content: "After being diagnosed with a neurological condition, I was searching for advanced treatment options. Stem cell therapy was a promising solution, but in Russia, the cost was extremely high. That’s when I found that India offered world-class regenerative medicine at a much more affordable price. From the moment I reached out, their team handled everything. Today, I feel stronger, and my symptoms have significantly improved.",
   },
   {
     name: "Amina E.",
     location: "Oman",
     treatment: "Cancer Treatment",
-    content: "Norma Luna Healthcare gave me hope when I needed it most. Their team ensured I got world-class oncology treatment at a fraction of the cost. I am now cancer-free, and I owe it to them!",
+    content: "Norma Luna Healthcare gave me hope when I needed it most. Their team ensured I got world-class oncology treatment in India at a fraction of the cost. The doctors, the advanced treatment plans, and the personal care I received made all the difference. I am now cancer-free, and I owe it to their expertise and support.",
+  },
+  {
+    name: "Amal N.",
+    location: "Sri Lanka",
+    treatment: "Hip Replacement",
+    content: "After suffering for years with severe arthritis, I could barely walk. Hip replacement surgery in Sri Lanka was too costly. Norma Luna Healthcare provided a quick, affordable solution. Within a week, I was in Chennai. Just days after surgery, I was walking again without pain. The team handled every detail, from physiotherapy to a smooth return journey home.",
+  },
+  {
+    name: "Zoya & Kareem R.",
+    location: "Bangladesh",
+    treatment: "Twin Pregnancy Complication",
+    content: "When we found out we were expecting twins, we were overjoyed. But complications arose. We were devastated. That’s when a family friend recommended Norma Luna Healthcare. The team arranged immediate consultations with a top maternal-fetal specialist. Our twins were born healthy, and today, we look at them with gratitude.",
+  },
+  {
+    name: "Amina S.",
+    location: "Uzbekistan",
+    treatment: "Dental Implants & Tourism",
+    content: "I had dreamed of exploring India. A friend mentioned India was also known for high-quality, affordable medical treatments. I decided to reach out. Within days, I had a brand-new smile, and I was still able to explore Mahabalipuram’s ancient temples. What started as a trip for adventure ended up being a life-changing journey.",
+  },
+  {
+    name: "Martin G.",
+    location: "United Kingdom",
+    treatment: "Dental Implants",
+    content: "I had lost most of my teeth over the years. In UK, the cost was simply unaffordable. A colleague recommended Norma Luna Healthcare. From my first virtual consultation in Chennai, my doubts disappeared. The procedure was smooth and completely painless. The cost was nearly 70% lower than in France, and the quality exceeded my expectations.",
   },
 ];
+
+// --- COMPONENTS ---
+
+const TestimonialSlider = () => {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-swap logic
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      nextStep();
+    }, 6000); // Swaps every 6 seconds
+    return () => clearInterval(timer);
+  }, [index, isPaused]);
+
+  const nextStep = () => {
+    setDirection(1);
+    setIndex((prevIndex) => (prevIndex + 1 === testimonials.length ? 0 : prevIndex + 1));
+  };
+
+  const prevStep = () => {
+    setDirection(-1);
+    setIndex((prevIndex) => (prevIndex - 1 < 0 ? testimonials.length - 1 : prevIndex - 1));
+  };
+
+  // Animation variants
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+  };
+
+  return (
+    <div 
+      className="relative w-full max-w-4xl mx-auto h-[500px] md:h-[400px] flex items-center justify-center"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Navigation Buttons */}
+      <button 
+        onClick={prevStep} 
+        className="absolute left-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -ml-4 md:-ml-12"
+        aria-label="Previous testimonial"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      
+      <button 
+        onClick={nextStep} 
+        className="absolute right-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -mr-4 md:-mr-12"
+        aria-label="Next testimonial"
+      >
+        <ChevronRight size={24} />
+      </button>
+
+      {/* Slider Content */}
+      <div className="w-full h-full overflow-hidden relative rounded-2xl bg-white shadow-lg border border-primary/10">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={index}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 },
+            }}
+            className="absolute top-0 left-0 w-full h-full p-8 md:p-12 flex flex-col items-center justify-center text-center"
+          >
+            <Quote className="w-12 h-12 text-primary/20 mb-6 mx-auto" />
+            
+            <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-8 max-w-2xl line-clamp-6 md:line-clamp-none">
+              "{testimonials[index].content}"
+            </p>
+
+            <div className="mt-auto">
+              <h4 className="font-bold text-xl text-navy">{testimonials[index].name}</h4>
+              <p className="text-sm font-medium text-primary uppercase tracking-wide">
+                {testimonials[index].location}
+              </p>
+              <span className="inline-block mt-2 px-3 py-1 bg-teal-50 text-teal-700 text-xs rounded-full font-medium">
+                {testimonials[index].treatment}
+              </span>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Dots Indicator */}
+      <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {testimonials.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => {
+              setDirection(i > index ? 1 : -1);
+              setIndex(i);
+            }}
+            className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
+              i === index ? "bg-primary" : "bg-gray-300 hover:bg-primary/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// --- MAIN PAGE ---
 
 const AboutPage = () => {
   return (
@@ -38,20 +186,18 @@ const AboutPage = () => {
         />
       </div>
 
-      {/* NEW: Replaces MissionVisionSection AND ValuesSection to match screenshot layout */}
       <MissionVisionSection />
       
-      {/* Existing Stats Section */}
       <StatsSection />
 
-      {/* Testimonials - Content Preserved */}
-      <section className="py-20 bg-background">
+      {/* Testimonials Section */}
+      <section className="py-20 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
             <p className="text-primary font-medium mb-2">Patient Success Stories</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold">
@@ -59,15 +205,14 @@ const AboutPage = () => {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={testimonial.name} {...testimonial} delay={index * 0.1} />
-            ))}
+          {/* New Auto-Swap Slider */}
+          <div className="pb-10">
+            <TestimonialSlider />
           </div>
         </div>
       </section>
 
-      {/* CTA - Content Preserved */}
+      {/* CTA Section */}
       <section className="py-20 bg-navy">
         <div className="container mx-auto px-4 text-center">
           <motion.div
