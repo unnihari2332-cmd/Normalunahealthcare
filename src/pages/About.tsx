@@ -3,12 +3,19 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
-import { MissionVisionSection } from "@/components/sections/MissionVisionSection";
 import { motion, AnimatePresence } from "framer-motion";
 import heroImage from "@/assets/hero-medical.jpg";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Quote, 
+  Microscope, 
+  HeartPulse, 
+  GraduationCap, 
+  CheckCircle2 
+} from "lucide-react";
 
-// --- DATA ---
+// --- DATA: TESTIMONIALS ---
 const testimonials = [
   {
     name: "Ivan M.",
@@ -50,6 +57,121 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
+// 1. NEW: Who We Are Section (Replaces Mission/Vision)
+const WhoWeAreSection = () => {
+  const [activeTab, setActiveTab] = useState("innovative");
+
+  const pillars = [
+    {
+      id: "innovative",
+      title: "Innovative Treatment Approaches",
+      icon: Microscope,
+      description: "We constantly research and partner with hospitals utilizing the latest medical breakthroughs. From robotic surgeries to advanced stem cell therapy, we ensure you have access to cutting-edge medical science.",
+    },
+    {
+      id: "holistic",
+      title: "Holistic Health Focus",
+      icon: HeartPulse,
+      description: "Healing is more than just a procedure. We focus on your overall well-being, integrating mental comfort, personalized care plans, and post-treatment support to ensure a complete recovery journey.",
+    },
+    {
+      id: "education",
+      title: "Patient Education and Empowerment",
+      icon: GraduationCap,
+      description: "We believe an informed patient is an empowered patient. We provide transparent details about your treatment, costs, and doctors, ensuring you make decisions with complete confidence.",
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="mb-12">
+          <span className="text-primary font-bold tracking-wider text-sm uppercase">Who We Are</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-navy mt-2">
+            Bringing Care Closer to You
+          </h2>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          
+          {/* Left Side: The Text Content from Image */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6 text-gray-700 leading-relaxed text-lg"
+          >
+            <p>
+              Norma Luna Healthcare aims to bring out the complete requirements of medical services that which offers flexible approach to our clients and provide the level of comfort of a home away from home. After all, Norma Luna Healthcare offers the best services with level of expertise.
+            </p>
+            <p>
+              Norma Luna Healthcare is networked with reputed hospitals and doctors across India. The network includes corporate hospitals, MultiSpeciality hospitals, and Super-Speciality hospitals with International protocols and Multidisciplinary teams at an affordable price.
+            </p>
+            <p>
+              Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists and hospitals for your required treatments in India with most reputed and experienced Doctors and Surgeons with cutting edge technology.
+            </p>
+          </motion.div>
+
+          {/* Right Side: Select and View Interactive Tabs */}
+          <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
+            <h3 className="text-xl font-bold text-navy mb-6">Our Core Approach</h3>
+            
+            {/* Tab Buttons */}
+            <div className="flex flex-col space-y-3">
+              {pillars.map((pillar) => (
+                <button
+                  key={pillar.id}
+                  onClick={() => setActiveTab(pillar.id)}
+                  className={`relative flex items-center p-4 rounded-xl transition-all duration-300 text-left border ${
+                    activeTab === pillar.id
+                      ? "bg-navy text-white border-navy shadow-lg scale-[1.02]"
+                      : "bg-gray-50 text-gray-600 border-gray-100 hover:bg-gray-100"
+                  }`}
+                >
+                  <pillar.icon size={24} className={`mr-4 flex-shrink-0 ${activeTab === pillar.id ? "text-primary" : "text-gray-400"}`} />
+                  <span className="font-bold text-lg">{pillar.title}</span>
+                  {activeTab === pillar.id && (
+                    <motion.div layoutId="check" className="ml-auto">
+                      <CheckCircle2 size={20} className="text-primary" />
+                    </motion.div>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Tab Content Display area */}
+            <div className="mt-6 pt-6 border-t border-gray-100">
+              <AnimatePresence mode="wait">
+                {pillars.map((pillar) => (
+                  pillar.id === activeTab && (
+                    <motion.div
+                      key={pillar.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <h4 className="text-primary font-bold mb-2 flex items-center gap-2">
+                        About {pillar.title}
+                      </h4>
+                      <p className="text-gray-600">
+                        {pillar.description}
+                      </p>
+                    </motion.div>
+                  )
+                ))}
+              </AnimatePresence>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// 2. EXISTING: Testimonial Slider
 const TestimonialSlider = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -176,8 +298,8 @@ const AboutPage = () => {
         />
       </div>
 
-      {/* Added hideButton prop here */}
-      <MissionVisionSection hideButton={true} />
+      {/* REPLACED: MissionVisionSection with new WhoWeAreSection */}
+      <WhoWeAreSection />
       
       <StatsSection />
 
