@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
 import { MissionVisionSection } from "@/components/sections/MissionVisionSection";
-import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import heroImage from "@/assets/hero-medical.jpg";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -212,7 +210,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section (Button Removed) */}
       <section className="py-20 bg-navy">
         <div className="container mx-auto px-4 text-center">
           <motion.div
@@ -226,11 +224,6 @@ const AboutPage = () => {
             <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
               We make healthcare accessible, affordable, and stress-free, while you focus on what truly matters—your recovery.
             </p>
-            <Link to="/appointment">
-              <Button size="lg" className="bg-primary hover:bg-teal-light text-primary-foreground rounded-full px-10">
-                Book An Appointment
-              </Button>
-            </Link>
           </motion.div>
         </div>
       </section>
