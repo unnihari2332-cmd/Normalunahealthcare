@@ -4,7 +4,8 @@ import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
 import { TestimonialCard } from "@/components/TestimonialCard";
-import { MissionVisionSection, ValuesSection } from "@/components/sections";
+// Note: We are using the new combined section here
+import { MissionVisionSection } from "@/components/sections/MissionVisionSection";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-medical.jpg";
@@ -37,11 +38,13 @@ const AboutPage = () => {
         />
       </div>
 
+      {/* NEW: Replaces MissionVisionSection AND ValuesSection to match screenshot layout */}
       <MissionVisionSection />
-      <ValuesSection />
+      
+      {/* Existing Stats Section */}
       <StatsSection />
 
-      {/* Testimonials */}
+      {/* Testimonials - Content Preserved */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
@@ -64,7 +67,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA - Content Preserved */}
       <section className="py-20 bg-navy">
         <div className="container mx-auto px-4 text-center">
           <motion.div
