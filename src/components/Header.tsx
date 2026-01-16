@@ -32,19 +32,16 @@ export const Header = () => {
 
   const handleAppointmentClick = () => {
     if (location.pathname === "/appointment") {
-      // Already on appointment page, scroll to form
       const formElement = document.getElementById("appointment-form");
       if (formElement) {
         formElement.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      // Navigate to appointment page
       navigate("/appointment");
     }
     handleMobileMenuClose();
   };
 
-  // Handle Scroll Effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -65,23 +62,28 @@ export const Header = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-white shadow-md text-navy py-2" // Scrolled State
-          : "bg-transparent text-white py-4"    // Top (Hero) State
+          ? "bg-white shadow-md text-navy py-2" 
+          : "bg-transparent text-white py-4"    
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        {/* UPDATED FLEX CONTAINER:
+           1. Added 'lg:justify-center' to center everything on desktop.
+           2. Added 'lg:gap-12' to control space between Navs and Logo.
+           3. Kept 'justify-between' for Mobile view.
+        */}
+        <div className="flex items-center justify-between lg:justify-center lg:gap-12 h-16 lg:h-20">
           
           {/* LEFT NAV */}
-          {/* We pass the scrolled state in case you need specific hover colors to change */}
           <DesktopNav 
             links={leftLinks} 
             isScrolled={isScrolled} 
           />
 
           {/* CENTER LOGO */}
-          {/* Positioned absolutely to ensure it stays center regardless of left/right link lengths */}
-          <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+          {/* REMOVED: lg:absolute lg:left-1/2 lg:-translate-x-1/2 */}
+          {/* This allows the logo to sit naturally between the navs */}
+          <div className="shrink-0">
             <Logo isScrolled={isScrolled} />
           </div>
 
@@ -96,11 +98,11 @@ export const Header = () => {
             </Button>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE MENU BUTTON (Kept absolute or auto-positioned by justify-between on mobile) */}
           <MobileMenuButton
             isOpen={isMobileMenuOpen}
             onClick={toggleMobileMenu}
-            isScrolled={isScrolled} // Pass this to change button color (white vs dark)
+            isScrolled={isScrolled}
           />
         </div>
       </div>
