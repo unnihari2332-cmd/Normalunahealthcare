@@ -152,9 +152,9 @@ const InteractiveAboutSection = () => {
 
                   {/* Render Features List (Only for About/Who We Are) */}
                   {/* This maps the specific features from the image: Innovative, Holistic, Education */}
-                  {tabContent[activeTab].features && (
+                  {'features' in tabContent[activeTab] && tabContent[activeTab].features && (
                     <div className="space-y-3 mt-6">
-                      {tabContent[activeTab].features.map((feature, i) => (
+                      {(tabContent[activeTab] as typeof tabContent.about).features.map((feature, i) => (
                         <div key={i} className="flex items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                           <div className="bg-blue-50 p-2 rounded-full text-primary mr-4">
                             <feature.icon size={20} />
