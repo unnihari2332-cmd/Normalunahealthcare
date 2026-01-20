@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react"; // Removed useEffect since we don't need scroll listener
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Logo } from "./header/Logo";
@@ -23,7 +23,8 @@ const allLinks = [...leftLinks, ...rightLinks];
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  // Removed isScrolled state and useEffect
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -42,67 +43,46 @@ export const Header = () => {
     handleMobileMenuClose();
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-white shadow-md text-navy py-2" 
-          : "bg-transparent text-white py-4"    
-      }`}
+      // Updated className: Removed the ternary operator and set constant styles
+      // Used the "scrolled" styles (bg-white, shadow-md, text-navy) as the permanent look
+      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md text-navy py-2" 
     >
       <div className="container mx-auto px-4">
-        {/* UPDATED FLEX CONTAINER:
-           1. Added 'lg:justify-center' to center everything on desktop.
-           2. Added 'lg:gap-12' to control space between Navs and Logo.
-           3. Kept 'justify-between' for Mobile view.
-        */}
         <div className="flex items-center justify-between lg:justify-center lg:gap-12 h-16 lg:h-20">
           
           {/* LEFT NAV */}
+          {/* Passed true to isScrolled to ensure text is always dark/visible on white bg */}
           <DesktopNav 
             links={leftLinks} 
-            isScrolled={isScrolled} 
+            isScrolled={true} 
           />
 
           {/* CENTER LOGO */}
-          {/* REMOVED: lg:absolute lg:left-1/2 lg:-translate-x-1/2 */}
-          {/* This allows the logo to sit naturally between the navs */}
           <div className="shrink-0">
-            <Logo isScrolled={isScrolled} />
+            <Logo isScrolled={true} />
           </div>
 
           {/* RIGHT NAV */}
           <div className="hidden lg:flex items-center gap-6">
             <DesktopNav 
               links={rightLinks} 
-              isScrolled={isScrolled}
+              isScrolled={true}
             />
             <Button size="sm" className="bg-primary hover:bg-primary/90" onClick={handleAppointmentClick}>
               Book an Appointment
             </Button>
           </div>
 
-          {/* MOBILE MENU BUTTON (Kept absolute or auto-positioned by justify-between on mobile) */}
+          {/* MOBILE MENU BUTTON */}
           <MobileMenuButton
             isOpen={isMobileMenuOpen}
             onClick={toggleMobileMenu}
-            isScrolled={isScrolled}
+            isScrolled={true}
           />
         </div>
       </div>
