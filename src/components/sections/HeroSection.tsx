@@ -17,7 +17,7 @@ export const HeroSection = () => {
           src="/hero.mp4"
         />
         
-        {/* Gradient Overlay - Now 50% width on desktop */}
+        {/* Gradient Overlay - Covers 50% of the width on desktop (lg:w-1/2) */}
         <div className="absolute inset-y-0 left-0 w-full lg:w-1/2 bg-gradient-to-r from-navy/95 to-transparent" />
       </div>
 
