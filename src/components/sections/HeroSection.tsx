@@ -42,8 +42,7 @@ export const HeroSection = () => {
             </p>
 
             <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-              Your Health, <br />
-              <span className="text-primary">Our Priority.</span>
+              Your Health,Our Priority. <br />
             </h1>
 
             <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
