@@ -83,9 +83,7 @@ export const TestimonialsSection = () => {
 
   return (
     <section className="py-24 bg-white overflow-hidden relative">
-      {/* REMOVED: The decorative background gradient div was here. 
-         Now the background is pure white.
-      */}
+      {/* Decorative background elements removed for pure white background */}
 
       <div className="container mx-auto px-4 relative">
         <motion.div
@@ -184,7 +182,8 @@ export const TestimonialsSection = () => {
           className="text-center mt-16"
         >
           <Link to="/testimonials">
-            <Button variant="outline" className="rounded-full px-8 hover:bg-primary hover:text-white transition-all">
+            {/* Added bg-white to ensure the button is white and not grey */}
+            <Button variant="outline" className="rounded-full px-8 bg-white hover:bg-primary hover:text-white transition-all">
               View All Stories
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
