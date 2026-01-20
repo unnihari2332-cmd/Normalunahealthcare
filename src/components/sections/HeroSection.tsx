@@ -17,9 +17,8 @@ export const HeroSection = () => {
           src="/hero.mp4"
         />
         
-        {/* Gradient Overlay - Restricted to 25% width on desktop */}
-        {/* On mobile (w-full), it ensures text readability. On desktop (lg:w-1/4), it creates the 25% strip effect. */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-1/4 bg-gradient-to-r from-navy/95 to-transparent" />
+        {/* Gradient Overlay - Now 50% width on desktop */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-1/2 bg-gradient-to-r from-navy/95 to-transparent" />
       </div>
 
       {/* Animated shapes */}
