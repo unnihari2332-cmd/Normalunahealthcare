@@ -54,7 +54,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-gold font-medium mb-4 drop-shadow-md"
+            className="text-white font-medium mb-4 drop-shadow-md"
           >
             Welcome to Norma Luna Healthcare
           </motion.p>
