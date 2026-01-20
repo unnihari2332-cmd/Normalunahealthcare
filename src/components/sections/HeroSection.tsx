@@ -81,7 +81,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 inline-flex items-center gap-4"
           >
-            <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center border border-primary/30">
+            <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-white-sm flex items-center justify-center border border-primary/30">
               <Phone className="w-5 h-5 text-primary" />
             </div>
             <div>
