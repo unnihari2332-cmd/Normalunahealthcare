@@ -1,181 +1,177 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-// 1. Importing Lucide Icons
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  HeartPulse, 
-  Bone, 
-  Baby, 
-  Activity, 
-  Smile, 
-  Weight 
-} from 'lucide-react';
+import { ArrowRight, MoveRight } from 'lucide-react';
 
-// --- SWIPER IMPORTS ---
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+// --- DATA (You can move this to a separate file later if you want) ---
+import consultation from "@/assets/consultation.jpg"; // Ensure this image exists or change path
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-// --- DATA ---
-const specialities = [
+export const specialities = [
   {
     id: "ivf-obstetrics-gynaecology",
     title: "IVF, Obstetrics & Gynaecology",
     description: "Complete infertility care with state-of-the-art IVF treatment. Our fertility specialists offer comprehensive support.",
-    icon: Baby, // Icon component
+    image: consultation, 
   },
   {
     id: "gastroenterology",
     title: "Gastroenterology",
     description: "Cutting edge techniques to treat disorders that affect the esophagus, stomach, small intestine, and colon.",
-    icon: Activity, // Icon component
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600",
   },
   {
-    id: "cardiology",
-    title: "Cardiology",
-    description: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.",
-    icon: HeartPulse, // Icon component
+    id: "oncology",
+    title: "Oncology",
+    description: "Oncology specialists harness the most advanced cancer care, multidisciplinary expertise, chemotherapy and targeted therapies.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600",
+  },
+  {
+    id: "transplant-kidney-liver",
+    title: "Transplant (Kidney & Liver)",
+    description: "We specialize in kidney, liver and heart transplant surgeries with exceptional care and post-operative support.",
+    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600",
   },
   {
     id: "orthopaedics",
     title: "Orthopaedics",
-    description: "Handle spine & joint problem through latest orthopedic technology including joint replacements.",
-    icon: Bone, // Icon component
+    description: "Handle spine & joint problem through latest orthopedic technology including joint replacements and fracture treatments.",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600",
   },
   {
     id: "dental",
     title: "Dental",
     description: "Your smile is in expert hands. We offer dental implants to orthodontics with personalized dental solutions.",
-    icon: Smile, // Icon component
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600",
   },
   {
     id: "bariatrics",
     title: "Bariatrics",
     description: "Our bariatric surgery team provides innovative weight loss solutions. From sleeve gastrectomy to gastric bypass.",
-    icon: Weight, // Icon component
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600",
+  },
+  {
+    id: "aesthetic-dermatology-plastic",
+    title: "Aesthetic Dermatology & Plastic",
+    description: "Achieve your beauty goals with expert aesthetic dermatology and plastic surgery expertise.",
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600",
+  },
+  {
+    id: "ophthalmology",
+    title: "Ophthalmology",
+    description: "Our eye specialists are equipped with the latest technology for world-class vision care, from LASIK to cataract surgery.",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600",
+  },
+  {
+    id: "nephrology",
+    title: "Nephrology",
+    description: "Comprehensive kidney care using advanced diagnostics. From chronic kidney management to dialysis solutions.",
+    image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600",
+  },
+  {
+    id: "urology",
+    title: "Urology",
+    description: "Expert care for kidney, bladder, and reproductive health using minimally invasive surgery techniques.",
+    image: "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=600",
+  },
+  {
+    id: "colorectal-surgery",
+    title: "Colorectal Surgery",
+    description: "Specialized colorectal surgeries handled by experienced surgeons to ensure patient comfort and fast recovery.",
+    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600",
   },
 ];
 
 // --- COMPONENT ---
 
-const SpecialitiesSection = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-
+const SpecialitiesSection: React.FC = () => {
   return (
-    <section className="bg-white py-20 px-4 md:px-8 lg:px-16 overflow-hidden">
+    <section className="bg-[#D9EBF5] py-16 px-4 md:px-8 lg:px-16 min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto w-full">
         
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div className="max-w-2xl">
-            <span className="font-semibold tracking-wide uppercase mb-2 block text-[#00205B]">
-              Our Departments
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-[#00205B]">
-              Our Practice Areas <br /> and Expertise
-            </h2>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           
-          {/* Custom Navigation Buttons */}
-          <div className="hidden md:flex gap-4">
-            <button 
-              ref={prevRef} 
-              className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 transition-all duration-300 group hover:border-[#00205B] hover:bg-[#00205B] hover:text-white"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button 
-              ref={nextRef} 
-              className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 transition-all duration-300 group hover:border-[#00205B] hover:bg-[#00205B] hover:text-white"
-            >
-              <ChevronRight size={24} />
-            </button>
+          {/* --- Left Column: Content & Featured Image --- */}
+          <div className="flex flex-col justify-center space-y-8 sticky top-10 h-fit">
+            
+            {/* Featured Image Block */}
+            <div className="relative overflow-hidden rounded-[40px] shadow-lg">
+              <img 
+                src={consultation} 
+                alt="Medical Consultation" 
+                className="w-full h-64 md:h-80 object-cover"
+              />
+              {/* Decorative white curve */}
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-tl-[100px]" />
+            </div>
+
+            {/* Text Content */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-2 text-slate-600 font-medium">
+                <span className="text-2xl">⚡</span>
+                <span className="uppercase tracking-wide text-sm">We Provide the Best Service for your Health</span>
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] leading-tight">
+                Our Practice Areas and Expertise
+              </h2>
+
+              <p className="text-slate-600 text-lg leading-relaxed">
+                The healthcare arena there was a felt need of developing new as well as upgrading the existing functioning and processes. We provide comprehensive care tailored to your specific needs.
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* --- SWIPER CAROUSEL --- */}
-        <div className="relative">
-          <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onBeforeInit={(swiper) => {
-              // Bind external buttons to Swiper navigation
-              // @ts-ignore
-              swiper.params.navigation.prevEl = prevRef.current;
-              // @ts-ignore
-              swiper.params.navigation.nextEl = nextRef.current;
-            }}
-            breakpoints={{
-              640: { slidesPerView: 2, spaceBetween: 20 },
-              1024: { slidesPerView: 3, spaceBetween: 30 },
-            }}
-            className="pb-12"
-          >
-            {specialities.map((item, index) => {
-              // Format number 01, 02...
-              const number = (index + 1).toString().padStart(2, '0');
-              const IconComponent = item.icon;
-
-              return (
-                <SwiperSlide key={item.id} className="h-auto">
-                  <div className="group bg-white border border-slate-100 rounded-[30px] p-8 h-full flex flex-col relative hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-out hover:border-[#00205B]/20">
-                    
-                    {/* Background Number */}
-                    <div className="absolute top-6 right-8 text-6xl font-bold text-slate-100 select-none -z-0 group-hover:text-slate-50 transition-colors">
-                      {number}
-                    </div>
-
-                    {/* Icon Container */}
-                    <div className="relative z-10 w-20 h-20 rounded-2xl flex items-center justify-center mb-8 shrink-0 transition-colors duration-300 bg-[#E6EBF5] group-hover:bg-[#00205B]">
-                      {/* Icon */}
-                      <IconComponent 
-                        size={40} 
-                        className="transition-all duration-300 text-[#00205B] group-hover:text-white" 
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="relative z-10 flex flex-col flex-grow">
-                      <h3 className="text-2xl font-bold mb-4 transition-colors text-[#00205B] group-hover:text-[#003087]">
-                        {item.title}
-                      </h3>
-                      
-                      <p className="text-slate-500 mb-8 leading-relaxed line-clamp-3">
-                        {item.description}
-                      </p>
-
-                      {/* Button */}
-                      <Link 
-                        to={`/specialities/${item.id}`}
-                        className="mt-auto w-full py-3 text-white rounded-full font-semibold text-center transition-colors shadow-md bg-[#00205B] hover:bg-[#003087] shadow-[#00205B]/30"
-                      >
-                        Read More
-                      </Link>
-                    </div>
+          {/* --- Right Column: Scrollable List --- */}
+          <div className="h-[800px] overflow-y-auto pr-2 custom-scrollbar space-y-6">
+            {specialities.map((item) => (
+              <div 
+                key={item.id} 
+                className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-[30px] flex flex-col md:flex-row items-center gap-6 hover:shadow-xl transition-all duration-300 border border-white"
+              >
+                {/* Circle Image */}
+                <div className="shrink-0">
+                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </div>
+                </div>
 
+                {/* Content */}
+                <div className="flex-1 text-center md:text-left space-y-3">
+                  <h3 className="text-2xl font-bold text-[#0F172A]">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-500 line-clamp-2">
+                    {item.description}
+                  </p>
+                  
+                  <Link 
+                    to={`/specialities/${item.id}`} 
+                    className="inline-flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors mt-2 group"
+                  >
+                    Read More 
+                    <MoveRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+
+                {/* Icon Button (Visual Only) */}
+                <div className="shrink-0 hidden md:flex">
+                  <Link 
+                    to={`/specialities/${item.id}`}
+                    className="w-14 h-14 bg-[#0F172A] rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors shadow-lg"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   );
