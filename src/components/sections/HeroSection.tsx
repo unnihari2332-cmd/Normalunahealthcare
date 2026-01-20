@@ -82,7 +82,8 @@ export const HeroSection = () => {
             className="mt-12 inline-flex items-center gap-4"
           >
             <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-white-sm flex items-center justify-center border border-primary/30">
-              <Phone className="w-5 h-5 text-primary" />
+              {/* Changed text-primary to text-white here */}
+              <Phone className="w-5 h-5 text-white" />
             </div>
             <div>
               <p className="text-gray-300 text-sm font-medium">24/7 Support</p>
