@@ -39,27 +39,26 @@ const FAQ = () => {
   return (
     <section
       id="faq"
-      // CHANGED: bg-neutral-950 to bg-white, text-white to text-neutral-900
-      className="relative py-16 md:py-24 bg-white text-neutral-900"
+      // CHANGED: bg-white -> bg-gray-50 (Matches the off-white/light gray in your image)
+      className="relative py-16 md:py-24 bg-gray-50 text-neutral-900"
     >
-      {/* subtle top glow (adjusted for light theme) */}
+      {/* Subtle top fade to blend with potential white header above */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-neutral-500/10 to-transparent"
+        className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-gray-100/50 to-transparent"
       />
 
       <div className="container mx-auto px-6">
         <div className="grid gap-10 lg:gap-14 lg:grid-cols-2 items-start">
           {/* LEFT: Heading + Image */}
           <div>
-            <h2 className="text-[40px] leading-[1.05] sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8">
+            <h2 className="text-[40px] leading-[1.05] sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 text-neutral-950">
               Frequently
               <br />
               Asked Questions
             </h2>
 
-            {/* CHANGED: Ring color from white/10 to neutral-200 */}
-            <div className="relative overflow-hidden rounded-3xl ring-1 ring-neutral-200 shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl ring-1 ring-black/5 shadow-xl">
               <img
                 src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop"
                 alt="Medical professionals in a modern hospital setting"
@@ -76,18 +75,18 @@ const FAQ = () => {
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
-                  // CHANGED: bg-white/5 to bg-neutral-50 (light gray), updated rings/shadows for light mode
-                  className="rounded-2xl bg-neutral-50 ring-1 ring-neutral-200 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.1)] data-[state=open]:ring-neutral-400"
+                  // CHANGED: bg-neutral-50 -> bg-white (White cards to stand out against the gray background)
+                  className="rounded-2xl bg-white ring-1 ring-black/5 shadow-sm data-[state=open]:shadow-md data-[state=open]:ring-black/10 transition-all duration-200"
                 >
                   <AccordionTrigger className="group px-6 py-5 md:py-6 text-left [&>svg]:hidden">
                     <div className="flex items-center justify-between gap-6 w-full">
-                      <span className="text-xl md:text-2xl font-extrabold">
+                      <span className="text-xl md:text-2xl font-bold text-neutral-900">
                         {faq.question}
                       </span>
 
-                      {/* CHANGED: Icon background colors to suit light theme */}
+                      {/* Icon Container */}
                       <span
-                        className="grid h-10 w-10 place-items-center rounded-full bg-neutral-200 ring-1 ring-neutral-300 transition-colors group-data-[state=open]:bg-neutral-300 shrink-0"
+                        className="grid h-10 w-10 place-items-center rounded-full bg-gray-100 text-gray-600 ring-1 ring-black/5 transition-colors group-hover:bg-gray-200 group-data-[state=open]:bg-neutral-900 group-data-[state=open]:text-white shrink-0"
                         aria-hidden="true"
                       >
                         <Plus className="h-5 w-5 group-data-[state=open]:hidden" />
@@ -96,7 +95,6 @@ const FAQ = () => {
                     </div>
                   </AccordionTrigger>
 
-                  {/* CHANGED: Text color to neutral-600 */}
                   <AccordionContent className="px-6 pb-6 pt-0 text-neutral-600 leading-relaxed text-base md:text-lg">
                     {faq.answer}
                   </AccordionContent>
