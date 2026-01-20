@@ -18,44 +18,35 @@ export const HeroSection = () => {
           src="/hero.mp4"
         />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-1/2 bg-gradient-to-r from-navy/95 to-transparent" />
+        {/* UPDATED: Gradient Overlay 
+            - Made it slightly wider (lg:w-2/3) to ensure text remains readable
+            - This acts as the "background" for the text now 
+        */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-2/3 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent" />
       </div>
-
-      {/* Animated shapes */}
-      <motion.div
-        animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl"
-      />
-      <motion.div
-        animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full bg-gold/10 blur-3xl"
-      />
 
       {/* Content */}
       <div className="relative container mx-auto px-4 pt-20">
         <div className="max-w-3xl">
 
-          {/* 🔥 BLUR BOX START */}
+          {/* 🔥 MODIFIED: Removed the "Blur Box" styling */}
+          {/* We keep the motion.div for animation, but removed borders/bg/padding */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl"
+            initial={{ opacity: 0, x: -30 }} 
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col justify-center" // Removed bg-white/10, blur, borders, etc.
           >
-            <p className="text-white font-medium mb-4 drop-shadow-md">
+            <p className="text-white/90 font-medium mb-4 tracking-wide uppercase text-sm">
               Welcome to Norma Luna Healthcare
             </p>
 
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 drop-shadow-lg">
-              Your Health, Our Priority.
-              <br />
-              <span className="text-primary">Trusted Healthcare</span>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+              Your Health, <br />
+              <span className="text-primary">Our Priority.</span>
             </h1>
 
-            <p className="text-primary-foreground/90 text-lg mb-8 max-w-xl drop-shadow-md">
+            <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
               At Norma Luna Healthcare, we don't just treat illnesses – we nurture
               hope and healing. Your well-being is our heartfelt mission, every
               step of the way.
@@ -65,7 +56,7 @@ export const HeroSection = () => {
               <Link to="/appointment">
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-teal-light text-primary-foreground rounded-full px-8 group shadow-lg"
+                  className="bg-primary hover:bg-teal-light text-primary-foreground rounded-full px-8 h-12 text-base group shadow-xl shadow-primary/20"
                 >
                   Book An Appointment
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -75,28 +66,28 @@ export const HeroSection = () => {
               <Link to="/about">
                 <Button
                   size="lg"
-                  className="bg-white text-primary hover:bg-gray-100 rounded-full px-8 font-semibold shadow-md"
+                  variant="outline" // Changed to outline for a cleaner look against video
+                  className="bg-transparent text-white border-white hover:bg-white hover:text-navy rounded-full px-8 h-12 text-base font-semibold"
                 >
                   Learn More
                 </Button>
               </Link>
             </div>
           </motion.div>
-          {/* 🔥 BLUR BOX END */}
 
-          {/* Support Banner */}
+          {/* Support Banner - Simplified style to match the new clean look */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 inline-flex items-center gap-4 bg-navy/40 backdrop-blur-md rounded-full px-6 py-3 border border-primary-foreground/20 shadow-xl"
+            className="mt-12 inline-flex items-center gap-4"
           >
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center animate-pulse-glow">
-              <Phone className="w-5 h-5 text-primary-foreground" />
+            <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center border border-primary/30">
+              <Phone className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-primary-foreground/80 text-sm">24/7 Support</p>
-              <p className="text-primary-foreground font-semibold text-lg">
+              <p className="text-gray-300 text-sm font-medium">24/7 Support</p>
+              <p className="text-white font-bold text-xl tracking-wide">
                 +91 73587 46061
               </p>
             </div>
