@@ -39,13 +39,13 @@ const FAQ = () => {
   return (
     <section
       id="faq"
-      // Changed from bg-neutral-950 text-white -> bg-white text-neutral-900
+      // CHANGED: bg-neutral-950 to bg-white, text-white to text-neutral-900
       className="relative py-16 md:py-24 bg-white text-neutral-900"
     >
-      {/* subtle top glow: changed to a dark subtle fade for contrast on white */}
+      {/* subtle top glow (adjusted for light theme) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-neutral-900/5 to-transparent"
+        className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-neutral-500/10 to-transparent"
       />
 
       <div className="container mx-auto px-6">
@@ -58,7 +58,7 @@ const FAQ = () => {
               Asked Questions
             </h2>
 
-            {/* Changed ring-white/10 -> ring-neutral-200 */}
+            {/* CHANGED: Ring color from white/10 to neutral-200 */}
             <div className="relative overflow-hidden rounded-3xl ring-1 ring-neutral-200 shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1600&auto=format&fit=crop"
@@ -76,17 +76,16 @@ const FAQ = () => {
                 <AccordionItem
                   key={i}
                   value={`item-${i}`}
-                  // Changed bg/ring colors for light mode
+                  // CHANGED: bg-white/5 to bg-neutral-50 (light gray), updated rings/shadows for light mode
                   className="rounded-2xl bg-neutral-50 ring-1 ring-neutral-200 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.1)] data-[state=open]:ring-neutral-400"
                 >
-                  {/* Custom trigger with + / – icon */}
                   <AccordionTrigger className="group px-6 py-5 md:py-6 text-left [&>svg]:hidden">
                     <div className="flex items-center justify-between gap-6 w-full">
                       <span className="text-xl md:text-2xl font-extrabold">
                         {faq.question}
                       </span>
 
-                      {/* Icon pill: changed white/10 -> neutral-200 */}
+                      {/* CHANGED: Icon background colors to suit light theme */}
                       <span
                         className="grid h-10 w-10 place-items-center rounded-full bg-neutral-200 ring-1 ring-neutral-300 transition-colors group-data-[state=open]:bg-neutral-300 shrink-0"
                         aria-hidden="true"
@@ -97,7 +96,7 @@ const FAQ = () => {
                     </div>
                   </AccordionTrigger>
 
-                  {/* Content text: changed white/80 -> neutral-600 */}
+                  {/* CHANGED: Text color to neutral-600 */}
                   <AccordionContent className="px-6 pb-6 pt-0 text-neutral-600 leading-relaxed text-base md:text-lg">
                     {faq.answer}
                   </AccordionContent>
