@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight, Quote, MapPin, Activity } from "lucide-react";
@@ -83,8 +83,9 @@ export const TestimonialsSection = () => {
 
   return (
     <section className="py-24 bg-white overflow-hidden relative">
-      {/* Decorative background elements can go here if needed */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-secondary/30 to-transparent pointer-events-none" />
+      {/* REMOVED: The decorative background gradient div was here. 
+         Now the background is pure white.
+      */}
 
       <div className="container mx-auto px-4 relative">
         <motion.div
