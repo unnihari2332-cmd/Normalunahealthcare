@@ -2,16 +2,22 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-medical.jpg";
+// Removed heroImage import
 
 export const HeroSection = () => {
   return (
     <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full">
+        <video
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          src="/hero.mp4" 
+        />
+        {/* Gradient Overlay - Essential for text readability over video */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/70 to-navy/30" />
       </div>
 
@@ -86,7 +92,6 @@ export const HeroSection = () => {
               </Button>
             </Link>
             
-            {/* UPDATED LEARN MORE BUTTON */}
             <Link to="/about">
               <Button
                 size="lg"
