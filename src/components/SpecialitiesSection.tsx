@@ -10,7 +10,7 @@ export const specialities = [
     id: "ivf-obstetrics-gynaecology",
     title: "IVF, Obstetrics & Gynaecology",
     description: "Complete infertility care with state-of-the-art IVF treatment. Our fertility specialists offer comprehensive support.",
-    image: consultation, 
+    image: "/ivf.jpg", 
   },
   {
     id: "gastroenterology",
