@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Microscope, HeartPulse, GraduationCap, CheckCircle2 } from "lucide-react";
-import medicalTeam from "@/assets/medical-team.jpg";
+import medicalTeam from "@/aboutus.jpg";
 
 const coreValues = [
   {
