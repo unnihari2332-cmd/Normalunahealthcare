@@ -1,22 +1,24 @@
 import { motion } from "framer-motion";
 import { Microscope, HeartPulse, GraduationCap } from "lucide-react";
-import medicalTeam from "@/aboutus.jpg"; // Ensure this path is correct
+// Ensure this image exists in your public or src folder. 
+// If it is in 'public', change to: src="/aboutus.jpg"
+import medicalTeam from "@/aboutus.jpg"; 
 
 const coreValues = [
   {
     icon: Microscope,
-    title: "Innovative Treatment Approaches",
-    desc: "Access to cutting-edge medical protocols.",
+    title: "Innovative Treatment",
+    desc: "Access to cutting-edge medical protocols and technology.",
   },
   {
     icon: HeartPulse,
     title: "Holistic Health Focus",
-    desc: "Treating the whole person, not just the symptoms.",
+    desc: "Treating the whole person with compassionate care.",
   },
   {
     icon: GraduationCap,
-    title: "Patient Education & Empowerment",
-    desc: "Guiding you through every step of your journey.",
+    title: "Patient Education",
+    desc: "Empowering you with knowledge throughout your journey.",
   },
 ];
 
@@ -63,14 +65,14 @@ export const AboutSection = () => {
                 We are dedicated to delivering expertise with genuine compassion.
               </p>
               <p>
-                We are networked with India's most reputed medical institutions, including 
-                top-tier Corporate, Multi-Speciality, and Super-Speciality hospitals. 
-                Our partners adhere to international protocols, ensuring multidisciplinary 
-                care at an affordable price point.
+                We are networked with reputed hospitals and doctors across India. 
+                Our network includes corporate, Multi-Speciality, and Super-Speciality 
+                hospitals that follow international protocols with multidisciplinary teams 
+                at an affordable price.
               </p>
               <p>
-                We bridge the gap between you and renowned specialists, facilitating 
-                treatments with experienced surgeons utilizing state-of-the-art technology.
+                We facilitate connections with renowned specialists, ensuring you receive 
+                treatments from experienced surgeons using state-of-the-art technology.
               </p>
             </div>
 
@@ -86,10 +88,10 @@ export const AboutSection = () => {
                 <motion.div 
                   key={index}
                   variants={itemVariants}
-                  className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+                  className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all hover:translate-x-1"
                 >
-                  <div className="p-3 bg-primary/10 rounded-full text-primary">
-                    <item.icon className="w-6 h-6" />
+                  <div className="p-3 bg-blue-50 rounded-full text-primary">
+                    <item.icon className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">{item.title}</h4>
@@ -108,9 +110,9 @@ export const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="relative lg:h-auto"
           >
-            {/* Decorative Background Element */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -z-10" />
+            {/* Decorative Background Blur */}
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl -z-10" />
+            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl -z-10" />
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-[6px] border-white aspect-[4/5] lg:aspect-[3/4]">
               <img
@@ -118,16 +120,16 @@ export const AboutSection = () => {
                 alt="Norma Luna Medical Network Team"
                 className="w-full h-full object-cover"
               />
-              {/* Overlay for text legibility if needed, but mostly for style */}
+              {/* Subtle Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
             </div>
 
-            {/* Experience Floating Card */}
+            {/* Floating Experience Card */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="absolute bottom-8 right-8 md:bottom-12 md:right-[-20px] bg-white p-6 rounded-2xl shadow-xl border-l-8 border-primary max-w-[180px]"
+              className="absolute bottom-8 right-8 md:bottom-12 md:right-[-20px] bg-white p-6 rounded-2xl shadow-xl border-l-8 border-blue-600 max-w-[180px]"
             >
-              <p className="text-5xl font-extrabold text-primary mb-1">5+</p>
+              <p className="text-5xl font-extrabold text-blue-600 mb-1">5+</p>
               <p className="text-slate-700 text-sm font-semibold uppercase tracking-wider leading-tight">
                 Years of <br /> Excellence
               </p>
