@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MoveRight } from 'lucide-react';
 
 // --- DATA (You can move this to a separate file later if you want) ---
-import consultation from "@/assets/consultation.jpg"; // Ensure this image exists or change path
+import consultation from "@/Specialities.png"; // Ensure this image exists or change path
 
 export const specialities = [
   {
