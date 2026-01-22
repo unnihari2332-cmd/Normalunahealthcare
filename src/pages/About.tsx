@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
-import heroImage from "@/assets/hero-medical.jpg"; 
+import heroImage from "/aboutus.jpg"; 
 
 // --- DATA: TAB CONTENT ---
 const tabContent = {
