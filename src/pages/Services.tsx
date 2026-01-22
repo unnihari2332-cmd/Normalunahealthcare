@@ -13,7 +13,7 @@ import {
   Activity,
   Languages,
 } from "lucide-react";
-import heroImage from "@/assets/hero-medical.jpg";
+import heroImage from "/Bg-hero-page.png";
 import consultation from "@/assets/consultation.jpg";
 
 const services = [
