@@ -31,7 +31,7 @@ const leftLinks = [
     name: "Specialities", 
     path: "/specialities", 
     hasDropdown: true, 
-    dropdownItems: specialityItems // Added the list here
+    dropdownItems: specialityItems 
   },
 ];
 
@@ -90,7 +90,11 @@ export const Header = () => {
               links={rightLinks} 
               isScrolled={true}
             />
-            <Button size="sm" className="bg-primary hover:bg-primary/90" onClick={handleAppointmentClick}>
+            {/* UPDATED BUTTON STYLE */}
+            <Button 
+              className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-5 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
+              onClick={handleAppointmentClick}
+            >
               Book an Appointment
             </Button>
           </div>
