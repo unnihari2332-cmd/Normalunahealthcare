@@ -29,7 +29,7 @@ const leftLinks = [
   { name: "About Us", path: "/about", hasDropdown: false },
   { 
     name: "Specialities", 
-    path: "/specialities", 
+    path: "#", // <--- UPDATED: Changed to '#' to prevent navigation
     hasDropdown: true, 
     dropdownItems: specialityItems 
   },
@@ -90,9 +90,10 @@ export const Header = () => {
               links={rightLinks} 
               isScrolled={true}
             />
-            {/* UPDATED BUTTON STYLE */}
+            
+            {/* UPDATED BUTTON: Bigger, Bolder, Shadowed */}
             <Button 
-              className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-5 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-6 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
               onClick={handleAppointmentClick}
             >
               Book an Appointment
