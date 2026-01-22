@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  ChevronLeft, 
-  ChevronRight, 
   Quote, 
   Target, 
   Eye, 
@@ -14,7 +12,7 @@ import {
   Microscope, 
   Heart, 
   GraduationCap,
-  Star // Added Star icon
+  Star 
 } from "lucide-react";
 
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
@@ -54,35 +52,31 @@ const tabContent = {
   }
 };
 
-// --- DATA: TESTIMONIALS ---
-// Added placeholder images. Replace these URLs with your actual assets.
+// --- DATA: TESTIMONIALS (No Images) ---
 const testimonials = [
   {
     name: "Ivan M.",
     location: "Russia",
     treatment: "Stem Cell Therapy",
-    image: "https://i.pravatar.cc/150?img=11", // Placeholder
     content: "After being diagnosed with a neurological condition, I was searching for advanced treatment options. Stem cell therapy was a promising solution, but in Russia, the cost was extremely high. That’s when I found that India offered world-class regenerative medicine.",
   },
   {
     name: "Amina E.",
     location: "Oman",
     treatment: "Cancer Treatment",
-    image: "https://i.pravatar.cc/150?img=5", // Placeholder
     content: "Norma Luna Healthcare gave me hope when I needed it most. Their team ensured I got world-class oncology treatment in India at a fraction of the cost. The doctors, the advanced treatment plans, and the personal care I received made all the difference.",
   },
   {
     name: "Amal N.",
     location: "Sri Lanka",
     treatment: "Hip Replacement",
-    image: "https://i.pravatar.cc/150?img=3", // Placeholder
     content: "After suffering for years with severe arthritis, I could barely walk. Hip replacement surgery in Sri Lanka was too costly. Norma Luna Healthcare provided a quick, affordable solution. Within a week, I was in Chennai. Just days after surgery, I was walking again.",
   },
 ];
 
 // --- COMPONENTS ---
 
-// 1. Interactive Left-Image / Right-Content Section (Unchanged)
+// 1. Interactive Left-Image / Right-Content Section
 const InteractiveAboutSection = () => {
   const [activeTab, setActiveTab] = useState<"about" | "vision" | "mission">("about");
 
@@ -181,7 +175,7 @@ const InteractiveAboutSection = () => {
   );
 };
 
-// 2. UPDATED: Testimonial Grid (Matching screenshot style)
+// 2. Testimonial Grid (Updated: No Images)
 const TestimonialGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 pb-10">
@@ -195,7 +189,7 @@ const TestimonialGrid = () => {
           className="flex flex-col items-center"
         >
           {/* Card Container */}
-          <div className="relative bg-white p-8 pb-12 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 w-full flex flex-col items-center text-center">
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 w-full flex flex-col items-center text-center h-full">
             
             {/* Quote Icon */}
             <div className="mb-6">
@@ -203,29 +197,20 @@ const TestimonialGrid = () => {
             </div>
 
             {/* Content */}
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
               {testimonial.content}
             </p>
 
             {/* Stars */}
-            <div className="flex gap-1 mb-8">
+            <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
               ))}
             </div>
-
-            {/* Avatar - Positioned absolutely at the bottom center */}
-            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-              <img 
-                src={testimonial.image} 
-                alt={testimonial.name}
-                className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-md"
-              />
-            </div>
           </div>
 
-          {/* Name & Details (Outside the card) */}
-          <div className="mt-10 text-center">
+          {/* Name & Details */}
+          <div className="mt-6 text-center">
             <h4 className="font-bold text-navy text-lg">{testimonial.name}</h4>
             <p className="text-xs text-primary font-medium uppercase tracking-wider mb-1">
                 {testimonial.location}
@@ -275,7 +260,7 @@ const AboutPage = () => {
             </h2>
           </motion.div>
 
-          {/* New Grid Component */}
+          {/* Testimonial Grid */}
           <TestimonialGrid />
 
         </div>
