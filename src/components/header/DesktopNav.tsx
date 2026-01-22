@@ -1,9 +1,11 @@
 import { NavItem } from "./NavItem";
 
-interface NavLink {
+export interface NavLink {
   name: string;
   path: string;
   hasDropdown?: boolean;
+  // Added optional dropdownItems property
+  dropdownItems?: { name: string; path: string }[];
 }
 
 export interface DesktopNavProps {
@@ -21,6 +23,7 @@ export const DesktopNav = ({ links, className = "", isScrolled = false }: Deskto
           name={link.name}
           path={link.path}
           hasDropdown={link.hasDropdown}
+          dropdownItems={link.dropdownItems} // Pass the items here
           isScrolled={isScrolled}
         />
       ))}
