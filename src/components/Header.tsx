@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Logo } from "./header/Logo";
 import { DesktopNav } from "./header/DesktopNav";
@@ -7,14 +7,34 @@ import { MobileMenu } from "./header/MobileMenu";
 import { MobileMenuButton } from "./header/MobileMenuButton";
 import { Button } from "./ui/button";
 
-// CHANGED: All 'hasDropdown' set to false to remove arrows
+// --- DATA: Specialities List ---
+const specialityItems = [
+  { name: "IVF & Gynaecology", path: "/specialities/ivf-obstetrics-gynaecology" },
+  { name: "Gastroenterology", path: "/specialities/gastroenterology" },
+  { name: "Oncology", path: "/specialities/oncology" },
+  { name: "Transplants (Kidney/Liver)", path: "/specialities/transplant-kidney-liver" },
+  { name: "Orthopaedics", path: "/specialities/orthopaedics" },
+  { name: "Dental Care", path: "/specialities/dental" },
+  { name: "Bariatrics", path: "/specialities/bariatrics" },
+  { name: "Aesthetic Surgery", path: "/specialities/aesthetic-dermatology-plastic" },
+  { name: "Ophthalmology", path: "/specialities/ophthalmology" },
+  { name: "Nephrology", path: "/specialities/nephrology" },
+  { name: "Urology", path: "/specialities/urology" },
+  { name: "Colorectal Surgery", path: "/specialities/colorectal-surgery" },
+];
+
+// --- NAVIGATION LINKS ---
 const leftLinks = [
   { name: "Home", path: "/", hasDropdown: false },
   { name: "About Us", path: "/about", hasDropdown: false },
-  { name: "Specialities", path: "/specialities", hasDropdown: false },
+  { 
+    name: "Specialities", 
+    path: "/specialities", 
+    hasDropdown: true, 
+    dropdownItems: specialityItems // Added the list here
+  },
 ];
 
-// CHANGED: All 'hasDropdown' set to false to remove arrows
 const rightLinks = [
   { name: "Services", path: "/services", hasDropdown: false },
   { name: "Testimonials", path: "/testimonials", hasDropdown: false },
@@ -48,13 +68,12 @@ export const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      // Constant white background styles
       className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md text-navy py-2" 
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between lg:justify-center lg:gap-12 h-16 lg:h-20">
           
-          {/* LEFT NAV */}
+          {/* LEFT NAV (Contains Specialities Dropdown) */}
           <DesktopNav 
             links={leftLinks} 
             isScrolled={true} 
