@@ -4,8 +4,18 @@ import { Footer } from "@/components/Footer";
 import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
 import { motion, AnimatePresence } from "framer-motion";
-// Added Microscope, Heart, GraduationCap for the new list items
-import { ChevronLeft, ChevronRight, Quote, Target, Eye, Users, Microscope, Heart, GraduationCap } from "lucide-react";
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Quote, 
+  Target, 
+  Eye, 
+  Users, 
+  Microscope, 
+  Heart, 
+  GraduationCap,
+  Star // Added Star icon
+} from "lucide-react";
 
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
 import heroImage from "@/assets/hero-medical.jpg"; 
@@ -20,7 +30,6 @@ const tabContent = {
       "Norma Luna Healthcare is networked with reputed hospitals and doctors across India. The network includes corporate hospitals, MultiSpeciality hospitals, and Super-Speciality hospitals with International protocols and Multidisciplinary teams at an affordable price.",
       "Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists and hospitals for your required treatments in India with most reputed and experienced Doctors and Surgeons with cutting edge technology."
     ],
-    // Added specific features from the screenshot image
     features: [
       { label: "Innovative Treatment Approaches", icon: Microscope },
       { label: "Holistic Health Focus", icon: Heart },
@@ -46,30 +55,34 @@ const tabContent = {
 };
 
 // --- DATA: TESTIMONIALS ---
+// Added placeholder images. Replace these URLs with your actual assets.
 const testimonials = [
   {
     name: "Ivan M.",
     location: "Russia",
     treatment: "Stem Cell Therapy",
-    content: "After being diagnosed with a neurological condition, I was searching for advanced treatment options. Stem cell therapy was a promising solution, but in Russia, the cost was extremely high. That’s when I found that India offered world-class regenerative medicine at a much more affordable price. From the moment I reached out, their team handled everything. Today, I feel stronger, and my symptoms have significantly improved.",
+    image: "https://i.pravatar.cc/150?img=11", // Placeholder
+    content: "After being diagnosed with a neurological condition, I was searching for advanced treatment options. Stem cell therapy was a promising solution, but in Russia, the cost was extremely high. That’s when I found that India offered world-class regenerative medicine.",
   },
   {
     name: "Amina E.",
     location: "Oman",
     treatment: "Cancer Treatment",
-    content: "Norma Luna Healthcare gave me hope when I needed it most. Their team ensured I got world-class oncology treatment in India at a fraction of the cost. The doctors, the advanced treatment plans, and the personal care I received made all the difference. I am now cancer-free, and I owe it to their expertise and support.",
+    image: "https://i.pravatar.cc/150?img=5", // Placeholder
+    content: "Norma Luna Healthcare gave me hope when I needed it most. Their team ensured I got world-class oncology treatment in India at a fraction of the cost. The doctors, the advanced treatment plans, and the personal care I received made all the difference.",
   },
   {
     name: "Amal N.",
     location: "Sri Lanka",
     treatment: "Hip Replacement",
-    content: "After suffering for years with severe arthritis, I could barely walk. Hip replacement surgery in Sri Lanka was too costly. Norma Luna Healthcare provided a quick, affordable solution. Within a week, I was in Chennai. Just days after surgery, I was walking again without pain. The team handled every detail, from physiotherapy to a smooth return journey home.",
+    image: "https://i.pravatar.cc/150?img=3", // Placeholder
+    content: "After suffering for years with severe arthritis, I could barely walk. Hip replacement surgery in Sri Lanka was too costly. Norma Luna Healthcare provided a quick, affordable solution. Within a week, I was in Chennai. Just days after surgery, I was walking again.",
   },
 ];
 
 // --- COMPONENTS ---
 
-// 1. NEW: Interactive Left-Image / Right-Content Section
+// 1. Interactive Left-Image / Right-Content Section (Unchanged)
 const InteractiveAboutSection = () => {
   const [activeTab, setActiveTab] = useState<"about" | "vision" | "mission">("about");
 
@@ -77,7 +90,7 @@ const InteractiveAboutSection = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-           
+            
           {/* LEFT SIDE: IMAGE */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -86,13 +99,11 @@ const InteractiveAboutSection = () => {
             transition={{ duration: 0.6 }}
             className="relative h-[500px] lg:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl"
           >
-            {/* Using heroImage as placeholder. Replace src if you have a specific about image */}
             <img 
               src={heroImage} 
               alt="Medical Professionals" 
               className="w-full h-full object-cover"
             />
-            {/* Overlay Gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent flex items-end p-8">
                <div className="text-white">
                  <p className="font-bold text-lg">Norma Luna Healthcare</p>
@@ -104,7 +115,6 @@ const InteractiveAboutSection = () => {
           {/* RIGHT SIDE: CONTENT & BUTTONS */}
           <div className="flex flex-col h-full justify-center">
             
-            {/* BUTTONS ROW */}
             <div className="flex flex-wrap gap-4 mb-8 border-b border-gray-100 pb-4">
               {(["about", "vision", "mission"] as const).map((tab) => (
                 <button
@@ -121,7 +131,6 @@ const InteractiveAboutSection = () => {
               ))}
             </div>
 
-            {/* DYNAMIC CONTENT AREA */}
             <div className="min-h-[300px]">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -132,7 +141,6 @@ const InteractiveAboutSection = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    {/* Icon wrapper */}
                     <div className="p-2 bg-primary/10 rounded-lg text-primary">
                       {activeTab === 'about' && <Users size={24} />}
                       {activeTab === 'vision' && <Eye size={24} />}
@@ -143,15 +151,12 @@ const InteractiveAboutSection = () => {
                     </h3>
                   </div>
 
-                  {/* Render Paragraphs */}
                   <div className="space-y-4 text-gray-600 leading-relaxed text-lg mb-8">
                     {tabContent[activeTab].text.map((paragraph, idx) => (
                       <p key={idx}>{paragraph}</p>
                     ))}
                   </div>
 
-                  {/* Render Features List (Only for About/Who We Are) */}
-                  {/* This maps the specific features from the image: Innovative, Holistic, Education */}
                   {'features' in tabContent[activeTab] && tabContent[activeTab].features && (
                     <div className="space-y-3 mt-6">
                       {(tabContent[activeTab] as typeof tabContent.about).features.map((feature, i) => (
@@ -169,8 +174,6 @@ const InteractiveAboutSection = () => {
                 </motion.div>
               </AnimatePresence>
             </div>
-
-            {/* CTA Button (Optional) */}
           </div>
         </div>
       </div>
@@ -178,75 +181,61 @@ const InteractiveAboutSection = () => {
   );
 };
 
-// 2. Testimonial Slider
-const TestimonialSlider = () => {
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      nextStep();
-    }, 6000); 
-    return () => clearInterval(timer);
-  }, [index, isPaused]);
-
-  const nextStep = () => {
-    setDirection(1);
-    setIndex((prevIndex) => (prevIndex + 1 === testimonials.length ? 0 : prevIndex + 1));
-  };
-
-  const prevStep = () => {
-    setDirection(-1);
-    setIndex((prevIndex) => (prevIndex - 1 < 0 ? testimonials.length - 1 : prevIndex - 1));
-  };
-
-  const variants = {
-    enter: (direction: number) => ({ x: direction > 0 ? 1000 : -1000, opacity: 0 }),
-    center: { zIndex: 1, x: 0, opacity: 1 },
-    exit: (direction: number) => ({ zIndex: 0, x: direction < 0 ? 1000 : -1000, opacity: 0 }),
-  };
-
+// 2. UPDATED: Testimonial Grid (Matching screenshot style)
+const TestimonialGrid = () => {
   return (
-    <div 
-      className="relative w-full max-w-4xl mx-auto h-[500px] md:h-[400px] flex items-center justify-center"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <button onClick={prevStep} className="absolute left-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -ml-4 md:-ml-12"><ChevronLeft size={24} /></button>
-      <button onClick={nextStep} className="absolute right-0 z-20 p-2 rounded-full bg-white/80 hover:bg-white shadow-md text-navy transition-all -mr-4 md:-mr-12"><ChevronRight size={24} /></button>
-      <div className="w-full h-full overflow-hidden relative rounded-2xl bg-white shadow-lg border border-primary/10">
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            key={index}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 }}}
-            className="absolute top-0 left-0 w-full h-full p-8 md:p-12 flex flex-col items-center justify-center text-center"
-          >
-            <Quote className="w-12 h-12 text-primary/20 mb-6 mx-auto" />
-            <p className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-8 max-w-2xl line-clamp-6 md:line-clamp-none">"{testimonials[index].content}"</p>
-            <div className="mt-auto">
-              <h4 className="font-bold text-xl text-navy">{testimonials[index].name}</h4>
-              <p className="text-sm font-medium text-primary uppercase tracking-wide">{testimonials[index].location}</p>
-              <span className="inline-block mt-2 px-3 py-1 bg-teal-50 text-teal-700 text-xs rounded-full font-medium">{testimonials[index].treatment}</span>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 pb-10">
+      {testimonials.map((testimonial, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="flex flex-col items-center"
+        >
+          {/* Card Container */}
+          <div className="relative bg-white p-8 pb-12 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 w-full flex flex-col items-center text-center">
+            
+            {/* Quote Icon */}
+            <div className="mb-6">
+              <Quote className="w-16 h-16 text-blue-100 fill-blue-50" />
             </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-      <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {testimonials.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => { setDirection(i > index ? 1 : -1); setIndex(i); }}
-            className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${i === index ? "bg-primary" : "bg-gray-300 hover:bg-primary/50"}`}
-          />
-        ))}
-      </div>
+
+            {/* Content */}
+            <p className="text-gray-600 leading-relaxed mb-6">
+              {testimonial.content}
+            </p>
+
+            {/* Stars */}
+            <div className="flex gap-1 mb-8">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+              ))}
+            </div>
+
+            {/* Avatar - Positioned absolutely at the bottom center */}
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
+              <img 
+                src={testimonial.image} 
+                alt={testimonial.name}
+                className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-md"
+              />
+            </div>
+          </div>
+
+          {/* Name & Details (Outside the card) */}
+          <div className="mt-10 text-center">
+            <h4 className="font-bold text-navy text-lg">{testimonial.name}</h4>
+            <p className="text-xs text-primary font-medium uppercase tracking-wider mb-1">
+                {testimonial.location}
+            </p>
+            <span className="text-xs text-gray-400">
+                {testimonial.treatment}
+            </span>
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 };
@@ -255,7 +244,7 @@ const TestimonialSlider = () => {
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50/50">
       <Header />
 
       <div className="pt-20">
@@ -266,27 +255,29 @@ const AboutPage = () => {
         />
       </div>
 
-      {/* NEW: Combined Section (Image Left, Tabs Right) */}
       <InteractiveAboutSection />
-       
+        
       <StatsSection />
 
-      <section className="py-20 bg-background overflow-hidden">
+      <section className="py-20 bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4">
-          <motion.div
+          
+          {/* Section Header */}
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
-            <p className="text-primary font-medium mb-2">Patient Success Stories</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold">
-              Patient Testimonials: Real Stories, Real Results
+            <p className="text-blue-400 font-medium tracking-wide uppercase text-sm mb-2">Patients Story</p>
+            <h2 className="font-display text-4xl font-bold text-navy">
+              Loved by our Patients
             </h2>
           </motion.div>
-          <div className="pb-10">
-            <TestimonialSlider />
-          </div>
+
+          {/* New Grid Component */}
+          <TestimonialGrid />
+
         </div>
       </section>
 
