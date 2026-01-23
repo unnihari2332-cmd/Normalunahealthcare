@@ -1,20 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { 
-  ArrowRight, 
-  Activity, 
-  Stethoscope, 
-  Baby,       // For IVF
-  Utensils,   // For Gastroenterology
-  Dna,        // For Oncology
-  HeartHandshake, // For Transplants
-  Bone,       // For Orthopaedics
-  Smile,      // For Dental
-  Scale,      // For Bariatrics
-  Sparkles,   // For Aesthetic
-  Eye,        // For Ophthalmology
-  Droplets,   // For Nephrology
-  Scissors    // For Surgery/Colorectal
+import {
+  ArrowRight,
+  Activity,
+  Baby,
+  Utensils,
+  Dna,
+  HeartHandshake,
+  Bone,
+  Smile,
+  Scale,
+  Sparkles,
+  Eye,
+  Droplets,
+  Scissors,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -23,100 +22,120 @@ export const specialities = [
   {
     id: "ivf-obstetrics-gynaecology",
     title: "IVF & Gynaecology",
-    description: "Complete infertility care with state-of-the-art IVF treatment and comprehensive support.",
-    image: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&auto=format&fit=crop",
+    description:
+      "Complete infertility care with state-of-the-art IVF treatment and comprehensive support.",
+    image:
+      "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&auto=format&fit=crop",
     icon: Baby,
   },
   {
     id: "gastroenterology",
     title: "Gastroenterology",
-    description: "Cutting edge techniques to treat disorders of the esophagus, stomach, and intestine.",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop",
-    icon: Utensils, 
+    description:
+      "Cutting edge techniques to treat disorders of the esophagus, stomach, and intestine.",
+    image:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop",
+    icon: Utensils,
   },
   {
     id: "oncology",
     title: "Oncology",
-    description: "Multidisciplinary expertise, chemotherapy and targeted therapies for advanced cancer care.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop",
+    description:
+      "Multidisciplinary expertise, chemotherapy and targeted therapies for advanced cancer care.",
+    image:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop",
     icon: Dna,
   },
   {
     id: "transplant-kidney-liver",
     title: "Transplants",
-    description: "Specializing in kidney, liver and heart transplant surgeries with exceptional post-op care.",
-    image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&auto=format&fit=crop",
+    description:
+      "Specializing in kidney, liver and heart transplant surgeries with exceptional post-op care.",
+    image:
+      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=600&auto=format&fit=crop",
     icon: HeartHandshake,
   },
   {
     id: "orthopaedics",
     title: "Orthopaedics",
-    description: "Latest orthopedic technology including joint replacements and fracture treatments.",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&auto=format&fit=crop",
+    description:
+      "Latest orthopedic technology including joint replacements and fracture treatments.",
+    image:
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&auto=format&fit=crop",
     icon: Bone,
   },
   {
     id: "dental",
     title: "Dental Care",
-    description: "From dental implants to orthodontics, your smile is in expert hands.",
-    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&auto=format&fit=crop",
+    description:
+      "From dental implants to orthodontics, your smile is in expert hands.",
+    image:
+      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&auto=format&fit=crop",
     icon: Smile,
   },
   {
     id: "bariatrics",
     title: "Bariatrics",
-    description: "Innovative weight loss solutions ranging from sleeve gastrectomy to gastric bypass.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop",
+    description:
+      "Innovative weight loss solutions ranging from sleeve gastrectomy to gastric bypass.",
+    image:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop",
     icon: Scale,
   },
   {
     id: "aesthetic-dermatology-plastic",
     title: "Aesthetic Surgery",
-    description: "Achieve your beauty goals with expert aesthetic dermatology and plastic surgery.",
-    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&auto=format&fit=crop",
+    description:
+      "Achieve your beauty goals with expert aesthetic dermatology and plastic surgery.",
+    image:
+      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&auto=format&fit=crop",
     icon: Sparkles,
   },
   {
     id: "ophthalmology",
     title: "Ophthalmology",
-    description: "World-class vision care equipped with the latest technology for LASIK and cataracts.",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&auto=format&fit=crop",
+    description:
+      "World-class vision care equipped with the latest technology for LASIK and cataracts.",
+    image:
+      "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600&auto=format&fit=crop",
     icon: Eye,
   },
   {
     id: "nephrology",
     title: "Nephrology",
-    description: "Comprehensive kidney care using advanced diagnostics and dialysis solutions.",
-    image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&auto=format&fit=crop",
+    description:
+      "Comprehensive kidney care using advanced diagnostics and dialysis solutions.",
+    image:
+      "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&auto=format&fit=crop",
     icon: Droplets,
   },
   {
     id: "urology",
     title: "Urology",
-    description: "Expert care for kidney, bladder, and reproductive health using minimally invasive techniques.",
-    image: "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=600&auto=format&fit=crop",
+    description:
+      "Expert care for kidney, bladder, and reproductive health using minimally invasive techniques.",
+    image:
+      "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=600&auto=format&fit=crop",
     icon: Activity,
   },
   {
     id: "colorectal-surgery",
     title: "Colorectal Surgery",
-    description: "Specialized surgeries handled by experienced surgeons ensuring fast recovery.",
-    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&auto=format&fit=crop",
+    description:
+      "Specialized surgeries handled by experienced surgeons ensuring fast recovery.",
+    image:
+      "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&auto=format&fit=crop",
     icon: Scissors,
   },
 ];
 
 // --- COMPONENT ---
-
 const SpecialitiesSection: React.FC = () => {
-  // Animation Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1, 
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -129,28 +148,16 @@ const SpecialitiesSection: React.FC = () => {
     },
   };
 
-  // --- BRAND COLORS ---
-  // Extracted from the uploaded logo: A deep "Norma Luna" Blue
-  const brandBlueHex = "#002E5D"; 
-  
-  // Helper classes for the brand color
-  const brandText = `text-[${brandBlueHex}]`;
-  const brandBg = `bg-[${brandBlueHex}]`;
-  const brandHoverBg = `hover:bg-[${brandBlueHex}]`;
-  const brandHoverText = `group-hover:text-[${brandBlueHex}]`;
-  const brandBorderHover = `hover:border-[${brandBlueHex}]`;
+  // ✅ Exact logo blue
+  const brandBlue = "#0C3B66";
 
   return (
-    // Background kept as original light blue: bg-[#D9EBF5]
     <section className="bg-[#D9EBF5] py-20 lg:py-28 overflow-hidden relative">
-      
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-white/20 skew-x-12 pointer-events-none blur-xl" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-white/20 skew-x-12 blur-xl pointer-events-none" />
       <div className="absolute top-20 left-10 w-64 h-64 bg-white/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
-        
-        {/* Header Section */}
+        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -158,24 +165,27 @@ const SpecialitiesSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Tag: White bg, Brand Blue text */}
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 ${brandText} text-sm font-semibold mb-4 backdrop-blur-sm shadow-sm`}>
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 text-sm font-semibold mb-4 shadow-sm"
+              style={{ color: brandBlue }}
+            >
               <Activity className="w-4 h-4" />
-              <span>Centers of Excellence</span>
+              Centers of Excellence
             </div>
-            
-            <h2 className="text-3xl md:text-5xl font-bold text-[#0F172A] mb-6 tracking-tight">
-              Dedicated to <span className={brandText}>Holistic Care</span>
+
+            <h2 className="text-3xl md:text-5xl font-bold text-[#0F172A] mb-6">
+              Dedicated to{" "}
+              <span style={{ color: brandBlue }}>Holistic Care</span>
             </h2>
-            <p className="text-slate-600 text-lg leading-relaxed">
+
+            <p className="text-slate-600 text-lg">
               Our hospital features specialized departments led by world-class
-              physicians, ensuring you receive the highest standard of treatment
-              for your specific needs.
+              physicians, ensuring you receive the highest standard of treatment.
             </p>
           </motion.div>
         </div>
 
-        {/* Grid Section */}
+        {/* Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -184,46 +194,43 @@ const SpecialitiesSection: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
           {specialities.map((item) => {
-             const IconComponent = item.icon;
-
-             return (
+            const Icon = item.icon;
+            return (
               <motion.div key={item.id} variants={itemVariants}>
                 <Link
                   to={`/specialities/${item.id}`}
-                  // Card: White bg, Brand Blue border on hover
-                  className={`group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/50 ${brandBorderHover}`}
+                  className="group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/50 hover:border-[#0C3B66]"
                 >
-                  {/* Image Area */}
+                  {/* Image */}
                   <div className="relative h-48 overflow-hidden">
-                    <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-colors z-10" />
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    
-                    {/* Floating Icon Badge: Brand Blue text normally, Brand Blue BG on hover */}
-                    <div className={`absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg z-20 ${brandText} ${brandHoverBg} group-hover:text-white transition-colors duration-300`}>
-                      <IconComponent className="w-5 h-5" />
+
+                    {/* Icon badge */}
+                    <div className="absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg text-[#0C3B66] group-hover:bg-[#0C3B66] group-hover:text-white transition-all duration-300">
+                      <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  {/* Content Area */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    {/* Title turns Brand Blue on hover */}
-                    <h3 className={`text-xl font-bold text-[#0F172A] mb-3 ${brandHoverText} transition-colors`}>
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-xl font-bold text-[#0F172A] mb-3 group-hover:text-[#0C3B66] transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-1">
+
+                    <p className="text-slate-500 text-sm mb-6 flex-1">
                       {item.description}
                     </p>
-                    
-                    {/* Footer / Link */}
-                    <div className={`flex items-center text-sm font-semibold ${brandText} pt-4 border-t border-slate-100`}>
-                      <span className="group-hover:mr-2 transition-all">
-                        Learn More
-                      </span>
-                      <ArrowRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+
+                    <div
+                      className="flex items-center text-sm font-semibold pt-4 border-t border-slate-100"
+                      style={{ color: brandBlue }}
+                    >
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all" />
                     </div>
                   </div>
                 </Link>
@@ -232,11 +239,13 @@ const SpecialitiesSection: React.FC = () => {
           })}
         </motion.div>
 
-        {/* Bottom CTA */}
+        {/* CTA */}
         <div className="mt-16 text-center">
           <Link to="/contact">
-            {/* Button is the specific Brand Blue */}
-            <button className={`${brandBg} text-white px-8 py-3 rounded-full font-medium hover:brightness-110 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 duration-200`}>
+            <button
+              className="px-8 py-3 rounded-full text-white font-medium shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              style={{ backgroundColor: brandBlue }}
+            >
               View All Departments
             </button>
           </Link>
