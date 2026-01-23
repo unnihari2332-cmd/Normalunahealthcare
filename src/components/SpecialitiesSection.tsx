@@ -129,17 +129,22 @@ const SpecialitiesSection: React.FC = () => {
     },
   };
 
-  // Defining the Navy Blue color to use for interactive elements
-  const navyBlue = "text-[#0B1120]";
-  const navyBg = "bg-[#0B1120]";
-  const navyHoverBg = "hover:bg-[#0B1120]";
-  const navyHoverText = "group-hover:text-[#0B1120]";
+  // --- BRAND COLORS ---
+  // Extracted from the uploaded logo: A deep "Norma Luna" Blue
+  const brandBlueHex = "#002E5D"; 
+  
+  // Helper classes for the brand color
+  const brandText = `text-[${brandBlueHex}]`;
+  const brandBg = `bg-[${brandBlueHex}]`;
+  const brandHoverBg = `hover:bg-[${brandBlueHex}]`;
+  const brandHoverText = `group-hover:text-[${brandBlueHex}]`;
+  const brandBorderHover = `hover:border-[${brandBlueHex}]`;
 
   return (
     // Background kept as original light blue: bg-[#D9EBF5]
     <section className="bg-[#D9EBF5] py-20 lg:py-28 overflow-hidden relative">
       
-      {/* Decorative background elements (White to blend with light blue) */}
+      {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-white/20 skew-x-12 pointer-events-none blur-xl" />
       <div className="absolute top-20 left-10 w-64 h-64 bg-white/30 rounded-full blur-3xl pointer-events-none" />
 
@@ -153,14 +158,14 @@ const SpecialitiesSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Tag background white, text Navy Blue */}
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 ${navyBlue} text-sm font-semibold mb-4 backdrop-blur-sm shadow-sm`}>
+            {/* Tag: White bg, Brand Blue text */}
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 ${brandText} text-sm font-semibold mb-4 backdrop-blur-sm shadow-sm`}>
               <Activity className="w-4 h-4" />
               <span>Centers of Excellence</span>
             </div>
             
             <h2 className="text-3xl md:text-5xl font-bold text-[#0F172A] mb-6 tracking-tight">
-              Dedicated to <span className={navyBlue}>Holistic Care</span>
+              Dedicated to <span className={brandText}>Holistic Care</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed">
               Our hospital features specialized departments led by world-class
@@ -185,8 +190,8 @@ const SpecialitiesSection: React.FC = () => {
               <motion.div key={item.id} variants={itemVariants}>
                 <Link
                   to={`/specialities/${item.id}`}
-                  // Card: White bg, Navy border on hover
-                  className="group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/50 hover:border-[#0B1120]"
+                  // Card: White bg, Brand Blue border on hover
+                  className={`group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/50 ${brandBorderHover}`}
                 >
                   {/* Image Area */}
                   <div className="relative h-48 overflow-hidden">
@@ -197,16 +202,16 @@ const SpecialitiesSection: React.FC = () => {
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                     
-                    {/* Floating Icon Badge: Navy text normally, Navy BG on hover */}
-                    <div className={`absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg z-20 ${navyBlue} ${navyHoverBg} group-hover:text-white transition-colors duration-300`}>
+                    {/* Floating Icon Badge: Brand Blue text normally, Brand Blue BG on hover */}
+                    <div className={`absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg z-20 ${brandText} ${brandHoverBg} group-hover:text-white transition-colors duration-300`}>
                       <IconComponent className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Content Area */}
                   <div className="p-6 flex-1 flex flex-col">
-                    {/* Title turns Navy on hover */}
-                    <h3 className={`text-xl font-bold text-[#0F172A] mb-3 ${navyHoverText} transition-colors`}>
+                    {/* Title turns Brand Blue on hover */}
+                    <h3 className={`text-xl font-bold text-[#0F172A] mb-3 ${brandHoverText} transition-colors`}>
                       {item.title}
                     </h3>
                     <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-1">
@@ -214,7 +219,7 @@ const SpecialitiesSection: React.FC = () => {
                     </p>
                     
                     {/* Footer / Link */}
-                    <div className={`flex items-center text-sm font-semibold ${navyBlue} pt-4 border-t border-slate-100`}>
+                    <div className={`flex items-center text-sm font-semibold ${brandText} pt-4 border-t border-slate-100`}>
                       <span className="group-hover:mr-2 transition-all">
                         Learn More
                       </span>
@@ -230,8 +235,8 @@ const SpecialitiesSection: React.FC = () => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <Link to="/contact">
-            {/* Button is solid Navy Blue */}
-            <button className={`${navyBg} text-white px-8 py-3 rounded-full font-medium hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 duration-200`}>
+            {/* Button is the specific Brand Blue */}
+            <button className={`${brandBg} text-white px-8 py-3 rounded-full font-medium hover:brightness-110 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 duration-200`}>
               View All Departments
             </button>
           </Link>
