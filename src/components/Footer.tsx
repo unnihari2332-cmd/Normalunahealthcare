@@ -13,8 +13,14 @@ export const Footer = () => {
     { name: "Appointment", path: "/appointment" },
   ];
 
+  // UPDATED: Added links to the social data
+  const socialLinks = [
+    { Icon: Facebook, href: "https://facebook.com" },
+    { Icon: Linkedin, href: "https://linkedin.com" },
+    { Icon: Instagram, href: "https://instagram.com" },
+  ];
+
   return (
-    // UPDATED: Background color changed to #0C3B66
     <footer className="bg-[#0C3B66] text-primary-foreground">
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -83,15 +89,16 @@ export const Footer = () => {
 
             {/* Social Icons – Box Style */}
             <div className="flex gap-3 mt-5">
-              {[Facebook, Linkedin, Instagram].map((Icon, index) => (
-                <div
+              {socialLinks.map(({ Icon, href }, index) => (
+                <a
                   key={index}
-                  // UPDATED: bg-[#0B3A63] changed to bg-white
-                  className="w-11 h-11 bg-white rounded-xl flex items-center justify-center"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 bg-white rounded-xl flex items-center justify-center transition-transform hover:scale-105"
                 >
-                  {/* UPDATED: text-white changed to text-[#0C3B66] for visibility */}
                   <Icon className="w-5 h-5 text-[#0C3B66]" />
-                </div>
+                </a>
               ))}
             </div>
           </div>
