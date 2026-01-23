@@ -14,7 +14,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#23246B] text-primary-foreground">
+    <footer className="bg-[#F4F8FC] text-[#0B3A63]">
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
@@ -28,7 +28,7 @@ export const Footer = () => {
               />
             </Link>
 
-            <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
+            <p className="text-[#0B3A63]/70 text-sm leading-relaxed max-w-xs">
               Compassionate care with advanced medical expertise, focused on your health and well-being.
             </p>
           </div>
@@ -39,9 +39,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm">
               {footerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path}>
-                    {link.name}
-                  </Link>
+                  <Link to={link.path}>{link.name}</Link>
                 </li>
               ))}
             </ul>
@@ -62,48 +60,4 @@ export const Footer = () => {
           {/* Contact Info */}
           <div>
             <h4 className="font-semibold mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-1" />
-                <span>
-                  No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West,
-                  Nungambakkam, Chennai, Tamil Nadu 600034
-                </span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>+91 7358746061</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>info@normaluna.co</span>
-              </li>
-            </ul>
-
-            {/* Social Icons – Box Style */}
-            <div className="flex gap-3 mt-5">
-              {[Facebook, Linkedin, Instagram].map((Icon, index) => (
-                <div
-                  key={index}
-                  className="w-11 h-11 bg-[#0B3A63] rounded-xl flex items-center justify-center"
-                >
-                  <Icon className="w-5 h-5 text-white" />
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10 py-4">
-        <div className="container mx-auto px-4 text-center text-sm text-primary-foreground/60">
-          © {new Date().getFullYear()} Norma Luna Healthcare. All rights reserved.
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
+            <ul className=
