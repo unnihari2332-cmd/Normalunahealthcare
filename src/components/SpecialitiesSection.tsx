@@ -5,7 +5,7 @@ import {
   Activity, 
   Stethoscope, 
   Baby,       // For IVF
-  Utensils,   // For Gastroenterology (metaphorical)
+  Utensils,   // For Gastroenterology
   Dna,        // For Oncology
   HeartHandshake, // For Transplants
   Bone,       // For Orthopaedics
@@ -95,7 +95,7 @@ export const specialities = [
     title: "Urology",
     description: "Expert care for kidney, bladder, and reproductive health using minimally invasive techniques.",
     image: "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=600&auto=format&fit=crop",
-    icon: Activity, // Generic medical for Urology
+    icon: Activity,
   },
   {
     id: "colorectal-surgery",
@@ -129,14 +129,19 @@ const SpecialitiesSection: React.FC = () => {
     },
   };
 
+  // Defining the Navy Blue color to use for interactive elements
+  const navyBlue = "text-[#0B1120]";
+  const navyBg = "bg-[#0B1120]";
+  const navyHoverBg = "hover:bg-[#0B1120]";
+  const navyHoverText = "group-hover:text-[#0B1120]";
+
   return (
-    // Changed bg to Deep Navy Blue: bg-[#0B1120]
-    <section className="bg-[#0B1120] py-20 lg:py-28 overflow-hidden relative">
+    // Background kept as original light blue: bg-[#D9EBF5]
+    <section className="bg-[#D9EBF5] py-20 lg:py-28 overflow-hidden relative">
       
-      {/* Decorative background elements (Adjusted opacity for dark mode) */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-500/10 skew-x-12 pointer-events-none blur-3xl" />
-      <div className="absolute top-20 left-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-1/2 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Decorative background elements (White to blend with light blue) */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-white/20 skew-x-12 pointer-events-none blur-xl" />
+      <div className="absolute top-20 left-10 w-64 h-64 bg-white/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         
@@ -148,17 +153,16 @@ const SpecialitiesSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Tag adjusted for dark mode contrast */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-sm font-semibold mb-4 backdrop-blur-sm border border-blue-500/20">
+            {/* Tag background white, text Navy Blue */}
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 ${navyBlue} text-sm font-semibold mb-4 backdrop-blur-sm shadow-sm`}>
               <Activity className="w-4 h-4" />
               <span>Centers of Excellence</span>
             </div>
             
-            {/* Heading Colors changed to White/Light */}
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-              Dedicated to <span className="text-blue-400">Holistic Care</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#0F172A] mb-6 tracking-tight">
+              Dedicated to <span className={navyBlue}>Holistic Care</span>
             </h2>
-            <p className="text-slate-400 text-lg leading-relaxed">
+            <p className="text-slate-600 text-lg leading-relaxed">
               Our hospital features specialized departments led by world-class
               physicians, ensuring you receive the highest standard of treatment
               for your specific needs.
@@ -175,14 +179,14 @@ const SpecialitiesSection: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
           {specialities.map((item) => {
-            // Get the specific icon component
-            const IconComponent = item.icon;
+             const IconComponent = item.icon;
 
-            return (
+             return (
               <motion.div key={item.id} variants={itemVariants}>
                 <Link
                   to={`/specialities/${item.id}`}
-                  className="group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-blue-400/50"
+                  // Card: White bg, Navy border on hover
+                  className="group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/50 hover:border-[#0B1120]"
                 >
                   {/* Image Area */}
                   <div className="relative h-48 overflow-hidden">
@@ -193,15 +197,16 @@ const SpecialitiesSection: React.FC = () => {
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                     
-                    {/* Floating Specific Icon Badge */}
-                    <div className="absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg z-20 text-slate-900 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    {/* Floating Icon Badge: Navy text normally, Navy BG on hover */}
+                    <div className={`absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg z-20 ${navyBlue} ${navyHoverBg} group-hover:text-white transition-colors duration-300`}>
                       <IconComponent className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Content Area */}
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-[#0F172A] mb-3 group-hover:text-blue-600 transition-colors">
+                    {/* Title turns Navy on hover */}
+                    <h3 className={`text-xl font-bold text-[#0F172A] mb-3 ${navyHoverText} transition-colors`}>
                       {item.title}
                     </h3>
                     <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-1">
@@ -209,7 +214,7 @@ const SpecialitiesSection: React.FC = () => {
                     </p>
                     
                     {/* Footer / Link */}
-                    <div className="flex items-center text-sm font-bold text-blue-600 pt-4 border-t border-slate-100">
+                    <div className={`flex items-center text-sm font-semibold ${navyBlue} pt-4 border-t border-slate-100`}>
                       <span className="group-hover:mr-2 transition-all">
                         Learn More
                       </span>
@@ -225,8 +230,8 @@ const SpecialitiesSection: React.FC = () => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <Link to="/contact">
-            {/* Button updated to Blue-600 to pop against the Navy background */}
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-500 transition-colors shadow-lg hover:shadow-blue-500/25 transform hover:scale-105 duration-200">
+            {/* Button is solid Navy Blue */}
+            <button className={`${navyBg} text-white px-8 py-3 rounded-full font-medium hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 duration-200`}>
               View All Departments
             </button>
           </Link>
