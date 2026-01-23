@@ -3,15 +3,14 @@ import { Phone, Mail, MapPin, Facebook, Linkedin, Instagram } from "lucide-react
 import logo from "@/assets/normaluna-logo.png";
 
 export const Footer = () => {
-  // Links derived from your Header configuration
   const footerLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Specialities", path: "/specialities" },
-    { name: "Services", path: "/services" },     // Added from Header
-    { name: "Testimonials", path: "/testimonials" }, // Added from Header
+    { name: "Services", path: "/services" },
+    { name: "Testimonials", path: "/testimonials" },
     { name: "Contact Us", path: "/contact" },
-    { name: "Appointment", path: "/appointment" } // Kept as it's essential for the footer
+    { name: "Appointment", path: "/appointment" },
   ];
 
   return (
@@ -34,13 +33,13 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links (Updated to match Header) */}
+          {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               {footerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="hover:text-primary transition">
+                  <Link to={link.path}>
                     {link.name}
                   </Link>
                 </li>
@@ -48,7 +47,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Services (Medical Departments) */}
+          {/* Services */}
           <div>
             <h4 className="font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-sm">
@@ -66,7 +65,10 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1" />
-                <span>No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West, Nungambakkam, Chennai, Tamil Nadu 600034</span>
+                <span>
+                  No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West,
+                  Nungambakkam, Chennai, Tamil Nadu 600034
+                </span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
@@ -78,11 +80,16 @@ export const Footer = () => {
               </li>
             </ul>
 
-            {/* Social Icons */}
-            <div className="flex gap-4 mt-4">
-              <a href="#" className="hover:text-primary transition"><Facebook size={18} /></a>
-              <a href="#" className="hover:text-primary transition"><Linkedin size={18} /></a>
-              <a href="#" className="hover:text-primary transition"><Instagram size={18} /></a>
+            {/* Social Icons – Box Style */}
+            <div className="flex gap-3 mt-5">
+              {[Facebook, Linkedin, Instagram].map((Icon, index) => (
+                <div
+                  key={index}
+                  className="w-11 h-11 bg-[#0B3A63] rounded-xl flex items-center justify-center"
+                >
+                  <Icon className="w-5 h-5 text-white" />
+                </div>
+              ))}
             </div>
           </div>
 
@@ -98,3 +105,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;
