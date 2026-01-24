@@ -13,7 +13,6 @@ export const Footer = () => {
     { name: "Appointment", path: "/appointment" },
   ];
 
-  // UPDATED: Added links to the social data
   const socialLinks = [
     { Icon: Facebook, href: "https://facebook.com" },
     { Icon: Linkedin, href: "https://linkedin.com" },
@@ -21,7 +20,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0C3B66] text-primary-foreground">
+    <footer className="bg-[#0A1F44] text-primary-foreground">
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
 
@@ -46,7 +45,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm">
               {footerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path}>
+                  <Link to={link.path} className="hover:text-white transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -87,7 +86,7 @@ export const Footer = () => {
               </li>
             </ul>
 
-            {/* Social Icons – Box Style */}
+            {/* Social Icons */}
             <div className="flex gap-3 mt-5">
               {socialLinks.map(({ Icon, href }, index) => (
                 <a
@@ -97,7 +96,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   className="w-11 h-11 bg-white rounded-xl flex items-center justify-center transition-transform hover:scale-105"
                 >
-                  <Icon className="w-5 h-5 text-[#0C3B66]" />
+                  <Icon className="w-5 h-5 text-[#0A1F44]" />
                 </a>
               ))}
             </div>
