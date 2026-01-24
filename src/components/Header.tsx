@@ -78,8 +78,8 @@ const Header: React.FC = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
       <div className="max-w-[1600px] mx-auto px-6">
-        {/* 🔥 AUTO COLUMNS = NO EMPTY SPACE */}
-        <div className="grid grid-cols-[auto_auto_auto] items-center gap-8 h-20">
+        {/* 🔥 SWITCHED TO FLEX: Justify-between for mobile, justify-center for desktop to eliminate gaps */}
+        <div className="flex items-center justify-between lg:justify-center h-20">
 
           {/* LEFT NAV */}
           <div className="hidden lg:flex items-center gap-6">
@@ -111,7 +111,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* MOBILE */}
-          <div className="flex lg:hidden ml-auto">
+          <div className="flex lg:hidden">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((p) => !p)}
