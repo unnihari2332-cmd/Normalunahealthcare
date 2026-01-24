@@ -1,60 +1,89 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import { Logo } from "./header/Logo";
 import { DesktopNav } from "./header/DesktopNav";
 import { MobileMenu } from "./header/MobileMenu";
 import { MobileMenuButton } from "./header/MobileMenuButton";
 import { Button } from "./ui/button";
 
-// --- DATA: Specialities List ---
-const specialityItems = [
-  { name: "IVF & Gynaecology", path: "/specialities/ivf-obstetrics-gynaecology" },
-  { name: "Gastroenterology", path: "/specialities/gastroenterology" },
-  { name: "Oncology", path: "/specialities/oncology" },
-  { name: "Transplants (Kidney/Liver)", path: "/specialities/transplant-kidney-liver" },
-  { name: "Orthopaedics", path: "/specialities/orthopaedics" },
-  { name: "Dental Care", path: "/specialities/dental" },
-  { name: "Bariatrics", path: "/specialities/bariatrics" },
-  { name: "Aesthetic Surgery", path: "/specialities/aesthetic-dermatology-plastic" },
-  { name: "Ophthalmology", path: "/specialities/ophthalmology" },
-  { name: "Nephrology", path: "/specialities/nephrology" },
-  { name: "Urology", path: "/specialities/urology" },
-  { name: "Colorectal Surgery", path: "/specialities/colorectal-surgery" },
+/* ------------------ TYPES ------------------ */
+
+export interface NavItem {
+  name: string;
+  path: string;
+  hasDropdown: boolean;
+  dropdownItems?: NavItem[];
+}
+
+/* ------------------ DATA ------------------ */
+
+const specialityItems: NavItem[] = [
+  { name: "IVF & Gynaecology", path: "/specialities/ivf-obstetrics-gynaecology", hasDropdown: false },
+  { name: "Gastroenterology", path: "/specialities/gastroenterology", hasDropdown: false },
+  { name: "Oncology", path: "/specialities/oncology", hasDropdown: false },
+  { name: "Transplants (Kidney/Liver)", path: "/specialities/transplant-kidney-liver", hasDropdown: false },
+  { name: "Orthopaedics", path: "/specialities/orthopaedics", hasDropdown: false },
+  { name: "Dental Care", path: "/specialities/dental", hasDropdown: false },
+  { name: "Bariatrics", path: "/specialities/bariatrics", hasDropdown: false },
+  { name: "Aesthetic Surgery", path: "/specialities/aesthetic-dermatology-plastic", hasDropdown: false },
+  { name: "Ophthalmology", path: "/specialities/ophthalmology", hasDropdown: false },
+  { name: "Nephrology", path: "/specialities/nephrology", hasDropdown: false },
+  { name: "Urology", path: "/specialities/urology", hasDropdown: false },
+  { name: "Colorectal Surgery", path: "/specialities/colorectal-surgery", hasDropdown: false },
 ];
 
-// --- NAVIGATION LINKS ---
-const leftLinks = [
+const leftLinks: NavItem[] = [
   { name: "Home", path: "/", hasDropdown: false },
   { name: "About Us", path: "/about", hasDropdown: false },
-  { 
-    name: "Specialities", 
+  {
+    name: "Specialities",
     path: "#",
-    hasDropdown: true, 
-    dropdownItems: specialityItems 
+    hasDropdown: true,
+    dropdownItems: specialityItems,
   },
 ];
 
-const rightLinks = [
+const rightLinks: NavItem[] = [
   { name: "Services", path: "/services", hasDropdown: false },
   { name: "Testimonials", path: "/testimonials", hasDropdown: false },
   { name: "Contact Us", path: "/contact", hasDropdown: false },
 ];
 
-const allLinks = [...leftLinks, ...rightLinks];
+const allLinks: NavItem[] = [...leftLinks, ...rightLinks];
 
-export const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+/* ------------------ COMPONENT ------------------ */
+
+export const Header: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleMobileMenuClose = () => setIsMobileMenuOpen(false);
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  /* Detect scroll */
+  useEffect(() => {
+    const onScroll = (): void => {
+      setIsScrolled(window.scrollY > 20);
+    };
 
-  const handleAppointmentClick = () => {
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleMobileMenuClose = (): void => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = (): void => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  const handleAppointmentClick = (): void => {
     if (location.pathname === "/appointment") {
       const formElement = document.getElementById("appointment-form");
-      if (formElement) {
+      if (formElement instanceof HTMLElement) {
         formElement.scrollIntoView({ behavior: "smooth" });
       }
     } else {
@@ -67,36 +96,48 @@ export const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      // 🔥 UPDATED: Solid white background ('bg-white'), dark text ('text-navy'), and standard shadow
-      className="fixed top-0 left-0 right-0 z-50 bg-white text-navy shadow-md py-2" 
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 bg-white text-navy
+        ${isScrolled ? "shadow-lg py-1" : "shadow-md py-2"}
+        transition-all duration-300`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between lg:justify-center lg:gap-12 h-16 lg:h-20">
-          
+        <div
+          className={`flex items-center justify-between lg:justify-center lg:gap-12
+            ${isScrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"}
+            transition-all duration-300`}
+        >
           {/* LEFT NAV */}
-          <DesktopNav 
-            links={leftLinks} 
-            isScrolled={true} 
-          />
+          <DesktopNav links={leftLinks} isScrolled={isScrolled} />
 
-          {/* CENTER LOGO */}
+          {/* LOGO */}
           <div className="shrink-0">
-            <Logo isScrolled={true} />
+            <Logo isScrolled={isScrolled} />
           </div>
 
-          {/* RIGHT NAV */}
-          <div className="hidden lg:flex items-center gap-6">
-            <DesktopNav 
-              links={rightLinks} 
-              isScrolled={true}
-            />
-            
-            <Button 
-              className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-6 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
-              onClick={handleAppointmentClick}
+          {/* RIGHT NAV + CTA */}
+          <div className="hidden lg:flex items-center gap-4">
+            <DesktopNav links={rightLinks} isScrolled={isScrolled} />
+
+            {/* Call CTA */}
+            <a
+              href="tel:+917358746061"
+              aria-label="Call Norma Luna Healthcare"
+              className="hidden xl:flex items-center gap-2 text-sm font-semibold text-navy hover:text-primary transition-colors"
             >
-              Book an Appointment
+              📞 +91 73587 46061
+            </a>
+
+            {/* Appointment CTA */}
+            <Button
+              onClick={handleAppointmentClick}
+              className={`font-bold px-6 transition-all duration-300
+                ${isScrolled ? "py-3" : "py-4"}
+                bg-primary hover:bg-primary/90 text-white
+                shadow-lg shadow-primary/30 hover:shadow-primary/50
+                hover:scale-105`}
+            >
+              Book Appointment
             </Button>
           </div>
 
@@ -104,7 +145,7 @@ export const Header = () => {
           <MobileMenuButton
             isOpen={isMobileMenuOpen}
             onClick={toggleMobileMenu}
-            isScrolled={true}
+            isScrolled={isScrolled}
           />
         </div>
       </div>
@@ -119,3 +160,5 @@ export const Header = () => {
     </motion.header>
   );
 };
+
+export default Header;
