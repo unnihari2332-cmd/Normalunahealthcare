@@ -52,7 +52,7 @@ const tabContent = {
   }
 };
 
-// --- DATA: TESTIMONIALS (No Images) ---
+// --- DATA: TESTIMONIALS ---
 const testimonials = [
   {
     name: "Ivan M.",
@@ -76,14 +76,11 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// 1. About Section with Image
 const AboutSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            
-          {/* LEFT SIDE: IMAGE */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -104,7 +101,6 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE: CONTENT */}
           <div className="flex flex-col h-full justify-center">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 bg-primary/10 rounded-lg text-primary">
@@ -140,7 +136,6 @@ const AboutSection = () => {
   );
 };
 
-// 2. Vision & Mission Cards Section
 const VisionMissionSection = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -158,7 +153,6 @@ const VisionMissionSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Vision Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -181,7 +175,6 @@ const VisionMissionSection = () => {
             </div>
           </motion.div>
 
-          {/* Mission Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -209,7 +202,6 @@ const VisionMissionSection = () => {
   );
 };
 
-// 3. Testimonial Grid (Updated: No Images)
 const TestimonialGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 pb-10">
@@ -222,28 +214,19 @@ const TestimonialGrid = () => {
           transition={{ duration: 0.5, delay: index * 0.1 }}
           className="flex flex-col items-center"
         >
-          {/* Card Container */}
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 w-full flex flex-col items-center text-center h-full">
-            
-            {/* Quote Icon */}
             <div className="mb-6">
               <Quote className="w-16 h-16 text-blue-100 fill-blue-50" />
             </div>
-
-            {/* Content */}
             <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
               {testimonial.content}
             </p>
-
-            {/* Stars */}
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
               ))}
             </div>
           </div>
-
-          {/* Name & Details */}
           <div className="mt-6 text-center">
             <h4 className="font-bold text-navy text-lg">{testimonial.name}</h4>
             <p className="text-xs text-primary font-medium uppercase tracking-wider mb-1">
@@ -274,16 +257,18 @@ const AboutPage = () => {
         />
       </div>
 
+      {/* 1. Who We Are */}
       <AboutSection />
       
+      {/* 2. Where We Are Going (Vision & Mission) */}
       <VisionMissionSection />
         
+      {/* 3. Our Impact (Stats) */}
       <StatsSection />
 
+      {/* 4. Social Proof (Testimonials) */}
       <section className="py-20 bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4">
-          
-          {/* Section Header */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -296,9 +281,7 @@ const AboutPage = () => {
             </h2>
           </motion.div>
 
-          {/* Testimonial Grid */}
           <TestimonialGrid />
-
         </div>
       </section>
 
