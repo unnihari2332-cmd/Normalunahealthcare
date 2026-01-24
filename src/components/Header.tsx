@@ -77,22 +77,21 @@ const Header: React.FC = () => {
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
-      {/* FULL WIDTH — NO MAX-WIDTH */}
-      <div className="w-full px-4">
-        <div className="relative flex items-center h-16">
+      <div className="w-full px-6">
+        <div className="flex items-center h-16 gap-8">
 
           {/* LEFT NAV */}
           <div className="hidden lg:flex items-center gap-6">
             <DesktopNav links={leftLinks} />
           </div>
 
-          {/* LOGO — TRUE CENTER, NO SPACE */}
-          <div className="absolute left-1/2 -translate-x-1/2">
+          {/* LOGO — INLINE, NO SPACE */}
+          <div className="flex-shrink-0">
             <Logo isScrolled={false} />
           </div>
 
           {/* RIGHT NAV */}
-          <div className="hidden lg:flex items-center gap-5 ml-auto">
+          <div className="hidden lg:flex items-center gap-5">
             <DesktopNav links={rightLinks} />
 
             <a
