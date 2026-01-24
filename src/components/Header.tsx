@@ -85,7 +85,7 @@ const Header: React.FC = () => {
             <DesktopNav links={leftLinks} />
           </div>
 
-          {/* LOGO — ADDED MARGIN X (mx-6) FOR SUBTLE SPACING */}
+          {/* LOGO */}
           <div className="flex items-center mx-6">
             <Logo isScrolled={false} />
           </div>
@@ -109,12 +109,12 @@ const Header: React.FC = () => {
             </Button>
           </div>
 
-          {/* MOBILE */}
-          <div className="flex lg:hidden">
+          {/* MOBILE TOGGLE - FORCED BLACK */}
+          <div className="flex lg:hidden text-black items-center">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((p) => !p)}
-              isScrolled={false}
+              isScrolled={true} 
             />
           </div>
 
