@@ -35,6 +35,7 @@ const specialityItems: NavItem[] = [
 const leftLinks: NavItem[] = [
   { name: "Home", path: "/", hasDropdown: false },
   { name: "About Us", path: "/about", hasDropdown: false },
+  { name: "Services", path: "/services", hasDropdown: false },
   {
     name: "Specialities",
     path: "#",
@@ -44,7 +45,6 @@ const leftLinks: NavItem[] = [
 ];
 
 const rightLinks: NavItem[] = [
-  { name: "Services", path: "/services", hasDropdown: false },
   { name: "Testimonials", path: "/testimonials", hasDropdown: false },
   { name: "Contact Us", path: "/contact", hasDropdown: false },
 ];
