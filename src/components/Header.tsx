@@ -78,14 +78,15 @@ const Header: React.FC = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 text-black"
     >
       <div className="max-w-[1400px] mx-auto px-6">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-16">
+        {/* 🔥 RESPONSIVE GRID FIX */}
+        <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center h-16">
 
           {/* LEFT NAV */}
           <div className="hidden lg:flex items-center gap-8">
             <DesktopNav links={leftLinks} />
           </div>
 
-          {/* LOGO */}
+          {/* LOGO (NO MORE WHITE SPACE) */}
           <div className="flex justify-center">
             <Logo isScrolled={false} />
           </div>
@@ -97,7 +98,6 @@ const Header: React.FC = () => {
             <a
               href="tel:+917358746061"
               className="text-sm font-medium whitespace-nowrap text-black"
-              style={{ color: "black" }}
             >
               📞 +91 73587 46061
             </a>
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
             </Button>
           </div>
 
-          {/* MOBILE BUTTON */}
+          {/* MOBILE MENU BUTTON */}
           <div className="flex lg:hidden justify-end">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
@@ -118,6 +118,7 @@ const Header: React.FC = () => {
               isScrolled={false}
             />
           </div>
+
         </div>
       </div>
 
