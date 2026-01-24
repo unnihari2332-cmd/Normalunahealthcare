@@ -260,11 +260,12 @@ const AboutPage = () => {
       {/* 1. Who We Are */}
       <AboutSection />
       
-      {/* 2. Where We Are Going (Vision & Mission) */}
-      <VisionMissionSection />
         
-      {/* 3. Our Impact (Stats) */}
+      {/* 2. Our Impact (Stats) */}
       <StatsSection />
+
+      {/* 3. Where We Are Going (Vision & Mission) */}
+      <VisionMissionSection />
 
       {/* 4. Social Proof (Testimonials) */}
       <section className="py-20 bg-gray-50 overflow-hidden">
