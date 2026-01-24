@@ -77,40 +77,41 @@ const Header: React.FC = () => {
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
-      <div className="w-full px-6">
-        <div className="flex items-center h-16 gap-8">
+      {/* 🔥 WIDER HEADER CONTAINER */}
+      <div className="max-w-[1600px] mx-auto px-6">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-20">
 
           {/* LEFT NAV */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-8">
             <DesktopNav links={leftLinks} />
           </div>
 
-          {/* LOGO — INLINE, NO SPACE */}
-          <div className="flex-shrink-0">
+          {/* CENTER LOGO (TRUE CENTER) */}
+          <div className="flex justify-center">
             <Logo isScrolled={false} />
           </div>
 
           {/* RIGHT NAV */}
-          <div className="hidden lg:flex items-center gap-5">
+          <div className="hidden lg:flex items-center justify-end gap-6">
             <DesktopNav links={rightLinks} />
 
             <a
               href="tel:+917358746061"
               className="text-sm font-medium whitespace-nowrap text-black"
             >
-              📞 +91 73587 46061
+              +91 73587 46061
             </a>
 
             <Button
               onClick={handleAppointmentClick}
-              className="bg-black text-white px-5 py-2 rounded-full text-sm font-semibold"
+              className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-semibold"
             >
               Book Appointment
             </Button>
           </div>
 
           {/* MOBILE MENU BUTTON */}
-          <div className="flex lg:hidden ml-auto">
+          <div className="flex lg:hidden justify-end col-span-3">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((p) => !p)}
