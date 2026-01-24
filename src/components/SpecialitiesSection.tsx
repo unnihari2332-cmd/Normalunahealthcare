@@ -22,96 +22,84 @@ export const specialities = [
   {
     id: "ivf-obstetrics-gynaecology",
     title: "IVF & Gynaecology",
-    description:
-      "Complete infertility care with state-of-the-art IVF treatment and comprehensive support.",
+    description: "Complete infertility care with state-of-the-art IVF treatment and comprehensive support.",
     image: "/ivf.jpg",
     icon: Baby,
   },
   {
     id: "gastroenterology",
     title: "Gastroenterology",
-    description:
-      "Cutting edge techniques to treat disorders of the esophagus, stomach, and intestine.",
+    description: "Cutting edge techniques to treat disorders of the esophagus, stomach, and intestine.",
     image: "/gastroenterology.jpg",
     icon: Utensils,
   },
   {
     id: "oncology",
     title: "Oncology",
-    description:
-      "Multidisciplinary expertise, chemotherapy and targeted therapies for advanced cancer care.",
+    description: "Multidisciplinary expertise, chemotherapy and targeted therapies for advanced cancer care.",
     image: "/oncology.jpg",
     icon: Dna,
   },
   {
     id: "transplant-kidney-liver",
     title: "Transplants",
-    description:
-      "Specializing in kidney, liver and heart transplant surgeries with exceptional post-op care.",
+    description: "Specializing in kidney, liver and heart transplant surgeries with exceptional post-op care.",
     image: "/transplantkidney-liver.jpg",
     icon: HeartHandshake,
   },
   {
     id: "orthopaedics",
     title: "Orthopaedics",
-    description:
-      "Latest orthopedic technology including joint replacements and fracture treatments.",
+    description: "Latest orthopedic technology including joint replacements and fracture treatments.",
     image: "/orthopaedics.jpg",
     icon: Bone,
   },
   {
     id: "dental",
     title: "Dental Care",
-    description:
-      "From dental implants to orthodontics, your smile is in expert hands.",
+    description: "From dental implants to orthodontics, your smile is in expert hands.",
     image: "/dental.jpg",
     icon: Smile,
   },
   {
     id: "bariatrics",
     title: "Bariatrics",
-    description:
-      "Innovative weight loss solutions ranging from sleeve gastrectomy to gastric bypass.",
+    description: "Innovative weight loss solutions ranging from sleeve gastrectomy to gastric bypass.",
     image: "/bariatrics.jpg",
     icon: Scale,
   },
   {
     id: "aesthetic-dermatology-plastic",
     title: "Aesthetic Surgery",
-    description:
-      "Achieve your beauty goals with expert aesthetic dermatology and plastic surgery.",
+    description: "Achieve your beauty goals with expert aesthetic dermatology and plastic surgery.",
     image: "/aestheticdermatology.jpg",
     icon: Sparkles,
   },
   {
     id: "ophthalmology",
     title: "Ophthalmology",
-    description:
-      "World-class vision care equipped with the latest technology for LASIK and cataracts.",
+    description: "World-class vision care equipped with the latest technology for LASIK and cataracts.",
     image: "/ophthalmology.jpg",
     icon: Eye,
   },
   {
     id: "nephrology",
     title: "Nephrology",
-    description:
-      "Comprehensive kidney care using advanced diagnostics and dialysis solutions.",
+    description: "Comprehensive kidney care using advanced diagnostics and dialysis solutions.",
     image: "/nephrologists.jpg",
     icon: Droplets,
   },
   {
     id: "urology",
     title: "Urology",
-    description:
-      "Expert care for kidney, bladder, and reproductive health using minimally invasive techniques.",
+    description: "Expert care for kidney, bladder, and reproductive health using minimally invasive techniques.",
     image: "/urology.png",
     icon: Activity,
   },
   {
     id: "colorectal-surgery",
     title: "Colorectal Surgery",
-    description:
-      "Specialized surgeries handled by experienced surgeons ensuring fast recovery.",
+    description: "Specialized surgeries handled by experienced surgeons ensuring fast recovery.",
     image: "/colorectalsurgery.jpg",
     icon: Scissors,
   },
@@ -186,25 +174,26 @@ const SpecialitiesSection: React.FC = () => {
               <motion.div key={item.id} variants={itemVariants}>
                 <Link
                   to={`/specialities/${item.id}`}
-                  className="group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-white/50 hover:border-[#0C3B66]"
+                  className="group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-200 ease-in-out border border-white/50 hover:border-[#0C3B66]"
                 >
                   {/* Image Container */}
                   <div className="relative h-48 overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      // Reduced duration from 700 to 400 and scale from 110 to 105
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400 ease-out"
                     />
 
                     {/* Floating Icon Badge */}
-                    <div className="absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg text-[#0C3B66] group-hover:bg-[#0C3B66] group-hover:text-white transition-all duration-300">
+                    <div className="absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg text-[#0C3B66] group-hover:bg-[#0C3B66] group-hover:text-white transition-all duration-200">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Text Content */}
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-bold text-[#0F172A] mb-3 group-hover:text-[#0C3B66] transition-colors">
+                    <h3 className="text-xl font-bold text-[#0F172A] mb-3 group-hover:text-[#0C3B66] transition-colors duration-200">
                       {item.title}
                     </h3>
 
@@ -217,7 +206,7 @@ const SpecialitiesSection: React.FC = () => {
                       style={{ color: brandBlue }}
                     >
                       Learn More
-                      <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all" />
+                      <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                     </div>
                   </div>
                 </Link>
@@ -230,7 +219,7 @@ const SpecialitiesSection: React.FC = () => {
         <div className="mt-16 text-center">
           <Link to="/contact">
             <button
-              className="px-8 py-3 rounded-full text-white font-medium shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              className="px-8 py-3 rounded-full text-white font-medium shadow-lg hover:shadow-xl active:scale-95 transition-all duration-200"
               style={{ backgroundColor: brandBlue }}
             >
               View All Departments
