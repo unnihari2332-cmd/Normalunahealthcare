@@ -24,8 +24,8 @@ export const specialities = [
     title: "IVF & Gynaecology",
     description:
       "Complete infertility care with state-of-the-art IVF treatment and comprehensive support.",
-    image:
-      "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&auto=format&fit=crop",
+    image:"/ivf.jpg"; 
+
     icon: Baby,
   },
   {
