@@ -18,34 +18,32 @@ export const HeroSection = () => {
           src="/hero.mp4"
         />
 
-        {/* UPDATED: Gradient Overlay 
-            - Made it slightly wider (lg:w-2/3) to ensure text remains readable
-            - This acts as the "background" for the text now 
+        {/* Premium Black/Grey Gradient Overlay 
+          - Blends from solid black to dark grey, then fades out.
+          - Covers 2/3 of the screen on large devices for perfect text contrast against the video.
         */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-2/3 bg-gradient-to-r from-navy/90 via-navy/60 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-full lg:w-2/3 bg-gradient-to-r from-black/90 via-neutral-900/70 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative container mx-auto px-4 pt-20">
         <div className="max-w-3xl">
 
-          {/* 🔥 MODIFIED: Removed the "Blur Box" styling */}
-          {/* We keep the motion.div for animation, but removed borders/bg/padding */}
           <motion.div
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col justify-center" // Removed bg-white/10, blur, borders, etc.
+            className="flex flex-col justify-center"
           >
-            <p className="text-white/90 font-medium mb-4 tracking-wide uppercase text-sm">
+            <p className="text-gray-300 font-medium mb-4 tracking-wider uppercase text-sm drop-shadow-md">
               Welcome to Norma Luna Healthcare
             </p>
 
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-              Your Health,Our Priority. <br />
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
+              Your Health, <br/> Our Priority.
             </h1>
 
-            <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
+            <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-xl leading-relaxed drop-shadow-md">
               At Norma Luna Healthcare, we don't just treat illnesses – we nurture
               hope and healing. Your well-being is our heartfelt mission, every
               step of the way.
@@ -55,7 +53,7 @@ export const HeroSection = () => {
               <Link to="/appointment">
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-teal-light text-primary-foreground rounded-full px-8 h-12 text-base group shadow-xl shadow-primary/20"
+                  className="bg-primary hover:bg-teal-light text-primary-foreground rounded-full px-8 h-12 text-base group shadow-lg shadow-black/30 transition-all hover:scale-105"
                 >
                   Book An Appointment
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -65,8 +63,8 @@ export const HeroSection = () => {
               <Link to="/about">
                 <Button
                   size="lg"
-                  variant="outline" // Changed to outline for a cleaner look against video
-                  className="bg-transparent text-white border-white hover:bg-white hover:text-navy rounded-full px-8 h-12 text-base font-semibold"
+                  variant="outline"
+                  className="bg-transparent text-white border-white hover:bg-white hover:text-black rounded-full px-8 h-12 text-base font-semibold shadow-lg shadow-black/20 transition-all hover:scale-105"
                 >
                   Learn More
                 </Button>
@@ -74,20 +72,19 @@ export const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Support Banner - Simplified style to match the new clean look */}
+          {/* Support Banner */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 inline-flex items-center gap-4"
           >
-            <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-white-sm flex items-center justify-center border border-primary/30">
-              {/* Changed text-primary to text-white here */}
+            <div className="w-12 h-12 rounded-full bg-neutral-800/80 backdrop-blur-sm flex items-center justify-center border border-neutral-600 shadow-md">
               <Phone className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="text-gray-300 text-sm font-medium">24/7 Support</p>
-              <p className="text-white font-bold text-xl tracking-wide">
+              <p className="text-gray-400 text-sm font-medium">24/7 Support</p>
+              <p className="text-white font-bold text-xl tracking-wide drop-shadow-sm">
                 +91 73587 46061
               </p>
             </div>
