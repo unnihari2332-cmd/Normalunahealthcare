@@ -75,10 +75,15 @@ const Header: React.FC = () => {
       initial={{ y: -40 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
+      className="
+        fixed top-0 left-0 right-0 z-50
+        bg-white
+        border-b border-gray-200
+        text-black
+      "
     >
       <div className="max-w-[1400px] mx-auto px-6">
-        {/* 3-column grid for perfect balance */}
+        {/* Balanced 3-column layout */}
         <div className="grid grid-cols-[1fr_auto_1fr] items-center h-16">
 
           {/* LEFT NAV */}
