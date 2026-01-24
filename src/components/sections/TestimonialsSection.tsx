@@ -82,9 +82,8 @@ export const TestimonialsSection = () => {
   };
 
   return (
+    // Ensured bg-white is applied to the main section to cover the top and bottom padding areas
     <section className="py-24 bg-white overflow-hidden relative">
-      {/* Decorative background elements removed for pure white background */}
-
       <div className="container mx-auto px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -130,7 +129,6 @@ export const TestimonialsSection = () => {
               </p>
 
               <div className="flex flex-col items-center gap-2">
-                {/* Avatar Placeholder / Initials */}
                 <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mb-3 text-primary font-bold text-xl shadow-inner">
                   {testimonials[currentIndex].name.charAt(0)}
                 </div>
@@ -164,7 +162,7 @@ export const TestimonialsSection = () => {
           </button>
         </div>
 
-        {/* Mobile Controls (Visible only on small screens) */}
+        {/* Mobile Controls */}
         <div className="flex md:hidden justify-center gap-8 mt-8">
           <button onClick={() => swipe(-1)} className="p-2 text-primary hover:bg-secondary rounded-full">
             <ChevronLeft size={32} />
@@ -182,8 +180,8 @@ export const TestimonialsSection = () => {
           className="text-center mt-16"
         >
           <Link to="/testimonials">
-            {/* Added bg-white to ensure the button is white and not grey */}
-            <Button variant="outline" className="rounded-full px-8 bg-white hover:bg-primary hover:text-white transition-all">
+            {/* Kept bg-white to ensure the button itself is white, matching the section */}
+            <Button variant="outline" className="rounded-full px-8 bg-white hover:bg-primary hover:text-white transition-all shadow-sm">
               View All Stories
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
