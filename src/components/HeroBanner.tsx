@@ -20,7 +20,7 @@ export const HeroBanner = ({ title, image, breadcrumbs }: HeroBannerProps) => {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-transparent" />
+        <div className="absolute inset-0 bg-navy/70" />
       </div>
 
       {/* Content */}
