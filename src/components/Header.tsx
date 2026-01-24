@@ -75,57 +75,42 @@ const Header: React.FC = () => {
       initial={{ y: -40 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
-      className="
-        fixed top-0 left-0 right-0 z-50
-        bg-white
-        border-b border-gray-200
-        text-black
-      "
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 text-black"
     >
       <div className="max-w-[1400px] mx-auto px-6">
-        {/* Balanced 3-column layout */}
         <div className="grid grid-cols-[1fr_auto_1fr] items-center h-16">
 
           {/* LEFT NAV */}
-          <div className="hidden lg:flex items-center gap-8 text-black">
-            <DesktopNav
-              links={leftLinks}
-              isScrolled={false}
-              className="!text-black"
-            />
+          <div className="hidden lg:flex items-center gap-8">
+            <DesktopNav links={leftLinks} />
           </div>
 
-          {/* CENTER LOGO */}
+          {/* LOGO */}
           <div className="flex justify-center">
             <Logo isScrolled={false} />
           </div>
 
           {/* RIGHT NAV */}
-          <div className="hidden lg:flex items-center justify-end gap-6 text-black">
-            <DesktopNav
-              links={rightLinks}
-              isScrolled={false}
-              className="!text-black"
-            />
+          <div className="hidden lg:flex items-center justify-end gap-6">
+            <DesktopNav links={rightLinks} />
 
-            {/* Phone */}
             <a
               href="tel:+917358746061"
-              className="flex items-center gap-2 text-sm font-medium text-black whitespace-nowrap hover:opacity-70 transition"
+              className="text-sm font-medium whitespace-nowrap text-black"
+              style={{ color: "black" }}
             >
               📞 +91 73587 46061
             </a>
 
-            {/* CTA */}
             <Button
               onClick={handleAppointmentClick}
-              className="bg-black text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition"
+              className="bg-black text-white px-5 py-2 rounded-full text-sm font-semibold"
             >
               Book Appointment
             </Button>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE BUTTON */}
           <div className="flex lg:hidden justify-end">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
@@ -136,7 +121,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
@@ -147,5 +131,4 @@ const Header: React.FC = () => {
   );
 };
 
-/* ✅ NAMED EXPORT */
 export { Header };
