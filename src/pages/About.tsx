@@ -38,16 +38,14 @@ const tabContent = {
     title: "Our Vision",
     icon: Eye,
     text: [
-      "To be the world's most trusted bridge to healing, removing geographical and financial barriers to advanced healthcare.",
-      "We envision a world where quality medical treatment is accessible to everyone, regardless of where they live. By leveraging global medical expertise and cutting-edge technology, we aim to redefine medical tourism as a seamless, compassionate, and life-changing experience."
+      "A world in which physical and mental health coincide and are equipped with the knowledge, skills and values to act on health management globally. It is our responsibility to create a better future for every living being on Earth..", 
     ]
   },
   mission: {
     title: "Our Mission",
     icon: Target,
     text: [
-      "To provide affordable, world-class medical care with a flexible, patient-centric approach that feels like a home away from home.",
-      "We differ by not just arranging appointments, but by curating complete recovery journeys. From the moment you contact us until you are safely back home, our mission is to ensure your comfort, safety, and health are prioritized with the highest level of expertise and empathy."
+      "A world in which physical and mental health coincide and are equipped with the knowledge, skills and values to act on health management globally. It is our responsibility to create a better future for every living being on Earth.",
     ]
   }
 };
