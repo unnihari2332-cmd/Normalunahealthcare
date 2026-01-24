@@ -29,7 +29,7 @@ const leftLinks = [
   { name: "About Us", path: "/about", hasDropdown: false },
   { 
     name: "Specialities", 
-    path: "#", // <--- UPDATED: Changed to '#' to prevent navigation
+    path: "#",
     hasDropdown: true, 
     dropdownItems: specialityItems 
   },
@@ -68,12 +68,13 @@ export const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md text-navy py-2" 
+      // 🔥 UPDATED: Made background transparent, removed shadow, changed text to white
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent text-white py-2" 
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between lg:justify-center lg:gap-12 h-16 lg:h-20">
           
-          {/* LEFT NAV (Contains Specialities Dropdown) */}
+          {/* LEFT NAV */}
           <DesktopNav 
             links={leftLinks} 
             isScrolled={true} 
@@ -91,7 +92,6 @@ export const Header = () => {
               isScrolled={true}
             />
             
-            {/* UPDATED BUTTON: Bigger, Bolder, Shadowed */}
             <Button 
               className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-6 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
               onClick={handleAppointmentClick}
