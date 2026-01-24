@@ -54,17 +54,10 @@ const allLinks: NavItem[] = [...leftLinks, ...rightLinks];
 /* ------------------ COMPONENT ------------------ */
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const onScroll = (): void => setIsScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const toggleMobileMenu = (): void => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -88,37 +81,38 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      initial={{ y: -80 }}
+      initial={{ y: -60 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50
-        bg-white/95 backdrop-blur-md text-black
-        ${isScrolled ? "shadow-sm border-b border-gray-200" : "shadow-none"}
-        transition-all duration-300`}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="
+        fixed top-0 left-0 right-0 z-50
+        bg-white
+        border-b border-gray-200
+        text-black
+      "
     >
-      <div className="container mx-auto px-4">
-        <div
-          className={`flex items-center justify-between lg:justify-center lg:gap-12
-            ${isScrolled ? "h-14" : "h-16"}
-            transition-all duration-300`}
-        >
+      <div className="container mx-auto px-6">
+        {/* GRID ensures perfect left / center / right alignment */}
+        <div className="grid grid-cols-3 items-center h-16">
+          
           {/* LEFT NAV */}
-          <DesktopNav links={leftLinks} isScrolled={false} />
+          <div className="hidden lg:flex justify-start">
+            <DesktopNav links={leftLinks} isScrolled={false} />
+          </div>
 
-          {/* LOGO */}
-          <div className="shrink-0">
+          {/* CENTER LOGO */}
+          <div className="flex justify-center">
             <Logo isScrolled={false} />
           </div>
 
           {/* RIGHT NAV + CTA */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex justify-end items-center gap-6">
             <DesktopNav links={rightLinks} isScrolled={false} />
 
             {/* Phone */}
             <a
               href="tel:+917358746061"
-              aria-label="Call Norma Luna Healthcare"
-              className="hidden xl:flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition"
+              className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition"
             >
               📞 +91 73587 46061
             </a>
@@ -126,19 +120,21 @@ const Header: React.FC = () => {
             {/* CTA */}
             <Button
               onClick={handleAppointmentClick}
-              className="bg-black text-white px-5 py-2.5 rounded-full
-                         shadow-sm hover:opacity-90 transition-all"
+              className="bg-black text-white px-5 py-2 rounded-full
+                         hover:opacity-90 transition"
             >
               Book Appointment
             </Button>
           </div>
 
           {/* MOBILE MENU BUTTON */}
-          <MobileMenuButton
-            isOpen={isMobileMenuOpen}
-            onClick={toggleMobileMenu}
-            isScrolled={false}
-          />
+          <div className="flex lg:hidden justify-end">
+            <MobileMenuButton
+              isOpen={isMobileMenuOpen}
+              onClick={toggleMobileMenu}
+              isScrolled={false}
+            />
+          </div>
         </div>
       </div>
 
