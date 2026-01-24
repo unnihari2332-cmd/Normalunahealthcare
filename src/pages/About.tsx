@@ -38,7 +38,7 @@ const tabContent = {
     title: "Our Vision",
     icon: Eye,
     text: [
-      "To be the world’s most trusted bridge to healing, removing geographical and financial barriers to advanced healthcare.",
+      "To be the world's most trusted bridge to healing, removing geographical and financial barriers to advanced healthcare.",
       "We envision a world where quality medical treatment is accessible to everyone, regardless of where they live. By leveraging global medical expertise and cutting-edge technology, we aim to redefine medical tourism as a seamless, compassionate, and life-changing experience."
     ]
   },
@@ -58,7 +58,7 @@ const testimonials = [
     name: "Ivan M.",
     location: "Russia",
     treatment: "Stem Cell Therapy",
-    content: "After being diagnosed with a neurological condition, I was searching for advanced treatment options. Stem cell therapy was a promising solution, but in Russia, the cost was extremely high. That’s when I found that India offered world-class regenerative medicine.",
+    content: "After being diagnosed with a neurological condition, I was searching for advanced treatment options. Stem cell therapy was a promising solution, but in Russia, the cost was extremely high. That's when I found that India offered world-class regenerative medicine.",
   },
   {
     name: "Amina E.",
@@ -76,10 +76,8 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// 1. Interactive Left-Image / Right-Content Section
-const InteractiveAboutSection = () => {
-  const [activeTab, setActiveTab] = useState<"about" | "vision" | "mission">("about");
-
+// 1. About Section with Image
+const AboutSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -106,67 +104,34 @@ const InteractiveAboutSection = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE: CONTENT & BUTTONS */}
+          {/* RIGHT SIDE: CONTENT */}
           <div className="flex flex-col h-full justify-center">
-            
-            <div className="flex flex-wrap gap-4 mb-8 border-b border-gray-100 pb-4">
-              {(["about", "vision", "mission"] as const).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
-                    activeTab === tab
-                      ? "bg-navy text-white shadow-lg transform -translate-y-1"
-                      : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-                  }`}
-                >
-                  {tab === "about" ? "Who We Are" : tab}
-                </button>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                <Users size={24} />
+              </div>
+              <h3 className="text-3xl font-display font-bold text-navy">
+                {tabContent.about.title}
+              </h3>
+            </div>
+
+            <div className="space-y-4 text-gray-600 leading-relaxed text-lg mb-8">
+              {tabContent.about.text.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
               ))}
             </div>
 
-            <div className="min-h-[300px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                      {activeTab === 'about' && <Users size={24} />}
-                      {activeTab === 'vision' && <Eye size={24} />}
-                      {activeTab === 'mission' && <Target size={24} />}
-                    </div>
-                    <h3 className="text-3xl font-display font-bold text-navy">
-                      {tabContent[activeTab].title}
-                    </h3>
+            <div className="space-y-3 mt-6">
+              {tabContent.about.features.map((feature, i) => (
+                <div key={i} className="flex items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                  <div className="bg-blue-50 p-2 rounded-full text-primary mr-4">
+                    <feature.icon size={20} />
                   </div>
-
-                  <div className="space-y-4 text-gray-600 leading-relaxed text-lg mb-8">
-                    {tabContent[activeTab].text.map((paragraph, idx) => (
-                      <p key={idx}>{paragraph}</p>
-                    ))}
-                  </div>
-
-                  {'features' in tabContent[activeTab] && tabContent[activeTab].features && (
-                    <div className="space-y-3 mt-6">
-                      {(tabContent[activeTab] as typeof tabContent.about).features.map((feature, i) => (
-                        <div key={i} className="flex items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                          <div className="bg-blue-50 p-2 rounded-full text-primary mr-4">
-                            <feature.icon size={20} />
-                          </div>
-                          <span className="font-bold text-navy text-sm md:text-base">
-                            {feature.label}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </motion.div>
-              </AnimatePresence>
+                  <span className="font-bold text-navy text-sm md:text-base">
+                    {feature.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -175,7 +140,76 @@ const InteractiveAboutSection = () => {
   );
 };
 
-// 2. Testimonial Grid (Updated: No Images)
+// 2. Vision & Mission Cards Section
+const VisionMissionSection = () => {
+  return (
+    <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="container mx-auto px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <p className="text-primary font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
+          <h2 className="font-display text-4xl font-bold text-navy">
+            Vision & Mission
+          </h2>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Vision Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-4 bg-blue-100 rounded-2xl text-primary">
+                <Eye size={32} />
+              </div>
+              <h3 className="text-2xl font-display font-bold text-navy">
+                Our Vision
+              </h3>
+            </div>
+            <div className="space-y-4 text-gray-600 leading-relaxed">
+              {tabContent.vision.text.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Mission Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-4 bg-indigo-100 rounded-2xl text-indigo-600">
+                <Target size={32} />
+              </div>
+              <h3 className="text-2xl font-display font-bold text-navy">
+                Our Mission
+              </h3>
+            </div>
+            <div className="space-y-4 text-gray-600 leading-relaxed">
+              {tabContent.mission.text.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// 3. Testimonial Grid (Updated: No Images)
 const TestimonialGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 pb-10">
@@ -240,7 +274,9 @@ const AboutPage = () => {
         />
       </div>
 
-      <InteractiveAboutSection />
+      <AboutSection />
+      
+      <VisionMissionSection />
         
       <StatsSection />
 
