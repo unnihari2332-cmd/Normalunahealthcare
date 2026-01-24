@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -55,6 +55,8 @@ const allLinks = [...leftLinks, ...rightLinks];
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -69,6 +71,13 @@ const Header: React.FC = () => {
     }
     setIsMobileMenuOpen(false);
   };
+
+  /* Close contact popup on outside click */
+  useEffect(() => {
+    const close = () => setIsContactOpen(false);
+    if (isContactOpen) document.addEventListener("click", close);
+    return () => document.removeEventListener("click", close);
+  }, [isContactOpen]);
 
   return (
     <motion.header
@@ -91,35 +100,77 @@ const Header: React.FC = () => {
           </div>
 
           {/* RIGHT NAV */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-4">
             <DesktopNav links={rightLinks} />
-
-            <a
-              href="tel:+917358746061"
-              className="text-sm font-medium whitespace-nowrap text-black"
-            >
-              +91 73587 46061
-            </a>
 
             <Button
               onClick={handleAppointmentClick}
-              className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-semibold"
+              className="bg-[#0b1c2d] text-white px-6 py-2.5 rounded-full text-sm font-semibold"
             >
               Book Appointment
             </Button>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsContactOpen((p) => !p);
+              }}
+              className="w-10 h-10 rounded-full bg-[#0b1c2d] text-white text-xl font-bold flex items-center justify-center"
+              aria-label="Open contact details"
+            >
+              +
+            </button>
           </div>
 
-          {/* MOBILE TOGGLE - FORCED BLACK */}
+          {/* MOBILE TOGGLE */}
           <div className="flex lg:hidden text-black items-center">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((p) => !p)}
-              isScrolled={true} 
+              isScrolled={true}
             />
           </div>
 
         </div>
       </div>
+
+      {/* CONTACT POPUP */}
+      {isContactOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          onClick={(e) => e.stopPropagation()}
+          className="absolute right-6 top-24 z-50"
+        >
+          <div className="w-[320px] rounded-2xl bg-[#fdecee] p-6 shadow-xl border">
+            <div className="bg-red-500 text-white text-center py-3 rounded-xl font-semibold mb-4">
+              Call Us Urgent 24/7
+              <div className="text-lg mt-1">+91 73587 46061</div>
+            </div>
+
+            <p className="text-sm text-center text-gray-700 mb-4">
+              Contact us today and take the first step towards personalized,
+              compassionate care at Norma Luna.
+            </p>
+
+            <p className="text-xs text-center text-gray-600 leading-relaxed mb-5">
+              No 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel,<br />
+              Thousand Lights West, Nungambakkam,<br />
+              Chennai, Tamil Nadu 600034
+            </p>
+
+            <a
+              href="/contact"
+              onClick={() => setIsContactOpen(false)}
+              className="block text-center bg-red-500 text-white py-2.5 rounded-full text-sm font-semibold"
+            >
+              Contact Now
+            </a>
+          </div>
+        </motion.div>
+      )}
 
       <MobileMenu
         isOpen={isMobileMenuOpen}
