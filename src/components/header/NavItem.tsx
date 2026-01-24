@@ -9,20 +9,21 @@ export interface NavItemProps {
   hasDropdown?: boolean;
   dropdownItems?: { name: string; path: string }[];
   isScrolled?: boolean;
+  className?: string;
 }
 
-export const NavItem = ({ 
-  name, 
-  path, 
-  hasDropdown = false, 
-  dropdownItems, 
-  isScrolled = false 
+export const NavItem = ({
+  name,
+  path,
+  hasDropdown = false,
+  dropdownItems,
+  className = "",
 }: NavItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
 
-  // Active state: True if exact match OR if we are inside a sub-page of this dropdown
-  const isActive = location.pathname === path || 
+  const isActive =
+    location.pathname === path ||
     (hasDropdown && location.pathname.startsWith(path) && path !== "/");
 
   return (
@@ -31,52 +32,72 @@ export const NavItem = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* MAIN LINK */}
       <Link
         to={path}
-        className={`flex items-center gap-1 text-sm font-medium tracking-wide uppercase transition-colors ${
-          isScrolled 
-            ? `hover:text-primary ${isActive ? "text-primary" : "text-navy"}` 
-            : `hover:text-gold-light ${isActive ? "text-gold-light" : "text-white"}`
-        }`}
+        className={`
+          flex items-center gap-1
+          text-sm font-medium tracking-wide uppercase
+          text-black
+          hover:text-black
+          active:text-black
+          focus:text-black
+          focus-visible:text-black
+          visited:text-black
+          outline-none
+          ${className}
+        `}
+        style={{ color: "black" }} // 🔒 HARD LOCK
+        aria-current={isActive ? "page" : undefined}
       >
         {name}
+
         {hasDropdown && (
-          <ChevronDown 
-            className={`h-4 w-4 transition-transform duration-200 ${
+          <ChevronDown
+            className={`h-4 w-4 text-black transition-transform duration-200 ${
               isHovered ? "rotate-180" : ""
-            }`} 
+            }`}
+            style={{ color: "black" }}
           />
         )}
       </Link>
 
-      {/* Dropdown Menu */}
+      {/* DROPDOWN */}
       <AnimatePresence>
         {hasDropdown && isHovered && dropdownItems && (
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[600px] z-50"
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ duration: 0.18 }}
+            className="absolute top-full left-1/2 -translate-x-1/2 pt-5 w-[600px] z-50"
           >
-            {/* Dropdown Card */}
-            <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-6 relative overflow-hidden">
-              {/* Decorative top gradient line */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-blue-400" />
-              
-              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 text-left">
+            <div className="bg-white rounded-xl shadow-xl border border-gray-200 p-6">
+
+              <h4 className="text-xs font-bold uppercase tracking-wider mb-4 text-black">
                 Select a Speciality
               </h4>
 
-              {/* 2-Column Grid Layout */}
               <div className="grid grid-cols-2 gap-x-8 gap-y-3">
                 {dropdownItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className="group flex items-center gap-2 text-sm normal-case text-gray-600 hover:text-primary transition-colors py-1 text-left"
+                    className="
+                      group flex items-center gap-2
+                      text-sm normal-case
+                      text-black
+                      hover:text-black
+                      active:text-black
+                      focus:text-black
+                      focus-visible:text-black
+                      visited:text-black
+                      py-1
+                      outline-none
+                    "
+                    style={{ color: "black" }} // 🔒 HARD LOCK
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-primary transition-colors flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-black flex-shrink-0" />
                     {item.name}
                   </Link>
                 ))}
