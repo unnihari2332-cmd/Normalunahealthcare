@@ -9,7 +9,6 @@ import { MobileMenuButton } from "./header/MobileMenuButton";
 import { Button } from "./ui/button";
 
 /* ------------------ TYPES ------------------ */
-
 export interface NavItem {
   name: string;
   path: string;
@@ -18,7 +17,6 @@ export interface NavItem {
 }
 
 /* ------------------ DATA ------------------ */
-
 const specialityItems: NavItem[] = [
   { name: "IVF & Gynaecology", path: "/specialities/ivf-obstetrics-gynaecology", hasDropdown: false },
   { name: "Gastroenterology", path: "/specialities/gastroenterology", hasDropdown: false },
@@ -55,87 +53,85 @@ const allLinks: NavItem[] = [...leftLinks, ...rightLinks];
 
 /* ------------------ COMPONENT ------------------ */
 
-export const Header: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  /* Detect scroll */
+  /* Scroll detection */
   useEffect(() => {
     const onScroll = (): void => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 30);
     };
-
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const handleMobileMenuClose = (): void => {
-    setIsMobileMenuOpen(false);
-  };
 
   const toggleMobileMenu = (): void => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
+  const closeMobileMenu = (): void => {
+    setIsMobileMenuOpen(false);
+  };
+
   const handleAppointmentClick = (): void => {
     if (location.pathname === "/appointment") {
-      const formElement = document.getElementById("appointment-form");
-      if (formElement instanceof HTMLElement) {
-        formElement.scrollIntoView({ behavior: "smooth" });
+      const form = document.getElementById("appointment-form");
+      if (form instanceof HTMLElement) {
+        form.scrollIntoView({ behavior: "smooth" });
       }
     } else {
       navigate("/appointment");
     }
-    handleMobileMenuClose();
+    closeMobileMenu();
   };
 
   return (
     <motion.header
-      initial={{ y: -100 }}
+      initial={{ y: -80 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-white text-navy
-        ${isScrolled ? "shadow-lg py-1" : "shadow-md py-2"}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50
+        bg-white/95 backdrop-blur-md
+        ${isScrolled ? "shadow-sm border-b border-gray-100" : "shadow-none"}
         transition-all duration-300`}
     >
       <div className="container mx-auto px-4">
         <div
           className={`flex items-center justify-between lg:justify-center lg:gap-12
-            ${isScrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"}
+            ${isScrolled ? "h-14" : "h-16"}
             transition-all duration-300`}
         >
           {/* LEFT NAV */}
           <DesktopNav links={leftLinks} isScrolled={isScrolled} />
 
           {/* LOGO */}
-          <div className="shrink-0">
+          <div className="shrink-0 transition-transform duration-300">
             <Logo isScrolled={isScrolled} />
           </div>
 
           {/* RIGHT NAV + CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-6">
             <DesktopNav links={rightLinks} isScrolled={isScrolled} />
 
-            {/* Call CTA */}
+            {/* Phone (secondary action) */}
             <a
               href="tel:+917358746061"
               aria-label="Call Norma Luna Healthcare"
-              className="hidden xl:flex items-center gap-2 text-sm font-semibold text-navy hover:text-primary transition-colors"
+              className="hidden xl:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-primary transition-colors"
             >
-              📞 +91 73587 46061
+              <span className="text-primary">📞</span>
+              +91 73587 46061
             </a>
 
-            {/* Appointment CTA */}
+            {/* Primary CTA (utility style, not dominant) */}
             <Button
               onClick={handleAppointmentClick}
-              className={`font-bold px-6 transition-all duration-300
-                ${isScrolled ? "py-3" : "py-4"}
-                bg-primary hover:bg-primary/90 text-white
-                shadow-lg shadow-primary/30 hover:shadow-primary/50
-                hover:scale-105`}
+              className="bg-primary text-white px-5 py-2.5 rounded-full
+                         shadow-md hover:shadow-lg transition-all"
             >
               Book Appointment
             </Button>
@@ -153,7 +149,7 @@ export const Header: React.FC = () => {
       {/* MOBILE MENU */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
-        onClose={handleMobileMenuClose}
+        onClose={closeMobileMenu}
         links={allLinks}
         onAppointmentClick={handleAppointmentClick}
       />
