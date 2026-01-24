@@ -117,7 +117,7 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex items-center gap-6">
             <DesktopNav links={rightLinks} isScrolled={isScrolled} />
 
-            {/* Phone (secondary action) */}
+            {/* Phone */}
             <a
               href="tel:+917358746061"
               aria-label="Call Norma Luna Healthcare"
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
               +91 73587 46061
             </a>
 
-            {/* Primary CTA (utility style, not dominant) */}
+            {/* CTA */}
             <Button
               onClick={handleAppointmentClick}
               className="bg-primary text-white px-5 py-2.5 rounded-full
@@ -157,4 +157,5 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header;
+/* ✅ NAMED EXPORT (FIXES VERCEL BUILD ERROR) */
+export { Header };
