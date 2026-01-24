@@ -77,22 +77,22 @@ const Header: React.FC = () => {
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
-      {/* 🔥 WIDER HEADER CONTAINER */}
       <div className="max-w-[1600px] mx-auto px-6">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-20">
+        {/* 🔥 AUTO COLUMNS = NO EMPTY SPACE */}
+        <div className="grid grid-cols-[auto_auto_auto] items-center gap-8 h-20">
 
           {/* LEFT NAV */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             <DesktopNav links={leftLinks} />
           </div>
 
-          {/* CENTER LOGO (TRUE CENTER) */}
-          <div className="flex justify-center">
+          {/* LOGO — NO SPACE AROUND */}
+          <div className="flex items-center">
             <Logo isScrolled={false} />
           </div>
 
           {/* RIGHT NAV */}
-          <div className="hidden lg:flex items-center justify-end gap-6">
+          <div className="hidden lg:flex items-center gap-6">
             <DesktopNav links={rightLinks} />
 
             <a
@@ -110,8 +110,8 @@ const Header: React.FC = () => {
             </Button>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
-          <div className="flex lg:hidden justify-end col-span-3">
+          {/* MOBILE */}
+          <div className="flex lg:hidden ml-auto">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((p) => !p)}
