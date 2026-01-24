@@ -24,8 +24,7 @@ export const specialities = [
     title: "IVF & Gynaecology",
     description:
       "Complete infertility care with state-of-the-art IVF treatment and comprehensive support.",
-    image:"/ivf.jpg"; 
-
+    image: "/ivf.jpg", // Fixed: Changed semicolon to comma
     icon: Baby,
   },
   {
@@ -144,15 +143,15 @@ const SpecialitiesSection: React.FC = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" as const },
+      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 
-  // ✅ Exact logo blue
   const brandBlue = "#0C3B66";
 
   return (
     <section className="bg-[#D9EBF5] py-20 lg:py-28 overflow-hidden relative">
+      {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-white/20 skew-x-12 blur-xl pointer-events-none" />
       <div className="absolute top-20 left-10 w-64 h-64 bg-white/30 rounded-full blur-3xl pointer-events-none" />
 
@@ -174,8 +173,7 @@ const SpecialitiesSection: React.FC = () => {
             </div>
 
             <h2 className="text-3xl md:text-5xl font-bold text-[#0F172A] mb-6">
-              Dedicated to{" "}
-              <span style={{ color: brandBlue }}>Holistic Care</span>
+              Dedicated to <span style={{ color: brandBlue }}>Holistic Care</span>
             </h2>
 
             <p className="text-slate-600 text-lg">
