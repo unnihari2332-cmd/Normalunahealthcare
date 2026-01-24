@@ -24,9 +24,8 @@ const tabContent = {
     title: "Bringing Care Closer to You",
     icon: Users,
     text: [
-      "Norma Luna Healthcare aims to bring out the complete requirements of medical services that which offers flexible approach to our clients and provide the level of comfort of a home away from home. After all, Norma Luna Healthcare offers the best services with level of expertise.",
-      "Norma Luna Healthcare is networked with reputed hospitals and doctors across India. The network includes corporate hospitals, MultiSpeciality hospitals, and Super-Speciality hospitals with International protocols and Multidisciplinary teams at an affordable price.",
-      "Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists and hospitals for your required treatments in India with most reputed and experienced Doctors and Surgeons with cutting edge technology."
+      "The network includes corporate hospitals, MultiSpeciality hospitals, Super- Speciality hospitals with International protocols and Multidisciplinary team at an affordable price. Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists and hospitals for your required treatments in India with most reputed and experienced Doctors and Surgeons with cutting edge technology.",
+      "Norma Luna Healthcare aims to bring out the complete requirements of medical services that which offers flexible approach to our clients and provide the level of comfort of a home away from home. After all, Norma Luna Healthcare offers the best services with level of expertise. Norma Luna Healthcare is networked with reputed hospitals and doctors across India.",
     ],
     features: [
       { label: "Innovative Treatment Approaches", icon: Microscope },
