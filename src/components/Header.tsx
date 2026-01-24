@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -49,23 +49,14 @@ const rightLinks: NavItem[] = [
   { name: "Contact Us", path: "/contact", hasDropdown: false },
 ];
 
-const allLinks: NavItem[] = [...leftLinks, ...rightLinks];
+const allLinks = [...leftLinks, ...rightLinks];
 
 /* ------------------ COMPONENT ------------------ */
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const location = useLocation();
   const navigate = useNavigate();
-
-  const toggleMobileMenu = (): void => {
-    setIsMobileMenuOpen((prev) => !prev);
-  };
-
-  const closeMobileMenu = (): void => {
-    setIsMobileMenuOpen(false);
-  };
 
   const handleAppointmentClick = (): void => {
     if (location.pathname === "/appointment") {
@@ -76,28 +67,27 @@ const Header: React.FC = () => {
     } else {
       navigate("/appointment");
     }
-    closeMobileMenu();
+    setIsMobileMenuOpen(false);
   };
 
   return (
     <motion.header
-      initial={{ y: -60 }}
+      initial={{ y: -50 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="
-        fixed top-0 left-0 right-0 z-50
-        bg-white
-        border-b border-gray-200
-        text-black
-      "
+      transition={{ duration: 0.25, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
-      <div className="container mx-auto px-6">
-        {/* GRID ensures perfect left / center / right alignment */}
-        <div className="grid grid-cols-3 items-center h-16">
+      <div className="max-w-[1400px] mx-auto px-6">
+        {/* 3-column layout with fixed side widths */}
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center h-16">
           
           {/* LEFT NAV */}
-          <div className="hidden lg:flex justify-start">
-            <DesktopNav links={leftLinks} isScrolled={false} />
+          <div className="hidden lg:flex items-center gap-8">
+            <DesktopNav
+              links={leftLinks}
+              isScrolled={false}
+              className="text-black"
+            />
           </div>
 
           {/* CENTER LOGO */}
@@ -105,14 +95,18 @@ const Header: React.FC = () => {
             <Logo isScrolled={false} />
           </div>
 
-          {/* RIGHT NAV + CTA */}
-          <div className="hidden lg:flex justify-end items-center gap-6">
-            <DesktopNav links={rightLinks} isScrolled={false} />
+          {/* RIGHT NAV */}
+          <div className="hidden lg:flex items-center justify-end gap-6">
+            <DesktopNav
+              links={rightLinks}
+              isScrolled={false}
+              className="text-black"
+            />
 
-            {/* Phone */}
+            {/* Phone (single line, never wraps) */}
             <a
               href="tel:+917358746061"
-              className="flex items-center gap-2 text-sm font-medium text-black hover:opacity-70 transition"
+              className="flex items-center gap-2 text-sm font-medium text-black whitespace-nowrap hover:opacity-70 transition"
             >
               📞 +91 73587 46061
             </a>
@@ -120,8 +114,7 @@ const Header: React.FC = () => {
             {/* CTA */}
             <Button
               onClick={handleAppointmentClick}
-              className="bg-black text-white px-5 py-2 rounded-full
-                         hover:opacity-90 transition"
+              className="bg-black text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition"
             >
               Book Appointment
             </Button>
@@ -131,7 +124,7 @@ const Header: React.FC = () => {
           <div className="flex lg:hidden justify-end">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
-              onClick={toggleMobileMenu}
+              onClick={() => setIsMobileMenuOpen((p) => !p)}
               isScrolled={false}
             />
           </div>
@@ -141,7 +134,7 @@ const Header: React.FC = () => {
       {/* MOBILE MENU */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
-        onClose={closeMobileMenu}
+        onClose={() => setIsMobileMenuOpen(false)}
         links={allLinks}
         onAppointmentClick={handleAppointmentClick}
       />
