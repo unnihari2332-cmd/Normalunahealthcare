@@ -68,7 +68,6 @@ export const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      // 🔥 UPDATED: White gradient background, glass blur effect, and white text with shadow
       className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-white/30 to-transparent backdrop-blur-sm text-white drop-shadow-md py-2 border-b border-white/10" 
     >
       <div className="container mx-auto px-4">
@@ -80,8 +79,8 @@ export const Header = () => {
             isScrolled={true} 
           />
 
-          {/* CENTER LOGO */}
-          <div className="shrink-0">
+          {/* 🔥 CENTER LOGO - UPDATED: Applied 'text-gray-200' for the Dark White look */}
+          <div className="shrink-0 text-gray-200">
             <Logo isScrolled={true} />
           </div>
 
