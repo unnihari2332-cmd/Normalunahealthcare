@@ -298,5 +298,10 @@ export const specialities: Speciality[] = [
       "Advanced diagnostic capabilities",
       "Comprehensive follow-up care"
     ]
-  },
+  }
 ];
+
+// CRITICAL: This was missing and caused the build failure
+export const getSpecialityById = (id: string): Speciality | undefined => {
+  return specialities.find(spec => spec.id === id);
+};
