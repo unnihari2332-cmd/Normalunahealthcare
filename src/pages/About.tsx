@@ -73,31 +73,28 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// UPDATED: HeroBanner with bg.png + Navy Overlay + Curve
+// 1. HERO BANNER (With Image + Curve)
 const HeroBanner = ({ title, parentPage = "Home" }) => {
   return (
     <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#1E2043] overflow-hidden">
       
-      {/* --- ADDED: Background Image Area --- */}
+      {/* Background Image Area */}
       <div className="absolute inset-0 z-0">
-        {/* The Image from public folder */}
         <img 
           src="/bg.png" 
           alt="Banner Background" 
-          className="w-full h-full object-cover opacity-50" 
+          className="w-full h-full object-cover opacity-40" 
         />
-        {/* Gradient Overlay: Ensures text stays readable and maintains the Navy Brand Color */}
         <div className="absolute inset-0 bg-[#1E2043]/80 mix-blend-multiply" />
       </div>
 
-      {/* Decorative Circle (Subtle texture on top of image) */}
+      {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center gap-4 px-4">
-        {/* Breadcrumb */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -112,7 +109,6 @@ const HeroBanner = ({ title, parentPage = "Home" }) => {
           <span className="text-white">{title}</span>
         </motion.div>
 
-        {/* Title */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -123,7 +119,7 @@ const HeroBanner = ({ title, parentPage = "Home" }) => {
         </motion.h1>
       </div>
 
-      {/* THE CURVE: Sits on top (z-20) to mask the image */}
+      {/* The Curve */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
         <svg 
           viewBox="0 0 1200 120" 
@@ -140,6 +136,7 @@ const HeroBanner = ({ title, parentPage = "Home" }) => {
   );
 };
 
+// 2. ABOUT SECTION
 const AboutSection = () => {
   return (
     <section className="py-20 bg-white">
@@ -157,7 +154,6 @@ const AboutSection = () => {
               alt="Medical Professionals" 
               className="w-full h-full object-cover"
             />
-            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1E2043]/90 to-transparent flex items-end p-8">
                <div className="text-white">
                  <p className="font-bold text-lg">Norma Luna Healthcare</p>
@@ -201,32 +197,47 @@ const AboutSection = () => {
   );
 };
 
+// 3. VISION & MISSION SECTION (Updated with Background Image)
 const VisionMissionSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
-      <div className="container mx-auto px-4">
+    <section className="relative py-24 overflow-hidden">
+      
+      {/* --- ADDED: Background Image Area --- */}
+      <div className="absolute inset-0 z-0">
+         <img 
+           src="/bg.png" 
+           alt="Vision Background" 
+           className="w-full h-full object-cover opacity-30" 
+         />
+         {/* Stronger overlay here to make sure white cards pop */}
+         <div className="absolute inset-0 bg-[#1E2043]/95 mix-blend-multiply" />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-blue-600 font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
-          <h2 className="font-display text-4xl font-bold text-[#1E2043]">
+          {/* Updated text colors to White since background is now dark */}
+          <p className="text-blue-300 font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
+          <h2 className="font-display text-4xl font-bold text-white">
             Vision & Mission
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Vision Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
+            className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all border border-gray-100"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-4 bg-blue-100 rounded-2xl text-[#1E2043]">
+              <div className="p-4 bg-blue-50 rounded-2xl text-[#1E2043]">
                 <Eye size={32} />
               </div>
               <h3 className="text-2xl font-display font-bold text-[#1E2043]">
@@ -240,15 +251,16 @@ const VisionMissionSection = () => {
             </div>
           </motion.div>
 
+          {/* Mission Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
+            className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all border border-gray-100"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-4 bg-indigo-100 rounded-2xl text-indigo-600">
+              <div className="p-4 bg-blue-50 rounded-2xl text-indigo-600">
                 <Target size={32} />
               </div>
               <h3 className="text-2xl font-display font-bold text-[#1E2043]">
@@ -267,6 +279,7 @@ const VisionMissionSection = () => {
   );
 };
 
+// 4. TESTIMONIALS
 const TestimonialGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 pb-10">
@@ -322,6 +335,7 @@ const AboutPage = () => {
       
       <StatsSection />
 
+      {/* Vision & Mission now uses the background image */}
       <VisionMissionSection />
 
       <section className="py-20 bg-gray-50 overflow-hidden">
