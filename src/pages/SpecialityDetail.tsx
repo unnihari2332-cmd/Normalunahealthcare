@@ -2,7 +2,6 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroBanner } from "@/components/HeroBanner";
 import { Button } from "@/components/ui/button";
 import { getSpecialityById, specialities } from "@/data/specialities";
 import { 
@@ -12,9 +11,67 @@ import {
   MapPin, 
   Mail, 
   Phone, 
-  Clock
+  Clock,
+  Home,
+  ChevronRight
 } from "lucide-react";
-import heroImage from "@/assets/hero-medical.jpg";
+
+// --- COMPONENT: HERO BANNER (Aligned with About Us) ---
+const HeroBanner = ({ title }) => {
+  return (
+    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#1E2043] overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center gap-4">
+        {/* Breadcrumb Path */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex items-center gap-2 text-white/70 text-sm font-medium uppercase tracking-wider"
+        >
+          <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors">
+            <Home size={14} />
+            Home
+          </Link>
+          <ChevronRight size={14} className="opacity-50" />
+          <Link to="/specialities" className="hover:text-white transition-colors">
+            Specialities
+          </Link>
+          <ChevronRight size={14} className="opacity-50" />
+          <span className="text-white">{title}</span>
+        </motion.div>
+
+        {/* Title */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-white text-4xl md:text-5xl font-display font-bold tracking-tight text-center px-4"
+        >
+          {title}
+        </motion.h1>
+      </div>
+
+      {/* THE CURVE */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+        <svg 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none" 
+          className="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[90px]"
+        >
+          <path 
+            d="M0,0 C300,100 900,100 1200,0 L1200,120 L0,120 Z" 
+            fill="#ffffff" 
+          ></path>
+        </svg>
+      </div>
+    </section>
+  );
+};
 
 const SpecialityDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,11 +92,10 @@ const SpecialityDetailPage = () => {
     );
   }
 
-  // Get ALL related specialities (no slice limit)
   const relatedSpecialities = specialities.filter(s => s.id !== speciality.id);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <div className="pt-20">
@@ -47,65 +103,64 @@ const SpecialityDetailPage = () => {
       </div>
 
       {/* Main Content */}
-      <section className="py-16 bg-background overflow-hidden"> 
-        {/* Added overflow-hidden to body to prevent scrollbars during animation */}
+      <section className="py-16 bg-white overflow-hidden"> 
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             
             {/* Left Content - Pan from Left */}
             <div className="lg:col-span-2 space-y-10">
               <motion.div
-                initial={{ opacity: 0, x: -50 }} // Start 50px to the left
-                animate={{ opacity: 1, x: 0 }}   // Animate to natural position
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <div className="rounded-2xl overflow-hidden mb-8 shadow-sm">
+                <div className="rounded-3xl overflow-hidden mb-10 shadow-xl border border-gray-100">
                   <motion.img
                     src={speciality.image}
                     alt={speciality.title}
-                    className="w-full h-[400px] object-cover"
-                    whileHover={{ scale: 1.05 }} // Subtle zoom on hover
+                    className="w-full h-[450px] object-cover"
+                    whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.5 }}
                   />
                 </div>
 
-                <h2 className="font-display text-2xl md:text-3xl font-bold mb-6">
+                <h2 className="font-display text-3xl font-bold mb-6 text-[#1E2043]">
                   About {speciality.title}
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-8 text-lg">
+                <p className="text-gray-600 leading-relaxed mb-8 text-lg">
                   {speciality.fullDescription}
                 </p>
 
-                {/* Treatments - Staggered Pan from Left */}
-                <h3 className="font-display text-xl font-semibold mb-6">
+                {/* Treatments */}
+                <h3 className="font-display text-2xl font-semibold mb-6 text-[#1E2043]">
                   Treatments & Procedures
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                   {speciality.treatments.map((treatment, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, x: -30 }} // Pan items from left
+                      initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.1 + (index * 0.05) }}
-                      className="flex items-center justify-between p-4 border-b border-border hover:bg-secondary/50 transition-colors group"
+                      className="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:bg-blue-50/50 transition-colors group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-full bg-[#E8F4F8] flex items-center justify-center flex-shrink-0">
-                          <Check className="w-4 h-4 text-primary" />
+                        <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                          <Check className="w-4 h-4 text-[#1E2043]" />
                         </div>
-                        <span className="text-foreground">{treatment}</span>
+                        <span className="text-gray-700 font-medium">{treatment}</span>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors opacity-0 group-hover:opacity-100 group-hover:translate-x-1 duration-300" />
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#1E2043] transition-all opacity-0 group-hover:opacity-100 group-hover:translate-x-1" />
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Benefits - Fade Up */}
-                <h3 className="font-display text-xl font-semibold mb-6">
-                  Why Choose Us
+                {/* Benefits */}
+                <h3 className="font-display text-2xl font-semibold mb-6 text-[#1E2043]">
+                  Why Choose Norma Luna
                 </h3>
-                <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
-                  <div className="space-y-4">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {speciality.benefits.map((benefit, index) => (
                       <motion.div
                         key={index}
@@ -114,10 +169,10 @@ const SpecialityDetailPage = () => {
                         transition={{ duration: 0.4, delay: 0.3 + (index * 0.05) }}
                         className="flex items-start gap-3"
                       >
-                        <div className="w-8 h-8 rounded-full bg-[#E8F4F8] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Check className="w-4 h-4 text-primary" />
+                        <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mt-1 shadow-sm">
+                          <Check className="w-3.5 h-3.5 text-blue-600" />
                         </div>
-                        <span className="text-foreground">{benefit}</span>
+                        <span className="text-gray-700 font-medium">{benefit}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -128,78 +183,70 @@ const SpecialityDetailPage = () => {
             {/* Right Sidebar - Pan from Right */}
             <div className="lg:col-span-1">
               <motion.div
-                initial={{ opacity: 0, x: 50 }} // Start 50px to the right
-                animate={{ opacity: 1, x: 0 }}  // Animate to natural position
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="space-y-6"
+                className="space-y-8 sticky top-32"
               >
-                {/* Services/Related Specialities */}
-                <div className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border">
-                  <div className="bg-navy text-primary-foreground py-4 px-6">
-                    <h4 className="font-semibold text-lg">Other Specialities</h4>
+                {/* Related Specialities */}
+                <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                  <div className="bg-[#1E2043] text-white py-5 px-6">
+                    <h4 className="font-bold text-lg">Quick Navigation</h4>
                   </div>
-                  
-                  {/* Full list without scroll */}
-                  <div className="divide-y divide-border">
+                  <div className="divide-y divide-gray-50 max-h-[400px] overflow-y-auto custom-scrollbar">
                     {relatedSpecialities.map((related) => (
                       <Link
                         key={related.id}
                         to={`/specialities/${related.id}`}
                         onClick={() => window.scrollTo(0, 0)}
-                        className="flex items-center justify-between px-6 py-4 hover:bg-secondary/50 transition-colors group"
+                        className="flex items-center justify-between px-6 py-4 hover:bg-blue-50 transition-colors group"
                       >
-                        <span className="text-foreground group-hover:text-primary transition-colors text-sm font-medium group-hover:translate-x-2 duration-300 block">
+                        <span className="text-gray-600 group-hover:text-[#1E2043] transition-colors text-sm font-semibold group-hover:translate-x-1 duration-300">
                           {related.title}
                         </span>
-                        {/* No arrow icon here */}
+                        <ChevronRight size={16} className="text-gray-300 group-hover:text-[#1E2043]" />
                       </Link>
                     ))}
                   </div>
                 </div>
 
                 {/* Appointment Card */}
-                <div className="bg-navy rounded-2xl overflow-hidden shadow-lg">
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                        <Calendar className="w-6 h-6 text-primary-foreground" />
+                <div className="bg-[#1E2043] rounded-3xl overflow-hidden shadow-2xl relative">
+                  {/* Decorative circle */}
+                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/5 rounded-full" />
+                  
+                  <div className="p-8 relative z-10">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                        <Calendar className="w-7 h-7 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-primary-foreground">Book Appointment</h4>
-                        <p className="text-sm text-primary-foreground/70">Get expert consultation</p>
+                        <h4 className="font-bold text-white text-xl">Book Help</h4>
+                        <p className="text-sm text-white/60">Expert Consultation</p>
                       </div>
                     </div>
-                    <p className="text-primary-foreground/80 text-sm mb-6">
-                      Schedule a consultation with our {speciality.title} specialists today.
-                    </p>
 
-                    <div className="space-y-4 mb-6">
-                      <div className="flex items-start gap-2">
-                        <MapPin className="w-4 h-4 text-primary-foreground/70 mt-0.5 flex-shrink-0" />
-                        <p className="text-primary-foreground/80 text-sm">
-                           No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel,<br /> Thousand Lights West, Nungambakkam,<br /> Chennai, Tamil Nadu 600034
+                    <div className="space-y-5 mb-8">
+                      <div className="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-blue-400 shrink-0 mt-1" />
+                        <p className="text-white/80 text-sm leading-relaxed">
+                           No. 143, 1, Uthamar Gandhi Rd, Nungambakkam, Chennai 600034
                         </p>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Mail className="w-4 h-4 text-primary-foreground/70 flex-shrink-0" />
-                        <span className="text-primary-foreground/80 text-sm">info@normaluna.co</span>
+                      <div className="flex items-center gap-3">
+                        <Phone className="w-5 h-5 text-blue-400 shrink-0" />
+                        <span className="text-white/80 text-sm font-medium">+91 73587 46061</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Phone className="w-4 h-4 text-primary-foreground/70 flex-shrink-0" />
-                        <span className="text-primary-foreground/80 text-sm">+91 73587 46061</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <Clock className="w-4 h-4 text-primary-foreground/70 mt-0.5 flex-shrink-0" />
-                        <div className="text-primary-foreground/80 text-sm">
-                          <p>24/7 Support</p>
-                        </div>
+                      <div className="flex items-center gap-3">
+                        <Mail className="w-5 h-5 text-blue-400 shrink-0" />
+                        <span className="text-white/80 text-sm">info@normaluna.co</span>
                       </div>
                     </div>
 
                     <Link to="/appointment">
-                      <Button className="w-full bg-white text-navy hover:bg-white/90 rounded-full font-semibold transition-transform hover:scale-105">
+                      <Button className="w-full bg-white text-[#1E2043] hover:bg-blue-50 rounded-xl h-14 font-bold text-lg shadow-xl transition-all hover:scale-[1.02] active:scale-95">
                         Book Now
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <ArrowRight className="w-5 h-5 ml-2" />
                       </Button>
                     </Link>
                   </div>
@@ -210,37 +257,7 @@ const SpecialityDetailPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-navy">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-              Ready to Get Started?
-            </h2>
-            <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
-              Contact us today to learn more about our {speciality.title} services and schedule your consultation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/appointment">
-                <Button size="lg" className="bg-primary hover:bg-teal-light text-primary-foreground rounded-full px-8 hover:scale-105 transition-transform">
-                  Book Appointment
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 rounded-full px-8 hover:scale-105 transition-transform">
-                  Contact Us
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
+      {/* Footer is already included in your imports */}
       <Footer />
     </div>
   );
