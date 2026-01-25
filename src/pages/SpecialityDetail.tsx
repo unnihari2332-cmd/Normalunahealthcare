@@ -43,14 +43,7 @@ const SpecialityDetailPage = () => {
       <Header />
 
       <div className="pt-20">
-        <HeroBanner
-          title={speciality.title}
-          image={heroImage}
-          breadcrumbs={[
-            { label: "Specialities", path: "/specialities" },
-            { label: speciality.title }
-          ]}
-        />
+        <HeroBanner title={speciality.title} />
       </div>
 
       {/* Main Content */}

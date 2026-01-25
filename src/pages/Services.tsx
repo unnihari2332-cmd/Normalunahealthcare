@@ -85,11 +85,7 @@ const ServicesPage = () => {
       <Header />
 
       <div className="pt-20">
-        <HeroBanner
-          title="Our Services"
-          image={heroImage}
-          breadcrumbs={[{ label: "Services" }]}
-        />
+        <HeroBanner title="Our Services" />
       </div>
 
       <section className="py-20 px-4 md:px-8">

@@ -10,11 +10,7 @@ const AppointmentPage = () => {
       <Header />
 
       <div className="pt-20">
-        <HeroBanner
-          title="Make Appointment"
-          image={heroImage}
-          breadcrumbs={[{ label: "Appointment" }]}
-        />
+        <HeroBanner title="Make Appointment" />
       </div>
 
       <AppointmentForm />

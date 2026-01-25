@@ -1,41 +1,47 @@
 import { motion } from "framer-motion";
-import { PageBreadcrumb } from "@/components/PageBreadcrumb";
-
-interface BreadcrumbItem {
-  label: string;
-  path?: string;
-}
 
 interface HeroBannerProps {
   title: string;
-  image: string;
-  breadcrumbs?: BreadcrumbItem[];
+  image?: string;
 }
 
-export const HeroBanner = ({ title, image, breadcrumbs }: HeroBannerProps) => {
+export const HeroBanner = ({ title }: HeroBannerProps) => {
   return (
-    <div className="relative h-[280px] md:h-[350px] overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
-      >
-        <div className="absolute inset-0 bg-navy/70" />
+    <div className="relative overflow-hidden">
+      {/* Solid Blue Background */}
+      <div className="bg-primary py-16 md:py-24 relative">
+        {/* Subtle geometric decorations */}
+        <div className="absolute top-0 left-0 w-48 h-48 border border-white/10 rounded-lg transform -translate-x-1/2 -translate-y-1/4 rotate-12" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full transform translate-x-1/3 translate-y-1/3" />
+        <div className="absolute top-1/2 right-10 w-3 h-3 bg-white/20 rounded-full" />
+        
+        {/* Content */}
+        <div className="relative container mx-auto px-4 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground"
+          >
+            {title}
+          </motion.h1>
+        </div>
       </div>
-
-      {/* Content */}
-      <div className="relative container mx-auto px-4 h-full flex flex-col justify-center">
-        {breadcrumbs && breadcrumbs.length > 0 && (
-          <PageBreadcrumb items={breadcrumbs} />
-        )}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mt-2"
+      
+      {/* Curved Wave Bottom */}
+      <div className="relative h-12 md:h-16 bg-background">
+        <svg
+          className="absolute bottom-full left-0 w-full"
+          viewBox="0 0 1440 60"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {title}
-        </motion.h1>
+          <path
+            d="M0 60L1440 60L1440 0C1440 0 1200 40 720 40C240 40 0 0 0 0L0 60Z"
+            className="fill-background"
+          />
+        </svg>
       </div>
     </div>
   );

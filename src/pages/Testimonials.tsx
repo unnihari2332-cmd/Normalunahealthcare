@@ -72,11 +72,7 @@ const TestimonialsPage = () => {
       <Header />
 
       <div className="pt-20">
-        <HeroBanner
-          title="Patient Testimonials"
-          image={testimonialHeroImage}
-          breadcrumbs={[{ label: "Testimonials" }]}
-        />
+        <HeroBanner title="Patient Testimonials" />
       </div>
 
       {/* Introduction */}
