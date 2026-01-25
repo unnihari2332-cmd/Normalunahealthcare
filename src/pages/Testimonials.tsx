@@ -224,21 +224,6 @@ const TestimonialsPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <div className="py-16 bg-[#1B2A49]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Start Your Healing Journey?
-          </h2>
-          <p className="text-xl text-gray-200 mb-8">
-            Join hundreds of patients who have transformed their lives with world-class care
-          </p>
-          <button className="bg-white px-8 py-4 rounded-full font-semibold text-lg text-[#1B2A49] hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-            Get Free Consultation
-          </button>
-        </div>
-      </div>
-
       <Footer />
     </div>
   );
