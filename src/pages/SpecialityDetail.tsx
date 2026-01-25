@@ -26,7 +26,7 @@ const HeroBanner = ({ title }: { title: string }) => {
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-4">
-        {/* Breadcrumb Path - Consistent with About Us styling */}
+        {/* Breadcrumb Path */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -175,20 +175,23 @@ const SpecialityDetailPage = () => {
               </motion.div>
             </div>
 
-            {/* Right Sidebar */}
+            {/* Right Sidebar - Sticky Removed or Height logic changed */}
             <div className="lg:col-span-1">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="space-y-8 sticky top-32"
+                className="space-y-8" 
+                // Note: removed 'sticky top-32' here because a full-height sidebar 
+                // is often taller than the screen, making sticky scrolling awkward.
               >
-                {/* Related Specialities Sidebar */}
+                {/* Related Specialities Sidebar - FULL HEIGHT */}
                 <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
                   <div className="py-5 px-6 text-white" style={{ backgroundColor: brandColor }}>
                     <h4 className="font-bold text-lg">Other Specialities</h4>
                   </div>
-                  <div className="divide-y divide-gray-50 max-h-[400px] overflow-y-auto">
+                  {/* SCROLL CLASSES REMOVED BELOW */}
+                  <div className="divide-y divide-gray-50">
                     {relatedSpecialities.map((related) => (
                       <Link
                         key={related.id}
