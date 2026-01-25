@@ -155,13 +155,13 @@ const Counter = ({
 // --- Main Component ---
 export const StatsSection = () => {
   return (
-    <section
-      className="py-24 relative overflow-hidden bg-no-repeat bg-center"
-      style={{
-        backgroundImage: "url('/bg.png')",
-        backgroundSize: "cover", // ✅ FULL section size
-      }}
-    >
+      <section
+  className="py-24 relative overflow-hidden bg-no-repeat bg-center"
+  style={{
+    backgroundImage: "url('/bg.png')",
+    backgroundSize: "90%", // 👈 slightly smaller than full
+  }}
+>
       {/* White overlay */}
       <div className="absolute inset-0 bg-white/80" />
 
