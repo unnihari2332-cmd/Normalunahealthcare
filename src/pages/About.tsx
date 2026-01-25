@@ -12,8 +12,8 @@ import {
   Heart, 
   GraduationCap,
   Star,
-  ChevronRight, // Added for the breadcrumb arrow
-  Home          // Added for the breadcrumb icon
+  ChevronRight,
+  Home
 } from "lucide-react";
 
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
@@ -73,17 +73,31 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// UPDATED: HeroBanner with Breadcrumb Path + Deep Navy + Curve
+// UPDATED: HeroBanner with bg.png + Navy Overlay + Curve
 const HeroBanner = ({ title, parentPage = "Home" }) => {
   return (
     <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#1E2043] overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+      
+      {/* --- ADDED: Background Image Area --- */}
+      <div className="absolute inset-0 z-0">
+        {/* The Image from public folder */}
+        <img 
+          src="/bg.png" 
+          alt="Banner Background" 
+          className="w-full h-full object-cover opacity-50" 
+        />
+        {/* Gradient Overlay: Ensures text stays readable and maintains the Navy Brand Color */}
+        <div className="absolute inset-0 bg-[#1E2043]/80 mix-blend-multiply" />
+      </div>
+
+      {/* Decorative Circle (Subtle texture on top of image) */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-4">
-        {/* ADDED: Breadcrumb Path */}
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center gap-4 px-4">
+        {/* Breadcrumb */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -103,13 +117,13 @@ const HeroBanner = ({ title, parentPage = "Home" }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-white text-5xl font-display font-bold tracking-tight text-center"
+          className="text-white text-4xl md:text-5xl font-display font-bold tracking-tight text-center"
         >
           {title}
         </motion.h1>
       </div>
 
-      {/* THE CURVE */}
+      {/* THE CURVE: Sits on top (z-20) to mask the image */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
         <svg 
           viewBox="0 0 1200 120" 
@@ -143,7 +157,7 @@ const AboutSection = () => {
               alt="Medical Professionals" 
               className="w-full h-full object-cover"
             />
-            {/* Deep Navy Gradient */}
+            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1E2043]/90 to-transparent flex items-end p-8">
                <div className="text-white">
                  <p className="font-bold text-lg">Norma Luna Healthcare</p>
