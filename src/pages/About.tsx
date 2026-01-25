@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroBanner } from "@/components/HeroBanner";
 import { StatsSection } from "@/components/StatsSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -18,7 +17,7 @@ import {
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
 import heroImage from "/aboutus.jpg"; 
 
-// --- DATA: TAB CONTENT ---
+// --- DATA: TAB CONTENT (KEPT EXACTLY AS IS) ---
 const tabContent = {
   about: {
     title: "Bringing Care Closer to You",
@@ -49,7 +48,7 @@ const tabContent = {
   }
 };
 
-// --- DATA: TESTIMONIALS ---
+// --- DATA: TESTIMONIALS (KEPT EXACTLY AS IS) ---
 const testimonials = [
   {
     name: "Ivan M.",
@@ -73,6 +72,42 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
+// UPDATED: HeroBanner with the "Curve" style
+const HeroBanner = ({ title }) => {
+  return (
+    <section className="relative h-[350px] flex items-center justify-center bg-[#253d7a] overflow-hidden">
+      {/* Background decoration to match the screenshot vibe */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
+      </div>
+
+      <motion.h1 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 text-white text-5xl font-display font-bold tracking-tight"
+      >
+        {title}
+      </motion.h1>
+
+      {/* THE CURVE: This SVG creates the white curved bottom */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+        <svg 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none" 
+          className="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[90px]"
+        >
+          {/* This path creates a smooth concave curve */}
+          <path 
+            d="M0,0 C300,100 900,100 1200,0 L1200,120 L0,120 Z" 
+            fill="#ffffff" 
+          ></path>
+        </svg>
+      </div>
+    </section>
+  );
+};
+
 const AboutSection = () => {
   return (
     <section className="py-20 bg-white">
@@ -90,7 +125,7 @@ const AboutSection = () => {
               alt="Medical Professionals" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent flex items-end p-8">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#253d7a]/90 to-transparent flex items-end p-8">
                <div className="text-white">
                  <p className="font-bold text-lg">Norma Luna Healthcare</p>
                  <p className="text-sm opacity-80">Excellence in Medical Tourism</p>
@@ -100,10 +135,10 @@ const AboutSection = () => {
 
           <div className="flex flex-col h-full justify-center">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-primary/10 rounded-lg text-primary">
+              <div className="p-2 bg-blue-50 rounded-lg text-[#253d7a]">
                 <Users size={24} />
               </div>
-              <h3 className="text-3xl font-display font-bold text-navy">
+              <h3 className="text-3xl font-display font-bold text-[#253d7a]">
                 {tabContent.about.title}
               </h3>
             </div>
@@ -117,10 +152,10 @@ const AboutSection = () => {
             <div className="space-y-3 mt-6">
               {tabContent.about.features.map((feature, i) => (
                 <div key={i} className="flex items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="bg-blue-50 p-2 rounded-full text-primary mr-4">
+                  <div className="bg-blue-50 p-2 rounded-full text-[#253d7a] mr-4">
                     <feature.icon size={20} />
                   </div>
-                  <span className="font-bold text-navy text-sm md:text-base">
+                  <span className="font-bold text-[#253d7a] text-sm md:text-base">
                     {feature.label}
                   </span>
                 </div>
@@ -143,8 +178,8 @@ const VisionMissionSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <p className="text-primary font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
-          <h2 className="font-display text-4xl font-bold text-navy">
+          <p className="text-blue-600 font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
+          <h2 className="font-display text-4xl font-bold text-[#253d7a]">
             Vision & Mission
           </h2>
         </motion.div>
@@ -158,10 +193,10 @@ const VisionMissionSection = () => {
             className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-4 bg-blue-100 rounded-2xl text-primary">
+              <div className="p-4 bg-blue-100 rounded-2xl text-[#253d7a]">
                 <Eye size={32} />
               </div>
-              <h3 className="text-2xl font-display font-bold text-navy">
+              <h3 className="text-2xl font-display font-bold text-[#253d7a]">
                 Our Vision
               </h3>
             </div>
@@ -183,7 +218,7 @@ const VisionMissionSection = () => {
               <div className="p-4 bg-indigo-100 rounded-2xl text-indigo-600">
                 <Target size={32} />
               </div>
-              <h3 className="text-2xl font-display font-bold text-navy">
+              <h3 className="text-2xl font-display font-bold text-[#253d7a]">
                 Our Mission
               </h3>
             </div>
@@ -225,8 +260,8 @@ const TestimonialGrid = () => {
             </div>
           </div>
           <div className="mt-6 text-center">
-            <h4 className="font-bold text-navy text-lg">{testimonial.name}</h4>
-            <p className="text-xs text-primary font-medium uppercase tracking-wider mb-1">
+            <h4 className="font-bold text-[#253d7a] text-lg">{testimonial.name}</h4>
+            <p className="text-xs text-blue-600 font-medium uppercase tracking-wider mb-1">
                 {testimonial.location}
             </p>
             <span className="text-xs text-gray-400">
@@ -246,6 +281,7 @@ const AboutPage = () => {
     <div className="min-h-screen bg-gray-50/50">
       <Header />
 
+      {/* Added pt-20 if header is fixed, removed it inside HeroBanner to keep layout clean */}
       <div className="pt-20">
         <HeroBanner title="About Us" />
       </div>
@@ -269,8 +305,8 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <p className="text-blue-400 font-medium tracking-wide uppercase text-sm mb-2">Patients Story</p>
-            <h2 className="font-display text-4xl font-bold text-navy">
+            <p className="text-blue-500 font-medium tracking-wide uppercase text-sm mb-2">Patients Story</p>
+            <h2 className="font-display text-4xl font-bold text-[#253d7a]">
               Loved by our Patients
             </h2>
           </motion.div>
