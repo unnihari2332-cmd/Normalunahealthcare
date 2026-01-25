@@ -159,7 +159,7 @@ export const StatsSection = () => {
       className="py-24 relative overflow-hidden bg-no-repeat bg-center"
       style={{
         backgroundImage: "url('/bg.png')",
-        backgroundSize: "1200px", // 👈 decrease image size here
+        backgroundSize: "cover", // ✅ FULL section size
       }}
     >
       {/* White overlay */}
