@@ -11,13 +11,15 @@ import {
   Microscope, 
   Heart, 
   GraduationCap,
-  Star 
+  Star,
+  ChevronRight, // Added for the breadcrumb arrow
+  Home          // Added for the breadcrumb icon
 } from "lucide-react";
 
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
 import heroImage from "/aboutus.jpg"; 
 
-// --- DATA: TAB CONTENT (KEPT EXACTLY AS IS) ---
+// --- DATA: TAB CONTENT ---
 const tabContent = {
   about: {
     title: "Bringing Care Closer to You",
@@ -48,7 +50,6 @@ const tabContent = {
   }
 };
 
-// --- DATA: TESTIMONIALS (KEPT EXACTLY AS IS) ---
 const testimonials = [
   {
     name: "Ivan M.",
@@ -72,26 +73,43 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// UPDATED: HeroBanner with the new Dark Navy Color
-const HeroBanner = ({ title }) => {
+// UPDATED: HeroBanner with Breadcrumb Path + Deep Navy + Curve
+const HeroBanner = ({ title, parentPage = "Home" }) => {
   return (
-    // Changed bg-[#253d7a] to bg-[#1E2043]
-    <section className="relative h-[350px] flex items-center justify-center bg-[#1E2043] overflow-hidden">
+    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#1E2043] overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
 
-      <motion.h1 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 text-white text-5xl font-display font-bold tracking-tight"
-      >
-        {title}
-      </motion.h1>
+      <div className="relative z-10 flex flex-col items-center gap-4">
+        {/* ADDED: Breadcrumb Path */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex items-center gap-2 text-white/70 text-sm font-medium uppercase tracking-wider"
+        >
+          <span className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+            <Home size={14} />
+            {parentPage}
+          </span>
+          <ChevronRight size={14} className="opacity-50" />
+          <span className="text-white">{title}</span>
+        </motion.div>
 
-      {/* THE CURVE: White concave finish */}
+        {/* Title */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-white text-5xl font-display font-bold tracking-tight text-center"
+        >
+          {title}
+        </motion.h1>
+      </div>
+
+      {/* THE CURVE */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
         <svg 
           viewBox="0 0 1200 120" 
@@ -125,7 +143,7 @@ const AboutSection = () => {
               alt="Medical Professionals" 
               className="w-full h-full object-cover"
             />
-            {/* Updated gradient to use the new Dark Navy */}
+            {/* Deep Navy Gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1E2043]/90 to-transparent flex items-end p-8">
                <div className="text-white">
                  <p className="font-bold text-lg">Norma Luna Healthcare</p>
@@ -136,11 +154,9 @@ const AboutSection = () => {
 
           <div className="flex flex-col h-full justify-center">
             <div className="flex items-center gap-3 mb-6">
-              {/* Updated icon color to new Navy */}
               <div className="p-2 bg-blue-50 rounded-lg text-[#1E2043]">
                 <Users size={24} />
               </div>
-              {/* Updated heading text color */}
               <h3 className="text-3xl font-display font-bold text-[#1E2043]">
                 {tabContent.about.title}
               </h3>
@@ -155,11 +171,9 @@ const AboutSection = () => {
             <div className="space-y-3 mt-6">
               {tabContent.about.features.map((feature, i) => (
                 <div key={i} className="flex items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  {/* Updated icon text color */}
                   <div className="bg-blue-50 p-2 rounded-full text-[#1E2043] mr-4">
                     <feature.icon size={20} />
                   </div>
-                  {/* Updated label text color */}
                   <span className="font-bold text-[#1E2043] text-sm md:text-base">
                     {feature.label}
                   </span>
@@ -184,7 +198,6 @@ const VisionMissionSection = () => {
           className="text-center mb-12"
         >
           <p className="text-blue-600 font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
-          {/* Updated heading color */}
           <h2 className="font-display text-4xl font-bold text-[#1E2043]">
             Vision & Mission
           </h2>
@@ -199,7 +212,6 @@ const VisionMissionSection = () => {
             className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
           >
             <div className="flex items-center gap-4 mb-6">
-              {/* Updated icon wrapper text color */}
               <div className="p-4 bg-blue-100 rounded-2xl text-[#1E2043]">
                 <Eye size={32} />
               </div>
@@ -267,7 +279,6 @@ const TestimonialGrid = () => {
             </div>
           </div>
           <div className="mt-6 text-center">
-            {/* Updated name color */}
             <h4 className="font-bold text-[#1E2043] text-lg">{testimonial.name}</h4>
             <p className="text-xs text-blue-600 font-medium uppercase tracking-wider mb-1">
                 {testimonial.location}
@@ -308,7 +319,6 @@ const AboutPage = () => {
             className="text-center mb-10"
           >
             <p className="text-blue-500 font-medium tracking-wide uppercase text-sm mb-2">Patients Story</p>
-            {/* Updated Section Title Color */}
             <h2 className="font-display text-4xl font-bold text-[#1E2043]">
               Loved by our Patients
             </h2>
