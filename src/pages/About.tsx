@@ -12,9 +12,10 @@ import {
   Heart, 
   GraduationCap,
   Star,
-  ChevronRight, // Added for the breadcrumb arrow
-  Home          // Added for the breadcrumb icon
+  ChevronRight,
+  Home          
 } from "lucide-react";
+import { Link } from "react-router-dom"; // Added Link for breadcrumb interactivity
 
 // IMPORTANT: Ensure this image exists in src/assets/ or change the path
 import heroImage from "/aboutus.jpg"; 
@@ -73,27 +74,27 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// UPDATED: HeroBanner with Breadcrumb Path + Deep Navy + Curve
+// UPDATED: HeroBanner with Brand Color #0B3A66
 const HeroBanner = ({ title, parentPage = "Home" }) => {
   return (
-    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#1E2043] overflow-hidden">
+    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-4">
-        {/* ADDED: Breadcrumb Path */}
+        {/* Breadcrumb Path */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex items-center gap-2 text-white/70 text-sm font-medium uppercase tracking-wider"
         >
-          <span className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+          <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
             <Home size={14} />
             {parentPage}
-          </span>
+          </Link>
           <ChevronRight size={14} className="opacity-50" />
           <span className="text-white">{title}</span>
         </motion.div>
@@ -143,8 +144,8 @@ const AboutSection = () => {
               alt="Medical Professionals" 
               className="w-full h-full object-cover"
             />
-            {/* Deep Navy Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1E2043]/90 to-transparent flex items-end p-8">
+            {/* Brand Color Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B3A66]/90 to-transparent flex items-end p-8">
                <div className="text-white">
                  <p className="font-bold text-lg">Norma Luna Healthcare</p>
                  <p className="text-sm opacity-80">Excellence in Medical Tourism</p>
@@ -154,10 +155,10 @@ const AboutSection = () => {
 
           <div className="flex flex-col h-full justify-center">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-blue-50 rounded-lg text-[#1E2043]">
+              <div className="p-2 bg-blue-50 rounded-lg text-[#0B3A66]">
                 <Users size={24} />
               </div>
-              <h3 className="text-3xl font-display font-bold text-[#1E2043]">
+              <h3 className="text-3xl font-display font-bold text-[#0B3A66]">
                 {tabContent.about.title}
               </h3>
             </div>
@@ -171,10 +172,10 @@ const AboutSection = () => {
             <div className="space-y-3 mt-6">
               {tabContent.about.features.map((feature, i) => (
                 <div key={i} className="flex items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="bg-blue-50 p-2 rounded-full text-[#1E2043] mr-4">
+                  <div className="bg-blue-50 p-2 rounded-full text-[#0B3A66] mr-4">
                     <feature.icon size={20} />
                   </div>
-                  <span className="font-bold text-[#1E2043] text-sm md:text-base">
+                  <span className="font-bold text-[#0B3A66] text-sm md:text-base">
                     {feature.label}
                   </span>
                 </div>
@@ -198,7 +199,7 @@ const VisionMissionSection = () => {
           className="text-center mb-12"
         >
           <p className="text-blue-600 font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
-          <h2 className="font-display text-4xl font-bold text-[#1E2043]">
+          <h2 className="font-display text-4xl font-bold text-[#0B3A66]">
             Vision & Mission
           </h2>
         </motion.div>
@@ -212,10 +213,10 @@ const VisionMissionSection = () => {
             className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-4 bg-blue-100 rounded-2xl text-[#1E2043]">
+              <div className="p-4 bg-blue-100 rounded-2xl text-[#0B3A66]">
                 <Eye size={32} />
               </div>
-              <h3 className="text-2xl font-display font-bold text-[#1E2043]">
+              <h3 className="text-2xl font-display font-bold text-[#0B3A66]">
                 Our Vision
               </h3>
             </div>
@@ -237,7 +238,7 @@ const VisionMissionSection = () => {
               <div className="p-4 bg-indigo-100 rounded-2xl text-indigo-600">
                 <Target size={32} />
               </div>
-              <h3 className="text-2xl font-display font-bold text-[#1E2043]">
+              <h3 className="text-2xl font-display font-bold text-[#0B3A66]">
                 Our Mission
               </h3>
             </div>
@@ -279,7 +280,7 @@ const TestimonialGrid = () => {
             </div>
           </div>
           <div className="mt-6 text-center">
-            <h4 className="font-bold text-[#1E2043] text-lg">{testimonial.name}</h4>
+            <h4 className="font-bold text-[#0B3A66] text-lg">{testimonial.name}</h4>
             <p className="text-xs text-blue-600 font-medium uppercase tracking-wider mb-1">
                 {testimonial.location}
             </p>
@@ -319,7 +320,7 @@ const AboutPage = () => {
             className="text-center mb-10"
           >
             <p className="text-blue-500 font-medium tracking-wide uppercase text-sm mb-2">Patients Story</p>
-            <h2 className="font-display text-4xl font-bold text-[#1E2043]">
+            <h2 className="font-display text-4xl font-bold text-[#0B3A66]">
               Loved by our Patients
             </h2>
           </motion.div>
