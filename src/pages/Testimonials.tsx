@@ -1,12 +1,71 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroBanner } from "@/components/HeroBanner";
-import { Star, MapPin, Quote, Heart } from 'lucide-react';
+import { 
+  Star, 
+  MapPin, 
+  Quote, 
+  Heart, 
+  Home, 
+  ChevronRight 
+} from 'lucide-react';
 
-// Using a placeholder image for the hero since the local asset wasn't provided
-// You can replace this string with an import like: import heroImage from "@/assets/testimonials-hero.jpg";
-const testimonialHeroImage = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&auto=format&fit=crop&q=60";
+// --- COMPONENT: HERO BANNER ---
+// Updated to match the Services Page style with #0B3A66 background
+const HeroBanner = ({ title }: { title: string }) => {
+  return (
+    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center gap-4">
+        {/* Breadcrumb Path */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex items-center gap-2 text-white/70 text-sm font-medium uppercase tracking-wider"
+        >
+          <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors">
+            <Home size={14} />
+            Home
+          </Link>
+          <ChevronRight size={14} className="opacity-50" />
+          <span className="text-white">{title}</span>
+        </motion.div>
+
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-white text-4xl md:text-5xl font-display font-bold tracking-tight text-center px-4"
+        >
+          {title}
+        </motion.h1>
+      </div>
+
+      {/* THE CURVE */}
+      {/* fill="#ffffff" matches the bg-white of the page content */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[90px]"
+        >
+          <path
+            d="M0,0 C300,100 900,100 1200,0 L1200,120 L0,120 Z"
+            fill="#ffffff"
+          ></path>
+        </svg>
+      </div>
+    </section>
+  );
+};
 
 const testimonials = [
   {
@@ -54,16 +113,16 @@ const testimonials = [
 ];
 
 const TestimonialsPage = () => {
-  const [expandedCards, setExpandedCards] = useState({});
+  const [expandedCards, setExpandedCards] = useState<Record<number, boolean>>({});
 
-  const toggleExpand = (index) => {
+  const toggleExpand = (index: number) => {
     setExpandedCards(prev => ({
       ...prev,
       [index]: !prev[index]
     }));
   };
 
-  const getInitials = (name) => {
+  const getInitials = (name: string) => {
     return name.split(' ').map(n => n[0]).join('').toUpperCase();
   };
 
