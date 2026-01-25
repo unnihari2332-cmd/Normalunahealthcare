@@ -11,11 +11,7 @@ const SpecialitiesPage = () => {
       <Header />
 
       <div className="pt-20">
-        <HeroBanner
-          title="Our Specialities"
-          image={heroImage}
-          breadcrumbs={[{ label: "Specialities" }]}
-        />
+        <HeroBanner title="Our Specialities" />
       </div>
 
       <SpecialitiesGrid specialities={specialities} />

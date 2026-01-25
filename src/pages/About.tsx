@@ -247,11 +247,7 @@ const AboutPage = () => {
       <Header />
 
       <div className="pt-20">
-        <HeroBanner
-          title="About Us"
-          image={heroImage}
-          breadcrumbs={[{ label: "About Us" }]}
-        />
+        <HeroBanner title="About Us" />
       </div>
 
       {/* 1. Who We Are */}
