@@ -27,6 +27,21 @@ export const HeroBanner = ({ title }: HeroBannerProps) => {
           </motion.h1>
         </div>
       </div>
+      
+      {/* Curved Wave Bottom - no stroke/border */}
+      <div className="relative -mt-1">
+        <svg
+          className="w-full h-16 md:h-20"
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0C0 0 240 60 720 60C1200 60 1440 0 1440 0V80H0V0Z"
+            className="fill-primary"
+          />
+        </svg>
+      </div>
     </div>
   );
 };
