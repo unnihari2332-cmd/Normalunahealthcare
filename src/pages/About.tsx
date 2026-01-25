@@ -73,22 +73,21 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// 1. HERO BANNER (With Image + Curve)
+// 1. HERO BANNER
 const HeroBanner = ({ title, parentPage = "Home" }) => {
   return (
     <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#1E2043] overflow-hidden">
       
-      {/* Background Image Area */}
+      {/* Background Image (bg.png) */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/bg.png" 
           alt="Banner Background" 
-          className="w-full h-full object-cover opacity-40" 
+          className="w-full h-full object-cover opacity-50" 
         />
         <div className="absolute inset-0 bg-[#1E2043]/80 mix-blend-multiply" />
       </div>
 
-      {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none z-0">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
@@ -197,20 +196,21 @@ const AboutSection = () => {
   );
 };
 
-// 3. VISION & MISSION SECTION (Updated with Background Image)
+// 3. VISION & MISSION SECTION (Updated with bg.png background)
 const VisionMissionSection = () => {
   return (
     <section className="relative py-24 overflow-hidden">
       
-      {/* --- ADDED: Background Image Area --- */}
+      {/* --- BACKGROUND IMAGE (bg.png) --- */}
       <div className="absolute inset-0 z-0">
+         {/* Using bg.png from public folder */}
          <img 
            src="/bg.png" 
            alt="Vision Background" 
-           className="w-full h-full object-cover opacity-30" 
+           className="w-full h-full object-cover" 
          />
-         {/* Stronger overlay here to make sure white cards pop */}
-         <div className="absolute inset-0 bg-[#1E2043]/95 mix-blend-multiply" />
+         {/* Dark Overlay to ensure text readability */}
+         <div className="absolute inset-0 bg-[#1E2043]/90 mix-blend-multiply" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
@@ -220,7 +220,6 @@ const VisionMissionSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          {/* Updated text colors to White since background is now dark */}
           <p className="text-blue-300 font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
           <h2 className="font-display text-4xl font-bold text-white">
             Vision & Mission
@@ -335,9 +334,10 @@ const AboutPage = () => {
       
       <StatsSection />
 
-      {/* Vision & Mission now uses the background image */}
+      {/* 3. Where We Are Going (Vision & Mission) */}
       <VisionMissionSection />
 
+      {/* 4. Social Proof (Testimonials) */}
       <section className="py-20 bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div 
