@@ -156,13 +156,16 @@ const Counter = ({
 export const StatsSection = () => {
   return (
     <section
-      className="py-24 relative overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/bg.png')" }}
+      className="py-24 relative overflow-hidden bg-no-repeat bg-center"
+      style={{
+        backgroundImage: "url('/bg.png')",
+        backgroundSize: "600px", // 👈 decrease image size here
+      }}
     >
-      {/* White overlay for readability */}
+      {/* White overlay */}
       <div className="absolute inset-0 bg-white/80" />
 
-      {/* Background Decorative Elements */}
+      {/* Decorative blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
         <div
           className="absolute -top-24 -right-24 w-96 h-96 rounded-full blur-3xl"
@@ -246,7 +249,7 @@ export const StatsSection = () => {
                 whileHover={{ y: -8 }}
                 className="group relative bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center"
               >
-                <span className="absolute top-4 right-4 text-4xl font-black text-gray-200 opacity-50 group-hover:opacity-20 transition-all duration-300 select-none">
+                <span className="absolute top-4 right-4 text-4xl font-black text-gray-200 opacity-50">
                   {item.id}
                 </span>
 
@@ -254,10 +257,7 @@ export const StatsSection = () => {
                   <Icon className={`w-8 h-8 ${item.color}`} strokeWidth={1.5} />
                 </div>
 
-                <h3
-                  className="text-xl font-bold mb-3 transition-colors"
-                  style={{ color: BRAND_BLUE }}
-                >
+                <h3 className="text-xl font-bold mb-3" style={{ color: BRAND_BLUE }}>
                   {item.title}
                 </h3>
 
