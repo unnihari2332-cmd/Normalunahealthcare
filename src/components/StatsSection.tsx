@@ -155,66 +155,58 @@ const Counter = ({
 // --- Main Component ---
 export const StatsSection = () => {
   return (
-    <section className="py-24 bg-white relative">
-      
-      {/* ========================================
-        1. STATS BOX with Parallax Background 
-        ========================================
-      */}
-      <div className="container mx-auto px-6 mb-32 relative z-10">
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-          
-          {/* Background Image Layer */}
-          <div 
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: "url('/bg.png')", // Uses public/bg.png
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundAttachment: "fixed" // Parallax effect
-            }}
-          />
+    <section
+      className="py-24 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/bg.png')" }}
+    >
+      {/* White overlay for readability */}
+      <div className="absolute inset-0 bg-white/80" />
 
-          {/* Color Overlay Layer (Brand Blue #0C3B66 with 90% opacity) */}
-          <div className="absolute inset-0 z-10 bg-[#0C3B66]/90" />
-
-          {/* Content Layer */}
-          <div className="relative z-20 p-10 md:p-14">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center md:text-left space-y-3"
-                >
-                  <div className="text-5xl font-black text-white/90 flex justify-center md:justify-start items-baseline">
-                    <Counter from={0} to={stat.value} />
-                    <span>{stat.suffix}</span>
-                  </div>
-
-                  <h4 className="text-xl font-bold text-white uppercase tracking-wide">
-                    {stat.label}
-                  </h4>
-
-                  <p className="text-blue-100 text-sm leading-relaxed pr-4 font-medium opacity-90">
-                    {stat.text}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
+        <div
+          className="absolute -top-24 -right-24 w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: BRAND_BLUE }}
+        />
+        <div
+          className="absolute top-1/2 -left-24 w-64 h-64 rounded-full blur-3xl"
+          style={{ backgroundColor: BRAND_BLUE }}
+        />
       </div>
 
-      {/* ========================================
-        2. VALUES SECTION (Unchanged Content) 
-        ========================================
-      */}
       <div className="container mx-auto px-6 relative z-10">
+        {/* Stats Box */}
+        <div
+          className="rounded-2xl p-10 mb-32 shadow-xl"
+          style={{ backgroundColor: "#1B2A49" }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center md:text-left space-y-3"
+              >
+                <div className="text-5xl font-black text-gray-300 flex justify-center md:justify-start items-baseline">
+                  <Counter from={0} to={stat.value} />
+                  <span>{stat.suffix}</span>
+                </div>
+
+                <h4 className="text-xl font-bold text-white uppercase tracking-wide">
+                  {stat.label}
+                </h4>
+
+                <p className="text-[#D6E6F2] text-sm leading-relaxed pr-4">
+                  {stat.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h2
@@ -236,7 +228,7 @@ export const StatsSection = () => {
           />
         </div>
 
-        {/* Values Grid */}
+        {/* Values */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
