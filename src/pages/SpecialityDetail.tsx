@@ -16,8 +16,8 @@ import {
   ChevronRight
 } from "lucide-react";
 
-// --- COMPONENT: HERO BANNER (Aligned with About Us) ---
-const HeroBanner = ({ title }) => {
+// --- COMPONENT: HERO BANNER (Matched to About Us Colors) ---
+const HeroBanner = ({ title }: { title: string }) => {
   return (
     <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#1E2043] overflow-hidden">
       {/* Background decoration */}
@@ -26,7 +26,7 @@ const HeroBanner = ({ title }) => {
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-4">
-        {/* Breadcrumb Path */}
+        {/* Breadcrumb Path - Specific Color Update */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,6 +42,7 @@ const HeroBanner = ({ title }) => {
             Specialities
           </Link>
           <ChevronRight size={14} className="opacity-50" />
+          {/* Solid White for Current Page */}
           <span className="text-white">{title}</span>
         </motion.div>
 
@@ -107,7 +108,7 @@ const SpecialityDetailPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             
-            {/* Left Content - Pan from Left */}
+            {/* Left Content */}
             <div className="lg:col-span-2 space-y-10">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -141,7 +142,7 @@ const SpecialityDetailPage = () => {
                       key={index}
                       initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.1 + (index * 0.05) }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
                       className="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:bg-blue-50/50 transition-colors group"
                     >
                       <div className="flex items-center gap-3">
@@ -150,37 +151,31 @@ const SpecialityDetailPage = () => {
                         </div>
                         <span className="text-gray-700 font-medium">{treatment}</span>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#1E2043] transition-all opacity-0 group-hover:opacity-100 group-hover:translate-x-1" />
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#1E2043] transition-all opacity-0 group-hover:opacity-100" />
                     </motion.div>
                   ))}
                 </div>
 
                 {/* Benefits */}
                 <h3 className="font-display text-2xl font-semibold mb-6 text-[#1E2043]">
-                  Why Choose Norma Luna
+                  Why Choose Us
                 </h3>
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {speciality.benefits.map((benefit, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.3 + (index * 0.05) }}
-                        className="flex items-start gap-3"
-                      >
+                      <div key={index} className="flex items-start gap-3">
                         <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mt-1 shadow-sm">
                           <Check className="w-3.5 h-3.5 text-blue-600" />
                         </div>
                         <span className="text-gray-700 font-medium">{benefit}</span>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
               </motion.div>
             </div>
 
-            {/* Right Sidebar - Pan from Right */}
+            {/* Right Sidebar */}
             <div className="lg:col-span-1">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
@@ -188,12 +183,12 @@ const SpecialityDetailPage = () => {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 className="space-y-8 sticky top-32"
               >
-                {/* Related Specialities */}
+                {/* Navigation Sidebar */}
                 <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
                   <div className="bg-[#1E2043] text-white py-5 px-6">
-                    <h4 className="font-bold text-lg">Quick Navigation</h4>
+                    <h4 className="font-bold text-lg">Other Specialities</h4>
                   </div>
-                  <div className="divide-y divide-gray-50 max-h-[400px] overflow-y-auto custom-scrollbar">
+                  <div className="divide-y divide-gray-50 max-h-[400px] overflow-y-auto">
                     {relatedSpecialities.map((related) => (
                       <Link
                         key={related.id}
@@ -201,7 +196,7 @@ const SpecialityDetailPage = () => {
                         onClick={() => window.scrollTo(0, 0)}
                         className="flex items-center justify-between px-6 py-4 hover:bg-blue-50 transition-colors group"
                       >
-                        <span className="text-gray-600 group-hover:text-[#1E2043] transition-colors text-sm font-semibold group-hover:translate-x-1 duration-300">
+                        <span className="text-gray-600 group-hover:text-[#1E2043] text-sm font-semibold transition-transform group-hover:translate-x-1">
                           {related.title}
                         </span>
                         <ChevronRight size={16} className="text-gray-300 group-hover:text-[#1E2043]" />
@@ -210,43 +205,28 @@ const SpecialityDetailPage = () => {
                   </div>
                 </div>
 
-                {/* Appointment Card */}
-                <div className="bg-[#1E2043] rounded-3xl overflow-hidden shadow-2xl relative">
-                  {/* Decorative circle */}
-                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/5 rounded-full" />
-                  
-                  <div className="p-8 relative z-10">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                        <Calendar className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-white text-xl">Book Help</h4>
-                        <p className="text-sm text-white/60">Expert Consultation</p>
-                      </div>
-                    </div>
-
+                {/* Contact Card */}
+                <div className="bg-[#1E2043] rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl">
+                  <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full" />
+                  <div className="relative z-10">
+                    <h4 className="font-bold text-xl mb-6">Need Assistance?</h4>
                     <div className="space-y-5 mb-8">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="w-5 h-5 text-blue-400 shrink-0 mt-1" />
-                        <p className="text-white/80 text-sm leading-relaxed">
-                           No. 143, 1, Uthamar Gandhi Rd, Nungambakkam, Chennai 600034
-                        </p>
+                      <div className="flex items-center gap-3">
+                        <Phone className="w-5 h-5 text-blue-400" />
+                        <span className="text-white/80 text-sm">+91 73587 46061</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Phone className="w-5 h-5 text-blue-400 shrink-0" />
-                        <span className="text-white/80 text-sm font-medium">+91 73587 46061</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Mail className="w-5 h-5 text-blue-400 shrink-0" />
+                        <Mail className="w-5 h-5 text-blue-400" />
                         <span className="text-white/80 text-sm">info@normaluna.co</span>
                       </div>
+                      <div className="flex items-start gap-3">
+                        <Clock className="w-5 h-5 text-blue-400 mt-1" />
+                        <span className="text-white/80 text-sm">Available 24/7 for medical queries</span>
+                      </div>
                     </div>
-
                     <Link to="/appointment">
-                      <Button className="w-full bg-white text-[#1E2043] hover:bg-blue-50 rounded-xl h-14 font-bold text-lg shadow-xl transition-all hover:scale-[1.02] active:scale-95">
-                        Book Now
-                        <ArrowRight className="w-5 h-5 ml-2" />
+                      <Button className="w-full bg-white text-[#1E2043] hover:bg-blue-50 rounded-xl h-12 font-bold shadow-xl transition-all hover:scale-[1.02]">
+                        Book Appointment
                       </Button>
                     </Link>
                   </div>
@@ -257,7 +237,6 @@ const SpecialityDetailPage = () => {
         </div>
       </section>
 
-      {/* Footer is already included in your imports */}
       <Footer />
     </div>
   );
