@@ -72,11 +72,12 @@ const testimonials = [
 
 // --- COMPONENTS ---
 
-// UPDATED: HeroBanner with the "Curve" style
+// UPDATED: HeroBanner with the new Dark Navy Color
 const HeroBanner = ({ title }) => {
   return (
-    <section className="relative h-[350px] flex items-center justify-center bg-[#253d7a] overflow-hidden">
-      {/* Background decoration to match the screenshot vibe */}
+    // Changed bg-[#253d7a] to bg-[#1E2043]
+    <section className="relative h-[350px] flex items-center justify-center bg-[#1E2043] overflow-hidden">
+      {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
@@ -90,14 +91,13 @@ const HeroBanner = ({ title }) => {
         {title}
       </motion.h1>
 
-      {/* THE CURVE: This SVG creates the white curved bottom */}
+      {/* THE CURVE: White concave finish */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
         <svg 
           viewBox="0 0 1200 120" 
           preserveAspectRatio="none" 
           className="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[90px]"
         >
-          {/* This path creates a smooth concave curve */}
           <path 
             d="M0,0 C300,100 900,100 1200,0 L1200,120 L0,120 Z" 
             fill="#ffffff" 
@@ -125,7 +125,8 @@ const AboutSection = () => {
               alt="Medical Professionals" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#253d7a]/90 to-transparent flex items-end p-8">
+            {/* Updated gradient to use the new Dark Navy */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1E2043]/90 to-transparent flex items-end p-8">
                <div className="text-white">
                  <p className="font-bold text-lg">Norma Luna Healthcare</p>
                  <p className="text-sm opacity-80">Excellence in Medical Tourism</p>
@@ -135,10 +136,12 @@ const AboutSection = () => {
 
           <div className="flex flex-col h-full justify-center">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-blue-50 rounded-lg text-[#253d7a]">
+              {/* Updated icon color to new Navy */}
+              <div className="p-2 bg-blue-50 rounded-lg text-[#1E2043]">
                 <Users size={24} />
               </div>
-              <h3 className="text-3xl font-display font-bold text-[#253d7a]">
+              {/* Updated heading text color */}
+              <h3 className="text-3xl font-display font-bold text-[#1E2043]">
                 {tabContent.about.title}
               </h3>
             </div>
@@ -152,10 +155,12 @@ const AboutSection = () => {
             <div className="space-y-3 mt-6">
               {tabContent.about.features.map((feature, i) => (
                 <div key={i} className="flex items-center p-3 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="bg-blue-50 p-2 rounded-full text-[#253d7a] mr-4">
+                  {/* Updated icon text color */}
+                  <div className="bg-blue-50 p-2 rounded-full text-[#1E2043] mr-4">
                     <feature.icon size={20} />
                   </div>
-                  <span className="font-bold text-[#253d7a] text-sm md:text-base">
+                  {/* Updated label text color */}
+                  <span className="font-bold text-[#1E2043] text-sm md:text-base">
                     {feature.label}
                   </span>
                 </div>
@@ -179,7 +184,8 @@ const VisionMissionSection = () => {
           className="text-center mb-12"
         >
           <p className="text-blue-600 font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
-          <h2 className="font-display text-4xl font-bold text-[#253d7a]">
+          {/* Updated heading color */}
+          <h2 className="font-display text-4xl font-bold text-[#1E2043]">
             Vision & Mission
           </h2>
         </motion.div>
@@ -193,10 +199,11 @@ const VisionMissionSection = () => {
             className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow border border-gray-100"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="p-4 bg-blue-100 rounded-2xl text-[#253d7a]">
+              {/* Updated icon wrapper text color */}
+              <div className="p-4 bg-blue-100 rounded-2xl text-[#1E2043]">
                 <Eye size={32} />
               </div>
-              <h3 className="text-2xl font-display font-bold text-[#253d7a]">
+              <h3 className="text-2xl font-display font-bold text-[#1E2043]">
                 Our Vision
               </h3>
             </div>
@@ -218,7 +225,7 @@ const VisionMissionSection = () => {
               <div className="p-4 bg-indigo-100 rounded-2xl text-indigo-600">
                 <Target size={32} />
               </div>
-              <h3 className="text-2xl font-display font-bold text-[#253d7a]">
+              <h3 className="text-2xl font-display font-bold text-[#1E2043]">
                 Our Mission
               </h3>
             </div>
@@ -260,7 +267,8 @@ const TestimonialGrid = () => {
             </div>
           </div>
           <div className="mt-6 text-center">
-            <h4 className="font-bold text-[#253d7a] text-lg">{testimonial.name}</h4>
+            {/* Updated name color */}
+            <h4 className="font-bold text-[#1E2043] text-lg">{testimonial.name}</h4>
             <p className="text-xs text-blue-600 font-medium uppercase tracking-wider mb-1">
                 {testimonial.location}
             </p>
@@ -281,22 +289,16 @@ const AboutPage = () => {
     <div className="min-h-screen bg-gray-50/50">
       <Header />
 
-      {/* Added pt-20 if header is fixed, removed it inside HeroBanner to keep layout clean */}
       <div className="pt-20">
         <HeroBanner title="About Us" />
       </div>
 
-      {/* 1. Who We Are */}
       <AboutSection />
       
-        
-      {/* 2. Our Impact (Stats) */}
       <StatsSection />
 
-      {/* 3. Where We Are Going (Vision & Mission) */}
       <VisionMissionSection />
 
-      {/* 4. Social Proof (Testimonials) */}
       <section className="py-20 bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4">
           <motion.div 
@@ -306,7 +308,8 @@ const AboutPage = () => {
             className="text-center mb-10"
           >
             <p className="text-blue-500 font-medium tracking-wide uppercase text-sm mb-2">Patients Story</p>
-            <h2 className="font-display text-4xl font-bold text-[#253d7a]">
+            {/* Updated Section Title Color */}
+            <h2 className="font-display text-4xl font-bold text-[#1E2043]">
               Loved by our Patients
             </h2>
           </motion.div>
