@@ -16,17 +16,17 @@ import {
   ChevronRight
 } from "lucide-react";
 
-// --- COMPONENT: HERO BANNER (Matched to About Us Colors) ---
+// --- COMPONENT: HERO BANNER (Matched to Brand Color #0B3A66) ---
 const HeroBanner = ({ title }: { title: string }) => {
   return (
-    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#1E2043] overflow-hidden">
+    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-4">
-        {/* Breadcrumb Path - Specific Color Update */}
+        {/* Breadcrumb Path - Consistent with About Us styling */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,7 +42,6 @@ const HeroBanner = ({ title }: { title: string }) => {
             Specialities
           </Link>
           <ChevronRight size={14} className="opacity-50" />
-          {/* Solid White for Current Page */}
           <span className="text-white">{title}</span>
         </motion.div>
 
@@ -77,6 +76,7 @@ const HeroBanner = ({ title }: { title: string }) => {
 const SpecialityDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const speciality = id ? getSpecialityById(id) : undefined;
+  const brandColor = "#0B3A66";
 
   if (!speciality) {
     return (
@@ -85,7 +85,7 @@ const SpecialityDetailPage = () => {
         <div className="pt-40 pb-20 text-center">
           <h1 className="font-display text-3xl font-bold mb-4">Speciality Not Found</h1>
           <Link to="/specialities">
-            <Button>Back to Specialities</Button>
+            <Button style={{ backgroundColor: brandColor }}>Back to Specialities</Button>
           </Link>
         </div>
         <Footer />
@@ -125,7 +125,7 @@ const SpecialityDetailPage = () => {
                   />
                 </div>
 
-                <h2 className="font-display text-3xl font-bold mb-6 text-[#1E2043]">
+                <h2 className="font-display text-3xl font-bold mb-6" style={{ color: brandColor }}>
                   About {speciality.title}
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-8 text-lg">
@@ -133,7 +133,7 @@ const SpecialityDetailPage = () => {
                 </p>
 
                 {/* Treatments */}
-                <h3 className="font-display text-2xl font-semibold mb-6 text-[#1E2043]">
+                <h3 className="font-display text-2xl font-semibold mb-6" style={{ color: brandColor }}>
                   Treatments & Procedures
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
@@ -143,29 +143,29 @@ const SpecialityDetailPage = () => {
                       initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.05 }}
-                      className="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:bg-blue-50/50 transition-colors group"
+                      className="flex items-center justify-between p-4 border border-gray-100 rounded-xl hover:bg-blue-50 transition-colors group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                          <Check className="w-4 h-4 text-[#1E2043]" />
+                        <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                          <Check className="w-4 h-4" style={{ color: brandColor }} />
                         </div>
                         <span className="text-gray-700 font-medium">{treatment}</span>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#1E2043] transition-all opacity-0 group-hover:opacity-100" />
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-all" style={{ color: brandColor }} />
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Benefits */}
-                <h3 className="font-display text-2xl font-semibold mb-6 text-[#1E2043]">
-                  Why Choose Us
+                {/* Benefits Section */}
+                <h3 className="font-display text-2xl font-semibold mb-6" style={{ color: brandColor }}>
+                  Why Choose Norma Luna
                 </h3>
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+                <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {speciality.benefits.map((benefit, index) => (
                       <div key={index} className="flex items-start gap-3">
                         <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mt-1 shadow-sm">
-                          <Check className="w-3.5 h-3.5 text-blue-600" />
+                          <Check className="w-3.5 h-3.5" style={{ color: brandColor }} />
                         </div>
                         <span className="text-gray-700 font-medium">{benefit}</span>
                       </div>
@@ -183,9 +183,9 @@ const SpecialityDetailPage = () => {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 className="space-y-8 sticky top-32"
               >
-                {/* Navigation Sidebar */}
+                {/* Related Specialities Sidebar */}
                 <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
-                  <div className="bg-[#1E2043] text-white py-5 px-6">
+                  <div className="py-5 px-6 text-white" style={{ backgroundColor: brandColor }}>
                     <h4 className="font-bold text-lg">Other Specialities</h4>
                   </div>
                   <div className="divide-y divide-gray-50 max-h-[400px] overflow-y-auto">
@@ -196,36 +196,36 @@ const SpecialityDetailPage = () => {
                         onClick={() => window.scrollTo(0, 0)}
                         className="flex items-center justify-between px-6 py-4 hover:bg-blue-50 transition-colors group"
                       >
-                        <span className="text-gray-600 group-hover:text-[#1E2043] text-sm font-semibold transition-transform group-hover:translate-x-1">
+                        <span className="text-gray-600 group-hover:text-[#0B3A66] text-sm font-semibold transition-transform group-hover:translate-x-1">
                           {related.title}
                         </span>
-                        <ChevronRight size={16} className="text-gray-300 group-hover:text-[#1E2043]" />
+                        <ChevronRight size={16} className="text-gray-300 group-hover:text-[#0B3A66]" />
                       </Link>
                     ))}
                   </div>
                 </div>
 
-                {/* Contact Card */}
-                <div className="bg-[#1E2043] rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl">
+                {/* Brand Themed Appointment Card */}
+                <div className="rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl" style={{ backgroundColor: brandColor }}>
                   <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/5 rounded-full" />
                   <div className="relative z-10">
                     <h4 className="font-bold text-xl mb-6">Need Assistance?</h4>
                     <div className="space-y-5 mb-8">
                       <div className="flex items-center gap-3">
-                        <Phone className="w-5 h-5 text-blue-400" />
-                        <span className="text-white/80 text-sm">+91 73587 46061</span>
+                        <Phone className="w-5 h-5 text-blue-200" />
+                        <span className="text-white/80 text-sm font-semibold">+91 73587 46061</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Mail className="w-5 h-5 text-blue-400" />
+                        <Mail className="w-5 h-5 text-blue-200" />
                         <span className="text-white/80 text-sm">info@normaluna.co</span>
                       </div>
                       <div className="flex items-start gap-3">
-                        <Clock className="w-5 h-5 text-blue-400 mt-1" />
-                        <span className="text-white/80 text-sm">Available 24/7 for medical queries</span>
+                        <Clock className="w-5 h-5 text-blue-200 mt-1" />
+                        <span className="text-white/80 text-sm">24/7 Support Available</span>
                       </div>
                     </div>
                     <Link to="/appointment">
-                      <Button className="w-full bg-white text-[#1E2043] hover:bg-blue-50 rounded-xl h-12 font-bold shadow-xl transition-all hover:scale-[1.02]">
+                      <Button className="w-full bg-white text-[#0B3A66] hover:bg-blue-50 rounded-xl h-12 font-bold shadow-xl transition-all hover:scale-[1.02]">
                         Book Appointment
                       </Button>
                     </Link>
