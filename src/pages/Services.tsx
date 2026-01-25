@@ -1,6 +1,8 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { HeroBanner } from "@/components/HeroBanner";
 import {
   Users,
   FileText,
@@ -12,10 +14,15 @@ import {
   HeartPulse,
   Activity,
   Languages,
+  Home,
+  ChevronRight,
 } from "lucide-react";
+
+// IMPORTANT: Ensure these image paths are correct for your project
 import heroImage from "/Bg-hero-page.png";
 import consultation from "@/assets/consultation.jpg";
 
+// --- DATA: SERVICES (Unchanged) ---
 const services = [
   {
     icon: Users,
@@ -79,6 +86,61 @@ const services = [
   },
 ];
 
+// --- COMPONENT: HERO BANNER ---
+// Updated to match the About Page style with #0B3A66 background and #f9fafb curve fill
+const HeroBanner = ({ title }: { title: string }) => {
+  return (
+    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center gap-4">
+        {/* Breadcrumb Path */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex items-center gap-2 text-white/70 text-sm font-medium uppercase tracking-wider"
+        >
+          <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors">
+            <Home size={14} />
+            Home
+          </Link>
+          <ChevronRight size={14} className="opacity-50" />
+          <span className="text-white">{title}</span>
+        </motion.div>
+
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-white text-4xl md:text-5xl font-display font-bold tracking-tight text-center px-4"
+        >
+          {title}
+        </motion.h1>
+      </div>
+
+      {/* THE CURVE */}
+      {/* fill="#f9fafb" matches the bg-gray-50 of the section below */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[90px]"
+        >
+          <path
+            d="M0,0 C300,100 900,100 1200,0 L1200,120 L0,120 Z"
+            fill="#f9fafb"
+          ></path>
+        </svg>
+      </div>
+    </section>
+  );
+};
+
 const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -111,7 +173,6 @@ const ServicesPage = () => {
 
                   {/* Floating White Box */}
                   <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white p-6 shadow-2xl transition-all duration-500">
-                    
                     {/* Title: Always Visible */}
                     <div className="text-center">
                       <h3 className="text-xl font-bold text-gray-900 mb-2 relative z-10 bg-white">
@@ -120,11 +181,8 @@ const ServicesPage = () => {
                     </div>
 
                     {/* Hidden Content: Expands and Zooms on Hover */}
-                    {/* Outer div handles height expansion */}
                     <div className="grid grid-rows-[0fr] transition-all duration-500 ease-in-out group-hover:grid-rows-[1fr] group-hover:mt-2">
-                      {/* Inner div handles the zoom and fade effect */}
                       <div className="overflow-hidden transform scale-95 opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100 delay-75">
-                        
                         {/* Description */}
                         <p className="mb-4 text-center text-sm leading-relaxed text-gray-500">
                           {service.description}
@@ -135,7 +193,6 @@ const ServicesPage = () => {
                           <div className="h-px w-3/4 bg-gray-200" />
                           <IconComponent className="h-6 w-6 text-blue-900/70" />
                         </div>
-
                       </div>
                     </div>
                   </div>
