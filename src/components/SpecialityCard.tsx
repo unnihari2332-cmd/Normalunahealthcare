@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 interface SpecialityCardProps {
   id: string;
@@ -18,6 +19,8 @@ export const SpecialityCard = ({
   image,
   delay = 0,
 }: SpecialityCardProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -26,11 +29,20 @@ export const SpecialityCard = ({
       transition={{ duration: 0.5, delay }}
       className="group relative h-[420px] rounded-2xl overflow-hidden"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-        style={{ backgroundImage: `url(${image})` }}
+      {/* Preload Image */}
+      <img
+        src={image}
+        alt=""
+        loading="eager"
+        fetchPriority="high"
+        onLoad={() => setImageLoaded(true)}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
+
+      {/* Loading placeholder */}
+      {!imageLoaded && (
+        <div className="absolute inset-0 bg-muted animate-pulse" />
+      )}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/60 to-transparent" />
