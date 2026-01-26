@@ -1,5 +1,6 @@
 import { ServiceCard } from "@/components/ServiceCard";
 import { LucideIcon } from "lucide-react";
+import { useEffect } from "react";
 
 interface Service {
   icon: LucideIcon;
@@ -13,6 +14,16 @@ interface ServicesGridProps {
 }
 
 export const ServicesGrid = ({ services }: ServicesGridProps) => {
+  // Preload all images on mount
+  useEffect(() => {
+    services.forEach((service) => {
+      if (service.image) {
+        const img = new Image();
+        img.src = service.image;
+      }
+    });
+  }, [services]);
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">

@@ -1,4 +1,5 @@
 import { SpecialityCard } from "@/components/SpecialityCard";
+import { useEffect } from "react";
 
 interface Speciality {
   id: string;
@@ -12,6 +13,14 @@ interface SpecialitiesGridProps {
 }
 
 export const SpecialitiesGrid = ({ specialities }: SpecialitiesGridProps) => {
+  // Preload all images on mount
+  useEffect(() => {
+    specialities.forEach((speciality) => {
+      const img = new Image();
+      img.src = speciality.image;
+    });
+  }, [specialities]);
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">

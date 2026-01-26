@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 interface ServiceCardProps {
   icon: LucideIcon;
@@ -11,6 +12,8 @@ interface ServiceCardProps {
 }
 
 export const ServiceCard = ({ icon: Icon, title, description, image, delay = 0 }: ServiceCardProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -22,10 +25,16 @@ export const ServiceCard = ({ icon: Icon, title, description, image, delay = 0 }
     >
       {/* Image */}
       {image && (
-        <div className="h-48 overflow-hidden">
+        <div className="h-48 overflow-hidden relative">
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-muted animate-pulse" />
+          )}
           <img
             src={image}
             alt={title}
+            loading="eager"
+            fetchPriority="high"
+            onLoad={() => setImageLoaded(true)}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
         </div>
