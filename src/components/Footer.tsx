@@ -2,6 +2,28 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
 import logo from "@/assets/normaluna-logo.png";
 
+// This would ideally be imported from a separate types or constants file
+interface NavItem {
+  name: string;
+  path: string;
+  hasDropdown?: boolean;
+}
+
+const specialityItems: NavItem[] = [
+  { name: "IVF & Gynaecology", path: "/specialities/ivf-obstetrics-gynaecology", hasDropdown: false },
+  { name: "Gastroenterology", path: "/specialities/gastroenterology", hasDropdown: false },
+  { name: "Oncology", path: "/specialities/oncology", hasDropdown: false },
+  { name: "Transplants (Kidney/Liver)", path: "/specialities/transplant-kidney-liver", hasDropdown: false },
+  { name: "Orthopaedics", path: "/specialities/orthopaedics", hasDropdown: false },
+  { name: "Dental Care", path: "/specialities/dental", hasDropdown: false },
+  { name: "Bariatrics", path: "/specialities/bariatrics", hasDropdown: false },
+  { name: "Aesthetic Surgery", path: "/specialities/aesthetic-dermatology-plastic", hasDropdown: false },
+  { name: "Ophthalmology", path: "/specialities/ophthalmology", hasDropdown: false },
+  { name: "Nephrology", path: "/specialities/nephrology", hasDropdown: false },
+  { name: "Urology", path: "/specialities/urology", hasDropdown: false },
+  { name: "Colorectal Surgery", path: "/specialities/colorectal-surgery", hasDropdown: false },
+];
+
 export const Footer = () => {
   const footerLinks = [
     { name: "Home", path: "/" },
@@ -33,7 +55,6 @@ export const Footer = () => {
                 className="h-12 w-auto mb-4 bg-white border-2 border-white rounded-lg p-1"
               />
             </Link>
-
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
               Compassionate care with advanced medical expertise, focused on your health and well-being.
             </p>
@@ -41,7 +62,7 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               {footerLinks.map((link) => (
                 <li key={link.name}>
@@ -53,24 +74,29 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Specialities (Dynamic) */}
           <div>
-            <h4 className="font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2 text-sm">
-              <li>IVF & Fertility Care</li>
-              <li>Obstetrics & Gynecology</li>
-              <li>Gastroenterology</li>
-              <li>Oncology</li>
-              <li>General Medicine</li>
+            <h4 className="font-semibold mb-4 text-white">Our Specialities</h4>
+            <ul className="grid grid-cols-1 gap-2 text-sm">
+              {specialityItems.map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    to={item.path} 
+                    className="hover:text-white transition-colors opacity-80 hover:opacity-100"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4">Contact Us</h4>
+            <h4 className="font-semibold mb-4 text-white">Contact Us</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-1" />
+                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>
                   No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West,
                   Nungambakkam, Chennai, Tamil Nadu 600034
