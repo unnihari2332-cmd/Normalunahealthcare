@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
 import logo from "@/assets/normaluna-logo.png";
 
-// This would ideally be imported from a separate types or constants file
 interface NavItem {
   name: string;
   path: string;
-  hasDropdown?: boolean;
+  hasDropdown: boolean;
 }
 
 const specialityItems: NavItem[] = [
@@ -44,7 +43,8 @@ export const Footer = () => {
   return (
     <footer className="bg-[#0A1F44] text-primary-foreground">
       <div className="container mx-auto px-4 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        {/* Adjusted Grid: 4 columns on desktop, 1 on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
           {/* Logo Section */}
           <div className="flex flex-col items-start">
@@ -62,11 +62,11 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-semibold mb-6 text-white text-lg">Quick Links</h4>
+            <ul className="space-y-3 text-sm">
               {footerLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="hover:text-white transition-colors">
+                  <Link to={link.path} className="hover:text-white transition-colors opacity-80 hover:opacity-100">
                     {link.name}
                   </Link>
                 </li>
@@ -74,15 +74,15 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Specialities (Dynamic) */}
-          <div>
-            <h4 className="font-semibold mb-4 text-white">Our Specialities</h4>
-            <ul className="grid grid-cols-1 gap-2 text-sm">
+          {/* Specialities - 6x2 Grid */}
+          <div className="lg:col-span-1">
+            <h4 className="font-semibold mb-6 text-white text-lg">Our Specialities</h4>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
               {specialityItems.map((item) => (
                 <li key={item.name}>
                   <Link 
                     to={item.path} 
-                    className="hover:text-white transition-colors opacity-80 hover:opacity-100"
+                    className="hover:text-white transition-colors opacity-80 hover:opacity-100 block"
                   >
                     {item.name}
                   </Link>
@@ -93,34 +93,34 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4 text-white">Contact Us</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>
+            <h4 className="font-semibold mb-6 text-white text-lg">Contact Us</h4>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-white shrink-0 mt-0.5" />
+                <span className="leading-snug">
                   No. 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West,
                   Nungambakkam, Chennai, Tamil Nadu 600034
                 </span>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-white shrink-0" />
                 <span>+91 7358746061</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-white shrink-0" />
                 <span>info@normaluna.co</span>
               </li>
             </ul>
 
             {/* Social Icons */}
-            <div className="flex gap-3 mt-5">
+            <div className="flex gap-4 mt-6">
               {socialLinks.map(({ Icon, href }, index) => (
                 <a
                   key={index}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 bg-white rounded-xl flex items-center justify-center transition-transform hover:scale-105"
+                  className="w-10 h-10 bg-white rounded-xl flex items-center justify-center transition-all hover:scale-110 hover:bg-opacity-90 shadow-lg"
                 >
                   <Icon className="w-5 h-5 text-[#0A1F44]" />
                 </a>
@@ -132,8 +132,8 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10 py-4">
-        <div className="container mx-auto px-4 text-center text-sm text-primary-foreground/60">
+      <div className="border-t border-white/10 py-6">
+        <div className="container mx-auto px-4 text-center text-xs tracking-wider text-primary-foreground/50 uppercase">
           © {new Date().getFullYear()} Norma Luna Healthcare. All rights reserved.
         </div>
       </div>
