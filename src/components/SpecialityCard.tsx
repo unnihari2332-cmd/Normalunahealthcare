@@ -35,6 +35,7 @@ export const SpecialityCard = ({
         alt=""
         loading="eager"
         fetchPriority="high"
+        decoding="async"
         onLoad={() => setImageLoaded(true)}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
