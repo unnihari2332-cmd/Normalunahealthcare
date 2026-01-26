@@ -7,85 +7,82 @@ export const HeroSection = () => {
   return (
     <section className="relative h-screen min-h-[750px] flex items-center overflow-hidden">
       
-      {/* 1. VISUAL IMPROVEMENTS: Background Video with Desaturation & Strong Gradient */}
+      {/* 1. BACKGROUND VISUALS */}
       <div className="absolute inset-0 w-full h-full">
         <video
-          className="w-full h-full object-cover saturate-50" // Desaturated to push focus to text
+          className="w-full h-full object-cover saturate-50"
           autoPlay
           loop
           muted
           playsInline
           src="/hero.mp4"
         />
-
-        {/* Strong left-to-right gradient overlay (dark -> transparent) with slight backdrop blur */}
         <div className="absolute inset-y-0 left-0 w-full lg:w-3/4 bg-gradient-to-r from-black/95 via-neutral-900/80 to-transparent backdrop-blur-[2px]" />
       </div>
 
-      {/* Content Container */}
+      {/* 2. CONTENT CONTAINER */}
       <div className="relative container mx-auto px-4 pt-20">
-        
-        {/* 1. LAYOUT IMPROVEMENT: Constrained width (max-w-[600px]) for premium readability */}
         <div className="max-w-[600px]">
 
-          {/* 8. OPTIONAL ADD-ON: Subtle animated entrance */}
           <motion.div
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col justify-center space-y-6" // Increased vertical spacing
+            className="flex flex-col justify-center space-y-6"
           >
             <span className="inline-flex items-center gap-2 text-primary font-semibold tracking-wider uppercase text-sm bg-primary/10 px-3 py-1 rounded-full w-fit">
               <ShieldCheck className="w-4 h-4" />
               Norma Luna Healthcare
             </span>
 
-            {/* 2. HEADLINE IMPROVEMENT: Clarity & Trust */}
             <h1 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-lg">
               Advanced Care. <br />
               Trusted Healing.
             </h1>
 
-            {/* 2. COPY IMPROVEMENT: Specific, professional, and credible */}
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed drop-shadow-md">
               Comprehensive healthcare services delivered with compassion, modern technology, and experienced medical professionals—focused on your complete well-being.
             </p>
 
-            {/* 3. CTA OPTIMIZATION: Dominant Primary + Secondary Outline */}
+            {/* 3. CTA SECTION - ALIGNMENT FIX */}
             <div className="pt-4">
-              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              {/* items-start ensures the buttons align perfectly at the top regardless of text below */}
+              <div className="flex flex-col sm:flex-row gap-4 items-start">
                 
-                <div className="flex flex-col gap-2 w-full sm:w-auto">
+                {/* Primary Button Group */}
+                <div className="flex flex-col gap-3 w-full sm:w-auto">
                   <Link to="/appointment" className="w-full">
                     <Button
                       size="lg"
-                      className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 text-base font-bold shadow-lg shadow-primary/30 transition-all hover:scale-105"
+                      className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-10 h-14 text-base font-bold shadow-lg shadow-primary/30 transition-all hover:scale-105"
                     >
                       Book an Appointment
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   </Link>
-                  {/* Micro-trust cue below primary CTA */}
-                  <span className="text-xs text-gray-400 flex items-center gap-1.5 pl-2">
+                  {/* Trust Cue - Positioned so it doesn't affect horizontal button alignment */}
+                  <span className="text-xs text-gray-400 flex items-center gap-1.5 pl-4">
                     <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                     Instant confirmation • No waiting time
                   </span>
                 </div>
 
+                {/* Secondary Button */}
                 <Link to="/services" className="w-full sm:w-auto">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full sm:w-auto bg-transparent text-white border-white/50 hover:bg-white hover:text-black rounded-full px-8 h-14 text-base font-semibold transition-all"
+                    className="w-full sm:w-auto bg-transparent text-white border-white/50 hover:bg-white hover:text-black rounded-full px-10 h-14 text-base font-semibold transition-all"
                   >
                     Explore Our Services
                   </Button>
                 </Link>
+
               </div>
             </div>
           </motion.div>
 
-          {/* 4. TRUST SIGNALS: Added below CTAs for conversion boost */}
+          {/* 4. TRUST SIGNALS */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -108,7 +105,7 @@ export const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* 5. PHONE SUPPORT IMPROVEMENTS: Larger, clickable, clear label */}
+          {/* 5. PHONE SUPPORT */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -134,7 +131,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* 8. OPTIONAL ADD-ON: Scroll Cue at the bottom */}
+      {/* 6. SCROLL CUE */}
       <motion.div 
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
