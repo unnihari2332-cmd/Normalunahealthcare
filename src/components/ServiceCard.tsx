@@ -34,6 +34,7 @@ export const ServiceCard = ({ icon: Icon, title, description, image, delay = 0 }
             alt={title}
             loading="eager"
             fetchPriority="high"
+            decoding="async"
             onLoad={() => setImageLoaded(true)}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
