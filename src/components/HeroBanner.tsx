@@ -1,47 +1,63 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Home, ChevronRight } from "lucide-react";
 
 interface HeroBannerProps {
   title: string;
-  image?: string;
+  image?: string; // Optional: kept to prevent breaking existing usages
+  parentPage?: string; // Optional: defaults to "Home"
 }
 
-export const HeroBanner = ({ title }: HeroBannerProps) => {
+export const HeroBanner = ({ title, parentPage = "Home" }: HeroBannerProps) => {
   return (
-    <div className="relative overflow-hidden">
-      {/* Solid Blue Background */}
-      <div className="bg-primary py-24 md:py-32 lg:py-40 relative">
-        {/* Subtle geometric decorations */}
-        <div className="absolute top-0 left-0 w-64 h-64 border border-white/10 rounded-lg transform -translate-x-1/2 -translate-y-1/4 rotate-12" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 rounded-full transform translate-x-1/3 translate-y-1/3" />
-        <div className="absolute top-1/2 right-16 w-4 h-4 bg-white/20 rounded-full" />
-        
-        {/* Content */}
-        <div className="relative container mx-auto px-4 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground"
-          >
-            {title}
-          </motion.h1>
-        </div>
-      </div>
+    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden">
       
-      {/* Curved Wave Bottom - no stroke/border */}
-      <div className="relative -mt-1">
-        <svg
-          className="w-full h-16 md:h-20"
-          viewBox="0 0 1440 80"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
+      {/* 1. Background decoration (Circles) */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
+      </div>
+
+      <div className="relative z-10 flex flex-col items-center gap-4">
+        
+        {/* 2. Breadcrumb Path */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex items-center gap-2 text-white/70 text-sm font-medium uppercase tracking-wider"
         >
-          <path
-            d="M0 0C0 0 240 60 720 60C1200 60 1440 0 1440 0V80H0V0Z"
-            className="fill-primary"
-          />
+          <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+            <Home size={14} />
+            {parentPage}
+          </Link>
+          <ChevronRight size={14} className="opacity-50" />
+          <span className="text-white">{title}</span>
+        </motion.div>
+
+        {/* 3. Page Title */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-white text-5xl font-display font-bold tracking-tight text-center"
+        >
+          {title}
+        </motion.h1>
+      </div>
+
+      {/* 4. The Curve SVG */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+        <svg 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none" 
+          className="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[90px]"
+        >
+          <path 
+            d="M0,0 C300,100 900,100 1200,0 L1200,120 L0,120 Z" 
+            fill="#ffffff" 
+          ></path>
         </svg>
       </div>
-    </div>
+    </section>
   );
 };
