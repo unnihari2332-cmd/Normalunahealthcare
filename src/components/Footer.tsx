@@ -108,7 +108,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-white shrink-0" />
-                <span>info@normaluna.co</span>
+                <span>info@normalunahealthcare.com</span>
               </li>
             </ul>
 
