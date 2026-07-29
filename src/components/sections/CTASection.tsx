@@ -12,7 +12,7 @@ interface CTASectionProps {
 
 export const CTASection = ({
   title = "Transforming Health, Empowering Lives",
-  description = "Take care of your health and that of your family today. Book an appointment and start your journey to better health.",
+  description = "Exceptional healthcare begins with the right connection. Begin your medical journey with trusted guidance, thoughtfully coordinated every step of the way.",
   buttonText = "Book An Appointment",
   buttonLink = "/appointment",
 }: CTASectionProps) => {
