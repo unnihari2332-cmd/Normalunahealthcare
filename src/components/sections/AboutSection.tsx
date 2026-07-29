@@ -66,21 +66,17 @@ export const AboutSection = () => {
 
             <div className="space-y-6 text-slate-700 text-lg leading-relaxed">
               <p>
-                Norma Luna Healthcare aims to bring out the complete requirements of medical services 
-                that which offers flexible approach to our clients and provide the level of comfort 
-                of a home away from home. After all, Norma Luna Healthcare offers the best services 
-                with level of expertise.
+               Norma Luna Healthcare is a trusted medical tourism facilitator connecting international patients with India's leading NABH and JCI-accredited multispecialty and super-specialty hospitals. Through our network of renowned specialists and advanced healthcare facilities, we provide access to world-class, affordable medical care tailored to each patient's needs.
+          
               </p>
               <p>
-                Norma Luna Healthcare is networked with reputed hospitals and doctors across India. 
-                The network includes corporate hospitals, MultiSpeciality hospitals, and Super-Speciality 
-                hospitals with International protocols and Multidisciplinary teams at an affordable price.
+          From treatment planning and hospital selection to visa assistance, travel, accommodation, local transportation, and post-treatment follow-up, we offer personalized end-to-end support to ensure a seamless and stress-free medical journey.
               </p>
               <p>
-                Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists 
-                and hospitals for your required treatments in India with most reputed and experienced 
-                Doctors and Surgeons with cutting edge technology.
+At NormaLuna Healthcare, we are committed to making exceptional healthcare in India accessible with compassion, transparency, and excellence—because your health deserves nothing less.
               </p>
+              <p><strong>Your Global Gateway to Healing Experience.</strong></p>
+              
             </div>
 
             {/* Core Values List */}
