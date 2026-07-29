@@ -40,14 +40,14 @@ const tabContent = {
     title: "Our Vision",
     icon: Eye,
     text: [
-      "A world in which physical and mental health coincide and are equipped with the knowledge, skills and values to act on health management globally. It is our responsibility to create a better future for every living being on Earth..", 
+      "To redefine medical travel by creating a trusted global gateway to India’s exceptional healthcare—where every patient can navigate their journey with confidence, clarity, and peace of mind.", 
     ]
   },
   mission: {
     title: "Our Mission",
     icon: Target,
     text: [
-      "A world in which physical and mental health coincide and are equipped with the knowledge, skills and values to act on health management globally. It is our responsibility to create a better future for every living being on Earth.",
+      "To connect international patients with distinguished medical expertise and accredited healthcare institutions across India, while thoughtfully coordinating every aspect of their medical journey with transparency, integrity, and compassion",
     ]
   }
 };
@@ -210,7 +210,7 @@ const VisionMissionSection = () => {
         >
           <p className="text-blue-600 font-medium tracking-wide uppercase text-sm mb-2">Our Direction</p>
           <h2 className="font-display text-4xl font-bold text-[#0B3A66]">
-            Vision & Mission
+          Our Purpose & Promise
           </h2>
         </motion.div>
 
