@@ -157,23 +157,23 @@ const SpecialityDetailPage = () => {
                 </div>
 
                 {/* Benefits Section */}
-                
-            {/* Right Sidebar - Sticky Removed or Height logic changed */}
+                {/* Add your benefits content here if needed */}
+              </motion.div>
+            </div>
+
+            {/* Right Sidebar */}
             <div className="lg:col-span-1">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="space-y-8" 
-                // Note: removed 'sticky top-32' here because a full-height sidebar 
-                // is often taller than the screen, making sticky scrolling awkward.
+                className="space-y-8"
               >
-                {/* Related Specialities Sidebar - FULL HEIGHT */}
+                {/* Related Specialities Sidebar */}
                 <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
                   <div className="py-5 px-6 text-white" style={{ backgroundColor: brandColor }}>
                     <h4 className="font-bold text-lg">Other Specialities</h4>
                   </div>
-                  {/* SCROLL CLASSES REMOVED BELOW */}
                   <div className="divide-y divide-gray-50">
                     {relatedSpecialities.map((related) => (
                       <Link
