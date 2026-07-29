@@ -75,15 +75,13 @@ const ContactPage = () => {
                 <div>
                   <h4 className="font-bold text-[#1B2A49] text-base">Email Address</h4>
                   <p className="text-gray-500 text-sm mt-2">
-                    info@normaluna.org
+                    info@normalunahealthcare.com
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-[#1B2A49]" />
-                </div>
+
                 
               </div>
             </div>
