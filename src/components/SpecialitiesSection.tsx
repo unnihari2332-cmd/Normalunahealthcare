@@ -151,9 +151,7 @@ const SpecialitiesSection: React.FC = () => {
             </div>
 
             <h2 className="text-3xl md:text-5xl font-bold text-[#0F172A] mb-6">
-              Specialized Care<span style={{
-              color: brandBlue
-            }}> Across Disciplines</span>
+              Specialized Care Across Disciplines
             </h2>
 
             <p className="text-slate-600 text-lg">
