@@ -7,73 +7,91 @@ import { motion } from "framer-motion";
 export const specialities = [{
   id: "ivf-obstetrics-gynaecology",
   title: "IVF & Gynaecology",
-  description: "Complete infertility care with state-of-the-art IVF treatment and comprehensive support.",
+  description: "Access distinguished expertise in reproductive medicine and women’s health, from fertility solutions to complex gynaecological interventions.",
   image: "/ivf.jpg",
   icon: Baby
 }, {
   id: "gastroenterology",
   title: "Gastroenterology",
-  description: "Cutting edge techniques to treat disorders of the esophagus, stomach, and intestine.",
+  description: "Connect with accomplished specialists for digestive and gastrointestinal conditions, encompassing sophisticated diagnostics, endoscopy, and therapeutic procedures.",
   image: "/gastroenterology.jpg",
   icon: Utensils
 }, {
   id: "oncology",
   title: "Oncology",
-  description: "Multidisciplinary expertise, chemotherapy and targeted therapies for advanced cancer care.",
+  description: "Navigate complex cancer treatment with access to multidisciplinary expertise across medical, surgical, and radiation oncology.",
   image: "/oncology.jpg",
   icon: Dna
 }, {
   id: "transplant-kidney-liver",
   title: "Transplants",
-  description: "Specializing in kidney, liver and heart transplant surgeries with exceptional post-op care.",
+  description: "Access established transplant programmes backed by experienced clinical teams, comprehensive evaluation protocols, and coordinated continuity of care.",
   image: "/transplantkidney-liver.jpg",
   icon: HeartHandshake
 }, {
   id: "orthopaedics",
   title: "Orthopaedics",
-  description: "Latest orthopedic technology including joint replacements and fracture treatments.",
+  description: "Discover leading expertise in bone, joint, and musculoskeletal conditions, including joint replacement, sports injuries, spine care, and complex orthopaedic procedures.",
   image: "/orthopaedics.jpg",
   icon: Bone
 }, {
   id: "dental",
   title: "Dental Care",
-  description: "From dental implants to orthodontics, your smile is in expert hands.",
+  description: "Explore exceptional dental expertise across restorative, cosmetic, implant, and maxillofacial procedures, balancing precision, function, and aesthetics.",
   image: "/dental.jpg",
   icon: Smile
 }, {
   id: "bariatrics",
   title: "Bariatrics",
-  description: "Innovative weight loss solutions ranging from sleeve gastrectomy to gastric bypass.",
+  description: "Connect with established centres for bariatric and metabolic procedures, supported by multidisciplinary evaluation and individually considered treatment options.",
   image: "/bariatrics.jpg",
   icon: Scale
 }, {
   id: "aesthetic-dermatology-plastic",
   title: "Aesthetic Surgery",
-  description: "Achieve your beauty goals with expert aesthetic dermatology and plastic surgery.",
+  description: "Access accomplished aesthetic and reconstructive surgeons offering meticulously considered procedures shaped around individual goals and natural-looking outcomes.",
   image: "/aestheticdermatology.jpg",
   icon: Sparkles
 }, {
   id: "ophthalmology",
   title: "Ophthalmology",
-  description: "World-class vision care equipped with the latest technology for LASIK and cataracts.",
+  description: "Discover sophisticated solutions for vision and eye conditions, from precision diagnostics and corrective procedures to complex ophthalmic surgery.",
   image: "/ophthalmology.jpg",
   icon: Eye
 }, {
   id: "nephrology",
   title: "Nephrology",
-  description: "Comprehensive kidney care using advanced diagnostics and dialysis solutions.",
+  description: "Gain access to experienced renal specialists for the evaluation and management of kidney conditions, including dialysis and complex nephrological care.",
   image: "/nephrologists.jpg",
   icon: Droplets
 }, {
   id: "urology",
   title: "Urology",
-  description: "Expert care for kidney, bladder, and reproductive health using minimally invasive techniques.",
+  description: "Connect with leading urological expertise across minimally invasive, endoscopic, robotic, and surgical approaches to complex urinary and reproductive conditions.",
+  image: "/urology.png",
+  icon: Activity
+}, {
+  id: "neurology",
+  title: "Neurology",
+  description: "Connect with distinguished neurological expertise for conditions affecting the brain, spine, and nervous system, supported by sophisticated diagnostic and therapeutic capabilities.",
+  image: "/urology.png",
+  icon: Activity
+}, {
+  id: "andrology",
+  title: "Andrology",
+  description: "Connect with distinguished expertise in male reproductive and sexual health, offering access to sophisticated diagnostics and highly specialised treatment options.",
+  image: "/urology.png",
+  icon: Activity
+}, {
+  id: "cardiology",
+  title: "Cardiology",
+  description: "Access leading cardiac expertise for the evaluation and treatment of complex heart conditions, from advanced diagnostics and interventional cardiology to sophisticated cardiac procedures.",
   image: "/urology.png",
   icon: Activity
 }, {
   id: "colorectal-surgery",
   title: "Colorectal Surgery",
-  description: "Specialized surgeries handled by experienced surgeons ensuring fast recovery.",
+  description: "Access highly focused surgical expertise for colorectal conditions, with contemporary minimally invasive and complex operative approaches.",
   image: "/colorectalsurgery.jpg",
   icon: Scissors
 }];
@@ -133,14 +151,13 @@ const SpecialitiesSection: React.FC = () => {
             </div>
 
             <h2 className="text-3xl md:text-5xl font-bold text-[#0F172A] mb-6">
-              Dedicated to <span style={{
+              Specialized Care<span style={{
               color: brandBlue
-            }}>Holistic Care</span>
+            }}> Across Disciplines</span>
             </h2>
 
             <p className="text-slate-600 text-lg">
-              Our hospital features specialized departments led by world-class
-              physicians, ensuring you receive the highest standard of treatment.
+              A comprehensive spectrum of medical and surgical expertise, connecting patients to renowned specialists, advanced treatment pathways, and internationally accredited healthcare institutions across India.
             </p>
           </motion.div>
         </div>
