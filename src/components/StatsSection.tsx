@@ -72,7 +72,7 @@ const values: ValueItem[] = [
     title: "Passion",
     icon: Heart,
     description:
-      "Driven by a burning desire to improve lives and deliver care with genuine warmth.",
+      "We are passionate about making every patient’s journey to better healthcare simpler, supported and reassuring.",
     color: "text-[#0C3B66]",
   },
   {
@@ -80,7 +80,7 @@ const values: ValueItem[] = [
     title: "Integrity",
     icon: Puzzle,
     description:
-      "Honest, transparent, and ethical in every decision. We fit the pieces together perfectly.",
+      "We build trust through transparency, honesty and responsible guidance at every stage of the medical journey.",
     color: "text-[#0C3B66]",
   },
   {
@@ -88,7 +88,7 @@ const values: ValueItem[] = [
     title: "Respect",
     icon: Handshake,
     description:
-      "Treating every patient and partner with the dignity, kindness, and courtesy they deserve.",
+      "We treat every patient, family and partner with dignity, empathy and understanding.",
     color: "text-[#0C3B66]",
   },
   {
@@ -96,7 +96,7 @@ const values: ValueItem[] = [
     title: "Excellence",
     icon: ThumbsUp,
     description:
-      "Commited to the highest standards of medical quality. We don't just meet expectations; we exceed them.",
+      "We strive for excellence in every detail, from healthcare coordination to travel and patient support.",
     color: "text-[#0C3B66]",
   },
   {
@@ -104,7 +104,7 @@ const values: ValueItem[] = [
     title: "Diversity",
     icon: Globe,
     description:
-      "Embracing patients from all walks of life and corners of the world with inclusive care.",
+      "We embrace people across cultures, countries and backgrounds, making healthcare accessible beyond borders.",
     color: "text-[#0C3B66]",
   },
 ];
