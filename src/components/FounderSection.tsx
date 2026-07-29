@@ -6,56 +6,34 @@ export const FounderSection = () => {
     <section className="py-24 bg-slate-50">
       <div className="container mx-auto px-6">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-          {/* Founder Image */}
+          {/* LEFT SIDE */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <div className="overflow-hidden rounded-3xl shadow-2xl">
-              <img
-                src=" "
-                alt="Niveditha Latha"
-                className="w-full h-[700px] object-cover"
-              />
-            </div>
-
-            <div className="absolute bottom-8 left-8 bg-primary text-white rounded-2xl px-8 py-6 shadow-xl">
-              <h3 className="text-2xl font-bold">
-                Niveditha Latha
-              </h3>
-              <p className="text-sm uppercase tracking-widest mt-1 opacity-90">
-                Founder & Managing Partner
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-
-            <span className="uppercase tracking-[0.25em] text-primary font-semibold text-sm">
+            <span className="text-primary uppercase tracking-[0.25em] text-sm font-semibold">
               Leadership
             </span>
 
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mt-4 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mt-4 mb-10 leading-tight">
               A Vision That Inspires Trust
             </h2>
 
-            <div className="mt-10 space-y-6 text-slate-600 text-lg leading-relaxed">
+            <div className="border-l-4 border-primary pl-6 mb-8">
+              <h3 className="text-2xl font-bold text-slate-900">
+                Niveditha Latha
+              </h3>
 
-              <p>
-                <strong>Niveditha Latha</strong><br />
+              <p className="text-primary font-medium mt-2">
                 Founder &amp; Managing Partner | Norma Luna Healthcare
               </p>
+            </div>
+
+            <div className="space-y-6 text-lg leading-relaxed text-slate-600">
 
               <p>
                 Founded by Niveditha Latha, Norma Luna Healthcare was
@@ -86,51 +64,55 @@ export const FounderSection = () => {
             </div>
           </motion.div>
 
-        </div>
+          {/* RIGHT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-10 h-full relative">
 
-        {/* Founder Note */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-24"
-        >
-          <div className="relative bg-white rounded-3xl shadow-xl border border-slate-100 p-10 lg:p-14">
+              <Quote className="absolute top-8 right-8 w-16 h-16 text-primary/10 fill-primary/10" />
 
-            <Quote className="absolute top-8 right-8 w-16 h-16 text-primary/10 fill-primary/10" />
+              <span className="uppercase tracking-[0.2em] text-primary font-semibold text-sm">
+                A Note from the Founder
+              </span>
 
-            <span className="text-primary uppercase tracking-[0.2em] font-semibold text-sm">
-              A Note from the Founder
-            </span>
+              <blockquote className="mt-8 text-xl lg:text-2xl italic text-slate-800 leading-relaxed">
 
-            <blockquote className="mt-6 text-2xl leading-relaxed text-slate-800 font-medium italic">
-              “Medical travel begins long before a patient boards a flight.
-              It begins with trust—the confidence that someone understands
-              what you are going through and will help you navigate every
-              decision with clarity and care.
-              <br /><br />
-              Norma Luna Healthcare was founded on that belief: to ensure
-              that patients crossing borders for treatment never feel they
-              are navigating the journey alone.”
-            </blockquote>
+                “Medical travel begins long before a patient boards a flight.
+                It begins with trust—the confidence that someone understands
+                what you are going through and will help you navigate every
+                decision with clarity and care.
 
-            <div className="mt-10 border-t border-slate-200 pt-6">
-              <h4 className="font-bold text-xl text-slate-900">
-                — Niveditha Latha
-              </h4>
+                <br />
+                <br />
 
-              <p className="text-slate-600 mt-1">
-                Founder &amp; Managing Partner
-              </p>
+                Norma Luna Healthcare was founded on that belief: to ensure
+                that patients crossing borders for treatment never feel they
+                are navigating the journey alone.”
 
-              <p className="text-primary font-semibold mt-2">
-                Norma Luna Healthcare
-              </p>
+              </blockquote>
+
+              <div className="mt-10 pt-6 border-t border-slate-200">
+                <h4 className="font-bold text-xl text-slate-900">
+                  — Niveditha Latha
+                </h4>
+
+                <p className="text-slate-600 mt-2">
+                  Founder &amp; Managing Partner
+                </p>
+
+                <p className="text-primary font-semibold mt-1">
+                  Norma Luna Healthcare
+                </p>
+              </div>
+
             </div>
+          </motion.div>
 
-          </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>
