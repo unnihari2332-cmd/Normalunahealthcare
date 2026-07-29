@@ -36,12 +36,12 @@ export const HeroSection = () => {
             </span>
 
             <h1 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-              Advanced Care. <br />
-              Trusted Healing.
+              Your Global Gateway <br />
+              to Healing Experience
             </h1>
 
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed drop-shadow-md">
-              Comprehensive healthcare services delivered with compassion, modern technology, and experienced medical professionals—focused on your complete well-being.
+              Connecting international patients with world-class healthcare in India through trusted hospitals, expert care coordination, and personalized support—from your first consultation to your safe return home.
             </p>
 
             {/* 3. CTA SECTION - ALIGNMENT FIX */}
@@ -61,10 +61,6 @@ export const HeroSection = () => {
                     </Button>
                   </Link>
                   {/* Trust Cue - Positioned so it doesn't affect horizontal button alignment */}
-                  <span className="text-xs text-gray-400 flex items-center gap-1.5 pl-4">
-                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                    Instant confirmation • No waiting time
-                  </span>
                 </div>
 
                 {/* Secondary Button */}
@@ -90,18 +86,17 @@ export const HeroSection = () => {
             className="mt-12 pt-6 border-t border-white/10 flex flex-wrap gap-8"
           >
             <div>
-              <div className="flex text-yellow-400 mb-1">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-              </div>
-              <p className="text-white font-bold text-sm">4.8/5 Patient Rating</p>
+             <div>
+              <p className="text-white font-bold text-sm mb-1">100%</p>
+              <p className="text-gray-400 text-sm">happy Clients</p>
             </div>
             <div>
-              <p className="text-white font-bold text-sm mb-1">5000+</p>
+              <p className="text-white font-bold text-sm mb-1">200+</p>
               <p className="text-gray-400 text-sm">Patients Treated</p>
             </div>
             <div>
-              <p className="text-white font-bold text-sm mb-1">24/7</p>
-              <p className="text-gray-400 text-sm">Emergency Support</p>
+              <p className="text-white font-bold text-sm mb-1">150+</p>
+              <p className="text-gray-400 text-sm">Trusted specialists</p>
             </div>
           </motion.div>
 
@@ -120,7 +115,7 @@ export const HeroSection = () => {
                 <Phone className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="text-gray-400 text-xs font-medium uppercase tracking-wider mb-0.5">Call for Immediate Assistance</p>
+                <p className="text-gray-400 text-xs font-medium uppercase tracking-wider mb-0.5">Contact Our Care Coordinator </p>
                 <p className="text-white font-bold text-xl tracking-wide group-hover:text-primary transition-colors">
                   +91 73587 46061
                 </p>
