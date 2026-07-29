@@ -29,7 +29,7 @@ export const specialities = [{
   image: "/transplantkidney-liver.jpg",
   icon: HeartHandshake
 }, {
-  id: "cardiology",
+  id: "cardiology-cardiac-care",
   title: "Cardiology",
   description: "Access leading cardiac expertise for the evaluation and treatment of complex heart conditions, from advanced diagnostics and interventional cardiology to sophisticated cardiac procedures.",
   image: "/cardiology.jpg",
@@ -53,7 +53,7 @@ export const specialities = [{
   image: "/dental.jpg",
   icon: Smile
 },{
-  id: "gendder",
+  id: "gender-reassignment-surgery",
   title: "Gender Reassignment Surgery",
   description: "Access experienced surgical expertise for gender-affirming procedures, with a focus on discretion, individualised care, and specialised treatment pathways.",
   image: "/GRS-jpg.webp",
