@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StatsSection } from "@/components/StatsSection";
+import { FounderSection } from "@/components/sections/FounderSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Quote, 
@@ -314,7 +315,7 @@ const AboutPage = () => {
       <div className="pt-20">
         <HeroBanner title="About Us" />
       </div>
-
+      <FounderSection />
       <AboutSection />
       
       <StatsSection />
