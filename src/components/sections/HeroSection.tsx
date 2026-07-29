@@ -88,7 +88,7 @@ export const HeroSection = () => {
           >
             <div>
               <p className="text-white font-bold text-sm mb-1">100%</p>
-              <p className="text-gray-400 text-sm">Happy Clients</p>
+              <p className="text-gray-400 text-sm">Satisfied Clients</p>
             </div>
 
             <div>
