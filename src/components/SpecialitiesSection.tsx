@@ -32,7 +32,7 @@ export const specialities = [{
   id: "cardiology",
   title: "Cardiology",
   description: "Access leading cardiac expertise for the evaluation and treatment of complex heart conditions, from advanced diagnostics and interventional cardiology to sophisticated cardiac procedures.",
-  image: "/cardiology.jpg‎",
+  image: "/cardiology.jpg",
   icon: Activity
 },{
   id: "neurology",
