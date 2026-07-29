@@ -29,6 +29,18 @@ export const specialities = [{
   image: "/transplantkidney-liver.jpg",
   icon: HeartHandshake
 }, {
+  id: "cardiology",
+  title: "Cardiology",
+  description: "Access leading cardiac expertise for the evaluation and treatment of complex heart conditions, from advanced diagnostics and interventional cardiology to sophisticated cardiac procedures.",
+  image: "/cardiology.jpg‎",
+  icon: Activity
+},{
+  id: "neurology",
+  title: "Neurology",
+  description: "Connect with distinguished neurological expertise for conditions affecting the brain, spine, and nervous system, supported by sophisticated diagnostic and therapeutic capabilities.",
+  image: "/neurology.jpg",
+  icon: Activity
+}, {
   id: "orthopaedics",
   title: "Orthopaedics",
   description: "Discover leading expertise in bone, joint, and musculoskeletal conditions, including joint replacement, sports injuries, spine care, and complex orthopaedic procedures.",
@@ -70,23 +82,11 @@ export const specialities = [{
   description: "Connect with leading urological expertise across minimally invasive, endoscopic, robotic, and surgical approaches to complex urinary and reproductive conditions.",
   image: "/urology.png",
   icon: Activity
-}, {
-  id: "neurology",
-  title: "Neurology",
-  description: "Connect with distinguished neurological expertise for conditions affecting the brain, spine, and nervous system, supported by sophisticated diagnostic and therapeutic capabilities.",
-  image: "/urology.png",
-  icon: Activity
-}, {
+},  {
   id: "andrology",
   title: "Andrology",
   description: "Connect with distinguished expertise in male reproductive and sexual health, offering access to sophisticated diagnostics and highly specialised treatment options.",
-  image: "/urology.png",
-  icon: Activity
-}, {
-  id: "cardiology",
-  title: "Cardiology",
-  description: "Access leading cardiac expertise for the evaluation and treatment of complex heart conditions, from advanced diagnostics and interventional cardiology to sophisticated cardiac procedures.",
-  image: "/urology.png",
+  image: "/andrology.jpg",
   icon: Activity
 }, {
   id: "colorectal-surgery",
