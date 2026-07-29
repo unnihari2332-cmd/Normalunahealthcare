@@ -61,9 +61,9 @@ const ContactPage = () => {
                   <Phone className="w-6 h-6 text-[#1B2A49]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#1B2A49] text-base">Contact With Us</h4>
+                  <h4 className="font-bold text-[#1B2A49] text-base">Contact Us</h4>
                   <p className="text-gray-500 text-sm mt-2">
-                    Call An Appointment: +91-7358746081
+                  +91-7358746081
                   </p>
                 </div>
               </div>
