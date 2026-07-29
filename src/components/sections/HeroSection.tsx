@@ -40,7 +40,7 @@ export const HeroSection = () => {
               Norma Luna Healthcare
             </span>
 
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+            <h1 className="font-display text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
               Your Global Gateway
               <br />
               to Healing Experience
