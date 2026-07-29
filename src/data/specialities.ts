@@ -317,7 +317,7 @@ export const specialities: Speciality[] = [
     id: "gender-reassignment-surgery",
     title: "Gender Reassignment Surgery",
     description: "Norma Luna Healthcare facilitates discreet access to experienced specialists and multidisciplinary teams in India for individuals considering gender-affirming surgical procedures.",
-    image: "/genderreassignmentsurgery.jpg",
+    image: "/GRS-jpg.webp",
     fullDescription: "Norma Luna Healthcare facilitates discreet access to experienced specialists and multidisciplinary teams in India for individuals considering gender-affirming surgical procedures. Through accredited healthcare institutions, patients can be connected with appropriate surgical expertise for confidential consultation, clinical evaluation, and personalised treatment planning based on their individual requirements. Given the deeply personal nature of this journey, particular emphasis is placed on privacy, sensitivity, and thoughtful coordination—from preliminary medical consultations and proposed treatment pathways to travel, accommodation, local assistance, and post-treatment follow-up with the treating institution.",
     treatments: [
       "Male-to-female (MTF) gender-affirming surgery",
