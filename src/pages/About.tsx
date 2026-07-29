@@ -321,7 +321,23 @@ const AboutPage = () => {
 
       <VisionMissionSection />
 
-     
+      <section className="py-20 bg-gray-50 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <p className="text-blue-500 font-medium tracking-wide uppercase text-sm mb-2">Patients Story</p>
+            <h2 className="font-display text-4xl font-bold text-[#0B3A66]">
+              Loved by our Patients
+            </h2>
+          </motion.div>
+
+          <TestimonialGrid />
+        </div>
+      </section>
 
       <Footer />
     </div>
