@@ -87,20 +87,24 @@ const Header: React.FC = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
       <div className="max-w-[1600px] mx-auto px-6">
-        <div className="flex items-center justify-between lg:justify-center h-20">
+        <div className="flex items-center justify-between h-20">
 
-          {/* LEFT NAV */}
-          <div className="hidden lg:flex items-center gap-6">
-            <DesktopNav links={leftLinks} />
-          </div>
+          {/* LEFT SECTION */}
+          <div className="flex items-center gap-10">
 
-          {/* LOGO */}
-          <div className="flex items-center mx-6">
+            {/* LOGO */}
             <Logo isScrolled={false} />
+
+            {/* DESKTOP LEFT NAV */}
+            <div className="hidden lg:flex items-center gap-6">
+              <DesktopNav links={leftLinks} />
+            </div>
+
           </div>
 
-          {/* RIGHT NAV */}
+          {/* RIGHT SECTION */}
           <div className="hidden lg:flex items-center gap-4">
+
             <DesktopNav links={rightLinks} />
 
             <Button
@@ -120,10 +124,11 @@ const Header: React.FC = () => {
             >
               +
             </button>
+
           </div>
 
-          {/* MOBILE TOGGLE */}
-          <div className="flex lg:hidden text-black items-center">
+          {/* MOBILE HEADER */}
+          <div className="flex lg:hidden items-center">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((p) => !p)}
@@ -156,8 +161,10 @@ const Header: React.FC = () => {
             </p>
 
             <p className="text-xs text-center text-gray-600 leading-relaxed mb-5">
-              No 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel,<br />
-              Thousand Lights West, Nungambakkam,<br />
+              No 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel,
+              <br />
+              Thousand Lights West, Nungambakkam,
+              <br />
               Chennai, Tamil Nadu 600034
             </p>
 
@@ -172,6 +179,7 @@ const Header: React.FC = () => {
         </motion.div>
       )}
 
+      {/* MOBILE MENU */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
