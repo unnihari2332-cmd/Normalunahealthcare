@@ -9,29 +9,29 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "What types of medical treatments do you offer for international patients?",
+    question: "How do I know which hospital and specialist are right for my treatment?",
     answer:
-      "Norma Luna Healthcare connects international patients with top hospitals and specialists across India. Our network includes multi-specialty and super-specialty hospitals following international standards. We facilitate treatments in cardiology, orthopedics, dermatology, surgery, and more at affordable prices. With expert doctors and advanced technology, we ensure quality care and a comfortable experience.",
+      "Every medical journey begins with understanding your individual healthcare needs. Based on your medical records, preferred destination, treatment requirements, and other relevant factors, Norma Luna Healthcare facilitates access to suitable specialists within its network of NABH and JCI-accredited multispecialty and super-specialty hospitals. This enables you to make an informed decision with confidence before beginning your treatment journey.",
   },
   {
-    question: "How can I book a consultation or treatment at Norma Luna from international countries?",
+    question: "Can I receive a treatment plan and cost estimate before travelling to India?",
     answer:
-      "Booking a consultation is easy! You can contact us through our website, email, or by calling our international helpline. We will assist you with scheduling an appointment, arranging your treatment plan, and guiding you through the necessary documentation.",
+      "Yes. Your medical records can be securely shared with the appropriate hospital and specialist for a preliminary medical review before you travel. Based on their assessment, you can receive an indicative treatment plan, estimated hospital costs, expected duration of stay, and other relevant recommendations, allowing you to plan your medical journey with greater clarity.",
   },
   {
-    question: "Are your doctors trained to handle foreign patients?",
+    question: "Why should I choose Norma Luna Healthcare instead of contacting a hospital directly?",
     answer:
-      "Yes, our doctors are highly trained and experienced in treating international patients. Many of our specialists are fluent in English, and we also offer interpreters for other languages to ensure clear communication and comfort throughout your treatment process. We also have professional translators to guide you according to your needs.",
+      "Medical travel involves much more than selecting a hospital. Norma Luna Healthcare serves as your dedicated healthcare facilitator by coordinating specialist access, hospital communication, medical documentation, visa guidance, travel planning, accommodation, airport transfers, language assistance, and post-treatment follow-up. Our goal is to make your international healthcare journey smooth, organized, and stress-free.",
   },
   {
-    question: "Do you offer any medical packages or discounts for foreign patients?",
+    question: "What support can I expect once I arrive in India?",
     answer:
-      "Norma Luna offers competitive pricing for international patients, including customizable medical packages that can include consultations, treatments, and accommodation if necessary. We also have special discounts for first-time international patients, depending on the treatment required.",
+      "From your arrival until your return home, Norma Luna Healthcare coordinates essential services around your treatment schedule. This includes airport pickup, local transportation, accommodation assistance, hospital appointments, interpreter support, and ongoing coordination with your treating hospital, allowing both you and your accompanying family members to focus on recovery with peace of mind.",
   },
   {
-    question: "What are the post-treatment follow-up procedures for international patients?",
+    question: "What happens after I complete my treatment and return home?",
     answer:
-      "We offer post-treatment follow-up care through virtual consultations or phone calls to ensure you are healing well. Our healthcare team will provide you with detailed instructions for recovery and can help you coordinate any necessary follow-up visits during your stay or remotely when you return to your home country.",
+      "Our support continues even after you return to your home country. When follow-up care is required, Norma Luna Healthcare facilitates communication with your treating hospital or specialist, coordinates medical reports, arranges virtual follow-up consultations where applicable, and assists with recommended next steps to ensure continuity of care after your treatment.",
   },
 ];
 
