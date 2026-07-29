@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-import founderImage from "/founder.jpg";
 
 export const FounderSection = () => {
   return (
@@ -19,7 +18,7 @@ export const FounderSection = () => {
           >
             <div className="overflow-hidden rounded-3xl shadow-2xl">
               <img
-                src={founderImage}
+                src=""
                 alt="Niveditha Latha"
                 className="w-full h-[700px] object-cover"
               />
