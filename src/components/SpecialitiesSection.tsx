@@ -52,7 +52,13 @@ export const specialities = [{
   description: "Explore exceptional dental expertise across restorative, cosmetic, implant, and maxillofacial procedures, balancing precision, function, and aesthetics.",
   image: "/dental.jpg",
   icon: Smile
-}, {
+},{
+  id: "gendder",
+  title: "Gender Reassignment Surgery",
+  description: "Access experienced surgical expertise for gender-affirming procedures, with a focus on discretion, individualised care, and specialised treatment pathways.",
+  image: "/GRS-jpg.webp",
+  icon: Smile
+},  {
   id: "bariatrics",
   title: "Bariatrics",
   description: "Connect with established centres for bariatric and metabolic procedures, supported by multidisciplinary evaluation and individually considered treatment options.",
