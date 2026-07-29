@@ -43,7 +43,7 @@ export const HeroSection = () => {
             <h1 className="font-display text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
               Your Global Gateway
               <br />
-              to Healing Experience
+               To Healing Experience
             </h1>
 
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed drop-shadow-md">
