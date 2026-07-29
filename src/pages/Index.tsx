@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { StatsSection } from "@/components/StatsSection";
 import SpecialitiesSection from "@/components/SpecialitiesSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { FloatingContact } from "@/components/FloatingContact";
 // Fixed: Changed from named import { FAQ } to default import FAQ
 import FAQ from "@/components/FAQ"; 
 
@@ -25,6 +26,7 @@ const Index = () => {
       <ServicesSection /> 
       <FAQ />
       <CTASection />
+      <FloatingContact />
       <Footer />
     </div>
   );
