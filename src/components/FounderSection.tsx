@@ -60,29 +60,35 @@ export const FounderSection = () => {
           </div>
 
           {/* Divider */}
-          <div className="my-16 border-t border-slate-200" />
+          <div className="my-16 " />
 
           {/* Founder Note */}
-          <h3 className="text-3xl md:text-4xl font-bold text-slate-900">
+          <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
             A Note from the Founder
           </h3>
 
-          <blockquote className="mt-8 border-l-4 border-primary pl-8 text-xl md:text-2xl italic text-slate-700 leading-10">
-            “Medical travel begins long before a patient boards a flight. It
+          
+           <div className="mt-10 space-y-8 text-slate-600 text-lg leading-9">
+            <p>
+             Medical travel begins long before a patient boards a flight. It
             begins with trust—the confidence that someone understands what you
             are going through and will help you navigate every decision with
             clarity and care.
-            <br />
-            <br />
+            </p>
+
+            <p>
             Norma Luna Healthcare was founded on that belief: to ensure that
             patients crossing borders for treatment never feel they are
-            navigating the journey alone.”
-          </blockquote>
+            navigating the journey alone.
+            </p>
+
+          </div>
+
 
           {/* Signature */}
           <div className="mt-10">
             <h4 className="text-2xl font-bold text-slate-900">
-              — Niveditha Latha
+            Niveditha Latha
             </h4>
 
             <p className="mt-2 text-slate-600 text-lg">
