@@ -79,7 +79,7 @@ export const specialities: Speciality[] = [
     ]
   },
   {
-    id: "organ-transplantation",
+    id: "transplant-kidney-liver",
     title: "Organ Transplantation",
     description: "Organ transplantation demands exceptional clinical expertise, rigorous evaluation, sophisticated infrastructure, and strict adherence to regulatory and ethical requirements.",
     image: "/transplantkidney-liver.jpg",
@@ -118,7 +118,7 @@ export const specialities: Speciality[] = [
     ]
   },
   {
-    id: "dental-care",
+    id: "dental",
     title: "Dental Care",
     description: "For patients combining sophisticated dental treatment with international travel, Norma Luna Healthcare facilitates access to accomplished dental specialists and advanced centres in India.",
     image: "/dental.jpg",
@@ -139,7 +139,7 @@ export const specialities: Speciality[] = [
     ]
   },
   {
-    id: "bariatric-metabolic-surgery",
+    id: "bariatrics",
     title: "Bariatric & Metabolic Surgery",
     description: "Norma Luna Healthcare facilitates access to established bariatric and metabolic surgery programmes for international patients exploring surgical approaches to clinically significant obesity and associated metabolic conditions.",
     image: "/bariatrics.jpg",
@@ -156,7 +156,7 @@ export const specialities: Speciality[] = [
     ]
   },
   {
-    id: "aesthetic-reconstructive-surgery",
+    id: "aesthetic-dermatology-plastic",
     title: "Aesthetic & Reconstructive Surgery",
     description: "Discretion, specialist expertise, and individual expectations are particularly important when travelling for aesthetic or reconstructive surgery.",
     image: "/aestheticdermatology.jpg",
