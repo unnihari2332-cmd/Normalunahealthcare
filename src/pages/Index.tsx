@@ -23,7 +23,6 @@ const Index = () => {
       <SpecialitiesSection />
       {/* Added ServicesSection here since it was imported but not used */}
       <ServicesSection /> 
-      <TestimonialsSection />
       <FAQ />
       <CTASection />
       <Footer />
