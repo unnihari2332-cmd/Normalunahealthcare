@@ -41,28 +41,28 @@ const stats: StatItem[] = [
     suffix: "+",
     label: "Years of experience",
     text:
-      "A legacy of saving lives and transforming health for over two decades, driven by innovation and unwavering compassion.",
+      "A legacy of saving lives and transforming health for over five years, driven by innovation and unwavering compassion.",
   },
   {
-    value: 100,
+    value: 200,
     suffix: "+",
     label: "Happy Clients",
     text:
-      "Your health, our priority – proven by 20,000+ satisfied patients, and growing stronger every day with exceptional care.",
+      "Your health, our priority – proven by 200+ satisfied patients, and growing stronger every day with exceptional care.",
   },
   {
     value: 20,
     suffix: "+",
     label: "Specialities",
     text:
-      "Norma Luna Hospital proudly offers over 20 specialized medical services. Our expert teams are dedicated to delivering exceptional healthcare across various disciplines.",
+      "Our extensive network provides access to a diverse range of medical and surgical specialties, ensuring personalized care for a wide spectrum of healthcare needs.",
   },
   {
-    value: 150,
+    value: 300,
     suffix: "+",
     label: "Qualified Doctors",
     text:
-      "We are proud to have a team of over 150 expert doctors, each specializing in diverse medical fields to provide the best care. Our skilled physicians are committed to delivering personalized treatments and exceptional patient outcomes.",
+      "Access a trusted network of 150+ highly qualified specialists across multiple medical and surgical disciplines, carefully matched to your treatment needs through our partner hospitals.",
   },
 ];
 
