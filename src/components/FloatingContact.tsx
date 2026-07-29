@@ -6,7 +6,7 @@ export const FloatingContact = () => {
     <div className="fixed bottom-6 right-6 z-50 flex overflow-hidden rounded-l-xl shadow-2xl">
 
       <a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/917358746061"
         target="_blank"
         rel="noopener noreferrer"
         className="flex h-14 w-14 items-center justify-center bg-[#25D366] hover:bg-[#1EBE5D]"
