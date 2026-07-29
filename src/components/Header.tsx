@@ -69,13 +69,17 @@ const Header: React.FC = () => {
     } else {
       navigate("/appointment");
     }
+
     setIsMobileMenuOpen(false);
   };
 
-  /* Close contact popup on outside click */
   useEffect(() => {
     const close = () => setIsContactOpen(false);
-    if (isContactOpen) document.addEventListener("click", close);
+
+    if (isContactOpen) {
+      document.addEventListener("click", close);
+    }
+
     return () => document.removeEventListener("click", close);
   }, [isContactOpen]);
 
@@ -87,29 +91,21 @@ const Header: React.FC = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
       <div className="max-w-[1600px] mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center h-20">
 
-          {/* LEFT SECTION */}
-          <div className="flex items-center gap-10">
+          {/* Logo */}
+          <Logo isScrolled={false} />
 
-            {/* LOGO */}
-            <Logo isScrolled={false} />
-
-            {/* DESKTOP LEFT NAV */}
-            <div className="hidden lg:flex items-center gap-6">
-              <DesktopNav links={leftLinks} />
-            </div>
-
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center ml-10 flex-1">
+            <DesktopNav links={allLinks} />
           </div>
 
-          {/* RIGHT SECTION */}
-          <div className="hidden lg:flex items-center gap-4">
-
-            <DesktopNav links={rightLinks} />
-
+          {/* Right Buttons */}
+          <div className="hidden lg:flex items-center gap-4 ml-6">
             <Button
               onClick={handleAppointmentClick}
-              className="bg-[#0b1c2d] text-white px-6 py-2.5 rounded-full text-sm font-semibold"
+              className="bg-[#0b1c2d] text-white px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap"
             >
               Book Appointment
             </Button>
@@ -117,21 +113,20 @@ const Header: React.FC = () => {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setIsContactOpen((p) => !p);
+                setIsContactOpen((prev) => !prev);
               }}
               className="w-10 h-10 rounded-full bg-[#0b1c2d] text-white text-xl font-bold flex items-center justify-center"
               aria-label="Open contact details"
             >
               +
             </button>
-
           </div>
 
-          {/* MOBILE HEADER */}
-          <div className="flex lg:hidden items-center">
+          {/* Mobile Menu */}
+          <div className="ml-auto lg:hidden">
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen((p) => !p)}
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               isScrolled={true}
             />
           </div>
@@ -139,7 +134,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* CONTACT POPUP */}
+      {/* Contact Popup */}
       {isContactOpen && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -179,7 +174,6 @@ const Header: React.FC = () => {
         </motion.div>
       )}
 
-      {/* MOBILE MENU */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
