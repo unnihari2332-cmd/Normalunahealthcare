@@ -157,24 +157,7 @@ const SpecialityDetailPage = () => {
                 </div>
 
                 {/* Benefits Section */}
-                <h3 className="font-display text-2xl font-semibold mb-6" style={{ color: brandColor }}>
-                  Why Choose Norma Luna
-                </h3>
-                <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {speciality.benefits.map((benefit, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mt-1 shadow-sm">
-                          <Check className="w-3.5 h-3.5" style={{ color: brandColor }} />
-                        </div>
-                        <span className="text-gray-700 font-medium">{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
+                
             {/* Right Sidebar - Sticky Removed or Height logic changed */}
             <div className="lg:col-span-1">
               <motion.div
@@ -220,11 +203,7 @@ const SpecialityDetailPage = () => {
                       </div>
                       <div className="flex items-center gap-3">
                         <Mail className="w-5 h-5 text-blue-200" />
-                        <span className="text-white/80 text-sm">info@normaluna.co</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Clock className="w-5 h-5 text-blue-200 mt-1" />
-                        <span className="text-white/80 text-sm">24/7 Support Available</span>
+                        <span className="text-white/80 text-sm">info@normalunahealthcare.com</span>
                       </div>
                     </div>
                     <Link to="/appointment">
