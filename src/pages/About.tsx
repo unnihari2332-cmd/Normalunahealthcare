@@ -27,8 +27,7 @@ const tabContent = {
     icon: Users,
     text: [
       "Norma Luna Healthcare is a trusted medical tourism facilitator connecting international patients with India's leading NABH and JCI-accredited multispecialty and super-specialty hospitals. Through our network of renowned specialists and advanced healthcare facilities, we provide access to world-class, affordable medical care tailored to each patient's needs.",
-      "From treatment planning and hospital selection to visa assistance, travel, accommodation, local transportation, and post-treatment follow-up, we offer personalized end-to-end support to ensure a seamless and stress-free medical journey.
-At Norma Luna Healthcare, we are committed to making exceptional healthcare in India accessible with compassion, transparency, and excellence—because your health deserves nothing less.",
+      "From treatment planning and hospital selection to visa assistance, travel, accommodation, local transportation, and post-treatment follow-up, we offer personalized end-to-end support to ensure a seamless and stress-free medical journey.At Norma Luna Healthcare, we are committed to making exceptional healthcare in India accessible with compassion, transparency, and excellence—because your health deserves nothing less.",
       "Your Global Gateway to Healing Experience.",
     ],
     features: [
