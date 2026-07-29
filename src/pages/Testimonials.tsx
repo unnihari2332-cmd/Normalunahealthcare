@@ -68,48 +68,48 @@ const HeroBanner = ({ title }: { title: string }) => {
 };
 
 const testimonials = [
-  {
-    name: "Ivan M.",
-    location: "Russia",
-    treatment: "Stem Cell Therapy",
-    content: "After being diagnosed with a neurological condition, I was searching for advanced treatment options that could improve my quality of life. Stem Cell therapy was a promising solution, but in Russia, the cost was extremely high, and access to specialized clinics was limited. That's when I found out India offered world-class regenerative medicine at a much more affordable price. From the moment I reached out, their team handled everything—medical visa assistance, travel arrangements, and scheduling my consultation with one of India's leading specialists in stem cell therapy. When I arrived, I was impressed by the hospital's modern infrastructure and dedicated research team. The doctors took time to explain every step of the procedure. I received personalized rehabilitation support, including physiotherapy and nutritional guidance to maximize my recovery. Today, I feel stronger, and my symptoms have significantly improved. I am grateful for the exceptional care and professionalism that made my journey to India truly life-changing.",
-    rating: 5
-  },
-  {
-    name: "Amina E.",
-    location: "Oman",
-    treatment: "Cancer Treatment",
-    content: "Norma Luna Healthcare gave me hope when I needed it most. Their team ensured I got world-class oncology treatment in India at a fraction of the cost. The doctors, the advanced treatment plans, and the personal care I received made all the difference. I am now cancer-free, and I owe it to their expertise and support!",
-    rating: 5
-  },
-  {
-    name: "Amal N.",
-    location: "Sri Lanka",
-    treatment: "Hip Replacement",
-    content: "After suffering for years with severe arthritis, I could barely walk. Hip replacement surgery in Sri Lanka was too costly, and I feared long waiting times. Norma Luna Healthcare provided a quick, affordable solution. Within a week, I was in Chennai, meeting one of the best orthopedic surgeons in India. The hospital used advanced robotic-assisted technology for precise surgery and a faster recovery—just days after surgery, I was walking again without pain. The team handled every detail, from physiotherapy to a smooth return journey home. I now live pain-free, thanks to them!",
-    rating: 5
-  },
-  {
-    name: "Zoya & Kareem R.",
-    location: "Bangladesh",
-    treatment: "Twin Pregnancy Complication",
-    content: "When we found out we were expecting twins, we were overjoyed. But at five months, complications arose, and doctors in Bangladesh warned us of a high-risk delivery. We were devastated. That's when a family friend recommended Norma Luna Healthcare, and it changed everything. Their team arranged immediate consultations with a top maternal-fetal specialist. The hospital was equipped with advanced NICU facilities, giving our babies the best chance of survival. Norma Luna even arranged for a translator and special dietary care for my wife during her stay. Our twins were born healthy, and today, we look at them with gratitude, knowing that none of this would have been possible without the seamless care an atmosphere in India.",
-    rating: 5
-  },
-  {
-    name: "Amina S.",
-    location: "Uzbekistan",
-    treatment: "Dental Implants & Tourism",
-    content: "India was always on my travel list—I had dreamed of exploring its vibrant culture, historical landmarks, and beautiful landscapes. When I finally planned my trip to India, I wanted to make the most of my visit. A friend mentioned that India was also known for high-quality, affordable medical treatments, including dental care. I had been considering dental implants for years, but the costs in Uzbekistan were too high and lacked options. That's when I came across Norma Luna Healthcare, and I decided to explore my options. From the moment I contacted them, their team made everything effortless. They arranged a consultation while ensuring my travel plans remained uninterrupted. After a detailed examination, the dentist explained that I could complete my implant procedure with minimal downtime, allowing me to continue enjoying my vacation. Within days, I had a brand new smile, and I was still able to explore Mahabalipuram's ancient temples and take a peaceful houseboat ride in Kerala. The best part? Even after I returned home, Norma Luna's team followed up to ensure my recovery was going well. What started as a trip for adventure ended up being a life-changing journey. Thanks to the team, I left India with not just incredible memories but also a confident new smile!",
-    rating: 5
-  },
-  {
-    name: "Martin G.",
-    location: "United Kingdom",
-    treatment: "Dental Implants",
-    content: "I had lost most of my teeth over the years, making eating and speaking difficult. In UK, the cost of full-mouth dental implants was simply unaffordable. A colleague recommended Norma Luna Healthcare, and I was skeptical at first. Could I really trust a medical team in another country? My own first virtual consultation with a leading dentist in Chennai, my doubts disappeared. The clinic was more advanced than many I've seen in the UK—with 3D imaging and precision-guided implant technology. The procedure was smooth and completely painless, thanks to advanced sedation techniques. After a comfortable hotel for my recovery and even suggested soft, nutritious meals suited for my healing gums. Within days, I could smile without hesitation for the first time in years. The best part? The cost was nearly 70% lower than in France, and the quality exceeded my expectations.",
-    rating: 5
-  },
+ {
+  name: "Sarah Mitchell",
+  location: "Manchester, United Kingdom",
+  treatment: "Full-Mouth Dental Rehabilitation",
+  content: "I knew I needed extensive dental work, but every time I looked at the cost in the UK, I put it off again. Eventually I started researching treatment in India. There were so many clinics and packages online that I honestly had no idea who to trust. What I liked about Norma Luna was that they didn’t simply send me a price and ask me to book. My dental records and scans were shared for review, I received a proposed treatment plan, and I had the opportunity to understand what was being recommended before arranging the trip. The treatment itself was excellent, but what surprised me most was how easy they made everything around it. My appointments worked around my stay, transport was arranged when I needed it, and I always knew who to call. I went to India because the treatment was financially realistic for me. I would happily recommend Norma Luna to friends and family because of how well I was looked after throughout the journey.",
+  rating: 5
+},
+{
+  name: "Farah Al-Mansouri",
+  location: "Muscat, Oman",
+  treatment: "IVF & Reproductive Medicine",
+  content: "By the time I contacted Norma Luna, I was tired—not only physically, but emotionally and mentally. We had already been through fertility treatment and I did not want another generic consultation. I wanted someone to look at my history properly and tell me what options were genuinely worth considering. Norma Luna arranged for our previous reports to be reviewed by a fertility specialist in India before we travelled. That made the decision much easier. IVF is an intensely private experience, and I appreciated that communication was always discreet and never intrusive. I am still on my fertility journey, so mine is not a story with a perfect ending written yet. But for the first time in quite a while, my husband and I feel that we understand our options and have a clear way forward. Sometimes that clarity itself means a great deal.",
+  rating: 5
+},
+{
+  name: "Amina Njoroge",
+  location: "Nairobi, Kenya",
+  treatment: "Oncology",
+  content: "When you are dealing with cancer, searching through hospitals, specialists and treatment options in another country is the last thing you want to be doing. My family wanted another oncology opinion after we received different recommendations about how my treatment should proceed. Norma Luna helped get my reports, scans and pathology information to the appropriate specialists in India. What stayed with me most was the honesty. If an answer had to come from the hospital, they said so. If something could not be confirmed immediately, they did not pretend otherwise. I never felt that anyone was trying to 'sell' me treatment. I am continuing my care, and there is still a road ahead of me. But having clarity about my options—and knowing there was someone helping my family navigate everything around the medical decisions—gave us a sense of control at a time when very little felt within our control.",
+  rating: 5
+},
+{
+  name: "Natalia Ivanova",
+  location: "Almaty, Kazakhstan",
+  treatment: "Orthopaedic Surgery",
+  content: "I had already decided that I was willing to travel for my knee surgery. My problem was choosing where to go. I had spoken to different hospitals in different countries and received very different recommendations. Norma Luna arranged for my scans to be reviewed in India and helped me understand the hospital’s proposed approach before I booked anything. That was what convinced me. I did not need somebody to tell me that everything would be perfect—I needed somebody to help me get the right information. My recovery was slower than I expected, and I ended up staying longer in India. The team helped extend my accommodation and reorganise transport for my follow-up visits without making it another problem for me to solve. I remember that more than anything else. I can walk comfortably again now. For me, the experience was not about luxury. It was about feeling that somebody was paying attention.",
+  rating: 5
+},
+{
+  name: "David Mwansa",
+  location: "Lusaka, Zambia",
+  treatment: "Cardiac Surgery",
+  content: "Shared by his daughter, Naomi. When Dad was advised to undergo cardiac surgery, the waiting and uncertainty were extremely difficult for all of us. We began looking at India because we wanted access to an experienced cardiac team without facing an extended delay. I was the one communicating with Norma Luna because Dad was understandably overwhelmed. They coordinated his records with the hospital, helped us arrange the specialist consultation and gave us a clear picture of the expected costs and length of stay before we travelled. One thing I will always remember is arriving in India exhausted and nervous and seeing our driver already waiting for us. It sounds like a small thing, but at that moment it wasn't. From then on, we felt we had someone on the ground who knew why we were there. Dad is back home now and doing well. The doctors deserve the credit for his medical care. Norma Luna deserves ours for making an intimidating journey feel manageable for our family.",
+  rating: 5
+},
+{
+  name: "Dilshad Rahman",
+  location: "Dhaka, Bangladesh",
+  treatment: "Gastroenterology",
+  content: "I didn't come to India looking for surgery. I came because after months of consultations, I still didn't feel I understood what was causing my symptoms. Norma Luna arranged an appointment with a gastroenterology specialist and helped coordinate the investigations recommended after my consultation. In the end, the specialist did not recommend the procedure I had previously thought I might need. That actually increased my confidence in the entire experience. I received an explanation I understood, a treatment direction, and no pressure to undergo something unnecessary. Sometimes the best outcome of travelling for medical care is simply getting the right answer.",
+  rating: 5
+},
 ];
 
 const TestimonialsPage = () => {
