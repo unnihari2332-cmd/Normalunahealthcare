@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -9,6 +9,7 @@ import { MobileMenuButton } from "./header/MobileMenuButton";
 import { Button } from "./ui/button";
 
 /* ------------------ TYPES ------------------ */
+
 export interface NavItem {
   name: string;
   path: string;
@@ -17,19 +18,88 @@ export interface NavItem {
 }
 
 /* ------------------ DATA ------------------ */
+
 const specialityItems: NavItem[] = [
-  { name: "IVF & Gynaecology", path: "/specialities/ivf-obstetrics-gynaecology", hasDropdown: false },
-  { name: "Gastroenterology", path: "/specialities/gastroenterology", hasDropdown: false },
-  { name: "Oncology", path: "/specialities/oncology", hasDropdown: false },
-  { name: "Transplants (Kidney/Liver)", path: "/specialities/transplant-kidney-liver", hasDropdown: false },
-  { name: "Orthopaedics", path: "/specialities/orthopaedics", hasDropdown: false },
-  { name: "Dental Care", path: "/specialities/dental", hasDropdown: false },
-  { name: "Bariatrics", path: "/specialities/bariatrics", hasDropdown: false },
-  { name: "Aesthetic Surgery", path: "/specialities/aesthetic-dermatology-plastic", hasDropdown: false },
-  { name: "Ophthalmology", path: "/specialities/ophthalmology", hasDropdown: false },
-  { name: "Nephrology", path: "/specialities/nephrology", hasDropdown: false },
-  { name: "Urology", path: "/specialities/urology", hasDropdown: false },
-  { name: "Colorectal Surgery", path: "/specialities/colorectal-surgery", hasDropdown: false },
+  {
+    name: "Cardiology",
+    path: "/specialities/cardiology-cardiac-care",
+    hasDropdown: false,
+  },
+  {
+    name: "Neurology",
+    path: "/specialities/neurology",
+    hasDropdown: false,
+  },
+  {
+    name: "IVF & Gynaecology",
+    path: "/specialities/ivf-obstetrics-gynaecology",
+    hasDropdown: false,
+  },
+  {
+    name: "Gastroenterology",
+    path: "/specialities/gastroenterology",
+    hasDropdown: false,
+  },
+  {
+    name: "Oncology",
+    path: "/specialities/oncology",
+    hasDropdown: false,
+  },
+  {
+    name: "Transplants (Kidney/Liver)",
+    path: "/specialities/transplant-kidney-liver",
+    hasDropdown: false,
+  },
+  {
+    name: "Orthopaedics",
+    path: "/specialities/orthopaedics",
+    hasDropdown: false,
+  },
+  {
+    name: "Dental Care",
+    path: "/specialities/dental",
+    hasDropdown: false,
+  },
+  {
+    name: "Bariatrics",
+    path: "/specialities/bariatrics",
+    hasDropdown: false,
+  },
+  {
+    name: "Aesthetic Surgery",
+    path: "/specialities/aesthetic-dermatology-plastic",
+    hasDropdown: false,
+  },
+  {
+    name: "Ophthalmology",
+    path: "/specialities/ophthalmology",
+    hasDropdown: false,
+  },
+  {
+    name: "Nephrology",
+    path: "/specialities/nephrology",
+    hasDropdown: false,
+  },
+  {
+    name: "Urology",
+    path: "/specialities/urology",
+    hasDropdown: false,
+  },
+  {
+    name: "Colorectal Surgery",
+    path: "/specialities/colorectal-surgery",
+    hasDropdown: false,
+  },
+  {
+    name: "Gender Reassignment Surgery",
+    path: "/specialities/gender-reassignment-surgery",
+    hasDropdown: false,
+  },
+  {
+    name: "Andrology",
+    path: "/specialities/andrology",
+    hasDropdown: false,
+  },
 ];
 
 const leftLinks: NavItem[] = [
@@ -55,7 +125,6 @@ const allLinks = [...leftLinks, ...rightLinks];
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -63,6 +132,7 @@ const Header: React.FC = () => {
   const handleAppointmentClick = (): void => {
     if (location.pathname === "/appointment") {
       const form = document.getElementById("appointment-form");
+
       if (form instanceof HTMLElement) {
         form.scrollIntoView({ behavior: "smooth" });
       }
@@ -73,16 +143,6 @@ const Header: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
-  useEffect(() => {
-    const close = () => setIsContactOpen(false);
-
-    if (isContactOpen) {
-      document.addEventListener("click", close);
-    }
-
-    return () => document.removeEventListener("click", close);
-  }, [isContactOpen]);
-
   return (
     <motion.header
       initial={{ y: -40 }}
@@ -90,36 +150,27 @@ const Header: React.FC = () => {
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
-      <div className="max-w-[1600px] mx-auto px-6">
+      <div className="max-w-[1700px] mx-auto px-8">
         <div className="flex items-center h-20">
 
           {/* Logo */}
-          <Logo isScrolled={false} />
+          <div className="flex-shrink-0">
+            <Logo isScrolled={false} />
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center ml-10 flex-1">
+          <div className="hidden lg:flex flex-1 justify-center px-12">
             <DesktopNav links={allLinks} />
           </div>
 
-          {/* Right Buttons */}
-          <div className="hidden lg:flex items-center gap-4 ml-6">
+          {/* Appointment Button */}
+          <div className="hidden lg:flex flex-shrink-0">
             <Button
               onClick={handleAppointmentClick}
-              className="bg-[#0b1c2d] text-white px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap"
+              className="bg-[#0B1C2D] hover:bg-[#16314d] text-white rounded-full px-8 py-2.5 text-sm font-semibold whitespace-nowrap"
             >
               Book Appointment
             </Button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsContactOpen((prev) => !prev);
-              }}
-              className="w-10 h-10 rounded-full bg-[#0b1c2d] text-white text-xl font-bold flex items-center justify-center"
-              aria-label="Open contact details"
-            >
-              +
-            </button>
           </div>
 
           {/* Mobile Menu */}
@@ -133,46 +184,6 @@ const Header: React.FC = () => {
 
         </div>
       </div>
-
-      {/* Contact Popup */}
-      {isContactOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
-          onClick={(e) => e.stopPropagation()}
-          className="absolute right-6 top-24 z-50"
-        >
-          <div className="w-[320px] rounded-2xl bg-[#fdecee] p-6 shadow-xl border">
-            <div className="bg-red-500 text-white text-center py-3 rounded-xl font-semibold mb-4">
-              Call Us Urgent 24/7
-              <div className="text-lg mt-1">+91 73587 46061</div>
-            </div>
-
-            <p className="text-sm text-center text-gray-700 mb-4">
-              Contact us today and take the first step towards personalized,
-              compassionate care at Norma Luna.
-            </p>
-
-            <p className="text-xs text-center text-gray-600 leading-relaxed mb-5">
-              No 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel,
-              <br />
-              Thousand Lights West, Nungambakkam,
-              <br />
-              Chennai, Tamil Nadu 600034
-            </p>
-
-            <a
-              href="/contact"
-              onClick={() => setIsContactOpen(false)}
-              className="block text-center bg-red-500 text-white py-2.5 rounded-full text-sm font-semibold"
-            >
-              Contact Now
-            </a>
-          </div>
-        </motion.div>
-      )}
 
       <MobileMenu
         isOpen={isMobileMenuOpen}
