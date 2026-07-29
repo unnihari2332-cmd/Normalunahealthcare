@@ -157,6 +157,22 @@ const SpecialityDetailPage = () => {
                 </div>
 
                 {/* Benefits Section */}
+                <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  className="mt-12 rounded-3xl bg-[#0B3A66] p-8 md:p-10 shadow-2xl"
+>
+  <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-5">
+    Considering Treatment in India?
+  </h3>
+
+  <p className="text-white/90 text-lg leading-relaxed">
+    Begin with a confidential conversation. Norma Luna Healthcare can connect
+    you with the appropriate specialists and accredited healthcare institutions
+    while thoughtfully coordinating the journey ahead.
+  </p>
+</motion.div>
                 {/* Add your benefits content here if needed */}
               </motion.div>
             </div>
