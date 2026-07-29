@@ -26,8 +26,10 @@ const tabContent = {
     title: "Bringing Care Closer to You",
     icon: Users,
     text: [
-      "The network includes corporate hospitals, MultiSpeciality hospitals, Super- Speciality hospitals with International protocols and Multidisciplinary team at an affordable price. Here at Norma Luna Healthcare, we assure you to facilitate with renowned specialists and hospitals for your required treatments in India with most reputed and experienced Doctors and Surgeons with cutting edge technology.",
-      "Norma Luna Healthcare aims to bring out the complete requirements of medical services that which offers flexible approach to our clients and provide the level of comfort of a home away from home. After all, Norma Luna Healthcare offers the best services with level of expertise. Norma Luna Healthcare is networked with reputed hospitals and doctors across India.",
+      "Norma Luna Healthcare is a trusted medical tourism facilitator connecting international patients with India's leading NABH and JCI-accredited multispecialty and super-specialty hospitals. Through our network of renowned specialists and advanced healthcare facilities, we provide access to world-class, affordable medical care tailored to each patient's needs.",
+      "From treatment planning and hospital selection to visa assistance, travel, accommodation, local transportation, and post-treatment follow-up, we offer personalized end-to-end support to ensure a seamless and stress-free medical journey.
+At Norma Luna Healthcare, we are committed to making exceptional healthcare in India accessible with compassion, transparency, and excellence—because your health deserves nothing less.",
+      "Your Global Gateway to Healing Experience.",
     ],
     features: [
       { label: "Innovative Treatment Approaches", icon: Microscope },
