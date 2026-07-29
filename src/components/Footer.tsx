@@ -56,7 +56,7 @@ export const Footer = () => {
               />
             </Link>
             <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
-              Compassionate care with advanced medical expertise, focused on your health and well-being.
+              Bridging borders, connecting expertise, and transforming medical travel into an experience built around you.
             </p>
           </div>
 
