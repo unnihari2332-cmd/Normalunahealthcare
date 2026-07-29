@@ -36,10 +36,10 @@ const ContactPage = () => {
           <div className="space-y-10">
             <div>
               <h2 className="text-4xl font-bold text-[#1B2A49] font-serif mb-4">
-                Send Us Your Message!
+                Begin the Conversation
               </h2>
               <p className="text-gray-500 text-base">
-                We are always ready to help you at any time, let's talk together.
+                Your journey begins with a conversation—connect with us and discover the possibilities for your healthcare journey in India.
               </p>
             </div>
 
@@ -84,12 +84,7 @@ const ContactPage = () => {
                 <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Clock className="w-6 h-6 text-[#1B2A49]" />
                 </div>
-                <div>
-                  <h4 className="font-bold text-[#1B2A49] text-base">Working Time</h4>
-                  <p className="text-gray-500 text-sm mt-2">
-                    24/7 support
-                  </p>
-                </div>
+                
               </div>
             </div>
           </div>
