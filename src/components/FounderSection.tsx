@@ -33,7 +33,7 @@ export const FounderSection = () => {
           </div>
 
           {/* Content */}
-          <div className="mt-10 space-y-8 text-slate-600 text-lg leading-9">
+          <div className="mt-10 space-y-5 text-slate-600 text-lg leading-9">
             <p>
               Founded by Niveditha Latha, Norma Luna Healthcare was established
               with a singular vision—to make world-class healthcare in India
@@ -68,7 +68,7 @@ export const FounderSection = () => {
           </h3>
 
           
-           <div className="mt-10 space-y-8 text-slate-600 text-lg leading-9">
+           <div className="mt-10 space-y-5 text-slate-600 text-lg leading-9">
             <p>
              Medical travel begins long before a patient boards a flight. It
             begins with trust—the confidence that someone understands what you
