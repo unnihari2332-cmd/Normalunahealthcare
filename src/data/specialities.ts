@@ -11,7 +11,7 @@ export interface Speciality {
 
 export const specialities: Speciality[] = [
   {
-    id: "ivf-gynaecology",
+    id: "ivf-obstetrics-gynaecology",
     title: "IVF & Gynaecology",
     description: "Norma Luna Healthcare facilitates access to distinguished fertility specialists, reproductive medicine experts, and gynaecologists across leading NABH and JCI-accredited hospitals and fertility centres in India.",
     image: "/ivf.jpg",
