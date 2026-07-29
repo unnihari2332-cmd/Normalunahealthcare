@@ -11,27 +11,27 @@ const faqs = [
   {
     question: "How do I know which hospital and specialist are right for my treatment?",
     answer:
-      "Every medical journey begins with understanding your individual healthcare needs. Based on your medical records, preferred destination, treatment requirements, and other relevant factors, Norma Luna Healthcare facilitates access to suitable specialists within its network of NABH and JCI-accredited multispecialty and super-specialty hospitals. This enables you to make an informed decision with confidence before beginning your treatment journey.",
+      "Every medical journey begins with understanding your individual requirements. Based on your medical records, preferred destination, treatment needs, and other relevant considerations, Norma Luna Healthcare facilitates access to appropriate specialists within its network of NABH and JCI-accredited multispecialty and super-specialty hospitals. The objective is to help you make an informed choice with clarity and confidence.",
   },
   {
     question: "Can I receive a treatment plan and cost estimate before travelling to India?",
     answer:
-      "Yes. Your medical records can be securely shared with the appropriate hospital and specialist for a preliminary medical review before you travel. Based on their assessment, you can receive an indicative treatment plan, estimated hospital costs, expected duration of stay, and other relevant recommendations, allowing you to plan your medical journey with greater clarity.",
+      "Yes. Your medical records can be shared with the relevant hospital and specialist for preliminary review before you travel. Based on their assessment, an indicative treatment plan, expected duration of stay, and estimated hospital costs can be obtained, allowing you to understand the proposed course of treatment and plan your journey accordingly.",
   },
   {
     question: "Why should I choose Norma Luna Healthcare instead of contacting a hospital directly?",
     answer:
-      "Medical travel involves much more than selecting a hospital. Norma Luna Healthcare serves as your dedicated healthcare facilitator by coordinating specialist access, hospital communication, medical documentation, visa guidance, travel planning, accommodation, airport transfers, language assistance, and post-treatment follow-up. Our goal is to make your international healthcare journey smooth, organized, and stress-free.",
+      "Medical travel involves far more than selecting a hospital. Norma Luna Healthcare serves as your dedicated point of coordination, bringing together specialist access, hospital communication, medical documentation, visa assistance, travel planning, accommodation, local transportation, language support, and follow-up coordination into one seamless journey—particularly valuable when navigating healthcare in another country.",
   },
   {
     question: "What support can I expect once I arrive in India?",
     answer:
-      "From your arrival until your return home, Norma Luna Healthcare coordinates essential services around your treatment schedule. This includes airport pickup, local transportation, accommodation assistance, hospital appointments, interpreter support, and ongoing coordination with your treating hospital, allowing both you and your accompanying family members to focus on recovery with peace of mind.",
+      "From arrival through treatment and recovery, essential aspects of your stay can be thoughtfully coordinated around your medical schedule. This may include airport transfers, local transportation, accommodation, hospital appointments, interpreter assistance, and communication with the treating institution, allowing you and your accompanying family to focus on the purpose of your journey.",
   },
   {
     question: "What happens after I complete my treatment and return home?",
     answer:
-      "Our support continues even after you return to your home country. When follow-up care is required, Norma Luna Healthcare facilitates communication with your treating hospital or specialist, coordinates medical reports, arranges virtual follow-up consultations where applicable, and assists with recommended next steps to ensure continuity of care after your treatment.",
+      "The relationship does not simply end when you leave India. Where follow-up is required, Norma Luna Healthcare facilitates continued communication with the treating hospital or specialist, helping coordinate medical reports, follow-up consultations, and recommended next steps to support continuity after your return home.",
   },
 ];
 
