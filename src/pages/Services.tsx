@@ -20,76 +20,76 @@ import {
 
 /* ------------------ DATA: SERVICES ------------------ */
 const services = [
-  {
-    icon: Users,
-    title: "Seasoned Facilitators With Extensive Experience",
-    description:
-      "Expert medical travel coordinators ensure a smooth journey. We handle every detail for a stress-free experience.",
-    image: "/medicalcoordiantor.jpeg",
-  },
-  {
-    icon: FileText,
-    title: "Handling And Processing Of Visas",
-    description:
-      "Hassle-free visa assistance for medical travelers. We streamline paperwork for quick approvals.",
-    image: "/visaapplication.jpg",
-  },
-  {
-    icon: Plane,
-    title: "Coordination Of Air Travel Arrangements",
-    description:
-      "We arrange flights suited to your schedule and needs. Seamless booking for a smooth travel experience.",
-    image: "/aeroplane.JPG",
-  },
-  {
-    icon: Building2,
-    title: "Accommodation Arrangements",
-    description:
-      "Stay at trusted hotels or recovery homes. We secure safe, comfortable, and budget-friendly lodging.",
-    image: "/accomadtion.jpg",
-  },
-  {
-    icon: Car,
-    title: "Local Transportation Coordination",
-    description:
-      "Reliable transport for airport, hospital, and hotel transfers. Comfort and punctuality at every step.",
-    image: "/taxi.jpg",
-  },
-  {
-    icon: Calculator,
-    title: "Assistance With Treatment Planning & Cost Estimation",
-    description:
-      "We connect you with top hospitals and specialists. Transparent pricing and efficient scheduling.",
-    image: "/assitancecost.jpg",
-  },
-  {
-    icon: ClipboardList,
-    title: "Pre-Consultation And Assessment Of Medical Records",
-    description:
-      "Get expert evaluation before your medical journey. We ensure the right specialists review your case.",
-    image: "/preconsultation.jpg",
-  },
-  {
-    icon: HeartPulse,
-    title: "Follow-Up Care After Treatment",
-    description:
-      "Continued support for post-treatment recovery. Coordination with doctors for aftercare and consultations.",
-    image: "/followupcare.jpg",
-  },
-  {
-    icon: Activity,
-    title: "Rehabilitation And Wellness Support",
-    description:
-      "Access to recovery programs and wellness therapies. We assist in a smooth transition to good health.",
-    image: "/wellness.jpg",
-  },
-  {
-    icon: Languages,
-    title: "Provision of Translator Services",
-    description:
-      "Language support for seamless communication. Professional translators assist you at every step.",
-    image: "/translation.JPG",
-  },
+ {
+  icon: Users,
+  title: "Experienced Medical Travel Facilitation",
+  description:
+    "Seasoned guidance and personalised coordination designed to make every stage of the international healthcare journey seamless and reassuring.",
+  image: "/medicalcoordiantor.jpeg",
+},
+{
+  icon: ClipboardList,
+  title: "Medical Record Review & Pre-Consultation",
+  description:
+    "Medical records are carefully coordinated with the appropriate specialists, enabling informed preliminary evaluation before travel.",
+  image: "/preconsultation.jpg",
+},
+{
+  icon: Calculator,
+  title: "Treatment Planning & Cost Guidance",
+  description:
+    "Clear treatment pathways and indicative cost estimates are coordinated with selected hospitals, bringing greater clarity to important healthcare decisions.",
+  image: "/assitancecost.jpg",
+},
+{
+  icon: FileText,
+  title: "Medical Visa Assistance",
+  description:
+    "Dedicated assistance with medical visa documentation and processing helps simplify the formalities of travelling to India for treatment.",
+  image: "/visaapplication.jpg",
+},
+{
+  icon: Plane,
+  title: "Air Travel Coordination",
+  description:
+    "Thoughtful assistance with travel arrangements ensures flight planning aligns seamlessly with consultations, procedures, and recovery timelines.",
+  image: "/aeroplane.JPG",
+},
+{
+  icon: Building2,
+  title: "Accommodation Arrangements",
+  description:
+    "Carefully considered accommodation options are arranged around individual preferences, proximity to the hospital, duration of stay, and accompanying family needs.",
+  image: "/accomadtion.jpg",
+},
+{
+  icon: Car,
+  title: "Local Transportation Coordination",
+  description:
+    "From airport arrival to hospital visits and scheduled appointments, local transportation is thoughtfully coordinated for comfort and convenience throughout the stay.",
+  image: "/taxi.jpg",
+},
+{
+  icon: HeartPulse,
+  title: "Post-Treatment Follow-Up Coordination",
+  description:
+    "Continuity beyond treatment is supported by facilitating follow-up communication with the treating medical team after the patient returns home.",
+  image: "/followupcare.jpg",
+},
+{
+  icon: Activity,
+  title: "Rehabilitation & Wellness Coordination",
+  description:
+    "Access to appropriate rehabilitation and wellness support is coordinated where required, complementing recovery beyond the primary course of treatment.",
+  image: "/wellness.jpg",
+},
+{
+  icon: Languages,
+  title: "Language & Interpreter Assistance",
+  description:
+    "Professional language assistance can be arranged to enable clear, confident communication throughout consultations and the wider medical journey.",
+  image: "/translation.JPG",
+},
 ];
 
 /* ------------------ HERO BANNER ------------------ */
@@ -148,7 +148,7 @@ const ServicesPage = () => {
       <Header />
 
       <div className="pt-20">
-        <HeroBanner title="Our Services" />
+        <HeroBanner title="The Norma Luna Experience" />
       </div>
 
       <section className="py-20 px-4 md:px-8">
