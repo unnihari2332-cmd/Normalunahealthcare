@@ -62,7 +62,7 @@ const stats: StatItem[] = [
     suffix: "+",
     label: "Qualified Doctors",
     text:
-      "Access a trusted network of 150+ highly qualified specialists across multiple medical and surgical disciplines, carefully matched to your treatment needs through our partner hospitals.",
+      "Access a trusted network of 300+ highly qualified specialists across multiple medical and surgical disciplines, carefully matched to your treatment needs through our partner hospitals.",
   },
 ];
 
