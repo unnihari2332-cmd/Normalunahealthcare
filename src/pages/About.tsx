@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StatsSection } from "@/components/StatsSection";
-import { FounderSection } from "@/components/sections/FounderSection";
+import { FounderSection } from "@/components/FounderSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Quote, 
