@@ -164,11 +164,20 @@ const AboutSection = () => {
               </h3>
             </div>
 
-            <div className="space-y-4 text-gray-600 leading-relaxed text-lg mb-8">
-              {tabContent.about.text.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-              ))}
-            </div>
+<div className="space-y-4 text-gray-600 leading-relaxed text-lg mb-8">
+  {tabContent.about.text.map((paragraph, idx) => (
+    <p
+      key={idx}
+      className={
+        idx === tabContent.about.text.length - 1
+          ? "font-bold text-xl text-[#0B3A66]"
+          : ""
+      }
+    >
+      {paragraph}
+    </p>
+  ))}
+</div>
 
             <div className="space-y-3 mt-6">
               {tabContent.about.features.map((feature, i) => (
