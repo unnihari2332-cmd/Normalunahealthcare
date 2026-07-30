@@ -3,30 +3,34 @@ import { Quote } from "lucide-react";
 
 export const FounderSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="relative overflow-hidden bg-white py-16 lg:py-20">
       {/* Background Decoration */}
-      <div className="absolute -left-40 top-0 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-blue-100/40 blur-3xl" />
+      <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-blue-100/50 blur-3xl" />
 
-      <div className="container relative mx-auto max-w-5xl px-6">
+      <div className="container relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
+          className="max-w-5xl"
         >
           {/* Section Label */}
+
           <span className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
             Leadership
           </span>
 
           {/* Heading */}
-          <h2 className="mt-5 text-4xl font-bold leading-tight text-slate-900 md:text-5xl">
+
+          <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-900 md:text-5xl lg:text-6xl">
             A Vision That Inspires Trust
           </h2>
 
           {/* Founder */}
-          <div className="mt-10 border-l-4 border-primary pl-6">
+
+          <div className="mt-8 border-l-4 border-primary pl-6">
             <h3 className="text-3xl font-bold text-slate-900">
               Niveditha Latha
             </h3>
@@ -36,8 +40,9 @@ export const FounderSection = () => {
             </p>
           </div>
 
-          {/* Main Content */}
-          <div className="mt-12 space-y-8 text-lg leading-9 text-slate-600">
+          {/* Story */}
+
+          <div className="mt-10 space-y-8 text-lg leading-9 text-slate-600">
             <p>
               Founded by Niveditha Latha, Norma Luna Healthcare was established
               with a singular vision—to make world-class healthcare in India
@@ -58,18 +63,25 @@ export const FounderSection = () => {
               Through ethical partnerships, personalised coordination, and
               access to internationally accredited hospitals and distinguished
               medical specialists, she continues to shape Norma Luna Healthcare
-              as a trusted bridge between international patients and exceptional
-              medical expertise in India.
+              as a trusted bridge between international patients and
+              exceptional medical expertise in India.
             </p>
           </div>
 
-          {/* Founder Note */}
-          <div className="mt-20 rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-12">
-            <Quote className="mb-6 h-10 w-10 text-primary" />
+          {/* Divider */}
 
-            <h3 className="text-2xl font-semibold text-slate-900">
-              A Note from the Founder
-            </h3>
+          <div className="my-12 h-px w-full bg-slate-200" />
+
+          {/* Founder Note */}
+
+          <div>
+            <div className="flex items-center gap-3">
+              <Quote className="h-8 w-8 text-primary" />
+
+              <h3 className="text-2xl font-semibold text-slate-900">
+                A Note from the Founder
+              </h3>
+            </div>
 
             <div className="mt-8 space-y-6 text-lg leading-9 text-slate-600">
               <p>
@@ -85,20 +97,22 @@ export const FounderSection = () => {
                 navigating the journey alone.
               </p>
             </div>
+          </div>
 
-            <div className="mt-10 border-t border-slate-200 pt-8">
-              <h4 className="text-2xl font-bold text-slate-900">
-                Niveditha Latha
-              </h4>
+          {/* Signature */}
 
-              <p className="mt-2 text-lg text-slate-600">
-                Founder &amp; Managing Partner
-              </p>
+          <div className="mt-10 border-t border-slate-200 pt-8">
+            <h4 className="text-2xl font-bold text-slate-900">
+              Niveditha Latha
+            </h4>
 
-              <p className="mt-1 text-lg font-semibold text-primary">
-                Norma Luna Healthcare
-              </p>
-            </div>
+            <p className="mt-2 text-lg text-slate-600">
+              Founder &amp; Managing Partner
+            </p>
+
+            <p className="mt-1 text-lg font-semibold text-primary">
+              Norma Luna Healthcare
+            </p>
           </div>
         </motion.div>
       </div>
