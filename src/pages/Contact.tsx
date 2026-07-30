@@ -95,7 +95,7 @@ const ContactPage = () => {
               method="POST" 
               className="space-y-6"
             >
-              <input type="hidden" name="_subject" value="New Submission from Website Contact Form" />
+              <input type="hidden" name="_subject" value="New Appointment Submission from Website" />
               <input type="hidden" name="_captcha" value="false" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -103,6 +103,22 @@ const ContactPage = () => {
                   type="text"
                   name="fullName"
                   placeholder="*Full Name"
+                  required
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Address"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="*Phone Number"
                   required
                   className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
                 />
@@ -117,25 +133,29 @@ const ContactPage = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
-                  type="tel"
-                  name="phone"
-                  placeholder="*Phone Number"
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
-                />
-                <input
                   type="text"
                   name="country"
                   placeholder="Country"
                   className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
                 />
-              </div>
-
-              <div className="grid grid-cols-1 gap-6">
-                <select 
-                  name="serviceNeeded"
+                <select
+                  name="gender"
+                  required
                   className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500"
                 >
-                  <option value="" disabled selected>What are your needs?</option>
+                  <option value="" disabled selected>*Choose gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <select 
+                  name="treatment"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500"
+                >
+                  <option value="" disabled selected>Select Treatment</option>
                   <option value="General Checkup">General Checkup</option>
                   <option value="Cardiology">Cardiology</option>
                   <option value="Oncology">Oncology</option>
@@ -151,23 +171,41 @@ const ContactPage = () => {
                   <option value="Urology">Urology</option>
                   <option value="Psychiatry">Psychiatry</option>
                   <option value="Physiotherapy">Physiotherapy</option>
-                 
                 </select>
+                <input
+                  type="date"
+                  name="dob"
+                  required
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500"
+                  title="Date of Birth"
+                />
               </div>
 
               <textarea
                 name="message"
-                rows={8}
-                placeholder="Message..."
-                required
+                rows={6}
+                placeholder="Note If Any..."
                 className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 resize-none"
               ></textarea>
+
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  name="acceptTerms"
+                  required
+                  className="w-4 h-4 rounded border-gray-300"
+                />
+                <label htmlFor="terms" className="text-sm text-gray-500 cursor-pointer">
+                  Accept the Terms and Privacy Policy
+                </label>
+              </div>
 
               <button
                 type="submit"
                 className="bg-[#1B2A49] text-white px-10 py-4 rounded-full text-base font-medium hover:bg-blue-900 transition-colors flex items-center space-x-2"
               >
-                <span>Submit Request</span>
+                <span>Submit Appointment</span>
                 <ChevronRight className="w-5 h-5" />
               </button>
             </form>
