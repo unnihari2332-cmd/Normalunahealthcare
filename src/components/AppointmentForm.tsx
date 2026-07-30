@@ -37,7 +37,7 @@ export const AppointmentForm = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-2">
-              Online Appointment
+              Write Your Concern
             </h2>
             <p className="text-muted-foreground mb-8">
               Take care of your health and that of your family today!
@@ -123,21 +123,9 @@ export const AppointmentForm = () => {
               </div>
 
               <div>
-                <label className="text-sm font-medium mb-2 block">Note If Any</label>
+                <label className="text-sm font-medium mb-2 block">Message</label>
                 <Textarea placeholder="Write content..." className="rounded-lg min-h-[100px]" />
               </div>
-
-              <div className="flex items-center gap-2">
-                <Checkbox
-                  id="terms"
-                  checked={acceptTerms}
-                  onCheckedChange={(checked) => setAcceptTerms(checked as boolean)}
-                />
-                <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
-                  Accept the Terms and Privacy Policy
-                </label>
-              </div>
-
               <Button
                 type="submit"
                 className="bg-navy hover:bg-primary text-navy-foreground rounded-full px-8 group"
