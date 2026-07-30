@@ -122,14 +122,36 @@ const ContactPage = () => {
                   placeholder="*Phone Number"
                   className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
                 />
+                <input
+                  type="text"
+                  name="country"
+                  placeholder="Country"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 gap-6">
                 <select 
                   name="serviceNeeded"
                   className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500"
                 >
                   <option value="" disabled selected>What are your needs?</option>
-                  <option value="Appointment">Appointment</option>
-                  <option value="Consultation">Consultation</option>
-                  <option value="Inquiry">Inquiry</option>
+                  <option value="General Checkup">General Checkup</option>
+                  <option value="Cardiology">Cardiology</option>
+                  <option value="Oncology">Oncology</option>
+                  <option value="Orthopedics">Orthopedics</option>
+                  <option value="Dental">Dental</option>
+                  <option value="Neurology">Neurology</option>
+                  <option value="Dermatology">Dermatology</option>
+                  <option value="Pediatrics">Pediatrics</option>
+                  <option value="Gynecology">Gynecology</option>
+                  <option value="ENT">ENT</option>
+                  <option value="Ophthalmology">Ophthalmology</option>
+                  <option value="Gastroenterology">Gastroenterology</option>
+                  <option value="Urology">Urology</option>
+                  <option value="Psychiatry">Psychiatry</option>
+                  <option value="Physiotherapy">Physiotherapy</option>
+                 
                 </select>
               </div>
 
