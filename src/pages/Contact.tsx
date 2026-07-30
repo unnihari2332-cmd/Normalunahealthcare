@@ -165,7 +165,7 @@ const ContactPage = () => {
           {/* RIGHT - FORM */}
           <div className="bg-white rounded-lg">
             <form
-              action="https://formsubmit.co/your@email.com"
+              action="https://formsubmit.co/info@normalunahealthcare.com"
               method="POST"
               className="space-y-6"
             >
@@ -235,7 +235,6 @@ const ContactPage = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
                 {/* Fixed Shadcn Select implementation */}
                 <Select name="treatment" defaultValue="">
                   <SelectTrigger className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49] h-[58px]">
