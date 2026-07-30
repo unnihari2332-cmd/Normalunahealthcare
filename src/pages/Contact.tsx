@@ -56,7 +56,6 @@ const ContactPage = () => {
       {/* CONTACT SECTION */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-
           {/* LEFT */}
           <div className="space-y-10">
             <div>
@@ -71,7 +70,6 @@ const ContactPage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
-
               {/* Address */}
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
@@ -161,7 +159,6 @@ const ContactPage = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -231,90 +228,68 @@ const ContactPage = () => {
                   <option value="" disabled>
                     *Choose Gender
                   </option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <Select name="treatment">
-    <SelectTrigger className="w-full h-[58px] rounded-lg border border-gray-200 bg-gray-50/50">
-      <SelectValue placeholder="Select Treatment" />
-    </SelectTrigger>
+                
+                {/* Fixed Shadcn Select implementation */}
+                <Select name="treatment" defaultValue="">
+                  <SelectTrigger className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49] h-[58px]">
+                    <SelectValue placeholder="Select Treatment" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="general">General Checkup</SelectItem>
+                    <SelectItem value="ivf-gynaecology">IVF & Gynaecology</SelectItem>
+                    <SelectItem value="gastroenterology">Gastroenterology</SelectItem>
+                    <SelectItem value="oncology">Oncology</SelectItem>
+                    <SelectItem value="transplants">Transplants</SelectItem>
+                    <SelectItem value="cardiology">Cardiology</SelectItem>
+                    <SelectItem value="neurology">Neurology</SelectItem>
+                    <SelectItem value="orthopaedics">Orthopaedics</SelectItem>
+                    <SelectItem value="dental-care">Dental Care</SelectItem>
+                    <SelectItem value="gender-reassignment-surgery">
+                      Gender Reassignment Surgery
+                    </SelectItem>
+                    <SelectItem value="bariatrics">Bariatrics</SelectItem>
+                    <SelectItem value="aesthetic-surgery">Aesthetic Surgery</SelectItem>
+                    <SelectItem value="ophthalmology">Ophthalmology</SelectItem>
+                    <SelectItem value="nephrology">Nephrology</SelectItem>
+                    <SelectItem value="urology">Urology</SelectItem>
+                    <SelectItem value="andrology">Andrology</SelectItem>
+                    <SelectItem value="colorectal-surgery">Colorectal Surgery</SelectItem>
+                  </SelectContent>
+                </Select>
 
-    <SelectContent>
+                <input
+                  type="date"
+                  name="dob"
+                  required
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49]"
+                />
+              </div>
 
-      <SelectItem value="general">
-        General Checkup
-      </SelectItem>
+              <textarea
+                name="message"
+                rows={6}
+                placeholder="Note If Any..."
+                className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 resize-none focus:outline-none focus:border-[#1B2A49]"
+              />
 
-      <SelectItem value="ivf-gynaecology">
-        IVF & Gynaecology
-      </SelectItem>
-
-      <SelectItem value="gastroenterology">
-        Gastroenterology
-      </SelectItem>
-
-      <SelectItem value="oncology">
-        Oncology
-      </SelectItem>
-
-      <SelectItem value="transplants">
-        Transplants
-      </SelectItem>
-
-      <SelectItem value="cardiology">
-        Cardiology
-      </SelectItem>
-
-      <SelectItem value="neurology">
-        Neurology
-      </SelectItem>
-
-      <SelectItem value="orthopaedics">
-        Orthopaedics
-      </SelectItem>
-
-      <SelectItem value="dental-care">
-        Dental Care
-      </SelectItem>
-
-      <SelectItem value="gender-reassignment-surgery">
-        Gender Reassignment Surgery
-      </SelectItem>
-
-      <SelectItem value="bariatrics">
-        Bariatrics
-      </SelectItem>
-
-      <SelectItem value="aesthetic-surgery">
-        Aesthetic Surgery
-      </SelectItem>
-
-      <SelectItem value="ophthalmology">
-        Ophthalmology
-      </SelectItem>
-
-      <SelectItem value="nephrology">
-        Nephrology
-      </SelectItem>
-
-      <SelectItem value="urology">
-        Urology
-      </SelectItem>
-
-      <SelectItem value="andrology">
-        Andrology
-      </SelectItem>
-
-      <SelectItem value="colorectal-surgery">
-        Colorectal Surgery
-      </SelectItem>
-
-    </SelectContent>
-  </Select>
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 bg-[#1B2A49] text-white px-10 py-4 rounded-full hover:bg-blue-900 transition-colors"
+              >
+                <span>Submit Appointment</span>
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
