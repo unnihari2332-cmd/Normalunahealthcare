@@ -188,18 +188,6 @@ const ContactPage = () => {
                 className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 resize-none"
               ></textarea>
 
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="terms"
-                  name="acceptTerms"
-                  required
-                  className="w-4 h-4 rounded border-gray-300"
-                />
-                <label htmlFor="terms" className="text-sm text-gray-500 cursor-pointer">
-                  Accept the Terms and Privacy Policy
-                </label>
-              </div>
 
               <button
                 type="submit"
