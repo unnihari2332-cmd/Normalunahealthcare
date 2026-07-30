@@ -43,37 +43,45 @@ export const AppointmentForm = () => {
               Take care of your health and that of your family today!
             </p>
 
-            <form className="space-y-6">
+            <form
+              action="https://formsubmit.co/info@normalunahealthcare.com"
+              method="POST"
+              className="space-y-6"
+            >
+              {/* FormSubmit Configuration Settings */}
+              <input type="hidden" name="_subject" value="New Concern/Appointment Submission" />
+              <input type="hidden" name="_captcha" value="false" />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">Name*</label>
-                  <Input placeholder="Full Name..." className="rounded-lg" />
+                  <Input name="fullName" placeholder="Full Name..." className="rounded-lg" required />
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Address</label>
-                  <Input placeholder="Your Address..." className="rounded-lg" />
+                  <Input name="address" placeholder="Your Address..." className="rounded-lg" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">Phone*</label>
-                  <Input placeholder="Phone Number..." className="rounded-lg" />
+                  <Input name="phone" placeholder="Phone Number..." className="rounded-lg" required />
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Email*</label>
-                  <Input placeholder="Email address..." type="email" className="rounded-lg" />
+                  <Input name="email" placeholder="Email address..." type="email" className="rounded-lg" required />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">Country</label>
-                  <Input placeholder="Your Country..." className="rounded-lg" />
+                  <Input name="country" placeholder="Your Country..." className="rounded-lg" />
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Select Gender*</label>
-                  <Select>
+                  <Select name="gender" required>
                     <SelectTrigger className="rounded-lg">
                       <SelectValue placeholder="Choose gender" />
                     </SelectTrigger>
@@ -89,76 +97,77 @@ export const AppointmentForm = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">Treatment</label>
-                  <Select name="Treatment">
-        <SelectTrigger className="rounded-lg">
-          <SelectValue placeholder="Select Treatment" />
-        </SelectTrigger>
+                  <Select name="treatment">
+                    <SelectTrigger className="rounded-lg">
+                      <SelectValue placeholder="Select Treatment" />
+                    </SelectTrigger>
 
-        <SelectContent>
-          <SelectItem value="General Checkup">
-            General Checkup
-          </SelectItem>
-          <SelectItem value="IVF & Gynaecology">
-            IVF & Gynaecology
-          </SelectItem>
-          <SelectItem value="Gastroenterology">
-            Gastroenterology
-          </SelectItem>
-          <SelectItem value="Oncology">
-            Oncology
-          </SelectItem>
-          <SelectItem value="Transplants">
-            Transplants
-          </SelectItem>
-          <SelectItem value="Cardiology">
-            Cardiology
-          </SelectItem>
-          <SelectItem value="Neurology">
-            Neurology
-          </SelectItem>
-          <SelectItem value="Orthopaedics">
-            Orthopaedics
-          </SelectItem>
-          <SelectItem value="Dental Care">
-            Dental Care
-          </SelectItem>
-          <SelectItem value="Gender Reassignment Surgery">
-            Gender Reassignment Surgery
-          </SelectItem>
-          <SelectItem value="Bariatrics">
-            Bariatrics
-          </SelectItem>
-          <SelectItem value="Aesthetic Surgery">
-            Aesthetic Surgery
-          </SelectItem>
-          <SelectItem value="Ophthalmology">
-            Ophthalmology
-          </SelectItem>
-          <SelectItem value="Nephrology">
-            Nephrology
-          </SelectItem>
-          <SelectItem value="Urology">
-            Urology
-          </SelectItem>
-          <SelectItem value="Andrology">
-            Andrology
-          </SelectItem>
-          <SelectItem value="Colorectal Surgery">
-            Colorectal Surgery
-          </SelectItem>
-        </SelectContent>
-      </Select>
+                    <SelectContent>
+                      <SelectItem value="General Checkup">
+                        General Checkup
+                      </SelectItem>
+                      <SelectItem value="IVF & Gynaecology">
+                        IVF & Gynaecology
+                      </SelectItem>
+                      <SelectItem value="Gastroenterology">
+                        Gastroenterology
+                      </SelectItem>
+                      <SelectItem value="Oncology">
+                        Oncology
+                      </SelectItem>
+                      <SelectItem value="Transplants">
+                        Transplants
+                      </SelectItem>
+                      <SelectItem value="Cardiology">
+                        Cardiology
+                      </SelectItem>
+                      <SelectItem value="Neurology">
+                        Neurology
+                      </SelectItem>
+                      <SelectItem value="Orthopaedics">
+                        Orthopaedics
+                      </SelectItem>
+                      <SelectItem value="Dental Care">
+                        Dental Care
+                      </SelectItem>
+                      <SelectItem value="Gender Reassignment Surgery">
+                        Gender Reassignment Surgery
+                      </SelectItem>
+                      <SelectItem value="Bariatrics">
+                        Bariatrics
+                      </SelectItem>
+                      <SelectItem value="Aesthetic Surgery">
+                        Aesthetic Surgery
+                      </SelectItem>
+                      <SelectItem value="Ophthalmology">
+                        Ophthalmology
+                      </SelectItem>
+                      <SelectItem value="Nephrology">
+                        Nephrology
+                      </SelectItem>
+                      <SelectItem value="Urology">
+                        Urology
+                      </SelectItem>
+                      <SelectItem value="Andrology">
+                        Andrology
+                      </SelectItem>
+                      <SelectItem value="Colorectal Surgery">
+                        Colorectal Surgery
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Date of Birth*</label>
-                  <Input type="date" className="rounded-lg" />
+                  <Input name="dob" type="date" className="rounded-lg" required />
                 </div>
               </div>
 
               <div>
                 <label className="text-sm font-medium mb-2 block">Message</label>
-                <Textarea placeholder="Write content..." className="rounded-lg min-h-[100px]" />
+                <Textarea name="message" placeholder="Write content..." className="rounded-lg min-h-[100px]" />
               </div>
+              
               <Button
                 type="submit"
                 className="bg-navy hover:bg-primary text-navy-foreground rounded-full px-8 group"
