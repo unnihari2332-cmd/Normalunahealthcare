@@ -3,29 +3,30 @@ import { Quote, Heart } from "lucide-react";
 
 export const FounderSection = () => {
   return (
-    <section className="relative overflow-hidden py-16 lg:py-24">
-      {/* Premium Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-50" />
-      
-      {/* Animated Decorative Elements */}
+    <section 
+      className="relative overflow-hidden py-16 lg:py-24 bg-white"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(147, 197, 253, 0.08) 0%, transparent 50%),
+          url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+        `,
+        backgroundSize: '60px 60px, auto, auto',
+        backgroundPosition: 'center, center, center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Animated Floating Elements */}
       <motion.div
-        animate={{ float: [0, 20, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
-        className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-gradient-to-br from-primary/10 to-blue-200/10 blur-3xl"
+        animate={{ float: [0, 25, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -left-40 top-10 h-72 w-72 rounded-full bg-blue-100 opacity-20 blur-3xl"
       />
       <motion.div
-        animate={{ float: [0, -20, 0] }}
-        transition={{ duration: 8, repeat: Infinity, delay: 1 }}
-        className="absolute -right-32 top-1/3 h-72 w-72 rounded-full bg-gradient-to-br from-emerald-100/20 to-primary/5 blur-3xl"
+        animate={{ float: [0, -25, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute -right-40 bottom-20 h-80 w-80 rounded-full bg-blue-200 opacity-15 blur-3xl"
       />
-      <motion.div
-        animate={{ float: [0, 15, 0] }}
-        transition={{ duration: 7, repeat: Infinity, delay: 2 }}
-        className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-gradient-to-t from-blue-100/15 to-transparent blur-3xl"
-      />
-
-      {/* Grid Pattern Accent */}
-      <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(45deg,#000_1px,transparent_1px)] bg-[length:40px_40px]" />
 
       <div className="container relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
         <motion.div
@@ -37,8 +38,8 @@ export const FounderSection = () => {
         >
           {/* Section Label with Icon */}
           <div className="flex items-center gap-2">
-            <Heart className="h-5 w-5 text-primary" />
-            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+            <Heart className="h-5 w-5 text-blue-600" />
+            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">
               Leadership
             </span>
           </div>
@@ -48,18 +49,18 @@ export const FounderSection = () => {
             A Vision That Inspires Trust
           </h2>
 
-          {/* Founder Card */}
+          {/* Founder Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-10 rounded-xl border border-primary/10 bg-gradient-to-br from-white to-blue-50/30 p-8 backdrop-blur-sm"
+            className="mt-10 border-l-4 border-blue-600 pl-6"
           >
             <h3 className="text-3xl font-bold text-slate-900">
               Niveditha Latha
             </h3>
-            <p className="mt-3 text-lg font-medium text-primary">
+            <p className="mt-3 text-lg font-medium text-blue-600">
               Founder &amp; Managing Partner | Norma Luna Healthcare
             </p>
           </motion.div>
@@ -106,18 +107,16 @@ export const FounderSection = () => {
             </motion.p>
           </div>
 
-          {/* Founder Note - Highlighted Block */}
+          {/* Founder Note */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-12 rounded-2xl border-l-4 border-primary bg-gradient-to-br from-primary/5 to-blue-50 p-8"
+            className="mt-12 border-l-4 border-blue-600 pl-6"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="rounded-full bg-primary/10 p-3">
-                <Quote className="h-6 w-6 text-primary" />
-              </div>
+              <Quote className="h-8 w-8 text-blue-600" />
               <h3 className="text-2xl font-semibold text-slate-900">
                 A Note from the Founder
               </h3>
@@ -153,7 +152,7 @@ export const FounderSection = () => {
             <p className="mt-2 text-lg text-slate-600">
               Founder &amp; Managing Partner
             </p>
-            <p className="mt-1 text-lg font-semibold text-primary">
+            <p className="mt-1 text-lg font-semibold text-blue-600">
               Norma Luna Healthcare
             </p>
           </motion.div>
