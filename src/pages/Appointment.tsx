@@ -10,7 +10,7 @@ const AppointmentPage = () => {
       <Header />
 
       <div className="pt-20">
-        <HeroBanner title="Make Appointment" />
+        <HeroBanner title="Book Appointment" />
       </div>
 
       <AppointmentForm />
