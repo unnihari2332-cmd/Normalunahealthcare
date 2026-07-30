@@ -96,6 +96,46 @@ export const specialities: Speciality[] = [
     ]
   },
   {
+    id: "cardiology-cardiac-care",
+    title: "Cardiology & Cardiac Care",
+    description: "For international patients seeking sophisticated cardiac evaluation or intervention, Norma Luna Healthcare facilitates access to experienced cardiologists, interventional cardiologists, and cardiac surgeons across leading accredited hospitals in India.",
+    image: "/cardiology.jpg",
+    fullDescription: "For international patients seeking sophisticated cardiac evaluation or intervention, Norma Luna Healthcare facilitates access to experienced cardiologists, interventional cardiologists, and cardiac surgeons across leading accredited hospitals in India. From complex diagnostic assessment and second opinions to catheter-based interventions and major cardiac surgery, patients can be connected with the appropriate expertise according to their medical requirements. Clinical records and cardiac investigations can be reviewed before travel, while proposed treatment plans, hospital estimates, scheduling, accommodation, transportation, and recovery logistics are carefully coordinated around the patient.",
+    treatments: [
+      "Comprehensive cardiac evaluation and second opinions",
+      "Coronary angiography",
+      "Coronary angioplasty and stenting",
+      "Coronary artery bypass grafting (CABG)",
+      "Heart valve repair and replacement",
+      "Minimally invasive cardiac surgery",
+      "Structural heart interventions",
+      "TAVR/TAVI evaluation and procedures",
+      "Electrophysiology studies",
+      "Cardiac ablation",
+      "Pacemaker and selected cardiac device procedures",
+      "Complex cardiac surgery"
+    ]
+  },
+  {
+    id: "neurology",
+    title: "Neurology",
+    description: "Complex neurological conditions often require highly focused expertise and sophisticated diagnostic capabilities.",
+    image: "/neurology.jpg",
+    fullDescription: "Complex neurological conditions often require highly focused expertise and sophisticated diagnostic capabilities. Norma Luna Healthcare facilitates access to experienced neurologists and multidisciplinary neuroscience programmes within accredited Indian healthcare institutions, enabling international patients to seek specialist opinions, further evaluation, and appropriate treatment pathways. Existing imaging, investigations, and medical histories can be coordinated for review before travel, followed by carefully arranged consultations, diagnostics, treatment scheduling, and medical travel support.",
+    treatments: [
+      "Complex neurological evaluation and second opinions",
+      "Epilepsy evaluation and management",
+      "Movement disorder evaluation",
+      "Parkinson's disease specialist consultation",
+      "Multiple sclerosis evaluation",
+      "Neuromuscular disorder assessment",
+      "Peripheral nerve disorders",
+      "Headache and migraine evaluation",
+      "Stroke-related neurological evaluation and rehabilitation planning",
+      "Advanced neurological diagnostics"
+    ]
+  },
+  {
     id: "orthopaedics",
     title: "Orthopaedics",
     description: "Norma Luna Healthcare opens access to leading orthopaedic expertise in India for international patients seeking solutions for joint, bone, spine, sports-related, and complex musculoskeletal conditions.",
@@ -136,6 +176,29 @@ export const specialities: Speciality[] = [
       "Orthognathic surgery",
       "Bone grafting and sinus lift procedures",
       "Complex restorative dentistry"
+    ]
+  },
+  {
+    id: "gender-reassignment-surgery",
+    title: "Gender Reassignment Surgery",
+    description: "Norma Luna Healthcare facilitates discreet access to experienced specialists and multidisciplinary teams in India for individuals considering gender-affirming surgical procedures.",
+    image: "/GRS-jpg.webp",
+    fullDescription: "Norma Luna Healthcare facilitates discreet access to experienced specialists and multidisciplinary teams in India for individuals considering gender-affirming surgical procedures. Through accredited healthcare institutions, patients can be connected with appropriate surgical expertise for confidential consultation, clinical evaluation, and personalised treatment planning based on their individual requirements. Given the deeply personal nature of this journey, particular emphasis is placed on privacy, sensitivity, and thoughtful coordination—from preliminary medical consultations and proposed treatment pathways to travel, accommodation, local assistance, and post-treatment follow-up with the treating institution.",
+    treatments: [
+      "Male-to-female (MTF) gender-affirming surgery",
+      "Female-to-male (FTM) gender-affirming surgery",
+      "Vaginoplasty",
+      "Phalloplasty",
+      "Metoidioplasty",
+      "Chest masculinisation surgery",
+      "Breast augmentation",
+      "Facial feminisation procedures",
+      "Voice-related surgical procedures",
+      "Body contouring and gender-affirming aesthetic procedures",
+      "Genital reconstructive procedures",
+      "Revision gender-affirming surgery",
+      "Hormone Therapy & Endocrinological Care",
+      "Multidisciplinary pre- and post-operative gender-affirming care"
     ]
   },
   {
@@ -235,45 +298,6 @@ export const specialities: Speciality[] = [
     ]
   },
   {
-    id: "colorectal-surgery",
-    title: "Colorectal Surgery",
-    description: "Norma Luna Healthcare facilitates access to highly focused colorectal expertise for international patients requiring evaluation or surgical treatment for conditions affecting the colon, rectum, and anorectal region.",
-    image: "/colorectalsurgery.jpg",
-    fullDescription: "Norma Luna Healthcare facilitates access to highly focused colorectal expertise for international patients requiring evaluation or surgical treatment for conditions affecting the colon, rectum, and anorectal region. Through accredited hospitals in India, patients can be connected with surgeons experienced in minimally invasive, laparoscopic, robotic, and complex colorectal procedures. Preliminary case review, specialist consultations, proposed surgical strategies, hospital estimates, expected recovery periods, and travel requirements can be coordinated before arrival to create a clear and carefully structured treatment journey.",
-    treatments: [
-      "Colorectal cancer surgery",
-      "Laparoscopic colorectal surgery",
-      "Robotic colorectal surgery",
-      "Rectal surgery",
-      "Diverticular disease surgery",
-      "Inflammatory bowel disease surgery",
-      "Complex anal fistula treatment",
-      "Haemorrhoid procedures",
-      "Pilonidal disease surgery",
-      "Colorectal reconstruction",
-      "Selected complex bowel procedures"
-    ]
-  },
-  {
-    id: "neurology",
-    title: "Neurology",
-    description: "Complex neurological conditions often require highly focused expertise and sophisticated diagnostic capabilities.",
-    image: "/neurology.jpg",
-    fullDescription: "Complex neurological conditions often require highly focused expertise and sophisticated diagnostic capabilities. Norma Luna Healthcare facilitates access to experienced neurologists and multidisciplinary neuroscience programmes within accredited Indian healthcare institutions, enabling international patients to seek specialist opinions, further evaluation, and appropriate treatment pathways. Existing imaging, investigations, and medical histories can be coordinated for review before travel, followed by carefully arranged consultations, diagnostics, treatment scheduling, and medical travel support.",
-    treatments: [
-      "Complex neurological evaluation and second opinions",
-      "Epilepsy evaluation and management",
-      "Movement disorder evaluation",
-      "Parkinson's disease specialist consultation",
-      "Multiple sclerosis evaluation",
-      "Neuromuscular disorder assessment",
-      "Peripheral nerve disorders",
-      "Headache and migraine evaluation",
-      "Stroke-related neurological evaluation and rehabilitation planning",
-      "Advanced neurological diagnostics"
-    ]
-  },
-  {
     id: "andrology",
     title: "Andrology",
     description: "Norma Luna Healthcare provides a discreet pathway to specialist expertise in male reproductive and sexual health through established andrology, urology, and reproductive medicine programmes in India.",
@@ -293,47 +317,23 @@ export const specialities: Speciality[] = [
     ]
   },
   {
-    id: "cardiology-cardiac-care",
-    title: "Cardiology & Cardiac Care",
-    description: "For international patients seeking sophisticated cardiac evaluation or intervention, Norma Luna Healthcare facilitates access to experienced cardiologists, interventional cardiologists, and cardiac surgeons across leading accredited hospitals in India.",
-    image: "/cardiology.jpg",
-    fullDescription: "For international patients seeking sophisticated cardiac evaluation or intervention, Norma Luna Healthcare facilitates access to experienced cardiologists, interventional cardiologists, and cardiac surgeons across leading accredited hospitals in India. From complex diagnostic assessment and second opinions to catheter-based interventions and major cardiac surgery, patients can be connected with the appropriate expertise according to their medical requirements. Clinical records and cardiac investigations can be reviewed before travel, while proposed treatment plans, hospital estimates, scheduling, accommodation, transportation, and recovery logistics are carefully coordinated around the patient.",
+    id: "colorectal-surgery",
+    title: "Colorectal Surgery",
+    description: "Norma Luna Healthcare facilitates access to highly focused colorectal expertise for international patients requiring evaluation or surgical treatment for conditions affecting the colon, rectum, and anorectal region.",
+    image: "/colorectalsurgery.jpg",
+    fullDescription: "Norma Luna Healthcare facilitates access to highly focused colorectal expertise for international patients requiring evaluation or surgical treatment for conditions affecting the colon, rectum, and anorectal region. Through accredited hospitals in India, patients can be connected with surgeons experienced in minimally invasive, laparoscopic, robotic, and complex colorectal procedures. Preliminary case review, specialist consultations, proposed surgical strategies, hospital estimates, expected recovery periods, and travel requirements can be coordinated before arrival to create a clear and carefully structured treatment journey.",
     treatments: [
-      "Comprehensive cardiac evaluation and second opinions",
-      "Coronary angiography",
-      "Coronary angioplasty and stenting",
-      "Coronary artery bypass grafting (CABG)",
-      "Heart valve repair and replacement",
-      "Minimally invasive cardiac surgery",
-      "Structural heart interventions",
-      "TAVR/TAVI evaluation and procedures",
-      "Electrophysiology studies",
-      "Cardiac ablation",
-      "Pacemaker and selected cardiac device procedures",
-      "Complex cardiac surgery"
-    ]
-  },
-  {
-    id: "gender-reassignment-surgery",
-    title: "Gender Reassignment Surgery",
-    description: "Norma Luna Healthcare facilitates discreet access to experienced specialists and multidisciplinary teams in India for individuals considering gender-affirming surgical procedures.",
-    image: "/GRS-jpg.webp",
-    fullDescription: "Norma Luna Healthcare facilitates discreet access to experienced specialists and multidisciplinary teams in India for individuals considering gender-affirming surgical procedures. Through accredited healthcare institutions, patients can be connected with appropriate surgical expertise for confidential consultation, clinical evaluation, and personalised treatment planning based on their individual requirements. Given the deeply personal nature of this journey, particular emphasis is placed on privacy, sensitivity, and thoughtful coordination—from preliminary medical consultations and proposed treatment pathways to travel, accommodation, local assistance, and post-treatment follow-up with the treating institution.",
-    treatments: [
-      "Male-to-female (MTF) gender-affirming surgery",
-      "Female-to-male (FTM) gender-affirming surgery",
-      "Vaginoplasty",
-      "Phalloplasty",
-      "Metoidioplasty",
-      "Chest masculinisation surgery",
-      "Breast augmentation",
-      "Facial feminisation procedures",
-      "Voice-related surgical procedures",
-      "Body contouring and gender-affirming aesthetic procedures",
-      "Genital reconstructive procedures",
-      "Revision gender-affirming surgery",
-      "Hormone Therapy & Endocrinological Care",
-      "Multidisciplinary pre- and post-operative gender-affirming care"
+      "Colorectal cancer surgery",
+      "Laparoscopic colorectal surgery",
+      "Robotic colorectal surgery",
+      "Rectal surgery",
+      "Diverticular disease surgery",
+      "Inflammatory bowel disease surgery",
+      "Complex anal fistula treatment",
+      "Haemorrhoid procedures",
+      "Pilonidal disease surgery",
+      "Colorectal reconstruction",
+      "Selected complex bowel procedures"
     ]
   }
 ];
