@@ -238,64 +238,83 @@ const ContactPage = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <select
-                  name="treatment"
-                  defaultValue=""
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49]"
-                >
-                 <SelectTrigger className="rounded-lg">
-                      <SelectValue placeholder="Select Treatment" />
-                    </SelectTrigger>
-<SelectContent>
-  <SelectItem value="general">General Checkup</SelectItem>
-  <SelectItem value="ivf-gynaecology">IVF & Gynaecology</SelectItem>
-  <SelectItem value="gastroenterology">Gastroenterology</SelectItem>
-  <SelectItem value="oncology">Oncology</SelectItem>
-  <SelectItem value="transplants">Transplants</SelectItem>
-  <SelectItem value="cardiology">Cardiology</SelectItem>
-  <SelectItem value="neurology">Neurology</SelectItem>
-  <SelectItem value="orthopaedics">Orthopaedics</SelectItem>
-  <SelectItem value="dental-care">Dental Care</SelectItem>
-  <SelectItem value="gender-reassignment-surgery">
-    Gender Reassignment Surgery
-  </SelectItem>
-  <SelectItem value="bariatrics">Bariatrics</SelectItem>
-  <SelectItem value="aesthetic-surgery">Aesthetic Surgery</SelectItem>
-  <SelectItem value="ophthalmology">Ophthalmology</SelectItem>
-  <SelectItem value="nephrology">Nephrology</SelectItem>
-  <SelectItem value="urology">Urology</SelectItem>
-  <SelectItem value="andrology">Andrology</SelectItem>
-  <SelectItem value="colorectal-surgery">Colorectal Surgery</SelectItem>
-</SelectContent>
-                </select>
+                 <Select name="treatment">
+    <SelectTrigger className="w-full h-[58px] rounded-lg border border-gray-200 bg-gray-50/50">
+      <SelectValue placeholder="Select Treatment" />
+    </SelectTrigger>
 
-                <input
-                  type="date"
-                  name="dob"
-                  required
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49]"
-                />
-              </div>
+    <SelectContent>
 
-              <textarea
-                name="message"
-                rows={6}
-                placeholder="Note If Any..."
-                className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 resize-none focus:outline-none focus:border-[#1B2A49]"
-              />
+      <SelectItem value="general">
+        General Checkup
+      </SelectItem>
 
-              <button
-                type="submit"
-                className="inline-flex items-center gap-2 bg-[#1B2A49] text-white px-10 py-4 rounded-full hover:bg-blue-900 transition-colors"
-              >
-                <span>Submit Appointment</span>
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </form>
-          </div>
+      <SelectItem value="ivf-gynaecology">
+        IVF & Gynaecology
+      </SelectItem>
 
-        </div>
-      </section>
+      <SelectItem value="gastroenterology">
+        Gastroenterology
+      </SelectItem>
+
+      <SelectItem value="oncology">
+        Oncology
+      </SelectItem>
+
+      <SelectItem value="transplants">
+        Transplants
+      </SelectItem>
+
+      <SelectItem value="cardiology">
+        Cardiology
+      </SelectItem>
+
+      <SelectItem value="neurology">
+        Neurology
+      </SelectItem>
+
+      <SelectItem value="orthopaedics">
+        Orthopaedics
+      </SelectItem>
+
+      <SelectItem value="dental-care">
+        Dental Care
+      </SelectItem>
+
+      <SelectItem value="gender-reassignment-surgery">
+        Gender Reassignment Surgery
+      </SelectItem>
+
+      <SelectItem value="bariatrics">
+        Bariatrics
+      </SelectItem>
+
+      <SelectItem value="aesthetic-surgery">
+        Aesthetic Surgery
+      </SelectItem>
+
+      <SelectItem value="ophthalmology">
+        Ophthalmology
+      </SelectItem>
+
+      <SelectItem value="nephrology">
+        Nephrology
+      </SelectItem>
+
+      <SelectItem value="urology">
+        Urology
+      </SelectItem>
+
+      <SelectItem value="andrology">
+        Andrology
+      </SelectItem>
+
+      <SelectItem value="colorectal-surgery">
+        Colorectal Surgery
+      </SelectItem>
+
+    </SelectContent>
+  </Select>
 
       <Footer />
     </div>
