@@ -98,7 +98,7 @@ export const HeroSection = () => {
 
             <div className="text-center sm:text-left">
               <p className="text-white font-black text-lg sm:text-2xl text-blue-400">300+</p>
-              <p className="text-gray-300 text-xs sm:text-sm font-medium">Doctors</p>
+              <p className="text-gray-300 text-xs sm:text-sm font-medium">Trusted specialists </p>
             </div>
           </motion.div>
 
