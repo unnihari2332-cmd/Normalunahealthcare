@@ -95,17 +95,17 @@ const services = [
 /* ------------------ HERO BANNER ------------------ */
 const HeroBanner = ({ title }: { title: string }) => {
   return (
-    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden">
+    <section className="relative h-[220px] sm:h-[280px] md:h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden px-4">
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-4">
+      <div className="relative z-10 flex flex-col items-center gap-2 sm:gap-4">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex items-center gap-2 text-white/70 text-sm font-medium uppercase tracking-wider"
+          className="flex items-center gap-2 text-white/70 text-xs sm:text-sm font-medium uppercase tracking-wider"
         >
           <Link to="/" className="flex items-center gap-1 hover:text-white">
             <Home size={14} />
@@ -119,7 +119,7 @@ const HeroBanner = ({ title }: { title: string }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-white text-4xl md:text-5xl font-bold text-center px-4"
+          className="text-white text-2xl sm:text-4xl md:text-5xl font-bold text-center px-2"
         >
           {title}
         </motion.h1>
@@ -160,7 +160,7 @@ const ServicesPage = () => {
               return (
                 <div
                   key={index}
-                  className="group relative h-[450px] overflow-hidden rounded-2xl shadow-md hover:shadow-xl"
+                  className="group relative h-[420px] md:h-[450px] overflow-hidden rounded-2xl shadow-md hover:shadow-xl bg-slate-900"
                 >
                   <img
                     src={service.image}
@@ -169,23 +169,25 @@ const ServicesPage = () => {
                     decoding="async"
                     width="400"
                     height="450"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-90"
                   />
 
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10 group-hover:from-black/90 transition-colors" />
 
-                  <div className="absolute bottom-4 left-4 right-4 bg-white rounded-xl p-6 shadow-2xl">
-                    <h3 className="text-xl font-bold text-center mb-2">
+                  {/* Card Content Pill */}
+                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/95 backdrop-blur-md rounded-xl p-4 sm:p-5 shadow-xl border border-white/40">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-center text-slate-900 mb-2">
                       {service.title}
                     </h3>
 
-                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500">
-                      <div className="overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <p className="text-sm text-center text-gray-500 mb-4">
+                    {/* Description - Always visible on mobile touchscreens, hover reveal on desktop */}
+                    <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-all duration-500">
+                      <div className="overflow-hidden opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500">
+                        <p className="text-xs sm:text-sm text-center text-slate-600 mb-3 leading-relaxed">
                           {service.description}
                         </p>
-                        <div className="flex justify-center">
-                          <IconComponent className="h-6 w-6 text-blue-900/70" />
+                        <div className="flex justify-center pt-2 border-t border-slate-100">
+                          <IconComponent className="h-5 w-5 text-[#0C3B66]" />
                         </div>
                       </div>
                     </div>

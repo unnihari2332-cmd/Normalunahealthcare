@@ -107,20 +107,20 @@ At NormaLuna Healthcare, we are committed to making exceptional healthcare in In
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white">
               <img
                 src={medicalTeam}
                 alt="Norma Luna Medical Network"
-                className="w-full h-[650px] object-cover"
+                className="w-full h-[340px] sm:h-[480px] lg:h-[650px] object-cover"
               />
               {/* Overlay for professionalism */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
             </div>
 
             {/* Experience Counter */}
-            <div className="absolute bottom-10 right-10 bg-primary text-white p-8 rounded-2xl shadow-2xl">
-              <p className="text-5xl font-bold mb-1">5+</p>
-              <p className="text-sm uppercase tracking-wider font-medium opacity-90">
+            <div className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 bg-blue-600 text-white p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-2xl">
+              <p className="text-3xl sm:text-5xl font-bold mb-0.5 sm:mb-1">5+</p>
+              <p className="text-[10px] sm:text-sm uppercase tracking-wider font-medium opacity-90 leading-snug">
                 Years of <br /> Excellence
               </p>
             </div>

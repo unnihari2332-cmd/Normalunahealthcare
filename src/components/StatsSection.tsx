@@ -177,13 +177,13 @@ export const StatsSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Stats Box */}
         <div
-          className="rounded-2xl p-10 mb-32 shadow-xl"
+          className="rounded-2xl p-6 sm:p-10 mb-16 md:mb-32 shadow-xl"
           style={{ backgroundColor: "#1B2A49" }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -191,18 +191,18 @@ export const StatsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center md:text-left space-y-3"
+                className="text-center sm:text-left space-y-2 sm:space-y-3"
               >
-                <div className="text-5xl font-black text-gray-300 flex justify-center md:justify-start items-baseline">
+                <div className="text-4xl sm:text-5xl font-black text-[#D9EBF5] flex justify-center sm:justify-start items-baseline">
                   <Counter from={0} to={stat.value} />
                   <span>{stat.suffix}</span>
                 </div>
 
-                <h4 className="text-xl font-bold text-white uppercase tracking-wide">
+                <h4 className="text-base sm:text-xl font-bold text-white uppercase tracking-wide">
                   {stat.label}
                 </h4>
 
-                <p className="text-[#D6E6F2] text-sm leading-relaxed pr-4">
+                <p className="text-[#D6E6F2] text-xs sm:text-sm leading-relaxed sm:pr-2">
                   {stat.text}
                 </p>
               </motion.div>

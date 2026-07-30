@@ -19,19 +19,19 @@ import {
 // --- COMPONENT: HERO BANNER (Matched to Brand Color #0B3A66) ---
 const HeroBanner = ({ title }: { title: string }) => {
   return (
-    <section className="relative h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden">
+    <section className="relative h-[220px] sm:h-[280px] md:h-[350px] flex flex-col items-center justify-center bg-[#0B3A66] overflow-hidden px-4">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-96 h-96 rounded-full border-2 border-white/20" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-4">
+      <div className="relative z-10 flex flex-col items-center gap-2 sm:gap-4">
         {/* Breadcrumb Path */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex items-center gap-2 text-white/70 text-sm font-medium uppercase tracking-wider"
+          className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-white/70 text-[11px] sm:text-sm font-medium uppercase tracking-wider"
         >
           <Link to="/" className="flex items-center gap-1 hover:text-white transition-colors">
             <Home size={14} />
@@ -42,7 +42,7 @@ const HeroBanner = ({ title }: { title: string }) => {
             Specialities
           </Link>
           <ChevronRight size={14} className="opacity-50" />
-          <span className="text-white">{title}</span>
+          <span className="text-white truncate max-w-[150px] sm:max-w-none">{title}</span>
         </motion.div>
 
         {/* Title */}
@@ -50,7 +50,7 @@ const HeroBanner = ({ title }: { title: string }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-white text-4xl md:text-5xl font-display font-bold tracking-tight text-center px-4"
+          className="text-white text-2xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-center px-2"
         >
           {title}
         </motion.h1>
@@ -115,20 +115,22 @@ const SpecialityDetailPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <div className="rounded-3xl overflow-hidden mb-10 shadow-xl border border-gray-100">
+                <div className="rounded-2xl sm:rounded-3xl overflow-hidden mb-6 sm:mb-10 shadow-xl border border-gray-100 bg-slate-100">
                   <motion.img
                     src={speciality.image}
                     alt={speciality.title}
-                    className="w-full h-[450px] object-cover"
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-[250px] sm:h-[350px] md:h-[450px] object-cover"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.5 }}
                   />
                 </div>
 
-                <h2 className="font-display text-3xl font-bold mb-6" style={{ color: brandColor }}>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold mb-4 sm:mb-6" style={{ color: brandColor }}>
                   About {speciality.title}
                 </h2>
-                <p className="text-gray-600 leading-relaxed mb-8 text-lg">
+                <p className="text-slate-600 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg">
                   {speciality.fullDescription}
                 </p>
 

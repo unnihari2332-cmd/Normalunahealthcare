@@ -150,7 +150,7 @@ const Header: React.FC = () => {
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
     >
-      <div className="max-w-[1700px] mx-auto px-8">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-8">
         <div className="flex items-center h-20">
 
           {/* Logo */}

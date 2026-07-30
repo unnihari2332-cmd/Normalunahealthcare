@@ -110,9 +110,9 @@ export const Footer = () => {
 
   return (
     <footer className="bg-[#0A1F44] text-primary-foreground">
-      <div className="container mx-auto px-4 py-14">
-        {/* Adjusted Grid: 4 columns on desktop, 1 on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-14">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
 
           {/* Logo Section */}
           <div className="flex flex-col items-start">
@@ -120,18 +120,18 @@ export const Footer = () => {
               <img
                 src={logo}
                 alt="Norma Luna Healthcare"
-                className="h-12 w-auto mb-4 bg-white border-2 border-white rounded-lg p-1"
+                className="h-11 sm:h-12 w-auto mb-4 bg-white border-2 border-white rounded-lg p-1"
               />
             </Link>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-xs">
+            <p className="text-primary-foreground/75 text-xs sm:text-sm leading-relaxed max-w-xs">
               Bridging borders, connecting expertise, and transforming medical travel into an experience built around you.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-6 text-white text-lg">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="font-semibold mb-4 sm:mb-6 text-white text-base sm:text-lg">Quick Links</h4>
+            <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm">
               {footerLinks.map((link) => (
                 <li key={link.name}>
                   <Link to={link.path} className="hover:text-white transition-colors opacity-80 hover:opacity-100">
@@ -142,15 +142,15 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Specialities - 6x2 Grid */}
+          {/* Specialities - Grid */}
           <div className="lg:col-span-1">
-            <h4 className="font-semibold mb-6 text-white text-lg">Our Specialities</h4>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+            <h4 className="font-semibold mb-4 sm:mb-6 text-white text-base sm:text-lg">Our Specialities</h4>
+            <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 text-xs sm:text-sm">
               {specialityItems.map((item) => (
                 <li key={item.name}>
                   <Link 
                     to={item.path} 
-                    className="hover:text-white transition-colors opacity-80 hover:opacity-100 block"
+                    className="hover:text-white transition-colors opacity-80 hover:opacity-100 block truncate"
                   >
                     {item.name}
                   </Link>
