@@ -86,7 +86,7 @@ export const specialities = [{
   id: "urology",
   title: "Urology",
   description: "Connect with leading urological expertise across minimally invasive, endoscopic, robotic, and surgical approaches to complex urinary and reproductive conditions.",
-  image: "/urology.png",
+  image: "/urology.jpg",
   icon: Activity
 },  {
   id: "andrology",
@@ -111,20 +111,20 @@ const SpecialitiesSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.04
       }
     }
   };
   const itemVariants = {
     hidden: {
       opacity: 0,
-      y: 30
+      y: 20
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut" as const
       }
     }
@@ -147,7 +147,7 @@ const SpecialitiesSection: React.FC = () => {
         }} viewport={{
           once: true
         }} transition={{
-          duration: 0.6
+          duration: 0.4
         }}>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 text-sm font-semibold mb-4 shadow-sm" style={{
             color: brandBlue
@@ -171,15 +171,21 @@ const SpecialitiesSection: React.FC = () => {
         once: true,
         margin: "-50px"
       }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {specialities.map(item => {
+          {specialities.map((item, index) => {
           const Icon = item.icon;
           return <motion.div key={item.id} variants={itemVariants}>
                 <Link to={`/specialities/${item.id}`} className="group h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-200 ease-in-out border border-white/50 hover:border-[#0C3B66]">
                   {/* Image Container */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img src={item.image} alt={item.title}
-                // Reduced duration from 700 to 400 and scale from 110 to 105
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400 ease-out" />
+                  <div className="relative h-48 overflow-hidden bg-slate-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading={index < 4 ? "eager" : "lazy"}
+                      decoding="async"
+                      width="400"
+                      height="192"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400 ease-out"
+                    />
 
                     {/* Floating Icon Badge */}
                     <div className="absolute bottom-4 right-4 bg-white p-2.5 rounded-xl shadow-lg text-[#0C3B66] group-hover:bg-[#0C3B66] group-hover:text-white transition-all duration-200">

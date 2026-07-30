@@ -281,7 +281,7 @@ export const specialities: Speciality[] = [
     id: "urology",
     title: "Urology",
     description: "Norma Luna Healthcare connects international patients with experienced urologists and specialised centres in India for conditions involving the urinary system and male genitourinary health.",
-    image: "/urology.png",
+    image: "/urology.jpg",
     fullDescription: "Norma Luna Healthcare connects international patients with experienced urologists and specialised centres in India for conditions involving the urinary system and male genitourinary health. Access extends across minimally invasive, endoscopic, laparoscopic, robotic, and conventional surgical approaches where clinically indicated. By coordinating preliminary medical review, specialist consultations, proposed treatment options, hospital estimates, scheduling, and the wider medical travel itinerary, patients can approach treatment abroad with greater clarity and preparation.",
     treatments: [
       "Kidney stone procedures",

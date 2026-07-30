@@ -165,6 +165,10 @@ const ServicesPage = () => {
                   <img
                     src={service.image}
                     alt={service.title}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    decoding="async"
+                    width="400"
+                    height="450"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
 

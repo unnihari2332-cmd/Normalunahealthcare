@@ -9,6 +9,7 @@ interface SpecialityCardProps {
   title: string;
   description: string;
   image: string;
+  index?: number;
   delay?: number;
 }
 
@@ -17,25 +18,27 @@ export const SpecialityCard = ({
   title,
   description,
   image,
+  index = 0,
   delay = 0,
 }: SpecialityCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      className="group relative h-[420px] rounded-2xl overflow-hidden"
+      transition={{ duration: 0.4, delay }}
+      className="group relative h-[420px] rounded-2xl overflow-hidden bg-slate-100"
     >
-      {/* Preload Image */}
+      {/* Image */}
       <img
         src={image}
-        alt=""
-        loading="eager"
-        fetchPriority="high"
+        alt={title}
+        loading={index < 3 ? "eager" : "lazy"}
         decoding="async"
+        width="400"
+        height="420"
         onLoad={() => setImageLoaded(true)}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />

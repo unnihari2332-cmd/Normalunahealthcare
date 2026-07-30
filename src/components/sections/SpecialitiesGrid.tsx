@@ -13,14 +13,6 @@ interface SpecialitiesGridProps {
 }
 
 export const SpecialitiesGrid = ({ specialities }: SpecialitiesGridProps) => {
-  // Preload all images on mount
-  useEffect(() => {
-    specialities.forEach((speciality) => {
-      const img = new Image();
-      img.src = speciality.image;
-    });
-  }, [specialities]);
-
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -32,7 +24,8 @@ export const SpecialitiesGrid = ({ specialities }: SpecialitiesGridProps) => {
               title={speciality.title}
               description={speciality.description}
               image={speciality.image}
-              delay={index * 0.1}
+              index={index}
+              delay={Math.min(index * 0.05, 0.3)}
             />
           ))}
         </div>
