@@ -1,27 +1,3 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-const benefits = [
-  "Personalized assistance for your medical journey.",
-  "Access to top hospitals and renowned specialists.",
-  "Hassle-free coordination of travel and treatment.",
-  "Transparent cost estimation and budget-friendly options.",
-  "Support with visa, accommodation, and local transport.",
-  "Guidance on the best treatment options available.",
-];
-
 export const AppointmentForm = () => {
   const [acceptTerms, setAcceptTerms] = useState(false);
 
@@ -50,7 +26,7 @@ export const AppointmentForm = () => {
                   <Input placeholder="Full Name..." className="rounded-lg" />
                 </div>
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Address*</label>
+                  <label className="text-sm font-medium mb-2 block">Address</label>
                   <Input placeholder="Your Address..." className="rounded-lg" />
                 </div>
               </div>
@@ -68,19 +44,8 @@ export const AppointmentForm = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Treatment</label>
-                  <Select>
-                    <SelectTrigger className="rounded-lg">
-                      <SelectValue placeholder="Select Treatment" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="general">General Checkup</SelectItem>
-                      <SelectItem value="cardiology">Cardiology</SelectItem>
-                      <SelectItem value="oncology">Oncology</SelectItem>
-                      <SelectItem value="orthopedics">Orthopedics</SelectItem>
-                      <SelectItem value="dental">Dental</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <label className="text-sm font-medium mb-2 block">Country</label>
+                  <Input placeholder="Your Country..." className="rounded-lg" />
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Select Gender*</label>
@@ -99,8 +64,29 @@ export const AppointmentForm = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Appointment Date</label>
-                  <Input type="date" className="rounded-lg" />
+                  <label className="text-sm font-medium mb-2 block">Treatment</label>
+                  <Select>
+                    <SelectTrigger className="rounded-lg">
+                      <SelectValue placeholder="Select Treatment" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="general">General Checkup</SelectItem>
+                      <SelectItem value="cardiology">Cardiology</SelectItem>
+                      <SelectItem value="oncology">Oncology</SelectItem>
+                      <SelectItem value="orthopedics">Orthopedics</SelectItem>
+                      <SelectItem value="dental">Dental</SelectItem>
+                      <SelectItem value="neurology">Neurology</SelectItem>
+                      <SelectItem value="dermatology">Dermatology</SelectItem>
+                      <SelectItem value="pediatrics">Pediatrics</SelectItem>
+                      <SelectItem value="gynecology">Gynecology</SelectItem>
+                      <SelectItem value="ent">ENT</SelectItem>
+                      <SelectItem value="ophthalmology">Ophthalmology</SelectItem>
+                      <SelectItem value="gastroenterology">Gastroenterology</SelectItem>
+                      <SelectItem value="urology">Urology</SelectItem>
+                      <SelectItem value="psychiatry">Psychiatry</SelectItem>
+                      <SelectItem value="physiotherapy">Physiotherapy</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Date of Birth*</label>
@@ -133,53 +119,3 @@ export const AppointmentForm = () => {
               </Button>
             </form>
           </motion.div>
-
-          {/* Benefits Section */}
-          <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-primary rounded-2xl p-8"
-            >
-              <h3 className="font-display text-2xl font-semibold text-primary-foreground mb-6">
-                Benefits If You Schedule An Appointment
-              </h3>
-              <ul className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="flex items-start gap-3 text-primary-foreground/90"
-                  >
-                    <Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                    <span className="text-sm">{benefit}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Hospital Room Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="rounded-2xl overflow-hidden shadow-lg"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600"
-                alt="Hospital Room"
-                className="w-full h-64 object-cover"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
