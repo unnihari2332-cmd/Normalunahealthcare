@@ -236,24 +236,30 @@ const ContactPage = () => {
                   defaultValue=""
                   className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49]"
                 >
-                  <option value="" disabled>
-                    Select Treatment
-                  </option>
-                  <option>General Checkup</option>
-                  <option>Cardiology</option>
-                  <option>Oncology</option>
-                  <option>Orthopedics</option>
-                  <option>Dental</option>
-                  <option>Neurology</option>
-                  <option>Dermatology</option>
-                  <option>Pediatrics</option>
-                  <option>Gynecology</option>
-                  <option>ENT</option>
-                  <option>Ophthalmology</option>
-                  <option>Gastroenterology</option>
-                  <option>Urology</option>
-                  <option>Psychiatry</option>
-                  <option>Physiotherapy</option>
+                 <SelectTrigger className="rounded-lg">
+                      <SelectValue placeholder="Select Treatment" />
+                    </SelectTrigger>
+<SelectContent>
+  <SelectItem value="general">General Checkup</SelectItem>
+  <SelectItem value="ivf-gynaecology">IVF & Gynaecology</SelectItem>
+  <SelectItem value="gastroenterology">Gastroenterology</SelectItem>
+  <SelectItem value="oncology">Oncology</SelectItem>
+  <SelectItem value="transplants">Transplants</SelectItem>
+  <SelectItem value="cardiology">Cardiology</SelectItem>
+  <SelectItem value="neurology">Neurology</SelectItem>
+  <SelectItem value="orthopaedics">Orthopaedics</SelectItem>
+  <SelectItem value="dental-care">Dental Care</SelectItem>
+  <SelectItem value="gender-reassignment-surgery">
+    Gender Reassignment Surgery
+  </SelectItem>
+  <SelectItem value="bariatrics">Bariatrics</SelectItem>
+  <SelectItem value="aesthetic-surgery">Aesthetic Surgery</SelectItem>
+  <SelectItem value="ophthalmology">Ophthalmology</SelectItem>
+  <SelectItem value="nephrology">Nephrology</SelectItem>
+  <SelectItem value="urology">Urology</SelectItem>
+  <SelectItem value="andrology">Andrology</SelectItem>
+  <SelectItem value="colorectal-surgery">Colorectal Surgery</SelectItem>
+</SelectContent>
                 </select>
 
                 <input
