@@ -9,18 +9,86 @@ interface NavItem {
 }
 
 const specialityItems: NavItem[] = [
-  { name: "IVF & Gynaecology", path: "/specialities/ivf-obstetrics-gynaecology", hasDropdown: false },
-  { name: "Gastroenterology", path: "/specialities/gastroenterology", hasDropdown: false },
-  { name: "Oncology", path: "/specialities/oncology", hasDropdown: false },
-  { name: "Transplants (Kidney/Liver)", path: "/specialities/transplant-kidney-liver", hasDropdown: false },
-  { name: "Orthopaedics", path: "/specialities/orthopaedics", hasDropdown: false },
-  { name: "Dental Care", path: "/specialities/dental", hasDropdown: false },
-  { name: "Bariatrics", path: "/specialities/bariatrics", hasDropdown: false },
-  { name: "Aesthetic Surgery", path: "/specialities/aesthetic-dermatology-plastic", hasDropdown: false },
-  { name: "Ophthalmology", path: "/specialities/ophthalmology", hasDropdown: false },
-  { name: "Nephrology", path: "/specialities/nephrology", hasDropdown: false },
-  { name: "Urology", path: "/specialities/urology", hasDropdown: false },
-  { name: "Colorectal Surgery", path: "/specialities/colorectal-surgery", hasDropdown: false },
+  {
+    name: "Cardiology",
+    path: "/specialities/cardiology-cardiac-care",
+    hasDropdown: false,
+  },
+  {
+    name: "Neurology",
+    path: "/specialities/neurology",
+    hasDropdown: false,
+  },
+  {
+    name: "IVF & Gynaecology",
+    path: "/specialities/ivf-obstetrics-gynaecology",
+    hasDropdown: false,
+  },
+  {
+    name: "Gastroenterology",
+    path: "/specialities/gastroenterology",
+    hasDropdown: false,
+  },
+  {
+    name: "Oncology",
+    path: "/specialities/oncology",
+    hasDropdown: false,
+  },
+  {
+    name: "Transplants (Kidney/Liver)",
+    path: "/specialities/transplant-kidney-liver",
+    hasDropdown: false,
+  },
+  {
+    name: "Orthopaedics",
+    path: "/specialities/orthopaedics",
+    hasDropdown: false,
+  },
+  {
+    name: "Dental Care",
+    path: "/specialities/dental",
+    hasDropdown: false,
+  },
+  {
+    name: "Bariatrics",
+    path: "/specialities/bariatrics",
+    hasDropdown: false,
+  },
+  {
+    name: "Aesthetic Surgery",
+    path: "/specialities/aesthetic-dermatology-plastic",
+    hasDropdown: false,
+  },
+  {
+    name: "Ophthalmology",
+    path: "/specialities/ophthalmology",
+    hasDropdown: false,
+  },
+  {
+    name: "Nephrology",
+    path: "/specialities/nephrology",
+    hasDropdown: false,
+  },
+  {
+    name: "Urology",
+    path: "/specialities/urology",
+    hasDropdown: false,
+  },
+  {
+    name: "Colorectal Surgery",
+    path: "/specialities/colorectal-surgery",
+    hasDropdown: false,
+  },
+  {
+    name: "Gender Reassignment Surgery",
+    path: "/specialities/gender-reassignment-surgery",
+    hasDropdown: false,
+  },
+  {
+    name: "Andrology",
+    path: "/specialities/andrology",
+    hasDropdown: false,
+  },
 ];
 
 export const Footer = () => {
