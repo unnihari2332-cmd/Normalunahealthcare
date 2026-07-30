@@ -89,32 +89,65 @@ export const AppointmentForm = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">Treatment</label>
-                  <Select>
-                    <SelectTrigger className="rounded-lg">
-                      <SelectValue placeholder="Select Treatment" />
-                    </SelectTrigger>
-<SelectContent>
-  <SelectItem value="general">General Checkup</SelectItem>
-  <SelectItem value="ivf-gynaecology">IVF & Gynaecology</SelectItem>
-  <SelectItem value="gastroenterology">Gastroenterology</SelectItem>
-  <SelectItem value="oncology">Oncology</SelectItem>
-  <SelectItem value="transplants">Transplants</SelectItem>
-  <SelectItem value="cardiology">Cardiology</SelectItem>
-  <SelectItem value="neurology">Neurology</SelectItem>
-  <SelectItem value="orthopaedics">Orthopaedics</SelectItem>
-  <SelectItem value="dental-care">Dental Care</SelectItem>
-  <SelectItem value="gender-reassignment-surgery">
-    Gender Reassignment Surgery
-  </SelectItem>
-  <SelectItem value="bariatrics">Bariatrics</SelectItem>
-  <SelectItem value="aesthetic-surgery">Aesthetic Surgery</SelectItem>
-  <SelectItem value="ophthalmology">Ophthalmology</SelectItem>
-  <SelectItem value="nephrology">Nephrology</SelectItem>
-  <SelectItem value="urology">Urology</SelectItem>
-  <SelectItem value="andrology">Andrology</SelectItem>
-  <SelectItem value="colorectal-surgery">Colorectal Surgery</SelectItem>
-</SelectContent>
-                  </Select>
+                  <Select name="Treatment">
+        <SelectTrigger className="rounded-lg">
+          <SelectValue placeholder="Select Treatment" />
+        </SelectTrigger>
+
+        <SelectContent>
+          <SelectItem value="General Checkup">
+            General Checkup
+          </SelectItem>
+          <SelectItem value="IVF & Gynaecology">
+            IVF & Gynaecology
+          </SelectItem>
+          <SelectItem value="Gastroenterology">
+            Gastroenterology
+          </SelectItem>
+          <SelectItem value="Oncology">
+            Oncology
+          </SelectItem>
+          <SelectItem value="Transplants">
+            Transplants
+          </SelectItem>
+          <SelectItem value="Cardiology">
+            Cardiology
+          </SelectItem>
+          <SelectItem value="Neurology">
+            Neurology
+          </SelectItem>
+          <SelectItem value="Orthopaedics">
+            Orthopaedics
+          </SelectItem>
+          <SelectItem value="Dental Care">
+            Dental Care
+          </SelectItem>
+          <SelectItem value="Gender Reassignment Surgery">
+            Gender Reassignment Surgery
+          </SelectItem>
+          <SelectItem value="Bariatrics">
+            Bariatrics
+          </SelectItem>
+          <SelectItem value="Aesthetic Surgery">
+            Aesthetic Surgery
+          </SelectItem>
+          <SelectItem value="Ophthalmology">
+            Ophthalmology
+          </SelectItem>
+          <SelectItem value="Nephrology">
+            Nephrology
+          </SelectItem>
+          <SelectItem value="Urology">
+            Urology
+          </SelectItem>
+          <SelectItem value="Andrology">
+            Andrology
+          </SelectItem>
+          <SelectItem value="Colorectal Surgery">
+            Colorectal Surgery
+          </SelectItem>
+        </SelectContent>
+      </Select>
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Date of Birth*</label>
