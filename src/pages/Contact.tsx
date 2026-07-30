@@ -5,97 +5,171 @@ import {
   Phone,
   MapPin,
   Mail,
-  Clock,
   ChevronRight,
+  Facebook,
+  Linkedin,
+  Instagram,
+  Share2,
 } from "lucide-react";
+
+const socialLinks = [
+  {
+    Icon: Facebook,
+    href: "https://facebook.com",
+  },
+  {
+    Icon: Linkedin,
+    href: "https://linkedin.com",
+  },
+  {
+    Icon: Instagram,
+    href: "https://instagram.com",
+  },
+];
 
 const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white font-sans">
       <Header />
 
-      {/* --- MAP SECTION --- */}
+      {/* MAP SECTION */}
       <div className="relative w-full h-[550px] mt-20 overflow-hidden">
         <iframe
           src="https://www.google.com/maps/d/embed?mid=1dU7YVq8_qgpH8BuziwjI5ytT5L0AoKg&ehbc=2E312F&noprof=1"
           width="100%"
           height="100%"
           style={{ border: 0 }}
-          allowFullScreen={true}
+          allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           className="absolute inset-0 w-full h-[calc(100%+60px)] -mt-[60px]"
-        ></iframe>
+        />
       </div>
 
-      {/* --- FORM & INFO SECTION --- */}
+      {/* CONTACT SECTION */}
       <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
-          {/* Left Side: Contact Info */}
+
+          {/* LEFT */}
           <div className="space-y-10">
             <div>
               <h2 className="text-4xl font-bold text-[#1B2A49] font-serif mb-4">
                 Begin the Conversation
               </h2>
-              <p className="text-gray-500 text-base">
-                Your journey begins with a conversation—connect with us and discover the possibilities for your healthcare journey in India.
+
+              <p className="text-gray-500 text-base leading-7">
+                Your journey begins with a conversation—connect with us and
+                discover the possibilities for your healthcare journey in India.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+
+              {/* Address */}
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-[#1B2A49]" />
                 </div>
+
                 <div>
-                  <h4 className="font-bold text-[#1B2A49] text-base">Address Business</h4>
+                  <h4 className="font-bold text-[#1B2A49] text-base">
+                    Address
+                  </h4>
+
                   <p className="text-gray-500 text-sm mt-2 leading-relaxed">
-                    No 143, 1, Uthamar Gandhi Rd, opp. The Park Hotel, Thousand Lights West, Chennai, Tamil Nadu 600034
+                    No 143, 1, Uthamar Gandhi Rd,
+                    <br />
+                    Opp. The Park Hotel,
+                    <br />
+                    Thousand Lights West,
+                    <br />
+                    Chennai, Tamil Nadu 600034
                   </p>
                 </div>
               </div>
 
+              {/* Phone */}
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-6 h-6 text-[#1B2A49]" />
                 </div>
+
                 <div>
-                  <h4 className="font-bold text-[#1B2A49] text-base">Contact Us</h4>
-                  <p className="text-gray-500 text-sm mt-2">
-                  +91-7358746061
-                  </p>
+                  <h4 className="font-bold text-[#1B2A49] text-base">
+                    Contact Us
+                  </h4>
+
+                  <a
+                    href="tel:+917358746061"
+                    className="text-gray-500 text-sm mt-2 block hover:text-[#1B2A49] transition"
+                  >
+                    +91 73587 46061
+                  </a>
                 </div>
               </div>
 
+              {/* Email */}
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-6 h-6 text-[#1B2A49]" />
                 </div>
+
                 <div>
-                  <h4 className="font-bold text-[#1B2A49] text-base">Email Address</h4>
-                  <p className="text-gray-500 text-sm mt-2">
+                  <h4 className="font-bold text-[#1B2A49] text-base">
+                    Email Address
+                  </h4>
+
+                  <a
+                    href="mailto:info@normalunahealthcare.com"
+                    className="text-gray-500 text-sm mt-2 block hover:text-[#1B2A49] transition"
+                  >
                     info@normalunahealthcare.com
-                  </p>
+                  </a>
                 </div>
               </div>
 
+              {/* Social */}
               <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <Share2 className="w-6 h-6 text-[#1B2A49]" />
+                </div>
 
-                
+                <div>
+                  <h4 className="font-bold text-[#1B2A49] text-base">
+                    Follow Us
+                  </h4>
+
+                  <div className="flex items-center gap-3 mt-3">
+                    {socialLinks.map(({ Icon, href }, index) => (
+                      <a
+                        key={index}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-[#1B2A49] hover:bg-[#1B2A49] hover:text-white hover:border-[#1B2A49] transition-all duration-300"
+                      >
+                        <Icon className="w-5 h-5" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
-          {/* Right Side: Form (Connected to FormSubmit.io) */}
+          {/* RIGHT - FORM */}
           <div className="bg-white rounded-lg">
-            {/* REPLACE 'your@email.com' WITH YOUR ACTUAL EMAIL ADDRESS */}
-            <form 
-              action="https://formsubmit.co/your@email.com" 
-              method="POST" 
+            <form
+              action="https://formsubmit.co/your@email.com"
+              method="POST"
               className="space-y-6"
             >
-              <input type="hidden" name="_subject" value="New Appointment Submission from Website" />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Appointment Submission from Website"
+              />
               <input type="hidden" name="_captcha" value="false" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -104,13 +178,14 @@ const ContactPage = () => {
                   name="fullName"
                   placeholder="*Full Name"
                   required
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 focus:outline-none focus:border-[#1B2A49]"
                 />
+
                 <input
                   type="text"
                   name="address"
                   placeholder="Address"
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 focus:outline-none focus:border-[#1B2A49]"
                 />
               </div>
 
@@ -120,14 +195,15 @@ const ContactPage = () => {
                   name="phone"
                   placeholder="*Phone Number"
                   required
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 focus:outline-none focus:border-[#1B2A49]"
                 />
+
                 <input
                   type="email"
                   name="email"
                   placeholder="*Email Address"
                   required
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 focus:outline-none focus:border-[#1B2A49]"
                 />
               </div>
 
@@ -136,48 +212,55 @@ const ContactPage = () => {
                   type="text"
                   name="country"
                   placeholder="Country"
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 focus:outline-none focus:border-[#1B2A49]"
                 />
+
                 <select
                   name="gender"
                   required
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500"
+                  defaultValue=""
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49]"
                 >
-                  <option value="" disabled selected>*Choose gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
+                  <option value="" disabled>
+                    *Choose Gender
+                  </option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
                 </select>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <select 
+                <select
                   name="treatment"
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500"
+                  defaultValue=""
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49]"
                 >
-                  <option value="" disabled selected>Select Treatment</option>
-                  <option value="General Checkup">General Checkup</option>
-                  <option value="Cardiology">Cardiology</option>
-                  <option value="Oncology">Oncology</option>
-                  <option value="Orthopedics">Orthopedics</option>
-                  <option value="Dental">Dental</option>
-                  <option value="Neurology">Neurology</option>
-                  <option value="Dermatology">Dermatology</option>
-                  <option value="Pediatrics">Pediatrics</option>
-                  <option value="Gynecology">Gynecology</option>
-                  <option value="ENT">ENT</option>
-                  <option value="Ophthalmology">Ophthalmology</option>
-                  <option value="Gastroenterology">Gastroenterology</option>
-                  <option value="Urology">Urology</option>
-                  <option value="Psychiatry">Psychiatry</option>
-                  <option value="Physiotherapy">Physiotherapy</option>
+                  <option value="" disabled>
+                    Select Treatment
+                  </option>
+                  <option>General Checkup</option>
+                  <option>Cardiology</option>
+                  <option>Oncology</option>
+                  <option>Orthopedics</option>
+                  <option>Dental</option>
+                  <option>Neurology</option>
+                  <option>Dermatology</option>
+                  <option>Pediatrics</option>
+                  <option>Gynecology</option>
+                  <option>ENT</option>
+                  <option>Ophthalmology</option>
+                  <option>Gastroenterology</option>
+                  <option>Urology</option>
+                  <option>Psychiatry</option>
+                  <option>Physiotherapy</option>
                 </select>
+
                 <input
                   type="date"
                   name="dob"
                   required
-                  className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 text-gray-500"
-                  title="Date of Birth"
+                  className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49]"
                 />
               </div>
 
@@ -185,13 +268,12 @@ const ContactPage = () => {
                 name="message"
                 rows={6}
                 placeholder="Note If Any..."
-                className="w-full px-5 py-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#1B2A49] text-sm bg-gray-50/50 resize-none"
-              ></textarea>
-
+                className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 resize-none focus:outline-none focus:border-[#1B2A49]"
+              />
 
               <button
                 type="submit"
-                className="bg-[#1B2A49] text-white px-10 py-4 rounded-full text-base font-medium hover:bg-blue-900 transition-colors flex items-center space-x-2"
+                className="inline-flex items-center gap-2 bg-[#1B2A49] text-white px-10 py-4 rounded-full hover:bg-blue-900 transition-colors"
               >
                 <span>Submit Appointment</span>
                 <ChevronRight className="w-5 h-5" />
