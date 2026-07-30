@@ -159,7 +159,17 @@ export const AppointmentForm = () => {
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Date of Birth*</label>
-                  <Input name="dob" type="date" className="rounded-lg" required />
+                  <Input
+                    name="dob"
+                    type="text"
+                    placeholder="Date of Birth"
+                    onFocus={(e) => (e.target.type = "date")}
+                    onBlur={(e) => {
+                      if (!e.target.value) e.target.type = "text";
+                    }}
+                    className="rounded-lg"
+                    required
+                  />
                 </div>
               </div>
 

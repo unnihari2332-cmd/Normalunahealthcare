@@ -264,8 +264,13 @@ const ContactPage = () => {
                 </Select>
 
                 <input
-                  type="date"
+                  type="text"
                   name="dob"
+                  placeholder="Date of Birth"
+                  onFocus={(e) => (e.target.type = "date")}
+                  onBlur={(e) => {
+                    if (!e.target.value) e.target.type = "text";
+                  }}
                   required
                   className="w-full px-5 py-4 rounded-lg border border-gray-200 bg-gray-50/50 text-gray-500 focus:outline-none focus:border-[#1B2A49]"
                 />
