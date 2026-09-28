@@ -1,73 +1,19 @@
-# Welcome to your Lovable project
+# Norma Luna Healthcare website
 
-## Project info
+Vite, React, TypeScript and Tailwind CSS site for a healthcare-coordination service. Norma Luna connects patients with providers; treating clinicians make clinical decisions.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Run locally
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm ci
 npm run dev
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## Dental landing page
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+`/specialities/dental` is the dental entry point for website and ad visitors. It is implemented in `src/pages/DentalLanding.tsx` and mounted before the generic `/specialities/:id` route in `src/App.tsx`. Existing speciality, header and footer links continue to use the same URL.
 
-**Use GitHub Codespaces**
+The page introduces treatment categories, the coordination process and common planning questions. Its primary enquiry link opens a prefilled WhatsApp chat; calling and the contact page are alternatives. It does not collect or submit medical records, promise a price or book a clinical appointment. The browser title and description are updated on the client; server-rendered social previews still use the shared `index.html` metadata.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Before launching dental ads, confirm the target treatment and geography, review all clinical and provider statements with the business, verify that the WhatsApp number is monitored, and verify the enquiry journey on the deployed site. The existing `/appointment` and `/contact` forms use FormSubmit independently of this landing page.
