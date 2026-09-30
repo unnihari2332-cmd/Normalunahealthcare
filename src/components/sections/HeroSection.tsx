@@ -37,7 +37,7 @@ export const HeroSection = () => {
           >
             <span className="inline-flex items-center gap-2 text-blue-300 font-semibold tracking-wider uppercase text-xs sm:text-sm bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full w-fit border border-white/15">
               <ShieldCheck className="w-4 h-4 text-blue-400" />
-              Norma Luna Healthcare
+              Norma Luna Healthcar
             </span>
 
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
