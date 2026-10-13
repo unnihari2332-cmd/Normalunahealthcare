@@ -13,6 +13,8 @@ import Services from "./pages/Services";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import Appointment from "./pages/Appointment";
+import ThankYou from "./pages/ThankYou";
+import { PixelRouteTracker } from "@/components/PixelRouteTracker";
 import NotFound from "./pages/NotFound";
 import { FloatingContact } from "@/components/FloatingContact";
 
@@ -25,6 +27,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <PixelRouteTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -36,6 +39,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/appointment" element={<Appointment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <FloatingContact />
