@@ -24,7 +24,7 @@ declare global {
   }
 }
 
-const DEFAULT_PIXEL_ID = "YOUR_PIXEL_ID";
+const DEFAULT_PIXEL_ID = "1622044846130986";
 
 export const getPixelId = (): string => {
   if (typeof window !== "undefined" && window.META_PIXEL_ID) {
@@ -67,7 +67,7 @@ export const initPixel = (pixelId: string = getPixelId()): void => {
     }
   }
 
-  if (pixelId !== DEFAULT_PIXEL_ID && pixelId.length > 0) {
+  if (pixelId.length > 0) {
     window.fbq("init", pixelId);
   }
 };
