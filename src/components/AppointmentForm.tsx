@@ -51,6 +51,15 @@ export const AppointmentForm = () => {
               {/* FormSubmit Configuration Settings */}
               <input type="hidden" name="_subject" value="New Concern/Appointment Submission" />
               <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="_next"
+                value={
+                  typeof window !== "undefined"
+                    ? `${window.location.origin}/thank-you`
+                    : "https://normalunahealthcare.vercel.app/thank-you"
+                }
+              />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
